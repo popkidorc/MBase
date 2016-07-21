@@ -16,6 +16,8 @@
 		A86220C71D40737400BAC828 /* ScaryBugDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86220C61D40737400BAC828 /* ScaryBugDoc.swift */; };
 		A86220CE1D4079D500BAC828 /* NSImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = A86220CB1D4079D500BAC828 /* NSImage+Extras.m */; };
 		A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = A86220CD1D4079D500BAC828 /* EDStarRating.m */; };
+		A890F7001D40D49E003FF760 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890F6FE1D40D49E003FF760 /* MainWindowController.swift */; };
+		A890F7011D40D49E003FF760 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A890F6FF1D40D49E003FF760 /* MainWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		A86220CB1D4079D500BAC828 /* NSImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Extras.m"; sourceTree = "<group>"; };
 		A86220CC1D4079D500BAC828 /* EDStarRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStarRating.h; sourceTree = "<group>"; };
 		A86220CD1D4079D500BAC828 /* EDStarRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStarRating.m; sourceTree = "<group>"; };
+		A890F6FE1D40D49E003FF760 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		A890F6FF1D40D49E003FF760 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +69,7 @@
 		A86220AD1D406FA000BAC828 /* MBase */ = {
 			isa = PBXGroup;
 			children = (
-				A86220C81D4079B800BAC828 /* views */,
+				A890F6FB1D40D3A3003FF760 /* main */,
 				A86220BB1D40705F00BAC828 /* document */,
 				A86220AE1D406FA000BAC828 /* AppDelegate.swift */,
 				A86220B01D406FA000BAC828 /* Assets.xcassets */,
@@ -114,12 +118,13 @@
 		A86220C31D4072DE00BAC828 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A86220C81D4079B800BAC828 /* ObejctViews */,
 				A86220C91D4079D400BAC828 /* MBase-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A86220C81D4079B800BAC828 /* views */ = {
+		A86220C81D4079B800BAC828 /* ObejctViews */ = {
 			isa = PBXGroup;
 			children = (
 				A86220CA1D4079D500BAC828 /* NSImage+Extras.h */,
@@ -127,7 +132,32 @@
 				A86220CC1D4079D500BAC828 /* EDStarRating.h */,
 				A86220CD1D4079D500BAC828 /* EDStarRating.m */,
 			);
-			name = views;
+			name = ObejctViews;
+			sourceTree = "<group>";
+		};
+		A890F6FB1D40D3A3003FF760 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				A890F6FC1D40D44B003FF760 /* controller */,
+				A890F6FD1D40D450003FF760 /* view */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		A890F6FC1D40D44B003FF760 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A890F6FE1D40D49E003FF760 /* MainWindowController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		A890F6FD1D40D450003FF760 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A890F6FF1D40D49E003FF760 /* MainWindowController.xib */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +220,7 @@
 			files = (
 				A86220B11D406FA000BAC828 /* Assets.xcassets in Resources */,
 				A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */,
+				A890F7011D40D49E003FF760 /* MainWindowController.xib in Resources */,
 				A86220C21D4070C800BAC828 /* DocumentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +238,7 @@
 				A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */,
 				A86220CE1D4079D500BAC828 /* NSImage+Extras.m in Sources */,
 				A86220C11D4070C800BAC828 /* DocumentViewController.swift in Sources */,
+				A890F7001D40D49E003FF760 /* MainWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +346,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pop.MBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MBase/MBase-Bridging-Header.h";
@@ -329,6 +362,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pop.MBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MBase/MBase-Bridging-Header.h";
@@ -354,6 +388,7 @@
 				A86220BA1D406FA000BAC828 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
