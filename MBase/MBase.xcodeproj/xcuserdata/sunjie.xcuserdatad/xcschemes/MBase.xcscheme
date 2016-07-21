@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A8C6DACD1D3F45930075C54E"
+               BlueprintIdentifier = "A86220AA1D406FA000BAC828"
                BuildableName = "MBase.app"
                BlueprintName = "MBase"
                ReferencedContainer = "container:MBase.xcodeproj">
@@ -28,31 +28,11 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A8C6DAE11D3F45930075C54E"
-               BuildableName = "MBaseTests.xctest"
-               BlueprintName = "MBaseTests"
-               ReferencedContainer = "container:MBase.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A8C6DAEC1D3F45930075C54E"
-               BuildableName = "MBaseUITests.xctest"
-               BlueprintName = "MBaseUITests"
-               ReferencedContainer = "container:MBase.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A8C6DACD1D3F45930075C54E"
+            BlueprintIdentifier = "A86220AA1D406FA000BAC828"
             BuildableName = "MBase.app"
             BlueprintName = "MBase"
             ReferencedContainer = "container:MBase.xcodeproj">
@@ -75,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A8C6DACD1D3F45930075C54E"
+            BlueprintIdentifier = "A86220AA1D406FA000BAC828"
             BuildableName = "MBase.app"
             BlueprintName = "MBase"
             ReferencedContainer = "container:MBase.xcodeproj">
@@ -94,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A8C6DACD1D3F45930075C54E"
+            BlueprintIdentifier = "A86220AA1D406FA000BAC828"
             BuildableName = "MBase.app"
             BlueprintName = "MBase"
             ReferencedContainer = "container:MBase.xcodeproj">
