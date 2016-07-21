@@ -68,11 +68,16 @@ class DocumentViewController: NSViewController {
         self.bugRating.rating = Float(rating)
     }
     
-    
     func reloadSelectedBugRow() {
         let indexSet = NSIndexSet(index: self.bugsTableView.selectedRow);
         let columnSet = NSIndexSet(index: 0);
         self.bugsTableView.reloadDataForRowIndexes(indexSet, columnIndexes:columnSet);
+    }
+    
+    func saveBugs() {
+        let data = NSKeyedArchiver.archivedDataWithRootObject(self.bugs);
+        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "bugs");
+        NSUserDefaults.standardUserDefaults().synchronize();
     }
     
     override func loadView() {

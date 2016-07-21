@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ScaryBugData: NSObject {
+class ScaryBugData : NSObject {
     
     var title: String;
     
@@ -23,4 +23,20 @@ class ScaryBugData: NSObject {
         self.title = title;
         self.rating = rating;
     }
+    
+    required convenience init(coder decoder: NSCoder) {
+        self.init()
+        self.title = decoder.decodeObjectForKey("title") as! String
+        self.rating = decoder.decodeObjectForKey("rating") as! Double
+    }
+}
+
+// MARK: - NSCoding
+extension ScaryBugData : NSCoding {
+    
+    func encodeWithCoder(coder: NSCoder) {
+        coder.encodeObject(self.title, forKey: "title");
+        coder.encodeObject(Double(self.rating), forKey: "rating");
+    }
+    
 }

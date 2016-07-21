@@ -10,15 +10,22 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
     @IBOutlet weak var window: NSWindow!;
-
+    
     var documentViewController: DocumentViewController!;
-
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // 1. 创建documentViewController
         documentViewController = DocumentViewController(nibName: "DocumentViewController", bundle: nil);
-        documentViewController.setupSampleBugs();
+        // 1.1 加载NSUserDefaults数据
+        // documentViewController.setupSampleBugs();
+        if let data = NSUserDefaults.standardUserDefaults().objectForKey("bugs") as? NSData {
+            documentViewController.bugs = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [ScaryBugDoc]
+        } else {
+            documentViewController.setupSampleBugs();
+        }
+        
         
         // 2. 添加view
         let contentView = window.contentView!;
@@ -38,11 +45,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                                                                    views: ["subView" : documentViewController.view]);
         NSLayoutConstraint.activateConstraints(verticalConstraints + horizontalConstraints)
     }
-
+    
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
+        // 1. 保存数据至NSUserDefaults
+        documentViewController.saveBugs();
     }
-
-
+    
+    
 }
 

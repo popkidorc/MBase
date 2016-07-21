@@ -7,16 +7,13 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DocumentViewController" customModule="MBase" customModuleProvider="target">
             <connections>
-                <outlet property="addBug" destination="uuI-Wr-haa" id="Osp-VB-jrL"/>
                 <outlet property="bugImageView" destination="W7H-Ic-e60" id="shW-Zc-RwC"/>
                 <outlet property="bugRating" destination="kMA-2w-dzg" id="b2S-yE-XMK"/>
                 <outlet property="bugTitleView" destination="Ccy-33-hpQ" id="Nxe-84-Xli"/>
                 <outlet property="bugsTableView" destination="hYy-qk-yhD" id="Yn5-xX-ZcR"/>
                 <outlet property="changePicButton" destination="b4R-jK-Qph" id="kc3-a8-UpC"/>
-                <outlet property="deleteBug" destination="FUb-Aw-Evu" id="J6J-9b-BKt"/>
-                <outlet property="deleteButton" destination="FUb-Aw-Evu" id="HKO-vo-pj4"/>
-                <outlet property="nameField" destination="Ccy-33-hpQ" id="ySI-Vg-fZr"/>
-                <outlet property="nameLabel" destination="4Jg-MO-ZIF" id="Quf-dn-O8F"/>
+                <outlet property="deleteButton" destination="FUb-Aw-Evu" id="xuN-oR-rZo"/>
+                <outlet property="nameLabel" destination="4Jg-MO-ZIF" id="zxd-XV-7Pl"/>
                 <outlet property="ratingLabel" destination="evq-hU-9IH" id="cxF-Cv-uSk"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
