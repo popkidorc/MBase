@@ -13,13 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var mainWindowController : MainWindowController!;
     
-    @IBAction func fileNew(sender: AnyObject) {
-        print("fileNew");
-        if (!mainWindowController.window!.visible) {
-            mainWindowController.showWindow(mainWindowController?.window);
-        }
-    }
-    
+
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         mainWindowController = MainWindowController(windowNibName: "MainWindowController");
         mainWindowController.initWindow();
@@ -33,7 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // 1. 保存数据至NSUserDefaults
         //documentViewController.saveBugs();
     }
-    
     
 }
 

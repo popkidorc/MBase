@@ -18,6 +18,18 @@
 		A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = A86220CD1D4079D500BAC828 /* EDStarRating.m */; };
 		A890F7001D40D49E003FF760 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890F6FE1D40D49E003FF760 /* MainWindowController.swift */; };
 		A890F7011D40D49E003FF760 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A890F6FF1D40D49E003FF760 /* MainWindowController.xib */; };
+		A8914B801D42318000A31073 /* DocTreeViewController+MenuIBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8914B7F1D42318000A31073 /* DocTreeViewController+MenuIBAction.swift */; };
+		A8914B821D4231E600A31073 /* DocTreeViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8914B811D4231E600A31073 /* DocTreeViewController+DataSource.swift */; };
+		A8914B841D424BF500A31073 /* DocTreeViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8914B831D424BF500A31073 /* DocTreeViewController+Delegate.swift */; };
+		A8CB64E21D41BDBB00E69BBE /* DocumentViewController+IBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64E11D41BDBB00E69BBE /* DocumentViewController+IBAction.swift */; };
+		A8CB64E61D41C0BE00E69BBE /* AppDelegate+IBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64E51D41C0BE00E69BBE /* AppDelegate+IBAction.swift */; };
+		A8CB64F91D41F62400E69BBE /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64F71D41F62400E69BBE /* MainSplitViewController.swift */; };
+		A8CB64FA1D41F62400E69BBE /* MainSplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8CB64F81D41F62400E69BBE /* MainSplitViewController.xib */; };
+		A8CB64FD1D41F69900E69BBE /* DocTreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64FB1D41F69900E69BBE /* DocTreeViewController.swift */; };
+		A8CB64FE1D41F69900E69BBE /* DocTreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8CB64FC1D41F69900E69BBE /* DocTreeViewController.xib */; };
+		A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */; };
+		A8CB65021D41F89700E69BBE /* DocMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8CB65001D41F89700E69BBE /* DocMainViewController.xib */; };
+		A8CB65041D420ABC00E69BBE /* DocTreeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB65031D420ABC00E69BBE /* DocTreeData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +49,18 @@
 		A86220CD1D4079D500BAC828 /* EDStarRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStarRating.m; sourceTree = "<group>"; };
 		A890F6FE1D40D49E003FF760 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		A890F6FF1D40D49E003FF760 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
+		A8914B7F1D42318000A31073 /* DocTreeViewController+MenuIBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeViewController+MenuIBAction.swift"; sourceTree = "<group>"; };
+		A8914B811D4231E600A31073 /* DocTreeViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeViewController+DataSource.swift"; sourceTree = "<group>"; };
+		A8914B831D424BF500A31073 /* DocTreeViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeViewController+Delegate.swift"; sourceTree = "<group>"; };
+		A8CB64E11D41BDBB00E69BBE /* DocumentViewController+IBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocumentViewController+IBAction.swift"; sourceTree = "<group>"; };
+		A8CB64E51D41C0BE00E69BBE /* AppDelegate+IBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IBAction.swift"; sourceTree = "<group>"; };
+		A8CB64F71D41F62400E69BBE /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		A8CB64F81D41F62400E69BBE /* MainSplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainSplitViewController.xib; sourceTree = "<group>"; };
+		A8CB64FB1D41F69900E69BBE /* DocTreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocTreeViewController.swift; sourceTree = "<group>"; };
+		A8CB64FC1D41F69900E69BBE /* DocTreeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocTreeViewController.xib; sourceTree = "<group>"; };
+		A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocMainViewController.swift; sourceTree = "<group>"; };
+		A8CB65001D41F89700E69BBE /* DocMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocMainViewController.xib; sourceTree = "<group>"; };
+		A8CB65031D420ABC00E69BBE /* DocTreeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocTreeData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +93,10 @@
 		A86220AD1D406FA000BAC828 /* MBase */ = {
 			isa = PBXGroup;
 			children = (
+				A8CB64E31D41C06800E69BBE /* split */,
 				A890F6FB1D40D3A3003FF760 /* main */,
 				A86220BB1D40705F00BAC828 /* document */,
-				A86220AE1D406FA000BAC828 /* AppDelegate.swift */,
 				A86220B01D406FA000BAC828 /* Assets.xcassets */,
-				A86220B21D406FA000BAC828 /* MainMenu.xib */,
 				A86220B51D406FA000BAC828 /* Info.plist */,
 				A86220C31D4072DE00BAC828 /* Supporting Files */,
 			);
@@ -95,6 +118,7 @@
 			children = (
 				A86220C41D40733200BAC828 /* ScaryBugData.swift */,
 				A86220C61D40737400BAC828 /* ScaryBugDoc.swift */,
+				A8CB65031D420ABC00E69BBE /* DocTreeData.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -103,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				A86220C01D4070C800BAC828 /* DocumentViewController.xib */,
+				A8CB64FC1D41F69900E69BBE /* DocTreeViewController.xib */,
+				A8CB65001D41F89700E69BBE /* DocMainViewController.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -111,6 +137,12 @@
 			isa = PBXGroup;
 			children = (
 				A86220BF1D4070C800BAC828 /* DocumentViewController.swift */,
+				A8CB64E11D41BDBB00E69BBE /* DocumentViewController+IBAction.swift */,
+				A8CB64FB1D41F69900E69BBE /* DocTreeViewController.swift */,
+				A8914B7F1D42318000A31073 /* DocTreeViewController+MenuIBAction.swift */,
+				A8914B811D4231E600A31073 /* DocTreeViewController+DataSource.swift */,
+				A8914B831D424BF500A31073 /* DocTreeViewController+Delegate.swift */,
+				A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -138,6 +170,7 @@
 		A890F6FB1D40D3A3003FF760 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				A8CB64F51D41F3F300E69BBE /* delegate */,
 				A890F6FC1D40D44B003FF760 /* controller */,
 				A890F6FD1D40D450003FF760 /* view */,
 			);
@@ -155,7 +188,42 @@
 		A890F6FD1D40D450003FF760 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A86220B21D406FA000BAC828 /* MainMenu.xib */,
 				A890F6FF1D40D49E003FF760 /* MainWindowController.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		A8CB64E31D41C06800E69BBE /* split */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB64E41D41C06F00E69BBE /* controller */,
+				A8CB64F61D41F5F600E69BBE /* view */,
+			);
+			name = split;
+			sourceTree = "<group>";
+		};
+		A8CB64E41D41C06F00E69BBE /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB64F71D41F62400E69BBE /* MainSplitViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		A8CB64F51D41F3F300E69BBE /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				A86220AE1D406FA000BAC828 /* AppDelegate.swift */,
+				A8CB64E51D41C0BE00E69BBE /* AppDelegate+IBAction.swift */,
+			);
+			name = delegate;
+			sourceTree = "<group>";
+		};
+		A8CB64F61D41F5F600E69BBE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB64F81D41F62400E69BBE /* MainSplitViewController.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -218,10 +286,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8CB65021D41F89700E69BBE /* DocMainViewController.xib in Resources */,
 				A86220B11D406FA000BAC828 /* Assets.xcassets in Resources */,
 				A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */,
 				A890F7011D40D49E003FF760 /* MainWindowController.xib in Resources */,
 				A86220C21D4070C800BAC828 /* DocumentViewController.xib in Resources */,
+				A8CB64FA1D41F62400E69BBE /* MainSplitViewController.xib in Resources */,
+				A8CB64FE1D41F69900E69BBE /* DocTreeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,9 +306,18 @@
 				A86220C51D40733200BAC828 /* ScaryBugData.swift in Sources */,
 				A86220AF1D406FA000BAC828 /* AppDelegate.swift in Sources */,
 				A86220C71D40737400BAC828 /* ScaryBugDoc.swift in Sources */,
+				A8CB64F91D41F62400E69BBE /* MainSplitViewController.swift in Sources */,
+				A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */,
 				A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */,
 				A86220CE1D4079D500BAC828 /* NSImage+Extras.m in Sources */,
 				A86220C11D4070C800BAC828 /* DocumentViewController.swift in Sources */,
+				A8914B821D4231E600A31073 /* DocTreeViewController+DataSource.swift in Sources */,
+				A8CB64E21D41BDBB00E69BBE /* DocumentViewController+IBAction.swift in Sources */,
+				A8914B841D424BF500A31073 /* DocTreeViewController+Delegate.swift in Sources */,
+				A8914B801D42318000A31073 /* DocTreeViewController+MenuIBAction.swift in Sources */,
+				A8CB65041D420ABC00E69BBE /* DocTreeData.swift in Sources */,
+				A8CB64E61D41C0BE00E69BBE /* AppDelegate+IBAction.swift in Sources */,
+				A8CB64FD1D41F69900E69BBE /* DocTreeViewController.swift in Sources */,
 				A890F7001D40D49E003FF760 /* MainWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

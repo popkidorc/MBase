@@ -19,7 +19,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="MBase" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
-                            <menuItem title="About MBase" id="5kV-Vb-QxS">
+                            <menuItem title="关于MBase" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
@@ -59,9 +59,10 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
+                            <menuItem title="打开应用" id="Was-JA-tGl">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="fileNew:" target="Voe-Tx-rLC" id="6vU-MF-tzq"/>
+                                    <action selector="fileNew:" target="Voe-Tx-rLC" id="KuA-Wa-qy6"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
