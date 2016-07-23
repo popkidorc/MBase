@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82F1EED1D433ACB00722410 /* DocTreeData+NSCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82F1EEC1D433ACB00722410 /* DocTreeData+NSCoding.swift */; };
 		A86220AF1D406FA000BAC828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86220AE1D406FA000BAC828 /* AppDelegate.swift */; };
 		A86220B11D406FA000BAC828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86220B01D406FA000BAC828 /* Assets.xcassets */; };
 		A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86220B21D406FA000BAC828 /* MainMenu.xib */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A82F1EEC1D433ACB00722410 /* DocTreeData+NSCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeData+NSCoding.swift"; sourceTree = "<group>"; };
 		A86220AB1D406FA000BAC828 /* MBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86220AE1D406FA000BAC828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A86220B01D406FA000BAC828 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				A86220C41D40733200BAC828 /* ScaryBugData.swift */,
 				A86220C61D40737400BAC828 /* ScaryBugDoc.swift */,
 				A8CB65031D420ABC00E69BBE /* DocTreeData.swift */,
+				A82F1EEC1D433ACB00722410 /* DocTreeData+NSCoding.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				A86220AF1D406FA000BAC828 /* AppDelegate.swift in Sources */,
 				A86220C71D40737400BAC828 /* ScaryBugDoc.swift in Sources */,
 				A8CB64F91D41F62400E69BBE /* MainSplitViewController.swift in Sources */,
+				A82F1EED1D433ACB00722410 /* DocTreeData+NSCoding.swift in Sources */,
 				A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */,
 				A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */,
 				A86220CE1D4079D500BAC828 /* NSImage+Extras.m in Sources */,

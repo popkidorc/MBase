@@ -21,14 +21,14 @@ class DocTreeViewController: NSViewController {
     func initDocTreeDatas() {
         // 根
         docTree = DocTreeData();
-        let tree1 = DocTreeData(id: 2, name: "tree1", number: 1, image: NSImage(named: "centipedeThumb"), parent: docTree);
-        let tree11 = DocTreeData(id: 3, name: "tree11", number: 11, image: NSImage(named: "ladybugThumb"), parent: tree1);
-        let tree12 = DocTreeData(id: 4, name: "tree12", number: 12, image: NSImage(named: "wolfSpiderThumb"), parent: tree1);
+        let tree1 = DocTreeData(id: 2, name: "tree1", image: NSImage(named: "centipedeThumb"), parent: docTree);
+        let tree11 = DocTreeData(id: 3, name: "tree11", image: NSImage(named: "ladybugThumb"), parent: tree1);
+        let tree12 = DocTreeData(id: 4, name: "tree12", image: NSImage(named: "wolfSpiderThumb"), parent: tree1);
         tree1.addChildTree(tree11);
         tree1.addChildTree(tree12);
         
-        let tree2 = DocTreeData(id: 5, name: "tree2", number: 2, image: NSImage(named: "wolfSpiderThumb"), parent: docTree);
-        let tree21 = DocTreeData(id: 6, name: "tree21", number: 21, image: NSImage(named: "potatoBugThumb"), parent: tree2);
+        let tree2 = DocTreeData(id: 5, name: "tree2", image: NSImage(named: "wolfSpiderThumb"), parent: docTree);
+        let tree21 = DocTreeData(id: 6, name: "tree21", image: NSImage(named: "potatoBugThumb"), parent: tree2);
         tree2.addChildTree(tree21);
         
         docTree.addChildTree(tree1);
@@ -47,5 +47,10 @@ class DocTreeViewController: NSViewController {
         return nil
     }
     
+    func saveDatas() {
+        let data = NSKeyedArchiver.archivedDataWithRootObject(self.docTree);
+        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "docTree");
+        NSUserDefaults.standardUserDefaults().synchronize();
+    }
 }
 

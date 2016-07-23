@@ -9,7 +9,7 @@
 import Cocoa
 
 class MainSplitViewController: NSSplitViewController {
-
+    
     var docTreeViewController: DocTreeViewController!;
     
     var docMainViewController: DocMainViewController!;
@@ -20,7 +20,11 @@ class MainSplitViewController: NSSplitViewController {
         // 1 创建viewController
         docTreeViewController = DocTreeViewController(nibName: "DocTreeViewController", bundle: nil);
         // 1.1 加载数据
-        docTreeViewController.initDocTreeDatas();
+        if let data = NSUserDefaults.standardUserDefaults().objectForKey("docTree") as? NSData {
+            docTreeViewController.docTree = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! DocTreeData;
+        } else {
+            docTreeViewController.initDocTreeDatas();
+        }
         
         docMainViewController = DocMainViewController(nibName: "DocMainViewController", bundle: nil);
         
@@ -29,4 +33,8 @@ class MainSplitViewController: NSSplitViewController {
         addSplitViewItem(NSSplitViewItem(viewController: docMainViewController));
     }
     
+    func saveDatas(){
+        // 保存tree数据
+        docTreeViewController.saveDatas();
+    }
 }

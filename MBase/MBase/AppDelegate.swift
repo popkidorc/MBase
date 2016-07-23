@@ -12,7 +12,6 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     var mainWindowController : MainWindowController!;
-    
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         mainWindowController = MainWindowController(windowNibName: "MainWindowController");
@@ -24,8 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
-        // 1. 保存数据至NSUserDefaults
-        //documentViewController.saveBugs();
+        // 1. 保存数据
+        mainWindowController.saveDatas();
     }
     
 }

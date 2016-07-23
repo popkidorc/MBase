@@ -37,10 +37,16 @@ class DocTreeData: NSObject {
         self.children = [DocTreeData]();
     }
 
-    init(id: Int!, name: String!, number: Int!, image: NSImage?, parent: DocTreeData?){
+    init(id: Int!, name: String!, image: NSImage?, parent: DocTreeData!){
         self.id = id;
         self.name = name;
-        self.number = number;
+        if parent == nil {
+            self.number = 0;
+        } else if parent.children == nil || parent.children!.count <= 0 {
+            self.number = 1;
+        } else {
+            self.number = parent.children!.last!.number + 1;
+        }
         self.image = image;
         if parent == nil {
             self.level = 0;
@@ -50,6 +56,19 @@ class DocTreeData: NSObject {
         self.parent = parent;
         self.isHasChild = false;
         self.children = [DocTreeData]();
+    }
+    
+    required convenience init(coder decoder: NSCoder) {
+        self.init();
+        self.id =  decoder.decodeObjectForKey("id") as! Int;
+        self.name = decoder.decodeObjectForKey("name") as! String;
+        self.number = decoder.decodeObjectForKey("number") as! Int;
+        self.image = decoder.decodeObjectForKey("image") as! NSImage?;
+        self.level = decoder.decodeObjectForKey("level") as! Int;
+        self.isHasChild = decoder.decodeObjectForKey("isHasChild") as! Bool;
+        self.parent = decoder.decodeObjectForKey("parent") as! DocTreeData?;
+        self.children = decoder.decodeObjectForKey("children") as! [DocTreeData]?;
+        
     }
     
     func setChildrenTree(children: [DocTreeData]?){

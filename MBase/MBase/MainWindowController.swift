@@ -10,8 +10,6 @@ import Cocoa
 
 class MainWindowController: NSWindowController {
     
-    var documentViewController: DocumentViewController!;
-    
     var mainSplitViewController: MainSplitViewController!;
     
     func initWindow(){
@@ -40,33 +38,11 @@ class MainWindowController: NSWindowController {
                                                                                    metrics: nil,
                                                                                    views: ["subView" : mainSplitViewController.view]);
         NSLayoutConstraint.activateConstraints(verticalConstraints + horizontalConstraints);
-        
-        //        // 1. 创建documentViewController
-        //        documentViewController = DocumentViewController(nibName: "DocumentViewController", bundle: nil);
-        //        // 1.1 加载NSUserDefaults数据
-        //        // documentViewController.setupSampleBugs();
-        //        if let data = NSUserDefaults.standardUserDefaults().objectForKey("bugs") as? NSData {
-        //            documentViewController.bugs = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [ScaryBugDoc]
-        //        } else {
-        //            documentViewController.setupSampleBugs();
-        //        }
-        //
-        //        // 2. 添加view
-        //        contentViewController!.view.addSubview(documentViewController.view);
-        //        documentViewController.view.frame = contentViewController!.view.bounds;
-        //
-        //
-        //        // 3. 设置masterViewController.view的布局约束
-        //        documentViewController.view.translatesAutoresizingMaskIntoConstraints = false;
-        //        let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|",
-        //                                                                                 options: NSLayoutFormatOptions(rawValue: 0),
-        //                                                                                 metrics: nil,
-        //                                                                                 views: ["subView" : documentViewController.view]);
-        //        let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[subView]|",
-        //                                                                                   options: NSLayoutFormatOptions(rawValue: 0),
-        //                                                                                   metrics: nil,
-        //                                                                                   views: ["subView" : documentViewController.view]);
-        //        NSLayoutConstraint.activateConstraints(verticalConstraints + horizontalConstraints);
+    }
+    
+    func saveDatas(){
+        //保存数据
+        mainSplitViewController.saveDatas();
     }
     
 }

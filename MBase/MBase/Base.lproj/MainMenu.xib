@@ -51,7 +51,11 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Quit MBase" keyEquivalent="q" id="4sb-4s-VLi"/>
+                            <menuItem title="Quit MBase" keyEquivalent="q" id="4sb-4s-VLi">
+                                <connections>
+                                    <action selector="terminate:" target="-1" id="3oe-4N-DTC"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
