@@ -11,11 +11,26 @@ import Cocoa
 class DocTreeViewController: NSViewController {
     
     @IBOutlet weak var docTreeView: NSOutlineView!
-    
+
     var docTree: DocTreeData!;
     
+    @IBAction func doubleAction(sender: AnyObject) {
+        let docTree = self.selectedTree();
+        if docTree == nil {
+            return;
+        }
+        
+        let docTreeInfoViewController = DocTreeInfoViewController(nibName: "DocTreeInfoViewController", bundle: nil);
+        docTreeInfoViewController!.initData(docTree);
+        
+        let newSelectedRow = self.docTreeView.rowForItem(docTree);
+        let rowView = self.docTreeView.rowViewAtRow(newSelectedRow, makeIfNecessary: false);
+        
+        docTreeInfoViewController?.showPopover(rowView);
+    }
+
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
     }
     
     func initDocTreeDatas() {

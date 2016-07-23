@@ -26,6 +26,8 @@ class DocTreeData: NSObject {
     
     var children: [DocTreeData]?;
     
+    var content: String!;
+    
     override init() {
         self.id = 1;
         self.name = "root";
@@ -35,6 +37,7 @@ class DocTreeData: NSObject {
         self.parent = nil;
         self.isHasChild = false;
         self.children = [DocTreeData]();
+        self.content = "";
     }
 
     init(id: Int!, name: String!, image: NSImage?, parent: DocTreeData!){
@@ -56,6 +59,7 @@ class DocTreeData: NSObject {
         self.parent = parent;
         self.isHasChild = false;
         self.children = [DocTreeData]();
+        self.content = "";
     }
     
     required convenience init(coder decoder: NSCoder) {

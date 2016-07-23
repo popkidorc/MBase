@@ -43,7 +43,6 @@ extension DocTreeViewController: NSOutlineViewDataSource {
     
     func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
         let cellView: NSTableCellView = outlineView.makeViewWithIdentifier(tableColumn!.identifier, owner: self) as! NSTableCellView;
-        cellView.tag
         if tableColumn!.identifier == "DocTreeColumn" {
             let docTreeData: DocTreeData = item as! DocTreeData;
             cellView.objectValue = docTreeData.id;
