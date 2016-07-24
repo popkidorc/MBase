@@ -10,4 +10,13 @@ import Cocoa
 
 extension DocTreeInfoViewController: NSPopoverDelegate {
 
+    func popoverDidClose(notification: NSNotification) {
+
+        self.docTreeInfoData?.name = self.nameField.stringValue;
+        self.docTreeInfoData?.content = self.contentField.string;
+        self.docTreeInfoData?.image = self.imageView.image;
+        
+        self.docTreeViewController!.changeSelectedData(self.docTreeInfoData, selectedDocTree: self.docTreeData);
+    }
+
 }

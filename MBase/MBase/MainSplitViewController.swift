@@ -21,7 +21,7 @@ class MainSplitViewController: NSSplitViewController {
         docTreeViewController = DocTreeViewController(nibName: "DocTreeViewController", bundle: nil);
         // 1.1 加载数据
         if let data = NSUserDefaults.standardUserDefaults().objectForKey("docTree") as? NSData {
-            docTreeViewController.docTree = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! DocTreeData;
+            docTreeViewController.docTreeData = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! DocTreeData;
         } else {
             docTreeViewController.initDocTreeDatas();
         }

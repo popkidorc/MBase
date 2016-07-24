@@ -16,9 +16,9 @@ extension DocTreeViewController: NSOutlineViewDataSource {
             let docTreeData: DocTreeData = item as! DocTreeData;
             return docTreeData.children!.count;
         }
-        if docTree != nil {
+        if docTreeData != nil {
             //不显示根
-            return docTree.children!.count;
+            return docTreeData.children!.count;
         } else {
             return 0;
         }
@@ -38,7 +38,7 @@ extension DocTreeViewController: NSOutlineViewDataSource {
             }
         }
         //不显示根
-        return docTree.children![index];
+        return docTreeData.children![index];
     }
     
     func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {

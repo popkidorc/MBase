@@ -18,7 +18,11 @@ class DocTreeInfoViewController: NSViewController {
     
     var docTreeInfoPopover: NSPopover?;
     
+    var docTreeData : DocTreeData?;
+    
     var docTreeInfoData : DocTreeInfoData?;
+    
+    var docTreeViewController: DocTreeViewController?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +30,14 @@ class DocTreeInfoViewController: NSViewController {
         self.initView();
     }
     
-    func initData(docTree: DocTreeData?) {
+    func initData(docTreeData: DocTreeData?) {
+        self.docTreeData = docTreeData;
         self.docTreeInfoData = DocTreeInfoData();
-        if docTree != nil {
-            self.docTreeInfoData!.id = docTree!.id;
-            self.docTreeInfoData!.name = docTree!.name;
-            self.docTreeInfoData!.content = docTree!.content;
-            self.docTreeInfoData!.image = docTree!.image;
+        if docTreeData != nil {
+            self.docTreeInfoData!.id = docTreeData!.id;
+            self.docTreeInfoData!.name = docTreeData!.name;
+            self.docTreeInfoData!.content = docTreeData!.content;
+            self.docTreeInfoData!.image = docTreeData!.image;
         }
     }
     
@@ -45,12 +50,13 @@ class DocTreeInfoViewController: NSViewController {
         self.imageView.image = self.docTreeInfoData!.image;
     }
     
-    func showPopover(ofView: NSView!){
-        docTreeInfoPopover = NSPopover();
-        docTreeInfoPopover!.contentViewController = self;
-        docTreeInfoPopover!.delegate = self;
-        docTreeInfoPopover!.behavior = NSPopoverBehavior.Transient;
-        docTreeInfoPopover!.showRelativeToRect(ofView!.bounds, ofView: ofView!, preferredEdge: NSRectEdge.MaxY);
+    func showPopover(ofView: NSView!,docTreeViewController: DocTreeViewController!){
+        self.docTreeInfoPopover = NSPopover();
+        self.docTreeInfoPopover!.contentViewController = self;
+        self.docTreeInfoPopover!.delegate = self;
+        self.docTreeInfoPopover!.behavior = NSPopoverBehavior.Transient;
+        self.docTreeInfoPopover!.showRelativeToRect(ofView!.bounds, ofView: ofView!, preferredEdge: NSRectEdge.MaxY);
+        self.docTreeViewController = docTreeViewController;
     }
     
 }

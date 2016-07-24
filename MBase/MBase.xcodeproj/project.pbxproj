@@ -44,6 +44,7 @@
 		A82AD75A1D43B1E100F457B6 /* DocTreeInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocTreeInfoViewController.xib; sourceTree = "<group>"; };
 		A82AD75D1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeInfoViewController+Delegate.swift"; sourceTree = "<group>"; };
 		A82AD75F1D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeInfoViewController+IBAction.swift"; sourceTree = "<group>"; };
+		A82AD7641D4453E100F457B6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		A82F1EEC1D433ACB00722410 /* DocTreeData+NSCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeData+NSCoding.swift"; sourceTree = "<group>"; };
 		A86220AB1D406FA000BAC828 /* MBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86220AE1D406FA000BAC828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -353,6 +354,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A86220B31D406FA000BAC828 /* Base */,
+				A82AD7641D4453E100F457B6 /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
