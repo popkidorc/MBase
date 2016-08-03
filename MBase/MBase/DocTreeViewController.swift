@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import CoreData
 
 class DocTreeViewController: NSViewController {
     
@@ -14,12 +15,14 @@ class DocTreeViewController: NSViewController {
 
     var docTreeData: DocTreeData!;
     
+    var managedObjectContext: NSManagedObjectContext!;
+    
     @IBAction func doubleAction(sender: AnyObject) {
         let docTree = self.selectedTree();
         if docTree == nil {
             return;
         }
-        
+
         let docTreeInfoViewController = DocTreeInfoViewController(nibName: "DocTreeInfoViewController", bundle: nil);
         docTreeInfoViewController!.initData(docTree);
         
@@ -31,6 +34,16 @@ class DocTreeViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad();
+        let tree = NSEntityDescription.insertNewObjectForEntityForName("Tree", inManagedObjectContext: self.managedObjectContext) as! Tree;
+        tree.name = "test1";
+        tree.content = "123123123123131312";
+        
+        do{
+            try managedObjectContext.save();
+        }catch{
+            let nserror = error as NSError
+            NSApplication.sharedApplication().presentError(nserror)
+        }
     }
     
     func initDocTreeDatas() {
@@ -66,6 +79,26 @@ class DocTreeViewController: NSViewController {
         let data = NSKeyedArchiver.archivedDataWithRootObject(self.docTreeData);
         NSUserDefaults.standardUserDefaults().setObject(data, forKey: "docTree");
         NSUserDefaults.standardUserDefaults().synchronize();
+        
+        
+//        let navigationController = segue.destinationViewController as! UINavigationController
+//        let bookAddTableViewController = navigationController.topViewController as! PKOBookAddTableViewController
+        
+        //这里注意要new一个NSManagedObjectContext，然后将self.fetchedResultsController?.managedObjectContext为其父context，这样我们在addView操作时就不会对self.fetchedResultsController?.managedObjectContext产生影响
+//        let addContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType);
+//        addContext.parentContext = self.fetchedResultsController?.managedObjectContext
+//        
+//        let newBook = NSEntityDescription.insertNewObjectForEntityForName("Book", inManagedObjectContext: addContext) as! Book
+//        newBook.author = "Author1"//这里要初始化信息，不然为空的化swift会报错
+//        newBook.title = "Titel1"
+//        
+//        
+//        
+//        newBook.theDate = NSDate()
+//        
+//        bookAddTableViewController.book = newBook
+//        bookAddTableViewController.addObjectContext = addContext
+//        bookAddTableViewController.delegate = self
     }
     
     func changeSelectedData(docTreeInfoData : DocTreeInfoData!, selectedDocTree:DocTreeData!){

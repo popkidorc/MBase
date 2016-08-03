@@ -14,11 +14,15 @@ class MainSplitViewController: NSSplitViewController {
     
     var docMainViewController: DocMainViewController!;
     
+    var managedObjectContext: NSManagedObjectContext!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 1 创建viewController
         docTreeViewController = DocTreeViewController(nibName: "DocTreeViewController", bundle: nil);
+        docTreeViewController.managedObjectContext = self.managedObjectContext;
+        
         // 1.1 加载数据
         if let data = NSUserDefaults.standardUserDefaults().objectForKey("docTree") as? NSData {
             docTreeViewController.docTreeData = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! DocTreeData;

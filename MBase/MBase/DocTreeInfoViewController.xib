@@ -73,7 +73,7 @@
                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="3Hc-Xg-06r">
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="3Hc-Xg-06r">
                         <rect key="frame" x="185" y="1" width="16" height="64"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>

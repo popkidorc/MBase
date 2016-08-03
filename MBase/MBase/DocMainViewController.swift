@@ -10,9 +10,14 @@ import Cocoa
 
 class DocMainViewController: NSViewController {
 
+    @IBOutlet weak var rating: EDStarRating!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+//        let markdownString = "# Hello Markdown";
+//        let htmlString = Hoedown.renderHTMLForMarkdown(markdownString);
+//        print(htmlString);
     }
     
 }

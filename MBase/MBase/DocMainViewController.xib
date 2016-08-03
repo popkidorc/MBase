@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DocMainViewController" customModule="MBase" customModuleProvider="target">
             <connections>
+                <outlet property="rating" destination="vSV-pu-8DF" id="Jsz-HI-SLq"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -43,6 +44,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSV-pu-8DF">
+                    <rect key="frame" x="244" y="126" width="163" height="96"/>
+                </customView>
             </subviews>
             <constraints>
                 <constraint firstItem="gb3-b9-0ne" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="E5y-ZL-RxJ"/>
