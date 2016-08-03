@@ -12,6 +12,9 @@
 		A82AD75C1D43B1E100F457B6 /* DocTreeInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82AD75A1D43B1E100F457B6 /* DocTreeInfoViewController.xib */; };
 		A82AD75E1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82AD75D1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift */; };
 		A82AD7601D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82AD75F1D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift */; };
+		A82AD7A51D4478F400F457B6 /* MBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A82AD7A31D4478F400F457B6 /* MBase.xcdatamodeld */; };
+		A82AD7A81D447BA400F457B6 /* Tree+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82AD7A61D447BA400F457B6 /* Tree+CoreDataProperties.swift */; };
+		A82AD7A91D447BA400F457B6 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82AD7A71D447BA400F457B6 /* Tree.swift */; };
 		A82F1EED1D433ACB00722410 /* DocTreeData+NSCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82F1EEC1D433ACB00722410 /* DocTreeData+NSCoding.swift */; };
 		A86220AF1D406FA000BAC828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86220AE1D406FA000BAC828 /* AppDelegate.swift */; };
 		A86220B11D406FA000BAC828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86220B01D406FA000BAC828 /* Assets.xcassets */; };
@@ -45,6 +48,9 @@
 		A82AD75D1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeInfoViewController+Delegate.swift"; sourceTree = "<group>"; };
 		A82AD75F1D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeInfoViewController+IBAction.swift"; sourceTree = "<group>"; };
 		A82AD7641D4453E100F457B6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
+		A82AD7A41D4478F400F457B6 /* MBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MBase.xcdatamodel; sourceTree = "<group>"; };
+		A82AD7A61D447BA400F457B6 /* Tree+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tree+CoreDataProperties.swift"; path = "../Tree+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A82AD7A71D447BA400F457B6 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = ../Tree.swift; sourceTree = "<group>"; };
 		A82F1EEC1D433ACB00722410 /* DocTreeData+NSCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeData+NSCoding.swift"; sourceTree = "<group>"; };
 		A86220AB1D406FA000BAC828 /* MBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86220AE1D406FA000BAC828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A82AD7AA1D44833000F457B6 /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				A86220BF1D4070C800BAC828 /* DocumentViewController.swift */,
+				A8CB64E11D41BDBB00E69BBE /* DocumentViewController+IBAction.swift */,
+				A86220C01D4070C800BAC828 /* DocumentViewController.xib */,
+				A86220C41D40733200BAC828 /* ScaryBugData.swift */,
+				A86220C61D40737400BAC828 /* ScaryBugDoc.swift */,
+			);
+			name = demo;
+			sourceTree = "<group>";
+		};
 		A86220A21D406FA000BAC828 = {
 			isa = PBXGroup;
 			children = (
@@ -106,11 +124,15 @@
 		A86220AD1D406FA000BAC828 /* MBase */ = {
 			isa = PBXGroup;
 			children = (
+				A82AD7AA1D44833000F457B6 /* demo */,
 				A8CB64E31D41C06800E69BBE /* split */,
 				A890F6FB1D40D3A3003FF760 /* main */,
 				A86220BB1D40705F00BAC828 /* document */,
 				A86220B01D406FA000BAC828 /* Assets.xcassets */,
 				A86220B51D406FA000BAC828 /* Info.plist */,
+				A82AD7A31D4478F400F457B6 /* MBase.xcdatamodeld */,
+				A82AD7A61D447BA400F457B6 /* Tree+CoreDataProperties.swift */,
+				A82AD7A71D447BA400F457B6 /* Tree.swift */,
 				A86220C31D4072DE00BAC828 /* Supporting Files */,
 			);
 			path = MBase;
@@ -129,8 +151,6 @@
 		A86220BC1D40707D00BAC828 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				A86220C41D40733200BAC828 /* ScaryBugData.swift */,
-				A86220C61D40737400BAC828 /* ScaryBugDoc.swift */,
 				A8CB65031D420ABC00E69BBE /* DocTreeData.swift */,
 				A82F1EEC1D433ACB00722410 /* DocTreeData+NSCoding.swift */,
 				A82AD7531D439B7B00F457B6 /* DocTreeInfoData.swift */,
@@ -141,10 +161,9 @@
 		A86220BD1D40708500BAC828 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A86220C01D4070C800BAC828 /* DocumentViewController.xib */,
 				A8CB64FC1D41F69900E69BBE /* DocTreeViewController.xib */,
-				A8CB65001D41F89700E69BBE /* DocMainViewController.xib */,
 				A82AD75A1D43B1E100F457B6 /* DocTreeInfoViewController.xib */,
+				A8CB65001D41F89700E69BBE /* DocMainViewController.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -152,16 +171,14 @@
 		A86220BE1D40708D00BAC828 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				A86220BF1D4070C800BAC828 /* DocumentViewController.swift */,
-				A8CB64E11D41BDBB00E69BBE /* DocumentViewController+IBAction.swift */,
 				A8CB64FB1D41F69900E69BBE /* DocTreeViewController.swift */,
 				A8914B7F1D42318000A31073 /* DocTreeViewController+MenuIBAction.swift */,
 				A8914B811D4231E600A31073 /* DocTreeViewController+DataSource.swift */,
 				A8914B831D424BF500A31073 /* DocTreeViewController+Delegate.swift */,
-				A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */,
 				A82AD7591D43B1E100F457B6 /* DocTreeInfoViewController.swift */,
 				A82AD75D1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift */,
 				A82AD75F1D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift */,
+				A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -279,6 +296,7 @@
 				TargetAttributes = {
 					A86220AA1D406FA000BAC828 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 43B96X49QE;
 					};
 				};
 			};
@@ -325,10 +343,12 @@
 			files = (
 				A86220C51D40733200BAC828 /* ScaryBugData.swift in Sources */,
 				A86220AF1D406FA000BAC828 /* AppDelegate.swift in Sources */,
+				A82AD7A51D4478F400F457B6 /* MBase.xcdatamodeld in Sources */,
 				A86220C71D40737400BAC828 /* ScaryBugDoc.swift in Sources */,
 				A8CB64F91D41F62400E69BBE /* MainSplitViewController.swift in Sources */,
 				A82F1EED1D433ACB00722410 /* DocTreeData+NSCoding.swift in Sources */,
 				A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */,
+				A82AD7A81D447BA400F457B6 /* Tree+CoreDataProperties.swift in Sources */,
 				A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */,
 				A86220CE1D4079D500BAC828 /* NSImage+Extras.m in Sources */,
 				A86220C11D4070C800BAC828 /* DocumentViewController.swift in Sources */,
@@ -342,6 +362,7 @@
 				A82AD75B1D43B1E100F457B6 /* DocTreeInfoViewController.swift in Sources */,
 				A8CB64E61D41C0BE00E69BBE /* AppDelegate+IBAction.swift in Sources */,
 				A8CB64FD1D41F69900E69BBE /* DocTreeViewController.swift in Sources */,
+				A82AD7A91D447BA400F457B6 /* Tree.swift in Sources */,
 				A890F7001D40D49E003FF760 /* MainWindowController.swift in Sources */,
 				A82AD7541D439B7B00F457B6 /* DocTreeInfoData.swift in Sources */,
 			);
@@ -449,6 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -465,6 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -497,6 +520,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A82AD7A31D4478F400F457B6 /* MBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A82AD7A41D4478F400F457B6 /* MBase.xcdatamodel */,
+			);
+			currentVersion = A82AD7A41D4478F400F457B6 /* MBase.xcdatamodel */;
+			path = MBase.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A86220A31D406FA000BAC828 /* Project object */;
 }
