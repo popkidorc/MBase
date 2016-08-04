@@ -39,7 +39,26 @@
 		A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */; };
 		A8CB65021D41F89700E69BBE /* DocMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8CB65001D41F89700E69BBE /* DocMainViewController.xib */; };
 		A8CB65041D420ABC00E69BBE /* DocTreeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB65031D420ABC00E69BBE /* DocTreeData.swift */; };
+		A8F60CED1D52034B009768B6 /* Hoedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; };
+		A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A8F60CF21D520391009768B6 /* Hoedown.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F60CF11D520391009768B6 /* Hoedown.swift */; };
+		A8F60D081D520EA2009768B6 /* DocEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F60D061D520EA2009768B6 /* DocEditViewController.swift */; };
+		A8F60D091D520EA2009768B6 /* DocEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F60D071D520EA2009768B6 /* DocEditViewController.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A8F60CEF1D52034B009768B6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A82AD7531D439B7B00F457B6 /* DocTreeInfoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocTreeInfoData.swift; sourceTree = "<group>"; };
@@ -80,6 +99,11 @@
 		A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocMainViewController.swift; sourceTree = "<group>"; };
 		A8CB65001D41F89700E69BBE /* DocMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocMainViewController.xib; sourceTree = "<group>"; };
 		A8CB65031D420ABC00E69BBE /* DocTreeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocTreeData.swift; sourceTree = "<group>"; };
+		A8F60CEC1D52034B009768B6 /* Hoedown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hoedown.framework; path = ../Carthage/Build/Mac/Hoedown.framework; sourceTree = "<group>"; };
+		A8F60CF01D520391009768B6 /* SwiftHoedown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftHoedown.h; sourceTree = "<group>"; };
+		A8F60CF11D520391009768B6 /* Hoedown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hoedown.swift; sourceTree = "<group>"; };
+		A8F60D061D520EA2009768B6 /* DocEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocEditViewController.swift; sourceTree = "<group>"; };
+		A8F60D071D520EA2009768B6 /* DocEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocEditViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8F60CED1D52034B009768B6 /* Hoedown.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,10 +149,12 @@
 		A86220AD1D406FA000BAC828 /* MBase */ = {
 			isa = PBXGroup;
 			children = (
+				A8F60CFC1D520912009768B6 /* document */,
+				A8F60CFB1D5204F1009768B6 /* hoedown */,
 				A82AD7AA1D44833000F457B6 /* demo */,
 				A8CB64E31D41C06800E69BBE /* split */,
 				A890F6FB1D40D3A3003FF760 /* main */,
-				A86220BB1D40705F00BAC828 /* document */,
+				A86220BB1D40705F00BAC828 /* tree */,
 				A86220B01D406FA000BAC828 /* Assets.xcassets */,
 				A86220B51D406FA000BAC828 /* Info.plist */,
 				A82AD7A31D4478F400F457B6 /* MBase.xcdatamodeld */,
@@ -138,14 +165,14 @@
 			path = MBase;
 			sourceTree = "<group>";
 		};
-		A86220BB1D40705F00BAC828 /* document */ = {
+		A86220BB1D40705F00BAC828 /* tree */ = {
 			isa = PBXGroup;
 			children = (
 				A86220BE1D40708D00BAC828 /* controller */,
 				A86220BD1D40708500BAC828 /* view */,
 				A86220BC1D40707D00BAC828 /* model */,
 			);
-			name = document;
+			name = tree;
 			sourceTree = "<group>";
 		};
 		A86220BC1D40707D00BAC828 /* model */ = {
@@ -163,7 +190,6 @@
 			children = (
 				A8CB64FC1D41F69900E69BBE /* DocTreeViewController.xib */,
 				A82AD75A1D43B1E100F457B6 /* DocTreeInfoViewController.xib */,
-				A8CB65001D41F89700E69BBE /* DocMainViewController.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -178,7 +204,6 @@
 				A82AD7591D43B1E100F457B6 /* DocTreeInfoViewController.swift */,
 				A82AD75D1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift */,
 				A82AD75F1D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift */,
-				A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -188,6 +213,7 @@
 			children = (
 				A86220C81D4079B800BAC828 /* ObejctViews */,
 				A86220C91D4079D400BAC828 /* MBase-Bridging-Header.h */,
+				A8F60CEC1D52034B009768B6 /* Hoedown.framework */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,6 +290,50 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		A8F60CFB1D5204F1009768B6 /* hoedown */ = {
+			isa = PBXGroup;
+			children = (
+				A8F60CF01D520391009768B6 /* SwiftHoedown.h */,
+				A8F60CF11D520391009768B6 /* Hoedown.swift */,
+			);
+			name = hoedown;
+			sourceTree = "<group>";
+		};
+		A8F60CFC1D520912009768B6 /* document */ = {
+			isa = PBXGroup;
+			children = (
+				A8F60CFD1D520A60009768B6 /* controller */,
+				A8F60CFE1D520A66009768B6 /* view */,
+				A8F60CFF1D520A6D009768B6 /* model */,
+			);
+			name = document;
+			sourceTree = "<group>";
+		};
+		A8F60CFD1D520A60009768B6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */,
+				A8F60D061D520EA2009768B6 /* DocEditViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		A8F60CFE1D520A66009768B6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A8CB65001D41F89700E69BBE /* DocMainViewController.xib */,
+				A8F60D071D520EA2009768B6 /* DocEditViewController.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		A8F60CFF1D520A6D009768B6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,6 +344,7 @@
 				A86220A71D406FA000BAC828 /* Sources */,
 				A86220A81D406FA000BAC828 /* Frameworks */,
 				A86220A91D406FA000BAC828 /* Resources */,
+				A8F60CEF1D52034B009768B6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,6 +400,7 @@
 				A890F7011D40D49E003FF760 /* MainWindowController.xib in Resources */,
 				A82AD75C1D43B1E100F457B6 /* DocTreeInfoViewController.xib in Resources */,
 				A86220C21D4070C800BAC828 /* DocumentViewController.xib in Resources */,
+				A8F60D091D520EA2009768B6 /* DocEditViewController.xib in Resources */,
 				A8CB64FA1D41F62400E69BBE /* MainSplitViewController.xib in Resources */,
 				A8CB64FE1D41F69900E69BBE /* DocTreeViewController.xib in Resources */,
 			);
@@ -346,6 +418,7 @@
 				A82AD7A51D4478F400F457B6 /* MBase.xcdatamodeld in Sources */,
 				A86220C71D40737400BAC828 /* ScaryBugDoc.swift in Sources */,
 				A8CB64F91D41F62400E69BBE /* MainSplitViewController.swift in Sources */,
+				A8F60D081D520EA2009768B6 /* DocEditViewController.swift in Sources */,
 				A82F1EED1D433ACB00722410 /* DocTreeData+NSCoding.swift in Sources */,
 				A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */,
 				A82AD7A81D447BA400F457B6 /* Tree+CoreDataProperties.swift in Sources */,
@@ -359,6 +432,7 @@
 				A8914B841D424BF500A31073 /* DocTreeViewController+Delegate.swift in Sources */,
 				A8914B801D42318000A31073 /* DocTreeViewController+MenuIBAction.swift in Sources */,
 				A8CB65041D420ABC00E69BBE /* DocTreeData.swift in Sources */,
+				A8F60CF21D520391009768B6 /* Hoedown.swift in Sources */,
 				A82AD75B1D43B1E100F457B6 /* DocTreeInfoViewController.swift in Sources */,
 				A8CB64E61D41C0BE00E69BBE /* AppDelegate+IBAction.swift in Sources */,
 				A8CB64FD1D41F69900E69BBE /* DocTreeViewController.swift in Sources */,
@@ -472,6 +546,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -489,6 +567,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;

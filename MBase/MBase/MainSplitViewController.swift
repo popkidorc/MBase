@@ -12,6 +12,8 @@ class MainSplitViewController: NSSplitViewController {
     
     var docTreeViewController: DocTreeViewController!;
     
+    var docEditViewController: DocEditViewController!;
+    
     var docMainViewController: DocMainViewController!;
     
     var managedObjectContext: NSManagedObjectContext!;
@@ -32,8 +34,11 @@ class MainSplitViewController: NSSplitViewController {
         
         docMainViewController = DocMainViewController(nibName: "DocMainViewController", bundle: nil);
         
+        docEditViewController = DocEditViewController(nibName: "DocEditViewController", bundle: nil);
+        docEditViewController.docMainViewController = docMainViewController;
         
         addSplitViewItem(NSSplitViewItem(viewController: docTreeViewController));
+        addSplitViewItem(NSSplitViewItem(viewController: docEditViewController));
         addSplitViewItem(NSSplitViewItem(viewController: docMainViewController));
     }
     
