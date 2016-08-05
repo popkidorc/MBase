@@ -43,9 +43,4 @@ class MainWindowController: NSWindowController {
         NSLayoutConstraint.activateConstraints(verticalConstraints + horizontalConstraints);
     }
     
-    func saveDatas(){
-        //保存数据
-        mainSplitViewController.saveDatas();
-    }
-    
 }

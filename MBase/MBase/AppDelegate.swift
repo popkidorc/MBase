@@ -22,14 +22,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             mainWindowController.showWindow(mainWindowController?.window);
         }
         
-        
         //app开始启动时调用
     }
     
     
     func applicationWillTerminate(aNotification: NSNotification) {
-        // 1. 保存数据
-        mainWindowController.saveDatas();
     }
  
     
