@@ -17,7 +17,7 @@ class DocMainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        markdown = "# An exhibit of Markdown \n\n This note **demonstrates** some of what [Markdown][1] is capable of doing. \n\n [1]: http://daringfireball.net/projects/markdown/ \n";
+        markdown = "";
         self.refreshContent();
     }
     
