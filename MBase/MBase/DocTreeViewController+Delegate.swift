@@ -11,18 +11,13 @@ import Cocoa
 extension DocTreeViewController: NSOutlineViewDelegate {
 
     func outlineViewSelectionDidChange(notification: NSNotification) {
-//        let docTreeData = self.selectedTree();
-//        if docTreeData != nil{
-//            let aa =  docTreeData?.getChildById(6);
-//            if aa == nil{
-//                print("aa is nil")
-//            }else{
-//                print("aa:" + String(aa!.id));
-//            }
-//            print("outlineViewSelectionDidChange selectedRow:" + docTreeData!.name+"===="+String(docTreeData!.id));
-//        }else{
-//            print("notselect");
-//        }
+        print("outlineViewSelectionDidChange");
+        let selectedDocTree = self.selectedTree();
+        if selectedDocTree == nil {
+            return;
+        }
+        //获取并展示docmain
+        self.docEditViewController.initDocEditDatas(selectedDocTree?.docMain);
     }
     
 }

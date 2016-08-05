@@ -13,7 +13,7 @@ extension DocTreeViewController: NSOutlineViewDataSource {
     func outlineView(outlineView: NSOutlineView, numberOfChildrenOfItem item: AnyObject?) -> Int {
         if (item != nil)
         {
-            let docTreeData: DocTreeData = item as! DocTreeData;
+            let docTreeData = item as! DocTree;
             return docTreeData.children!.count;
         }
         if docTreeData != nil {
@@ -25,15 +25,20 @@ extension DocTreeViewController: NSOutlineViewDataSource {
     }
     
     func outlineView(outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool {
-        let docTreeData: DocTreeData = item as! DocTreeData;
-        return docTreeData.isHasChild;
+        let docTreeData = item as! DocTree;
+        
+        if docTreeData.children == nil || docTreeData.children?.count <= 0 {
+            return false;
+        } else {
+            return true;
+        }
     }
     
     func outlineView(outlineView: NSOutlineView, child index: Int, ofItem item: AnyObject?) -> AnyObject {
         if (item != nil)
         {
-            let docTreeData: DocTreeData = item as! DocTreeData;
-            if docTreeData.isHasChild! {
+            let docTreeData = item as! DocTree;
+            if docTreeData.children != nil {
                 return docTreeData.children![index];
             }
         }
@@ -44,10 +49,12 @@ extension DocTreeViewController: NSOutlineViewDataSource {
     func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
         let cellView: NSTableCellView = outlineView.makeViewWithIdentifier(tableColumn!.identifier, owner: self) as! NSTableCellView;
         if tableColumn!.identifier == "DocTreeColumn" {
-            let docTreeData: DocTreeData = item as! DocTreeData;
-            cellView.objectValue = docTreeData.id;
-            cellView.textField?.stringValue = docTreeData.name;
-            cellView.imageView?.image = docTreeData.image;
+            let docTreeData = item as! DocTree;
+            cellView.objectValue = docTreeData.objectID;
+            cellView.textField?.stringValue = docTreeData.name!;
+            if docTreeData.image != nil {
+                cellView.imageView?.image = NSImage(data: docTreeData.image!);
+            }
         }
         return cellView;
     }

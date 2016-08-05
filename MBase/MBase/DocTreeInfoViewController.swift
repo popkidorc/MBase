@@ -18,7 +18,7 @@ class DocTreeInfoViewController: NSViewController {
     
     var docTreeInfoPopover: NSPopover?;
     
-    var docTreeData : DocTreeData?;
+    var docTreeData : DocTree?;
     
     var docTreeInfoData : DocTreeInfoData?;
     
@@ -30,14 +30,16 @@ class DocTreeInfoViewController: NSViewController {
         self.initView();
     }
     
-    func initData(docTreeData: DocTreeData?) {
+    func initData(docTreeData: DocTree?) {
         self.docTreeData = docTreeData;
         self.docTreeInfoData = DocTreeInfoData();
         if docTreeData != nil {
-            self.docTreeInfoData!.id = docTreeData!.id;
+            self.docTreeInfoData!.id = docTreeData!.objectID;
             self.docTreeInfoData!.name = docTreeData!.name;
             self.docTreeInfoData!.content = docTreeData!.content;
-            self.docTreeInfoData!.image = docTreeData!.image;
+            if docTreeData!.image != nil {
+                self.docTreeInfoData!.image = NSImage(data: docTreeData!.image!);
+            }
         }
     }
     

@@ -10,7 +10,7 @@ import Cocoa
 
 class DocTreeInfoData: NSObject {
     
-    var id: Int!;
+    var id: NSManagedObjectID!;
     
     var name: String!;
     
@@ -19,13 +19,13 @@ class DocTreeInfoData: NSObject {
     var image: NSImage?;
     
     override init() {
-        self.id = 0;
+        self.id = NSManagedObjectID();
         self.name = "";
         self.content = "";
         self.image = nil;
     }
     
-    init(id: Int!, name: String!,content: String!, image: NSImage?){
+    init(id: NSManagedObjectID!, name: String!,content: String!, image: NSImage?){
         self.id = id;
         self.name = name;
         self.content = content;
