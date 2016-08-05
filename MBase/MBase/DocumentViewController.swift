@@ -27,6 +27,8 @@ class DocumentViewController: NSViewController {
     
     @IBOutlet weak var ratingLabel: NSTextField!
     
+    var managedObjectContext: NSManagedObjectContext!
+    
     var bugs = [ScaryBugDoc]();
     
     override func viewDidLoad() {
@@ -90,6 +92,48 @@ class DocumentViewController: NSViewController {
         self.bugRating.editable = false
         self.bugRating.displayMode = UInt(EDStarRatingDisplayFull)
         self.bugRating.rating = Float(0.0)
+    }
+    
+    func doCoreData(){
+        let tree = NSEntityDescription.insertNewObjectForEntityForName("Tree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
+        tree.name = "1231231231321";
+        tree.content = "123123123123131312";
+        
+        do{
+            try managedObjectContext.save();
+        }catch{
+            let nserror = error as NSError
+            NSApplication.sharedApplication().presentError(nserror)
+        }
+        
+        
+        let fetchRequest:NSFetchRequest = NSFetchRequest()
+        fetchRequest.fetchLimit = 10 //限定查询结果的数量
+        fetchRequest.fetchOffset = 0 //查询的偏移量
+        
+        //声明一个实体结构
+        let entity:NSEntityDescription? = NSEntityDescription.entityForName("Tree",
+                                                                            inManagedObjectContext: self.managedObjectContext)
+        //设置数据请求的实体结构
+        fetchRequest.entity = entity
+        
+        //设置查询条件
+        let predicate = NSPredicate(format: "1=1 ", "")
+        fetchRequest.predicate = predicate
+        
+        //查询操作
+        do{
+            let fetchedObjects = try managedObjectContext.executeFetchRequest(fetchRequest)
+            //遍历查询的结果
+            for tree in fetchedObjects as! [DocTree]{
+                print("username=\(tree.name)")
+                print("password=\(tree.content)")
+            }
+        }catch{
+            let nserror = error as NSError
+            NSApplication.sharedApplication().presentError(nserror)
+        }
+
     }
     
 }
