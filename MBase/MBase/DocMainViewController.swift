@@ -17,15 +17,12 @@ class DocMainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//       markdown = textView.string;
-        
-//        let markdown = "# An exhibit of Markdown \n\n This note **demonstrates** some of what [Markdown][1] is capable of doing. \n\n [1]: http://daringfireball.net/projects/markdown/ \n"
+//        markdown = "# An exhibit of Markdown \n\n This note **demonstrates** some of what [Markdown][1] is capable of doing. \n\n [1]: http://daringfireball.net/projects/markdown/ \n";
         self.refreshContent();
     }
     
     func refreshContent(){
-        if let html = Hoedown.renderHTMLForMarkdown(markdown!) {
+        if let html = Hoedown.renderHTMLForMarkdown(markdown!, flags: [.SkipHTML, .Escape, .HardWrap, .UseXHTML], extensions: [.Tables, .FencedCodeBlocks, .FootNotes, .AutoLinkURLs,  .StrikeThrough, .Underline, .Highlight, .Quote, .Superscript, .Math, .DisableIndentedCode, .NoIntraEmphasis, .SpaceHeaders, .MathExplicit ]) {
             webView.mainFrame.loadHTMLString(html, baseURL: nil)
         }
     }

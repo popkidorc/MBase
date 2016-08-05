@@ -24,26 +24,19 @@ class MainSplitViewController: NSSplitViewController {
         // 1 创建viewController
         docTreeViewController = DocTreeViewController(nibName: "DocTreeViewController", bundle: nil);
         docTreeViewController.managedObjectContext = self.managedObjectContext;
-        
-        // 1.1 加载数据
-        if let data = NSUserDefaults.standardUserDefaults().objectForKey("docTree") as? NSData {
-            docTreeViewController.docTreeData = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! DocTreeData;
-        } else {
-            docTreeViewController.initDocTreeDatas();
-        }
+        docTreeViewController.initDocTreeDatas();
         
         docMainViewController = DocMainViewController(nibName: "DocMainViewController", bundle: nil);
         
         docEditViewController = DocEditViewController(nibName: "DocEditViewController", bundle: nil);
         docEditViewController.docMainViewController = docMainViewController;
+        docEditViewController.managedObjectContext = self.managedObjectContext;
+        
+        docTreeViewController.docEditViewController = docEditViewController;
         
         addSplitViewItem(NSSplitViewItem(viewController: docTreeViewController));
         addSplitViewItem(NSSplitViewItem(viewController: docEditViewController));
         addSplitViewItem(NSSplitViewItem(viewController: docMainViewController));
     }
     
-    func saveDatas(){
-        // 保存tree数据
-        docTreeViewController.saveDatas();
-    }
 }
