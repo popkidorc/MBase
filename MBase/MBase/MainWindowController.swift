@@ -16,7 +16,7 @@ class MainWindowController: NSWindowController {
     
     func initWindow(){
         self.contentViewController = NSViewController();
-        self.contentViewController?.view = NSView(frame: NSRect(x: 0, y: 0, width: 512, height: 384));
+        self.contentViewController?.view = NSView(frame: NSRect(x: 0, y: 0, width: 1024, height: 768));
     }
     
     override func windowDidLoad() {

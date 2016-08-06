@@ -95,6 +95,30 @@ class DocTree: NSManagedObject {
         self.modifytime = nowDate;//一定要赋值，只修改children的话managedObjectContext.hasChanges会认为没有改动
     }
     
+    func insertChildTree(child: DocTree!,index: Int){
+        if child.parent != nil && self == child.parent {
+            let oldIndex = self.children!.indexOfObject(child);
+            var newIndex = 0;
+            if index > oldIndex {
+                newIndex = index-1;
+            }else{
+                newIndex = index;
+            }
+            self.children!.removeObject(child);
+            self.children!.insertObject(child, atIndex: newIndex);
+        }else{
+            self.children!.insertObject(child, atIndex: index);
+        }
+        let nowDate = NSDate();
+        self.modifytime = nowDate;//一定要赋值，只修改children的话managedObjectContext.hasChanges会认为没有改动
+    }
+    
+    func updateParentTree(parent: DocTree!){
+        self.parent = parent;
+        let nowDate = NSDate();
+        self.modifytime = nowDate;//一定要赋值，只修改children的话managedObjectContext.hasChanges会认为没有改动
+    }
+    
     func getIndex() -> Int?{
         if self.parent == nil {
             return nil;
@@ -108,5 +132,19 @@ class DocTree: NSManagedObject {
     
     func remove(){
         self.parent?.children?.removeObject(self);
+        let nowDate = NSDate();
+        self.parent?.modifytime = nowDate;//一定要赋值，只修改children的话managedObjectContext.hasChanges会认为没有改动
+    }
+    
+    func removeAllChild(){
+        self.children = NSMutableOrderedSet();
+        let nowDate = NSDate();
+        self.modifytime = nowDate;//一定要赋值，只修改children的话managedObjectContext.hasChanges会认为没有改动
+    }
+    
+    func removeChild(child: DocTree){
+        self.children?.removeObject(child);
+        let nowDate = NSDate();
+        self.modifytime = nowDate;//一定要赋值，只修改children的话managedObjectContext.hasChanges会认为没有改动
     }
 }

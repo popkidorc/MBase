@@ -26,7 +26,6 @@ extension DocTreeViewController: NSOutlineViewDataSource {
     
     func outlineView(outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool {
         let docTreeData = item as! DocTree;
-        
         if docTreeData.children == nil || docTreeData.children?.count <= 0 {
             return false;
         } else {
@@ -57,5 +56,48 @@ extension DocTreeViewController: NSOutlineViewDataSource {
             }
         }
         return cellView;
+    }
+    
+    func outlineView(outlineView: NSOutlineView, pasteboardWriterForItem item: AnyObject) -> NSPasteboardWriting? {
+        let pbItem = NSPasteboardItem();
+        if let docTree = item as? DocTree {
+            if DocTree.DocTreeType.Trash.rawValue == docTree.type {
+                return nil
+            }
+            pbItem.setString(docTree.name, forType: NSPasteboardTypeString);
+            return pbItem;
+        }
+        return nil
+    }
+    
+    func outlineView(outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: AnyObject?, proposedChildIndex index: Int) -> NSDragOperation {
+        if index >= 0 {
+            return NSDragOperation.Move;
+        }else{
+            return NSDragOperation.None;
+        }
+    }
+    
+    func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool {
+        let selectedDocTree = self.selectedTree();
+        if selectedDocTree == nil {
+            return false;
+        }
+//        let pd = info.draggingPasteboard();
+//        let name = pd.stringForType(NSPasteboardTypeString);
+        
+        let parentDocTree: DocTree;
+        if item == nil {
+            parentDocTree = self.docTreeData;
+        } else {
+            parentDocTree = item as! DocTree;
+        }
+        
+        if DocTree.DocTreeType.Root.rawValue == parentDocTree.type && index == 0 {
+            return false;
+        }
+
+        self.moveNode(selectedDocTree!, targetParentDocTree: parentDocTree, targetIndex: index);
+        return true
     }
 }

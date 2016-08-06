@@ -9,37 +9,40 @@
 import Cocoa
 import CoreData
 
-class DocTreeViewController: NSViewController {
+class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     @IBOutlet weak var docTreeView: NSOutlineView!
     
     var docTreeData: DocTree!;
     
     var docEditViewController: DocEditViewController!;
-
+    
     var managedObjectContext: NSManagedObjectContext!;
     
     @IBAction func doubleAction(sender: AnyObject) {
-        let docTree = self.selectedTree();
-        if docTree == nil {
+        let selectedDocTree = self.selectedTree();
+        if selectedDocTree == nil {
+            return;
+        }
+        if DocTree.DocTreeType.Trash.rawValue == selectedDocTree?.type {
             return;
         }
         
         let docTreeInfoViewController = DocTreeInfoViewController(nibName: "DocTreeInfoViewController", bundle: nil);
-        docTreeInfoViewController!.initData(docTree);
+        docTreeInfoViewController!.initData(selectedDocTree);
         
-        let newSelectedRow = self.docTreeView.rowForItem(docTree);
+        let newSelectedRow = self.docTreeView.rowForItem(selectedDocTree);
         let rowView = self.docTreeView.rowViewAtRow(newSelectedRow, makeIfNecessary: false);
         
         docTreeInfoViewController!.showPopover(rowView, docTreeViewController: self);
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad();
+        self.docTreeView.registerForDraggedTypes([NSPasteboardTypeString]);
     }
     
     func initDocTreeDatas() {
-        
         // 1. 加载数据，查询coredata
         let fetchRequest:NSFetchRequest = NSFetchRequest()
         //        fetchRequest.fetchLimit = 10 //限定查询结果的数量
@@ -75,17 +78,6 @@ class DocTreeViewController: NSViewController {
             if tree.number == -1 {
                 docTreeData = tree;
             }
-//            print("============");
-//            print("============");
-//            print("name=" + String(tree.name!))
-//            print("content=" + String(tree.content!))
-//            if tree.parent != nil {
-//                print("parent=" + String(tree.parent!.name!))
-//            }
-//            print("children=" + String(tree.children!.count))
-//            for child in tree.children! {
-//                print("======children=" + String(child.name!))
-//            }
         }
     }
     
@@ -125,6 +117,33 @@ class DocTreeViewController: NSViewController {
         let indexSet = NSIndexSet(index: selectedRow);
         let columnSet = NSIndexSet(index: 0);
         self.docTreeView.reloadDataForRowIndexes(indexSet, columnIndexes:columnSet);
+    }
+
+    func moveNode(sourceDocTree: DocTree, targetParentDocTree: DocTree, targetIndex: Int?){
+        if sourceDocTree.parent == nil{
+            return;
+        }
+        var childIndex: Int;
+        if targetIndex == nil{
+            childIndex = targetParentDocTree.children!.count;
+        } else {
+            childIndex = targetIndex!;
+        }
+        // 1. 更新Tree
+        targetParentDocTree.insertChildTree(sourceDocTree, index: childIndex);
+        if sourceDocTree.parent! != targetParentDocTree{
+            //原父类移除该Doctree,由于index原因需要在insert之后执行
+            sourceDocTree.parent!.removeChild(sourceDocTree);
+            sourceDocTree.updateParentTree(targetParentDocTree);
+        }
+        
+        // 2. 重载数据
+        self.docTreeView.reloadData();
+
+        // 3. 选中并滚动到新行
+        let newSelectedRow = self.docTreeView.rowForItem(sourceDocTree);
+        self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
+        self.docTreeView.scrollRowToVisible(newSelectedRow);
     }
 }
 
