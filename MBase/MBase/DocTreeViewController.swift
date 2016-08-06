@@ -88,7 +88,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         
         let tree1 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main1 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
-        main1.initData("", summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: tree1);
+        main1.initData("", summary: "", mark: "", type: DocMain.DocMainType.NotEdit, docTree: tree1);
         tree1.initData("回收站", content: "回收站", image: NSImage(named: "ladybugThumb"), type: DocTree.DocTreeType.Trash, parent: docTreeData, docMain: main1);
         
         let tree2 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;

@@ -126,7 +126,7 @@ extension DocTreeViewController: NSMenuDelegate {
             return;
         }
         selectedDocTree?.removeAllChild();
-        
+
         // 3. 重载
         self.docTreeView.reloadData();
     }

@@ -66,11 +66,7 @@ class DocTree: NSManagedObject {
         } else {
             self.type = type!.rawValue;
         }
-        if type == nil || DocTreeType.Trash == type{
-            self.docMain = nil;
-        } else {
-            self.docMain = docMain;
-        }
+        self.docMain = docMain;
         let nowDate = NSDate();
         self.createtime = nowDate;
         self.modifytime = nowDate;

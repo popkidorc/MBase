@@ -17,6 +17,7 @@ class DocMainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.webView.backgroundColor = NSColor(deviceRed: (248+1)/256, green: (241+1)/256, blue: (243+1)/256, alpha: 1);
         markdown = "";
         self.refreshContent();
     }

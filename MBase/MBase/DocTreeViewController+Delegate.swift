@@ -16,9 +16,6 @@ extension DocTreeViewController: NSOutlineViewDelegate {
         if selectedDocTree == nil {
             return;
         }
-        if DocTree.DocTreeType.Trash.rawValue == selectedDocTree?.type {
-            return;
-        }
         //获取并展示docmain
         self.docEditViewController.initDocEditDatas(selectedDocTree?.docMain);
     }

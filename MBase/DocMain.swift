@@ -14,6 +14,7 @@ class DocMain: NSManagedObject {
     
     enum DocMainType : String {
         case Markdown = "Markdown"
+        case NotEdit = "NotEdit"
     }
     
     func initData(content: String!, summary: String?, mark: String?, type: DocMainType?, docTree: DocTree!) {
