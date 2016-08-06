@@ -52,13 +52,13 @@ extension DocTreeViewController: NSMenuDelegate {
         let newDocTree = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let newDocMain = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
         newDocMain.initData("", summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: newDocTree);
-        newDocTree.initData("new",content: "", image: NSImage(named: "centipedeThumb"), type: DocTree.DocTreeType.Normal,  parent: parentDocTree, docMain: newDocMain);
+        newDocTree.initData("new",content: "", image: NSImage(named: "GenericFolderIcon"), type: DocTree.DocTreeType.Normal,  parent: parentDocTree, docMain: newDocMain);
         
         // 2. 将该实例添加到父级Tree
         parentDocTree.addChildTree(newDocTree);
         
-        // 3. 重载
-        self.docTreeView.reloadData();
+        // 3. 重载数据
+        self.reloadData();
         
         // 4. 选中并滚动到新行
         let newSelectedRow = self.docTreeView.rowForItem(newDocTree);
@@ -75,13 +75,13 @@ extension DocTreeViewController: NSMenuDelegate {
         let newDocTree = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let newDocMain = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
         newDocMain.initData("", summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: newDocTree);
-        newDocTree.initData("new", content: "", image: NSImage(named: "centipedeThumb"), type: DocTree.DocTreeType.Normal,  parent: selectedDocTree!, docMain: newDocMain);
+        newDocTree.initData("new", content: "", image: NSImage(named: "GenericFolderIcon"), type: DocTree.DocTreeType.Normal,  parent: selectedDocTree!, docMain: newDocMain);
         
         // 2. 将该实例添加到选中Tree
         selectedDocTree!.addChildTree(newDocTree);
         
-        // 3. 重载
-        self.docTreeView.reloadData();
+        // 3. 重载数据
+        self.reloadData();
 
         // 4. 展开选中节点
         self.docTreeView.expandItem(selectedDocTree);
@@ -110,14 +110,14 @@ extension DocTreeViewController: NSMenuDelegate {
         }
         self.moveNode(selectedDocTree!, targetParentDocTree: trashTree!, targetIndex: nil);
         
-        // 3. 重载
-        self.docTreeView.reloadData();
+        // 3. 重载数据
+        self.reloadData();
     }
     
     @IBAction func cleanTrash(sender: AnyObject) {
         // 1. 获取选中tree
         let selectedDocTree = self.selectedTree();
-        if (selectedDocTree == nil) {
+        if selectedDocTree == nil || DocTree.DocTreeType.Trash.rawValue != selectedDocTree?.type{
             return;
         }
 
@@ -125,9 +125,9 @@ extension DocTreeViewController: NSMenuDelegate {
         if selectedDocTree!.children == nil || selectedDocTree!.children?.count <= 0{
             return;
         }
-        selectedDocTree?.removeAllChild();
+        selectedDocTree!.removeAllChild();
 
-        // 3. 重载
-        self.docTreeView.reloadData();
+        // 3. 重载数据
+        self.reloadData();
     }
 }

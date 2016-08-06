@@ -104,16 +104,16 @@
         </popover>
         <menu id="ovA-CX-j5C">
             <items>
-                <menuItem title="添加类" id="4O4-Vh-Woj" userLabel="addTree">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="addTree:" target="-2" id="VPm-t1-6fB"/>
-                    </connections>
-                </menuItem>
                 <menuItem title="添加子类" id="wLb-of-Dv0" userLabel="addChildTree">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="addChildTree:" target="-2" id="sZI-JY-s4q"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="添加类" id="4O4-Vh-Woj" userLabel="addTree">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="addTree:" target="-2" id="VPm-t1-6fB"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="8cy-bG-J25"/>

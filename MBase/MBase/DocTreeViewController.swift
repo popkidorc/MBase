@@ -89,14 +89,12 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         let tree1 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main1 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
         main1.initData("", summary: "", mark: "", type: DocMain.DocMainType.NotEdit, docTree: tree1);
-        tree1.initData("回收站", content: "回收站", image: NSImage(named: "ladybugThumb"), type: DocTree.DocTreeType.Trash, parent: docTreeData, docMain: main1);
+        tree1.initData("回收站", content: "回收站", image: NSImage(named: "TrashIcon"), type: DocTree.DocTreeType.Trash, parent: docTreeData, docMain: main1);
         
         let tree2 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main2 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
         main2.initData("", summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: tree2);
-        tree2.initData("我的文档", content: "我的文档", image: NSImage(named: "centipedeThumb"), type: DocTree.DocTreeType.Normal, parent: docTreeData, docMain: main2);
-        
-        
+        tree2.initData("我的文档", content: "我的文档", image: NSImage(named: "HomeFolderIcon"), type: DocTree.DocTreeType.Normal, parent: docTreeData, docMain: main2);
         
         docTreeData.addChildTree(tree1);
         docTreeData.addChildTree(tree2);
@@ -111,12 +109,14 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     }
     
     func changeSelectedData(docTreeInfoData : DocTreeInfoData!, selectedDocTree: DocTree!){
+        // 1. 更新Tree
         selectedDocTree.updateData(docTreeInfoData.name, content: docTreeInfoData.content, image: docTreeInfoData.image, type: DocTree.DocTreeType.Normal);
         
+        // 2. 重载数据
         let selectedRow = self.docTreeView.rowForItem(selectedDocTree);
         let indexSet = NSIndexSet(index: selectedRow);
         let columnSet = NSIndexSet(index: 0);
-        self.docTreeView.reloadDataForRowIndexes(indexSet, columnIndexes:columnSet);
+        self.reloadData(indexSet, columnSet: columnSet);
     }
 
     func moveNode(sourceDocTree: DocTree, targetParentDocTree: DocTree, targetIndex: Int?){
@@ -138,12 +138,44 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         }
         
         // 2. 重载数据
-        self.docTreeView.reloadData();
+        self.reloadData();
 
         // 3. 选中并滚动到新行
         let newSelectedRow = self.docTreeView.rowForItem(sourceDocTree);
         self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
         self.docTreeView.scrollRowToVisible(newSelectedRow);
+    }
+    
+    func reloadData(){
+        // 1. 改变图标
+        self.changeImage();
+        // 2. 重载数据
+        self.docTreeView.reloadData();
+    }
+    
+    func reloadData(indexSet: NSIndexSet, columnSet: NSIndexSet){
+        // 1. 改变图标
+        self.changeImage();
+        // 2. 重载数据
+        self.docTreeView.reloadDataForRowIndexes(indexSet, columnIndexes:columnSet);
+    }
+    
+    func changeImage(){
+        if docTreeData == nil || docTreeData.children!.count < 0{
+            return;
+        }
+        
+        for child in docTreeData.children! {
+            let docTree = child as! DocTree;
+            if DocTree.DocTreeType.Trash.rawValue == docTree.type {
+                if docTree.children!.count > 0 {
+                    docTree.image = NSImage(named: "FullTrashIcon")?.TIFFRepresentation;
+                } else {
+                    docTree.image = NSImage(named: "TrashIcon")?.TIFFRepresentation;
+                }
+            }
+        }
+        
     }
 }
 

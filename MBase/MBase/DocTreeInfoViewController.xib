@@ -84,7 +84,7 @@
                 </imageView>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LJf-eg-0Au" userLabel="changePic">
                     <rect key="frame" x="200" y="32" width="92" height="32"/>
-                    <buttonCell key="cell" type="push" title="选择图片" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NtC-lf-drC">
+                    <buttonCell key="cell" type="push" title="修改图标" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NtC-lf-drC">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
                     </buttonCell>

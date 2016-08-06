@@ -13,20 +13,15 @@ extension DocTreeInfoViewController {
     
     @IBAction func changPicture(sender: AnyObject) {
         if docTreeInfoData != nil {
-            IKPictureTaker().beginPictureTakerSheetForWindow(self.view.window, withDelegate: self, didEndSelector: #selector(DocTreeInfoViewController.pictureTakerDidEnd(_:returnCode:contextInfo:)), contextInfo: nil);
+            IKPictureTaker().beginPictureTakerSheetForWindow(self.view.window!.parentWindow!, withDelegate: self, didEndSelector: #selector(DocTreeInfoViewController.pictureTakerDidEnd(_:returnCode:contextInfo:)), contextInfo: nil);
         }
     }
     
     func pictureTakerDidEnd(picker: IKPictureTaker, returnCode: NSInteger, contextInfo: UnsafePointer<Void>) {
         let image = picker.outputImage()
         if image != nil && returnCode == NSModalResponseOK {
-            self.imageView.image = image;
             self.docTreeInfoData?.image = image;
-//            if let selectedDoc = selectedBugDoc() {
-//                selectedDoc.fullImage = image;
-//                selectedDoc.thumbImage = image.imageByScalingAndCroppingForSize(CGSize(width: 44, height: 44));
-//                reloadSelectedBugRow();
-//            }
+            self.docTreeViewController?.changeSelectedData(docTreeInfoData, selectedDocTree: self.docTreeData);
         }
     }
     
