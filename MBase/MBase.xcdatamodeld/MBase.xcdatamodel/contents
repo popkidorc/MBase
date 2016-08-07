@@ -13,10 +13,8 @@
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createtime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="modifytime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DocTree" syncable="YES"/>
@@ -24,7 +22,7 @@
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DocTree" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DocTree" positionX="3148" positionY="1194" width="128" height="223"/>
         <element name="DocMain" positionX="3159" positionY="1269" width="128" height="150"/>
+        <element name="DocTree" positionX="3148" positionY="1194" width="128" height="195"/>
     </elements>
 </model>

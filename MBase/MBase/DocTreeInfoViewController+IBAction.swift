@@ -21,6 +21,7 @@ extension DocTreeInfoViewController {
         let image = picker.outputImage()
         if image != nil && returnCode == NSModalResponseOK {
             self.docTreeInfoData?.image = image;
+            self.docTreeInfoData?.isChangeImage = true;
             self.docTreeViewController?.changeSelectedData(docTreeInfoData, selectedDocTree: self.docTreeData);
         }
     }

@@ -19,7 +19,23 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     var managedObjectContext: NSManagedObjectContext!;
     
+    @IBAction func myAction(sender: AnyObject) {
+        
+        print("myAction")
+    }
     @IBAction func doubleAction(sender: AnyObject) {
+        self.showDocTreeInfoPopover();
+    }
+    
+    override func keyDown(theEvent: NSEvent) {
+        print("theEvent:"+String(theEvent.keyCode))
+        //回车
+        if 36 == theEvent.keyCode{
+            self.showDocTreeInfoPopover();
+        }
+    }
+    
+    func showDocTreeInfoPopover(){
         let selectedDocTree = self.selectedTree();
         if selectedDocTree == nil {
             return;
@@ -75,7 +91,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     func initDataByCoreData(trees: [DocTree]){
         for tree in trees {
-            if tree.number == -1 {
+            if DocTree.DocTreeType.Root.rawValue == tree.type {
                 docTreeData = tree;
             }
         }
@@ -89,7 +105,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         let tree1 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main1 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
         main1.initData("", summary: "", mark: "", type: DocMain.DocMainType.NotEdit, docTree: tree1);
-        tree1.initData("回收站", content: "回收站", image: NSImage(named: "TrashIcon"), type: DocTree.DocTreeType.Trash, parent: docTreeData, docMain: main1);
+        tree1.initData("废纸篓", content: "废纸篓", image: NSImage(named: "TrashIcon"), type: DocTree.DocTreeType.Trash, parent: docTreeData, docMain: main1);
         
         let tree2 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main2 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
@@ -110,13 +126,14 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     func changeSelectedData(docTreeInfoData : DocTreeInfoData!, selectedDocTree: DocTree!){
         // 1. 更新Tree
-        selectedDocTree.updateData(docTreeInfoData.name, content: docTreeInfoData.content, image: docTreeInfoData.image, type: DocTree.DocTreeType.Normal);
+        var docTreeType = DocTree.DocTreeType.Normal;
+        if DocTree.DocTreeType.Normal.rawValue == selectedDocTree.type && docTreeInfoData.isChangeImage! {
+            docTreeType = DocTree.DocTreeType.Custom;
+        }
+        selectedDocTree.updateData(docTreeInfoData.name, content: docTreeInfoData.content, image: docTreeInfoData.image, type: docTreeType);
         
         // 2. 重载数据
-        let selectedRow = self.docTreeView.rowForItem(selectedDocTree);
-        let indexSet = NSIndexSet(index: selectedRow);
-        let columnSet = NSIndexSet(index: 0);
-        self.reloadData(indexSet, columnSet: columnSet);
+        self.reloadData(selectedDocTree);
     }
 
     func moveNode(sourceDocTree: DocTree, targetParentDocTree: DocTree, targetIndex: Int?){
@@ -148,23 +165,25 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     func reloadData(){
         // 1. 改变图标
-        self.changeImage();
+        self.changeSysImage();
         // 2. 重载数据
         self.docTreeView.reloadData();
     }
     
-    func reloadData(indexSet: NSIndexSet, columnSet: NSIndexSet){
+    func reloadData(selectedDocTree: DocTree){
         // 1. 改变图标
-        self.changeImage();
+        self.changeSysImage();
         // 2. 重载数据
+        let selectedRow = self.docTreeView.rowForItem(selectedDocTree);
+        let indexSet = NSIndexSet(index: selectedRow);
+        let columnSet = NSIndexSet(index: 0);
         self.docTreeView.reloadDataForRowIndexes(indexSet, columnIndexes:columnSet);
     }
     
-    func changeImage(){
+    func changeSysImage(){
         if docTreeData == nil || docTreeData.children!.count < 0{
             return;
         }
-        
         for child in docTreeData.children! {
             let docTree = child as! DocTree;
             if DocTree.DocTreeType.Trash.rawValue == docTree.type {
@@ -175,7 +194,32 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
                 }
             }
         }
-        
+    }
+    
+    func changeDocImage(docTree : DocTree){
+        if DocTree.DocTreeType.Custom.rawValue == docTree.type {
+            return;
+        }
+        if DocTree.DocTreeType.Root.rawValue == docTree.parent!.type {
+            return;
+        }
+        var newImage: NSImage?;
+        if docTree.children?.count <= 0 {
+            if docTree.docMain?.content != "" {
+                newImage = NSImage(named: "GenericDocumentIcon")!;
+            } else {
+                newImage = NSImage(named: "GenericFolderIcon")!;
+            }
+        } else {
+            if docTree.docMain?.content != "" {
+                newImage = NSImage(named: "DocumentsFolderIcon")!;
+            }
+        }
+        if newImage != nil{
+            docTree.image = newImage!.TIFFRepresentation;
+            // 2. 重载数据
+            self.reloadData(docTree);
+        }
     }
 }
 

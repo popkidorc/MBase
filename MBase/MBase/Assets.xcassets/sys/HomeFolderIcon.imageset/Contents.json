@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "HomeFolderIcon.png",
+      "filename" : "HomeFolderIcon-1.png",
       "scale" : "1x"
     },
     {
@@ -11,6 +11,7 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "HomeFolderIcon.png",
       "scale" : "3x"
     }
   ],

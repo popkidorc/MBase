@@ -50,13 +50,19 @@
                                                         <rect key="frame" x="3" y="3" width="17" height="17"/>
                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="g5A-1Y-ue1"/>
                                                     </imageView>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCn-KM-La4">
+                                                    <textField autoresizesSubviews="NO" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCn-KM-La4">
                                                         <rect key="frame" x="37" y="3" width="105" height="17"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="eMC-G0-Bvc">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            <allowedInputSourceLocales>
+                                                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                                            </allowedInputSourceLocales>
                                                         </textFieldCell>
+                                                        <connections>
+                                                            <action selector="myAction:" target="-2" id="Jff-ZO-ls4"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <connections>
@@ -117,13 +123,13 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="8cy-bG-J25"/>
-                <menuItem title="放入回收站" id="LJG-Bh-fna" userLabel="removeTree">
+                <menuItem title="放入废纸篓" id="LJG-Bh-fna" userLabel="removeTree">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="removeTree:" target="-2" id="gXg-bj-ZjU"/>
                     </connections>
                 </menuItem>
-                <menuItem title="清空回收站" id="kOO-p1-jl2" userLabel="cleanTrash">
+                <menuItem title="清倒废纸篓" tag="1" id="kOO-p1-jl2" userLabel="cleanTrash">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="cleanTrash:" target="-2" id="Mnb-ba-0yy"/>

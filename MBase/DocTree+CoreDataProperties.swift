@@ -16,9 +16,7 @@ extension DocTree {
 
     @NSManaged var content: String?
     @NSManaged var image: NSData?
-    @NSManaged var level: NSNumber?
     @NSManaged var name: String?
-    @NSManaged var number: NSNumber?
     @NSManaged var modifytime: NSDate?
     @NSManaged var createtime: NSDate?
     @NSManaged var type: String?

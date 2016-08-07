@@ -15,6 +15,7 @@ class DocTree: NSManagedObject {
     enum DocTreeType : String {
         case Root = "Root"
         case Normal = "Normal"
+        case Custom = "Custom"
         case Trash = "Trash"
     }
     
@@ -25,9 +26,7 @@ class DocTree: NSManagedObject {
     
     func initData4Root() {
         self.name = "root";
-        self.number = NSNumber(long: -1);
         self.image = nil;
-        self.level = NSNumber(long: 0);
         self.parent = nil;
         self.children = NSMutableOrderedSet();
         self.content = "";
@@ -41,22 +40,10 @@ class DocTree: NSManagedObject {
     
     func initData(name: String!, content: String?, image: NSImage?, type: DocTreeType?, parent: DocTree!, docMain: DocMain!){
         self.name = name;
-        if parent == nil {
-            self.number = NSNumber(long: 0);
-        } else if parent.children == nil || parent.children!.count <= 0 {
-            self.number = NSNumber(long: 1);
-        } else {
-            self.number = NSNumber(long: parent.children!.objectAtIndex(parent.children!.count - 1).number!!.longValue + 1 );
-        }
         if image == nil{
             self.image = nil;
         } else {
             self.image = image?.TIFFRepresentation;
-        }
-        if parent == nil {
-            self.level = NSNumber(long: 0);
-        } else {
-            self.level = NSNumber(long: parent!.level!.longValue + 1);
         }
         self.content = content;
         self.children = NSMutableOrderedSet();

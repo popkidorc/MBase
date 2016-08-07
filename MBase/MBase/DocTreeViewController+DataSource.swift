@@ -100,4 +100,5 @@ extension DocTreeViewController: NSOutlineViewDataSource {
         self.moveNode(selectedDocTree!, targetParentDocTree: parentDocTree, targetIndex: index);
         return true
     }
+
 }

@@ -15,7 +15,7 @@ extension DocTreeInfoViewController: NSPopoverDelegate {
         self.docTreeInfoData?.name = self.nameField.stringValue;
         self.docTreeInfoData?.content = self.contentField.string;
         self.docTreeInfoData?.image = self.imageView.image;
-        
+        self.docTreeInfoData?.isChangeImage = false;
         self.docTreeViewController!.changeSelectedData(self.docTreeInfoData, selectedDocTree: self.docTreeData);
     }
 

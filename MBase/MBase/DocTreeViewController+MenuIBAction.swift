@@ -11,7 +11,6 @@ import Cocoa
 extension DocTreeViewController: NSMenuDelegate {
     
     func menuWillOpen(menu: NSMenu) {
-        print("menuWillOpen");
         let selectedDocTree = self.selectedTree();
         for menuItem in menu.itemArray {
             if selectedDocTree == nil {
@@ -19,7 +18,7 @@ extension DocTreeViewController: NSMenuDelegate {
                 continue;
             }
             if DocTree.DocTreeType.Trash.rawValue == selectedDocTree?.type {
-                if "清空回收站" == menuItem.title {
+                if 1 == menuItem.tag {
                     menuItem.hidden = false;
                     continue;
                 } else {
@@ -29,7 +28,7 @@ extension DocTreeViewController: NSMenuDelegate {
             }
             
             if DocTree.DocTreeType.Trash.rawValue != selectedDocTree?.type {
-                if "清空回收站" == menuItem.title {
+                if 1 == menuItem.tag {
                     menuItem.hidden = true;
                     continue;
                 } else {
