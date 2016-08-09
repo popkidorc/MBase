@@ -62,10 +62,11 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         if let selectedDocTree = self.userInfo.selectDocTree {
             // 展开节点
             let parents = selectedDocTree.getParents();
-            for i in 1...parents.count {
-                self.docTreeView.expandItem(parents[parents.count-i]);
+            if parents.count>=1{
+                for i in 1...parents.count {
+                    self.docTreeView.expandItem(parents[parents.count-i]);
+                }
             }
-            
             let newSelectedRow = self.docTreeView.rowForItem(selectedDocTree);
             self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
             self.docTreeView.scrollRowToVisible(newSelectedRow);
@@ -113,8 +114,10 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     // 初始化默认值
     func initDataByDefaultData(){
-        docTreeData = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
-        docTreeData.initData4Root();
+        self.docTreeData = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
+        let mainRoot = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
+        mainRoot.initRootDate(self.docTreeData);
+        docTreeData.initData4Root(mainRoot);
         
         let tree1 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main1 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
@@ -123,7 +126,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         
         let tree2 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main2 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
-        main2.initData("", summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: tree2);
+        main2.initData(ConstsManager.getMarkdownHelp(), summary: "markdown使用帮助", mark: "markdown", type: DocMain.DocMainType.Markdown, docTree: tree2);
         tree2.initData("我的文档", content: "我的文档", image: NSImage(named: "HomeFolderIcon"), type: DocTree.DocTreeType.Normal, parent: docTreeData, docMain: main2);
         
         docTreeData.addChildTree(tree1);

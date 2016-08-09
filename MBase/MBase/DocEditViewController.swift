@@ -8,13 +8,13 @@
 
 import Cocoa
 import CoreData
+import WebKit
 
-class DocEditViewController: NSViewController,NSTextStorageDelegate {
+class DocEditViewController: NSViewController {
 
+    @IBOutlet var docEditView: DocEditTextView!
     
-    @IBOutlet var textView: DocEditTextView!
-    
-    var docEditView: NSTextView!
+    @IBOutlet weak var docEditScrollView: NSScrollView!
     
     var docEditTextStorage: DocEditTextStorage!;
     
@@ -27,52 +27,80 @@ class DocEditViewController: NSViewController,NSTextStorageDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.textView.registerForDraggedTypes([NSPasteboardTypeString,NSPasteboardTypePNG]);
-        self.textView.editable = false;
-        self.textView.backgroundColor = NSColor(deviceRed: (244+1)/256, green: (244+1)/256, blue: (244+1)/256, alpha: 1);
-        self.createDocEidtView();
+        initDocEidtView()
     }
     
     func initDocEditDatas(docMainData: DocMain!){
         self.docMainData = docMainData;
-        
         if DocMain.DocMainType.NotEdit.rawValue == docMainData.type {
-            self.textView.editable = false;
-            self.textView.backgroundColor = NSColor(deviceRed: (244+1)/256, green: (244+1)/256, blue: (244+1)/256, alpha: 1);
+            self.docEditView.editable = false;
+            self.docEditView.backgroundColor = ConstsManager.docEditDisableBgColor;
         }else{
-            self.textView.editable = true;
-            self.textView.backgroundColor = NSColor(deviceRed: (249+1)/256, green: (246+1)/256, blue: (236+1)/256, alpha: 1);
+            self.docEditView.editable = true;
+            self.docEditView.backgroundColor = ConstsManager.docEditEnableBgColor;
         }
-        self.textView.string = docMainData.content!;
+        
+        let attrs = [NSFontAttributeName:NSFont.systemFontOfSize(ConstsManager.defaultFontSize)];
+        let attrString = NSAttributedString(string: docMainData.content!, attributes: attrs);
+        self.docEditTextStorage.setAttributedString(attrString);
+        
         docMainViewController.markdown = docMainData.content!;
         docMainViewController.refreshContent();
     }
     
-    func createDocEidtView() {
+    func initDocEidtView() {
         // 1. 初始化用于备份编辑器中文本的存储器
-        let attrs = [NSFontAttributeName:NSFont.systemFontOfSize(14)];
-        let attrString = NSAttributedString(string: "asdfas *dfa* sdf", attributes: attrs);
         self.docEditTextStorage = DocEditTextStorage();
-        self.docEditTextStorage.appendAttributedString(attrString);
-        
-        let newTextViewRect = view.bounds
+        self.docEditView.textContainerInset = NSSize(width: 10, height: 50);
         
         // 2. 创建layoutManager
         let layoutManager = NSLayoutManager()
-        
-        // 3. 创建text container
-        let containerSize = CGSize(width: newTextViewRect.width, height: CGFloat.max)
-        let container = NSTextContainer(size: containerSize)
-        container.widthTracksTextView = true
-        
-        
-        // 4. 初始化并设置UITextView
-        self.docEditView = NSTextView(frame: newTextViewRect, textContainer: container);
-        self.docEditView.delegate = self
-        layoutManager.addTextContainer(container)
+        layoutManager.addTextContainer(self.docEditView.textContainer!)
         docEditTextStorage.addLayoutManager(layoutManager)
         docEditTextStorage.docEditView = self.docEditView;
-        view.addSubview(self.docEditView)
+
+        // 3. View属性
+        // 3.1. 拉宽自动补充
+        self.docEditView.textContainer!.widthTracksTextView = true;
+        // 3.2. 剪切版
+        self.docEditView.registerForDraggedTypes([NSPasteboardTypeString,NSPasteboardTypePNG]);
+        // 3.3. 状态＋颜色
+        self.docEditView.editable = false;
+        self.docEditView.backgroundColor = ConstsManager.docEditDisableBgColor;
+        
+        //给滚动条添加通知
+        let scrollContentView = docEditScrollView.contentView;
+        scrollContentView.postsBoundsChangedNotifications = true;
+        let rect =  NSMakeRect(100, 1300 , 200 , 10);
+        docEditScrollView.scrollRectToVisible(rect);
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(boundDidChange), name: NSViewBoundsDidChangeNotification, object: scrollContentView)
+    }
+    
+    func boundDidChange(){
+        if docEditScrollView.hasVerticalScroller{
+            if docEditView.frame.size.height > docEditScrollView.frame.size.height{
+               let rect =  NSMakeRect(100, 1300 , 200 , 10);
+                
+                let webScrollView = docMainViewController.webView!.subviews[0].subviews[0] as! NSScrollView;
+                
+                var curOffset = webScrollView.contentView.bounds.origin;
+                var newOffset = curOffset;
+                
+                newOffset.y = newOffset.y+100;
+                
+//                if (!NSEqualPoints(curOffset, changedBoundsOrigin))
+//                {
+//                    [[self contentView] scrollToPoint:newOffset];
+                    //		[self reflectScrolledClipView:[self contentView]];
+//                }
+                
+
+                webScrollView.contentView.scrollToPoint(newOffset)
+                
+                print("====="+String(docEditScrollView.verticalScroller?.floatValue))
+            }
+            
+        }
     }
     
 }

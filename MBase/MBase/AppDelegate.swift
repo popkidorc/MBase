@@ -14,7 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mainWindowController : MainWindowController!;
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        //app开始启动时调用
+        //app开始启动时调用        
+        
         // 1. 加载数据，查询coredata
         let fetchRequest:NSFetchRequest = NSFetchRequest()
         fetchRequest.fetchLimit = 1 //限定查询结果的数量

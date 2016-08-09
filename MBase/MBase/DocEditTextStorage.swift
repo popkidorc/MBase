@@ -12,7 +12,7 @@ class DocEditTextStorage: NSTextStorage {
     
     let backingStore = NSMutableAttributedString();
     
-    var docEditView: NSTextView!
+    var docEditView: DocEditTextView!
     
     var regexs: [String : [String : AnyObject]]!;
     
@@ -50,8 +50,7 @@ class DocEditTextStorage: NSTextStorage {
         edited(.EditedAttributes, range: range, changeInLength: 0)
         endEditing()
     }
-    
-    
+
     override func processEditing() {
         let newRange = NSRange(location: self.editedRange.location + self.editedRange.length, length: 0);
         self.performReplacementsForRange(self.editedRange)
@@ -60,53 +59,50 @@ class DocEditTextStorage: NSTextStorage {
         if docEditView != nil {
             docEditView!.setSelectedRange(newRange);
         }
-    }
-    
+    }    
     
     func initStyle(){
-        let boldAttributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(14),NSForegroundColorAttributeName : NSColor.orangeColor()]
-        //        var font = NSFontDescriptor(fontAttributes: [NSFontItalicTrait]);
-        //
-        let italicAttributes = [NSFontAttributeName : NSFont.systemFontOfSize(14), NSForegroundColorAttributeName : NSColor.orangeColor()];
-        
-        //            createAttributesForFontStyle(UIFontTextStyleBody, withTrait:.TraitItalic)
-        let strikeThroughAttributes = [NSStrikethroughStyleAttributeName : 1]
-        //        UIFont(descriptor: scriptFontDescriptor, size: CGFloat(bodyFontSize.floatValue))
-        //            UIFontDescriptor(fontAttributes: [UIFontDescriptorFamilyAttribute : "Zapfino"])
-        //        let scriptFontDescriptor = NSFontDescriptor(fontAttributes: [Nsfontdescriptor])
-        //        NSFont(descriptor: <#T##NSFontDescriptor#>, textTransform: <#T##NSAffineTransform?#>)
-        //        let scriptAttributes = [NSFontAttributeName : scriptFont]
-        let redTextAttributes = [NSForegroundColorAttributeName : NSColor.redColor()]
-        
+        let boldAttributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.boldFontColor]
+        let italicAttributes = [NSFontAttributeName : NSFont.systemFontOfSize(ConstsManager.defaultFontSize), NSForegroundColorAttributeName : ConstsManager.boldFontColor];
+//        let strikeThroughAttributes = [NSStrikethroughStyleAttributeName : 1]
+    
+        let h1Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("# ")];
+        let h2Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("## ")];
+        let h3Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("### ")];
+        let h4Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("#### ")];
+        let h5Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("##### ")];
+        let h6Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("###### ")];
         
         regexs = [
             "(\\*\\*\\w+(\\s\\w+)*\\*\\*)" : boldAttributes,
             "(\\*\\w+(\\s\\w+)*\\*)" : italicAttributes,
             "([0-9]+\\.)\\s" : boldAttributes,
-            "(-\\w+(\\s\\w+)*-)" : strikeThroughAttributes,
+//            "(-\\w+(\\s\\w+)*-)" : strikeThroughAttributes,
+            "(^\\# (.)*)" : h1Attributes,
+            "(^\\#\\# (.)*)" : h2Attributes,
+            "(^\\#\\#\\# (.)*)" : h3Attributes,
+            "(^\\#\\#\\#\\# (.)*)" : h4Attributes,
+            "(^\\#\\#\\#\\#\\# (.)*)" : h5Attributes,
+            "(^\\#\\#\\#\\#\\#\\# (.)*)" : h6Attributes
             //            "(~\\w+(\\s\\w+)*~)" : scriptAttributes,
-            "\\s([A-Z]{2,})\\s" : redTextAttributes
+            //            "\\s([A-Z]{2,})\\s" : redTextAttributes
         ]
     }
     
     func applyStylesToRange(searchRange: NSRange) {
-        let normalAttrs = [NSFontAttributeName : NSFont.systemFontOfSize(14)]
+        let normalAttributes = [NSParagraphStyleAttributeName : ConstsManager.getDefaultParagraphStyle(), NSFontAttributeName : NSFont.systemFontOfSize(ConstsManager.defaultFontSize), NSForegroundColorAttributeName : ConstsManager.defaultFontColor];
+        
+        self.setAttributes(normalAttributes, range: searchRange);
         
         // 遍历每个需要替换字体属性的文本
         for (pattern, attributes) in regexs {
             do{
-                let regex = try NSRegularExpression(pattern: pattern, options:  NSRegularExpressionOptions.CaseInsensitive)
+                let regex = try NSRegularExpression(pattern: pattern, options: [.CaseInsensitive, .AnchorsMatchLines])
                 regex.enumerateMatchesInString(backingStore.string, options: NSMatchingOptions(rawValue: 0), range: searchRange) {
                     match, flags, stop in
                     // 设置字体属性
                     let matchRange = match!.rangeAtIndex(1)
                     self.addAttributes(attributes, range: matchRange)
-                    
-                    // 还原字体样式
-                    let maxRange = matchRange.location + matchRange.length
-                    if maxRange + 1 < self.length {
-                        self.addAttributes(normalAttrs, range: NSMakeRange(maxRange, 1))
-                    }
                 }
             }catch{
                 let nserror = error as NSError

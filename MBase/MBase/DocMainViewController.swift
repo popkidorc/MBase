@@ -28,27 +28,9 @@ class DocMainViewController: NSViewController {
             html = html!.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
             html = html!.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
             html = html!.stringByReplacingOccurrencesOfString("&amp;", withString: "&");
-//            print("loadHTMLString:"+html!);
             webView.mainFrame.loadHTMLString(html!, baseURL: nil)
         }
     }
-    
 }
 
 
-extension DocMainViewController: WebPolicyDelegate {
-    func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!) {
-        let navigationType = actionInformation[WebActionNavigationTypeKey] as! NSNumber
-        guard case .LinkClicked = WebNavigationType(rawValue: navigationType.integerValue)! else {
-            listener.use()
-            return
-        }
-        guard let URL = actionInformation[WebActionOriginalURLKey] as? NSURL else {
-            listener.use()
-            return
-        }
-        
-        listener.ignore()
-        NSWorkspace.sharedWorkspace().openURL(URL)
-    }
-}

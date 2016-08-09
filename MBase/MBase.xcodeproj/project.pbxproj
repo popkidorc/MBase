@@ -24,6 +24,11 @@
 		A86220C71D40737400BAC828 /* ScaryBugDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86220C61D40737400BAC828 /* ScaryBugDoc.swift */; };
 		A86220CE1D4079D500BAC828 /* NSImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = A86220CB1D4079D500BAC828 /* NSImage+Extras.m */; };
 		A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = A86220CD1D4079D500BAC828 /* EDStarRating.m */; };
+		A89099731D59B57C00E25D8E /* consts.plist in Resources */ = {isa = PBXBuildFile; fileRef = A89099721D59B57C00E25D8E /* consts.plist */; };
+		A89099771D59B80900E25D8E /* ConstsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89099761D59B80900E25D8E /* ConstsManager.swift */; };
+		A890997C1D59CB5300E25D8E /* MarkdownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890997B1D59CB5300E25D8E /* MarkdownManager.swift */; };
+		A89099801D59DBCE00E25D8E /* markdownHelp.strings in Resources */ = {isa = PBXBuildFile; fileRef = A890997F1D59DBCE00E25D8E /* markdownHelp.strings */; };
+		A89099841D59EA4400E25D8E /* DocMainViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89099831D59EA4400E25D8E /* DocMainViewController+Delegate.swift */; };
 		A890F7001D40D49E003FF760 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890F6FE1D40D49E003FF760 /* MainWindowController.swift */; };
 		A890F7011D40D49E003FF760 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A890F6FF1D40D49E003FF760 /* MainWindowController.xib */; };
 		A8914B801D42318000A31073 /* DocTreeViewController+MenuIBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8914B7F1D42318000A31073 /* DocTreeViewController+MenuIBAction.swift */; };
@@ -90,6 +95,11 @@
 		A86220CB1D4079D500BAC828 /* NSImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Extras.m"; sourceTree = "<group>"; };
 		A86220CC1D4079D500BAC828 /* EDStarRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDStarRating.h; sourceTree = "<group>"; };
 		A86220CD1D4079D500BAC828 /* EDStarRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDStarRating.m; sourceTree = "<group>"; };
+		A89099721D59B57C00E25D8E /* consts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = consts.plist; sourceTree = "<group>"; };
+		A89099761D59B80900E25D8E /* ConstsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstsManager.swift; sourceTree = "<group>"; };
+		A890997B1D59CB5300E25D8E /* MarkdownManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownManager.swift; sourceTree = "<group>"; };
+		A890997F1D59DBCE00E25D8E /* markdownHelp.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = markdownHelp.strings; sourceTree = "<group>"; };
+		A89099831D59EA4400E25D8E /* DocMainViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocMainViewController+Delegate.swift"; sourceTree = "<group>"; };
 		A890F6FE1D40D49E003FF760 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		A890F6FF1D40D49E003FF760 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		A8914B7F1D42318000A31073 /* DocTreeViewController+MenuIBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeViewController+MenuIBAction.swift"; sourceTree = "<group>"; };
@@ -156,8 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				A8FFBE581D5499B8004EC5C4 /* DocTreeInfoData.swift */,
-				A8FFBE501D549902004EC5C4 /* DocMain+CoreDataProperties.swift */,
-				A8FFBE511D549902004EC5C4 /* DocMain.swift */,
 				A8FFBE521D549902004EC5C4 /* DocTree+CoreDataProperties.swift */,
 				A8FFBE531D549903004EC5C4 /* DocTree.swift */,
 			);
@@ -183,6 +191,7 @@
 		A86220AD1D406FA000BAC828 /* MBase */ = {
 			isa = PBXGroup;
 			children = (
+				A89099741D59B79B00E25D8E /* system */,
 				A82AD7AA1D44833000F457B6 /* demo */,
 				A8F60CFB1D5204F1009768B6 /* hoedown */,
 				A8F60CFC1D520912009768B6 /* document */,
@@ -191,6 +200,8 @@
 				A86220BB1D40705F00BAC828 /* tree */,
 				A86220B01D406FA000BAC828 /* Assets.xcassets */,
 				A86220B51D406FA000BAC828 /* Info.plist */,
+				A89099721D59B57C00E25D8E /* consts.plist */,
+				A890997F1D59DBCE00E25D8E /* markdownHelp.strings */,
 				A82AD7A31D4478F400F457B6 /* MBase.xcdatamodeld */,
 				A86220C31D4072DE00BAC828 /* Supporting Files */,
 			);
@@ -249,6 +260,31 @@
 				A86220CD1D4079D500BAC828 /* EDStarRating.m */,
 			);
 			name = ObejctViews;
+			sourceTree = "<group>";
+		};
+		A89099741D59B79B00E25D8E /* system */ = {
+			isa = PBXGroup;
+			children = (
+				A890997A1D59CB3A00E25D8E /* markdown */,
+				A89099751D59B7A300E25D8E /* manager */,
+			);
+			name = system;
+			sourceTree = "<group>";
+		};
+		A89099751D59B7A300E25D8E /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				A89099761D59B80900E25D8E /* ConstsManager.swift */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
+		A890997A1D59CB3A00E25D8E /* markdown */ = {
+			isa = PBXGroup;
+			children = (
+				A890997B1D59CB5300E25D8E /* MarkdownManager.swift */,
+			);
+			name = markdown;
 			sourceTree = "<group>";
 		};
 		A890F6FB1D40D3A3003FF760 /* main */ = {
@@ -336,9 +372,9 @@
 			isa = PBXGroup;
 			children = (
 				A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */,
+				A89099831D59EA4400E25D8E /* DocMainViewController+Delegate.swift */,
 				A8F60D061D520EA2009768B6 /* DocEditViewController.swift */,
 				A8C692941D57642B00C5D145 /* DocEditViewController+Delegate.swift */,
-				A8C692921D57609A00C5D145 /* DocEditTextView.swift */,
 				A860F5D71D588D34002BD753 /* DocEditTextStorage.swift */,
 			);
 			name = controller;
@@ -349,6 +385,7 @@
 			children = (
 				A8CB65001D41F89700E69BBE /* DocMainViewController.xib */,
 				A8F60D071D520EA2009768B6 /* DocEditViewController.xib */,
+				A8C692921D57609A00C5D145 /* DocEditTextView.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -356,6 +393,8 @@
 		A8F60CFF1D520A6D009768B6 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A8FFBE501D549902004EC5C4 /* DocMain+CoreDataProperties.swift */,
+				A8FFBE511D549902004EC5C4 /* DocMain.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -420,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8CB65021D41F89700E69BBE /* DocMainViewController.xib in Resources */,
+				A89099801D59DBCE00E25D8E /* markdownHelp.strings in Resources */,
 				A86220B11D406FA000BAC828 /* Assets.xcassets in Resources */,
 				A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */,
 				A890F7011D40D49E003FF760 /* MainWindowController.xib in Resources */,
@@ -427,6 +467,7 @@
 				A86220C21D4070C800BAC828 /* DocumentViewController.xib in Resources */,
 				A8F60D091D520EA2009768B6 /* DocEditViewController.xib in Resources */,
 				A8CB64FA1D41F62400E69BBE /* MainSplitViewController.xib in Resources */,
+				A89099731D59B57C00E25D8E /* consts.plist in Resources */,
 				A8CB64FE1D41F69900E69BBE /* DocTreeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,7 +488,9 @@
 				A8F60D081D520EA2009768B6 /* DocEditViewController.swift in Sources */,
 				A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */,
 				A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */,
+				A89099841D59EA4400E25D8E /* DocMainViewController+Delegate.swift in Sources */,
 				A860F5D81D588D34002BD753 /* DocEditTextStorage.swift in Sources */,
+				A890997C1D59CB5300E25D8E /* MarkdownManager.swift in Sources */,
 				A8C692931D57609A00C5D145 /* DocEditTextView.swift in Sources */,
 				A86220CE1D4079D500BAC828 /* NSImage+Extras.m in Sources */,
 				A86220C11D4070C800BAC828 /* DocumentViewController.swift in Sources */,
@@ -456,6 +499,7 @@
 				A82AD75E1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift in Sources */,
 				A8FFBE541D549903004EC5C4 /* DocMain+CoreDataProperties.swift in Sources */,
 				A82AD7601D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift in Sources */,
+				A89099771D59B80900E25D8E /* ConstsManager.swift in Sources */,
 				A8C692951D57642B00C5D145 /* DocEditViewController+Delegate.swift in Sources */,
 				A8FFBE561D549903004EC5C4 /* DocTree+CoreDataProperties.swift in Sources */,
 				A8CB64E21D41BDBB00E69BBE /* DocumentViewController+IBAction.swift in Sources */,

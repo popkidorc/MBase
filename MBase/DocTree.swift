@@ -24,7 +24,7 @@ class DocTree: NSManagedObject {
         case Deleted = "Deleted"
     }
     
-    func initData4Root() {
+    func initData4Root(docMain: DocMain!) {
         self.name = "root";
         self.image = nil;
         self.parent = nil;
@@ -32,7 +32,7 @@ class DocTree: NSManagedObject {
         self.content = "";
         self.type = DocTreeType.Root.rawValue;
         self.status = DocTreeStatus.Enabled.rawValue;
-        self.docMain = nil;
+        self.docMain = docMain;
         let nowDate = NSDate()
         self.createtime = nowDate;
         self.modifytime = nowDate;

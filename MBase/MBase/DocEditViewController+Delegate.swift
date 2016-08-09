@@ -10,29 +10,10 @@ import Cocoa
 
 extension DocEditViewController: NSTextViewDelegate {
     
-//    func textView(textView: NSTextView, clickedOnCell cell: NSTextAttachmentCellProtocol!, inRect cellFrame: NSRect) {
-//        print("clickedOnCell")
-//    }
-    
-//    func textView(textView: NSTextView, shouldChangeTextInRange affectedCharRange: NSRange, replacementString: String?) -> Bool {
-//        print("shouldChangeTextInRange:"+replacementString!);
-//        return true;
-//    }
-    
     func textDidChange(notification: NSNotification) {
-        let oldString = textView.string!;
-        let string = NSMutableAttributedString(string: oldString);
-        let paragraph = NSMutableParagraphStyle();
-        paragraph.alignment = NSTextAlignment.Justified;
-        paragraph.firstLineHeadIndent = 20.0;
-        paragraph.paragraphSpacingBefore = 10.0;
-        paragraph.lineSpacing = 5;
-        paragraph.hyphenationFactor = 1.0;
-        string.addAttribute(NSParagraphStyleAttributeName, value: paragraph, range: NSMakeRange(0, string.length));
-        textView.attributedString()
-        docMainViewController.markdown = oldString;
+        docMainViewController.markdown = docEditView.string!;
         // 保存coredata
-        self.docMainData.updateContent(oldString);
+        self.docMainData.updateContent(docEditView.string!);
         
         docMainViewController.refreshContent();
     }
@@ -55,5 +36,7 @@ extension DocEditViewController: NSTextViewDelegate {
         print("copyHtml:"+menuItem.title)
         menuItem
     }
+    
+    
 
 }

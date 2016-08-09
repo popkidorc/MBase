@@ -17,6 +17,17 @@ class DocMain: NSManagedObject {
         case NotEdit = "NotEdit"
     }
     
+    func initRootDate(docTree: DocTree!){
+        self.content = "";
+        self.summary = "";
+        self.mark = "";
+        self.type = DocMainType.NotEdit.rawValue;
+        let nowDate = NSDate()
+        self.createtime = nowDate;
+        self.modifytime = nowDate;
+        self.docTree = docTree;
+    }
+    
     func initData(content: String!, summary: String?, mark: String?, type: DocMainType?, docTree: DocTree!) {
         self.content = content;
         self.summary = summary;

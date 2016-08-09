@@ -12,12 +12,6 @@ class DocEditTextView: NSTextView {
 
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-//        self.font = NSFont.
-//            
-//            .preferredFontForTextStyle(UIFontTextStyleBody)
-        // Drawing code here.
     }
-    
-    
     
 }
