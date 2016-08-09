@@ -14,6 +14,8 @@ class MainWindowController: NSWindowController {
     
     var managedObjectContext: NSManagedObjectContext!;
     
+    var userInfo: UserInfo!;
+    
     func initWindow(){
         self.contentViewController = NSViewController();
         self.contentViewController?.view = NSView(frame: NSRect(x: 0, y: 0, width: 1024, height: 768));
@@ -25,6 +27,7 @@ class MainWindowController: NSWindowController {
         // 1. 创建viewController
         mainSplitViewController = MainSplitViewController(nibName: "MainSplitViewController", bundle: nil);
         mainSplitViewController.managedObjectContext = self.managedObjectContext;
+        mainSplitViewController.userInfo = self.userInfo;
         
         // 2. 添加view
         contentViewController!.view.addSubview(mainSplitViewController.view);

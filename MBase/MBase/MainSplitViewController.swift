@@ -18,25 +18,30 @@ class MainSplitViewController: NSSplitViewController {
     
     var managedObjectContext: NSManagedObjectContext!;
     
+    var userInfo: UserInfo!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 1 创建viewController
-        docTreeViewController = DocTreeViewController(nibName: "DocTreeViewController", bundle: nil);
-        docTreeViewController.managedObjectContext = self.managedObjectContext;
-        docTreeViewController.initDocTreeDatas();
-        
         docMainViewController = DocMainViewController(nibName: "DocMainViewController", bundle: nil);
         
         docEditViewController = DocEditViewController(nibName: "DocEditViewController", bundle: nil);
         docEditViewController.docMainViewController = docMainViewController;
         docEditViewController.managedObjectContext = self.managedObjectContext;
         
-        docTreeViewController.docEditViewController = docEditViewController;
         
-        addSplitViewItem(NSSplitViewItem(viewController: docTreeViewController));
-        addSplitViewItem(NSSplitViewItem(viewController: docEditViewController));
-        addSplitViewItem(NSSplitViewItem(viewController: docMainViewController));
+        docTreeViewController = DocTreeViewController(nibName: "DocTreeViewController", bundle: nil);
+        docTreeViewController.docEditViewController = docEditViewController;
+        docTreeViewController.managedObjectContext = self.managedObjectContext;
+        docTreeViewController.userInfo = self.userInfo;
+        docTreeViewController.initDocTreeDatas();
+        
+        
+        self.addSplitViewItem(NSSplitViewItem(viewController: docEditViewController));
+        self.addSplitViewItem(NSSplitViewItem(viewController: docMainViewController));
+        //需要先加载docEditViewController
+        self.insertSplitViewItem(NSSplitViewItem(viewController: docTreeViewController), atIndex: 0);
     }
     
 }

@@ -21,6 +21,9 @@ extension DocTreeViewController: NSOutlineViewDelegate {
         
         //获取并展示docmain
         self.docEditViewController.initDocEditDatas(selectedDocTree!.docMain);
+        
+        // 记录用户操作
+        self.userInfo.updateSelectedDocTree(selectedDocTree!);
     }
     
 }

@@ -19,6 +19,8 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     var managedObjectContext: NSManagedObjectContext!;
     
+    var userInfo: UserInfo!;
+    
     @IBAction func myAction(sender: AnyObject) {
         
         print("myAction")
@@ -52,10 +54,22 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         
         docTreeInfoViewController!.showPopover(rowView, docTreeViewController: self);
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         self.docTreeView.registerForDraggedTypes([NSPasteboardTypeString]);
+        // 自动展开并记录的节点
+        if let selectedDocTree = self.userInfo.selectDocTree {
+            // 展开节点
+            let parents = selectedDocTree.getParents();
+            for i in 1...parents.count {
+                self.docTreeView.expandItem(parents[parents.count-i]);
+            }
+            
+            let newSelectedRow = self.docTreeView.rowForItem(selectedDocTree);
+            self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
+            self.docTreeView.scrollRowToVisible(newSelectedRow);
+        }
     }
     
     func initDocTreeDatas() {
@@ -79,7 +93,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
             NSApplication.sharedApplication().presentError(nserror)
         }
         
-        //遍历查询的结果
+        // 遍历查询的结果
         if trees.count > 0 {
             // 1.1. 添加到coredata
             self.initDataByCoreData(trees);
@@ -135,7 +149,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         // 2. 重载数据
         self.reloadData(selectedDocTree);
     }
-
+    
     func moveNode(sourceDocTree: DocTree, targetParentDocTree: DocTree, targetIndex: Int?){
         if sourceDocTree.parent == nil{
             return;
@@ -156,7 +170,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         
         // 2. 重载数据
         self.reloadData();
-
+        
         // 3. 选中并滚动到新行
         let newSelectedRow = self.docTreeView.rowForItem(sourceDocTree);
         self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
@@ -219,6 +233,18 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
             docTree.image = newImage!.TIFFRepresentation;
             // 2. 重载数据
             self.reloadData(docTree);
+        }
+    }
+    
+    func expandParent(docTree : DocTree){
+        if DocTree.DocTreeType.Root.rawValue == docTree.type!{
+            
+            
+            return;
+        }
+        if docTree.parent != nil{
+            self.docTreeView.expandItem(docTree.parent!);
+            self.expandParent(docTree.parent!);
         }
     }
 }

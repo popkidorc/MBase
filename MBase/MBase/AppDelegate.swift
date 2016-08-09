@@ -14,15 +14,41 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mainWindowController : MainWindowController!;
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        //app开始启动时调用
+        // 1. 加载数据，查询coredata
+        let fetchRequest:NSFetchRequest = NSFetchRequest()
+        fetchRequest.fetchLimit = 1 //限定查询结果的数量
+        //设置数据请求的实体结构
+        fetchRequest.entity = NSEntityDescription.entityForName("UserInfo",
+                                                                inManagedObjectContext: self.managedObjectContext);
+        //设置查询条件
+        let predicate = NSPredicate(format: "1=1 ", "")
+        fetchRequest.predicate = predicate
+        
+        //查询操作
+        var userInfos = [UserInfo]();
+        do{
+            userInfos = try managedObjectContext.executeFetchRequest(fetchRequest) as! [UserInfo];
+        }catch{
+            let nserror = error as NSError
+            NSApplication.sharedApplication().presentError(nserror)
+        }
+
+        let userInfo: UserInfo;
+        if userInfos.count > 0 {
+            userInfo = userInfos[0];
+        } else {
+            userInfo = NSEntityDescription.insertNewObjectForEntityForName("UserInfo", inManagedObjectContext: self.managedObjectContext) as! UserInfo;
+        }
+        
         mainWindowController = MainWindowController(windowNibName: "MainWindowController");
         mainWindowController.initWindow();
         mainWindowController.managedObjectContext = self.managedObjectContext;
+        mainWindowController.userInfo = userInfo;
         
         if (!mainWindowController.window!.visible) {
             mainWindowController.showWindow(mainWindowController?.window);
         }
-        
-        //app开始启动时调用
     }
     
     

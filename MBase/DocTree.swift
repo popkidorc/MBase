@@ -59,6 +59,15 @@ class DocTree: NSManagedObject {
         self.modifytime = nowDate;
     }
     
+    func getParents() -> [DocTree]{
+        var parents = [DocTree]();
+        if DocTree.DocTreeType.Root.rawValue != self.parent!.type!{
+            parents.append(self.parent!);
+            parents.appendContentsOf(self.parent!.getParents());
+        }
+        return parents;
+    }
+    
     func updateData(name: String!,content: String?, image: NSImage?, type: DocTreeType?){
         self.name = name;
         self.image = image?.TIFFRepresentation;

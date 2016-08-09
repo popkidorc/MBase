@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8103D821D582C1E0085ECA2 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8103D801D582C1E0085ECA2 /* UserInfo+CoreDataProperties.swift */; };
+		A8103D831D582C1E0085ECA2 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8103D811D582C1E0085ECA2 /* UserInfo.swift */; };
 		A82AD75B1D43B1E100F457B6 /* DocTreeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82AD7591D43B1E100F457B6 /* DocTreeInfoViewController.swift */; };
 		A82AD75C1D43B1E100F457B6 /* DocTreeInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A82AD75A1D43B1E100F457B6 /* DocTreeInfoViewController.xib */; };
 		A82AD75E1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82AD75D1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift */; };
 		A82AD7601D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82AD75F1D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift */; };
 		A82AD7A51D4478F400F457B6 /* MBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A82AD7A31D4478F400F457B6 /* MBase.xcdatamodeld */; };
+		A860F5D81D588D34002BD753 /* DocEditTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A860F5D71D588D34002BD753 /* DocEditTextStorage.swift */; };
 		A86220AF1D406FA000BAC828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86220AE1D406FA000BAC828 /* AppDelegate.swift */; };
 		A86220B11D406FA000BAC828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86220B01D406FA000BAC828 /* Assets.xcassets */; };
 		A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86220B21D406FA000BAC828 /* MainMenu.xib */; };
@@ -27,6 +30,8 @@
 		A8914B821D4231E600A31073 /* DocTreeViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8914B811D4231E600A31073 /* DocTreeViewController+DataSource.swift */; };
 		A8914B841D424BF500A31073 /* DocTreeViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8914B831D424BF500A31073 /* DocTreeViewController+Delegate.swift */; };
 		A8B725B71D52E8D3008C96DF /* Hoedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; };
+		A8C692931D57609A00C5D145 /* DocEditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C692921D57609A00C5D145 /* DocEditTextView.swift */; };
+		A8C692951D57642B00C5D145 /* DocEditViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C692941D57642B00C5D145 /* DocEditViewController+Delegate.swift */; };
 		A8CB64E21D41BDBB00E69BBE /* DocumentViewController+IBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64E11D41BDBB00E69BBE /* DocumentViewController+IBAction.swift */; };
 		A8CB64E61D41C0BE00E69BBE /* AppDelegate+IBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64E51D41C0BE00E69BBE /* AppDelegate+IBAction.swift */; };
 		A8CB64F91D41F62400E69BBE /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64F71D41F62400E69BBE /* MainSplitViewController.swift */; };
@@ -62,12 +67,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A8103D801D582C1E0085ECA2 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserInfo+CoreDataProperties.swift"; path = "../UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A8103D811D582C1E0085ECA2 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = ../UserInfo.swift; sourceTree = "<group>"; };
 		A82AD7591D43B1E100F457B6 /* DocTreeInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocTreeInfoViewController.swift; sourceTree = "<group>"; };
 		A82AD75A1D43B1E100F457B6 /* DocTreeInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocTreeInfoViewController.xib; sourceTree = "<group>"; };
 		A82AD75D1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeInfoViewController+Delegate.swift"; sourceTree = "<group>"; };
 		A82AD75F1D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeInfoViewController+IBAction.swift"; sourceTree = "<group>"; };
 		A82AD7641D4453E100F457B6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		A82AD7A41D4478F400F457B6 /* MBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MBase.xcdatamodel; sourceTree = "<group>"; };
+		A860F5D71D588D34002BD753 /* DocEditTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocEditTextStorage.swift; sourceTree = "<group>"; };
 		A86220AB1D406FA000BAC828 /* MBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86220AE1D406FA000BAC828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A86220B01D406FA000BAC828 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +95,8 @@
 		A8914B7F1D42318000A31073 /* DocTreeViewController+MenuIBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeViewController+MenuIBAction.swift"; sourceTree = "<group>"; };
 		A8914B811D4231E600A31073 /* DocTreeViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeViewController+DataSource.swift"; sourceTree = "<group>"; };
 		A8914B831D424BF500A31073 /* DocTreeViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocTreeViewController+Delegate.swift"; sourceTree = "<group>"; };
+		A8C692921D57609A00C5D145 /* DocEditTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocEditTextView.swift; sourceTree = "<group>"; };
+		A8C692941D57642B00C5D145 /* DocEditViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocEditViewController+Delegate.swift"; sourceTree = "<group>"; };
 		A8CB64E11D41BDBB00E69BBE /* DocumentViewController+IBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DocumentViewController+IBAction.swift"; sourceTree = "<group>"; };
 		A8CB64E51D41C0BE00E69BBE /* AppDelegate+IBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IBAction.swift"; sourceTree = "<group>"; };
 		A8CB64F71D41F62400E69BBE /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8103D841D582C2F0085ECA2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A8103D801D582C1E0085ECA2 /* UserInfo+CoreDataProperties.swift */,
+				A8103D811D582C1E0085ECA2 /* UserInfo.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		A82AD7AA1D44833000F457B6 /* demo */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +257,7 @@
 				A8CB64F51D41F3F300E69BBE /* delegate */,
 				A890F6FC1D40D44B003FF760 /* controller */,
 				A890F6FD1D40D450003FF760 /* view */,
+				A8103D841D582C2F0085ECA2 /* model */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -317,6 +337,9 @@
 			children = (
 				A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */,
 				A8F60D061D520EA2009768B6 /* DocEditViewController.swift */,
+				A8C692941D57642B00C5D145 /* DocEditViewController+Delegate.swift */,
+				A8C692921D57609A00C5D145 /* DocEditTextView.swift */,
+				A860F5D71D588D34002BD753 /* DocEditTextStorage.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -370,7 +393,6 @@
 				TargetAttributes = {
 					A86220AA1D406FA000BAC828 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 43B96X49QE;
 					};
 				};
 			};
@@ -416,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8103D821D582C1E0085ECA2 /* UserInfo+CoreDataProperties.swift in Sources */,
 				A86220C51D40733200BAC828 /* ScaryBugData.swift in Sources */,
 				A86220AF1D406FA000BAC828 /* AppDelegate.swift in Sources */,
 				A82AD7A51D4478F400F457B6 /* MBase.xcdatamodeld in Sources */,
@@ -424,12 +447,16 @@
 				A8F60D081D520EA2009768B6 /* DocEditViewController.swift in Sources */,
 				A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */,
 				A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */,
+				A860F5D81D588D34002BD753 /* DocEditTextStorage.swift in Sources */,
+				A8C692931D57609A00C5D145 /* DocEditTextView.swift in Sources */,
 				A86220CE1D4079D500BAC828 /* NSImage+Extras.m in Sources */,
 				A86220C11D4070C800BAC828 /* DocumentViewController.swift in Sources */,
+				A8103D831D582C1E0085ECA2 /* UserInfo.swift in Sources */,
 				A8914B821D4231E600A31073 /* DocTreeViewController+DataSource.swift in Sources */,
 				A82AD75E1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift in Sources */,
 				A8FFBE541D549903004EC5C4 /* DocMain+CoreDataProperties.swift in Sources */,
 				A82AD7601D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift in Sources */,
+				A8C692951D57642B00C5D145 /* DocEditViewController+Delegate.swift in Sources */,
 				A8FFBE561D549903004EC5C4 /* DocTree+CoreDataProperties.swift in Sources */,
 				A8CB64E21D41BDBB00E69BBE /* DocumentViewController+IBAction.swift in Sources */,
 				A8914B841D424BF500A31073 /* DocTreeViewController+Delegate.swift in Sources */,
@@ -548,7 +575,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -556,7 +582,7 @@
 				);
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pop.MBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MBase/MBase-Bridging-Header.h";
@@ -569,7 +595,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -577,7 +602,7 @@
 				);
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pop.MBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MBase/MBase-Bridging-Header.h";

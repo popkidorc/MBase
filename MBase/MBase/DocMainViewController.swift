@@ -17,14 +17,19 @@ class DocMainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.webView.backgroundColor = NSColor(deviceRed: (248+1)/256, green: (241+1)/256, blue: (243+1)/256, alpha: 1);
         markdown = "";
         self.refreshContent();
     }
     
     func refreshContent(){
-        if let html = Hoedown.renderHTMLForMarkdown(markdown!, flags: [.SkipHTML, .Escape, .HardWrap, .UseXHTML], extensions: [.Tables, .FencedCodeBlocks, .FootNotes, .AutoLinkURLs,  .StrikeThrough, .Underline, .Highlight, .Quote, .Superscript, .Math, .DisableIndentedCode, .NoIntraEmphasis, .SpaceHeaders, .MathExplicit ]) {
-            webView.mainFrame.loadHTMLString(html, baseURL: nil)
+        var html = Hoedown.renderHTMLForMarkdown(markdown!, flags: [.SkipHTML, .Escape, .HardWrap, .UseXHTML], extensions: [.Tables, .FencedCodeBlocks, .FootNotes, .AutoLinkURLs,  .StrikeThrough, .Underline, .Highlight, .Quote, .Superscript, .Math, .DisableIndentedCode, .NoIntraEmphasis, .SpaceHeaders, .MathExplicit ]);
+        if html != nil {
+            html = html!.stringByReplacingOccurrencesOfString("&lt;", withString: "<");
+            html = html!.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
+            html = html!.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
+            html = html!.stringByReplacingOccurrencesOfString("&amp;", withString: "&");
+//            print("loadHTMLString:"+html!);
+            webView.mainFrame.loadHTMLString(html!, baseURL: nil)
         }
     }
     
