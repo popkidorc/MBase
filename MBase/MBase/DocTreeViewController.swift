@@ -21,10 +21,24 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     var userInfo: UserInfo!;
     
-    @IBAction func myAction(sender: AnyObject) {
-        
-        print("myAction")
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        self.docTreeView.registerForDraggedTypes([NSPasteboardTypeString]);
+        // 自动展开并记录的节点
+        if let selectedDocTree = self.userInfo.selectDocTree {
+            // 展开节点
+            let parents = selectedDocTree.getParents();
+            if parents.count>=1{
+                for i in 1...parents.count {
+                    self.docTreeView.expandItem(parents[parents.count-i]);
+                }
+            }
+            let newSelectedRow = self.docTreeView.rowForItem(selectedDocTree);
+            self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
+            self.docTreeView.scrollRowToVisible(newSelectedRow);
+        }
     }
+    
     @IBAction func doubleAction(sender: AnyObject) {
         self.showDocTreeInfoPopover();
     }
@@ -53,24 +67,6 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         let rowView = self.docTreeView.rowViewAtRow(newSelectedRow, makeIfNecessary: false);
         
         docTreeInfoViewController!.showPopover(rowView, docTreeViewController: self);
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad();
-        self.docTreeView.registerForDraggedTypes([NSPasteboardTypeString]);
-        // 自动展开并记录的节点
-        if let selectedDocTree = self.userInfo.selectDocTree {
-            // 展开节点
-            let parents = selectedDocTree.getParents();
-            if parents.count>=1{
-                for i in 1...parents.count {
-                    self.docTreeView.expandItem(parents[parents.count-i]);
-                }
-            }
-            let newSelectedRow = self.docTreeView.rowForItem(selectedDocTree);
-            self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
-            self.docTreeView.scrollRowToVisible(newSelectedRow);
-        }
     }
     
     func initDocTreeDatas() {

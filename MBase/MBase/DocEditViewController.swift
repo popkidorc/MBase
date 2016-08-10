@@ -11,7 +11,7 @@ import CoreData
 import WebKit
 
 class DocEditViewController: NSViewController {
-
+    
     @IBOutlet var docEditView: DocEditTextView!
     
     @IBOutlet weak var docEditScrollView: NSScrollView!
@@ -58,7 +58,7 @@ class DocEditViewController: NSViewController {
         layoutManager.addTextContainer(self.docEditView.textContainer!)
         docEditTextStorage.addLayoutManager(layoutManager)
         docEditTextStorage.docEditView = self.docEditView;
-
+        
         // 3. View属性
         // 3.1. 拉宽自动补充
         self.docEditView.textContainer!.widthTracksTextView = true;
@@ -70,34 +70,16 @@ class DocEditViewController: NSViewController {
         
         //给滚动条添加通知
         let scrollContentView = docEditScrollView.contentView;
-        scrollContentView.postsBoundsChangedNotifications = true;
-        let rect =  NSMakeRect(100, 1300 , 200 , 10);
-        docEditScrollView.scrollRectToVisible(rect);
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(boundDidChange), name: NSViewBoundsDidChangeNotification, object: scrollContentView)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(boundDidChange), name: NSViewBoundsDidChangeNotification, object: scrollContentView)
     }
     
     func boundDidChange(){
         if docEditScrollView.hasVerticalScroller{
             if docEditView.frame.size.height > docEditScrollView.frame.size.height{
-               let rect =  NSMakeRect(100, 1300 , 200 , 10);
-                
                 let webScrollView = docMainViewController.webView!.subviews[0].subviews[0] as! NSScrollView;
-                
-                var curOffset = webScrollView.contentView.bounds.origin;
-                var newOffset = curOffset;
-                
-                newOffset.y = newOffset.y+100;
-                
-//                if (!NSEqualPoints(curOffset, changedBoundsOrigin))
-//                {
-//                    [[self contentView] scrollToPoint:newOffset];
-                    //		[self reflectScrolledClipView:[self contentView]];
-//                }
-                
-
-                webScrollView.contentView.scrollToPoint(newOffset)
-                
-                print("====="+String(docEditScrollView.verticalScroller?.floatValue))
+                var frame = webScrollView.frame;
+                frame.origin.y = docEditScrollView.frame.size.height * (docEditView.frame.size.height/frame.size.height) * CGFloat(docEditScrollView.verticalScroller!.floatValue);
+                webScrollView.contentView.scrollRectToVisible(frame);
             }
             
         }

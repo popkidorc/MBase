@@ -14,7 +14,7 @@ class ConstsManager {
     
     static let docEditEnableBgColor = NSColor(deviceRed: (249+1)/256, green: (246+1)/256, blue: (236+1)/256, alpha: 1);
     
-    static let defaultFontSize: CGFloat = 18;
+    static let defaultFontSize: CGFloat = 16;
     
     static let defaultFontColor = NSColor(calibratedRed: (71+1)/256, green: (97+1)/256, blue: (98+1)/256, alpha: 1);
     
