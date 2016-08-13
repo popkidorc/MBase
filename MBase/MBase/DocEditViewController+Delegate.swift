@@ -33,8 +33,14 @@ extension DocEditViewController: NSTextViewDelegate {
     }
     
     func copyHtml(menuItem: NSMenuItem) {
-        print("copyHtml:"+menuItem.title)
-        menuItem
+        let selectedText = self.docEditView.accessibilitySelectedText();
+        if selectedText == ""{
+            return;
+        }
+        let html = MarkdownManager.generateHTMLForMarkdown(selectedText!, cssType: .None);
+        let pasteboard = NSPasteboard.generalPasteboard();
+        pasteboard.clearContents();
+        pasteboard.setString(html, forType: NSPasteboardTypeString);
     }
     
     

@@ -23,8 +23,8 @@
 		A84C93EB1D5DAD99004CFCD2 /* MarkdownHtmlTag4h5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93EA1D5DAD99004CFCD2 /* MarkdownHtmlTag4h5.swift */; };
 		A84C93ED1D5DADA2004CFCD2 /* MarkdownHtmlTag4h6.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93EC1D5DADA2004CFCD2 /* MarkdownHtmlTag4h6.swift */; };
 		A84C93EF1D5DAF26004CFCD2 /* MarkdownHtmlTag4br.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93EE1D5DAF26004CFCD2 /* MarkdownHtmlTag4br.swift */; };
-		A84C93F11D5DB5E8004CFCD2 /* MarkdownHtmlTag4bold.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4bold.swift */; };
-		A84C93F31D5DB7EB004CFCD2 /* MarkdownHtmlTag4italic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4italic.swift */; };
+		A84C93F11D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift */; };
+		A84C93F31D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift */; };
 		A84C93F51D5DBC1F004CFCD2 /* MarkdownHtmlTag4p.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93F41D5DBC1F004CFCD2 /* MarkdownHtmlTag4p.swift */; };
 		A85462DD1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift */; };
 		A85462E01D5ED5DF002007D9 /* MarkdownEditFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462DF1D5ED5DF002007D9 /* MarkdownEditFactory.swift */; };
@@ -111,8 +111,8 @@
 		A84C93EA1D5DAD99004CFCD2 /* MarkdownHtmlTag4h5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4h5.swift; sourceTree = "<group>"; };
 		A84C93EC1D5DADA2004CFCD2 /* MarkdownHtmlTag4h6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4h6.swift; sourceTree = "<group>"; };
 		A84C93EE1D5DAF26004CFCD2 /* MarkdownHtmlTag4br.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4br.swift; sourceTree = "<group>"; };
-		A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4bold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4bold.swift; sourceTree = "<group>"; };
-		A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4italic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4italic.swift; sourceTree = "<group>"; };
+		A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4strong.swift; sourceTree = "<group>"; };
+		A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4em.swift; sourceTree = "<group>"; };
 		A84C93F41D5DBC1F004CFCD2 /* MarkdownHtmlTag4p.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4p.swift; sourceTree = "<group>"; };
 		A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4code.swift; sourceTree = "<group>"; };
 		A85462DF1D5ED5DF002007D9 /* MarkdownEditFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownEditFactory.swift; sourceTree = "<group>"; };
@@ -384,7 +384,7 @@
 				A836305E1D5C9AC700323812 /* MarkdownHtmlTag.swift */,
 				A85462E31D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift */,
 				A85462E71D5EE46F002007D9 /* MarkdownHtmlTag4a2.swift */,
-				A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4bold.swift */,
+				A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift */,
 				A84C93EE1D5DAF26004CFCD2 /* MarkdownHtmlTag4br.swift */,
 				A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift */,
 				A83630601D5C9D3800323812 /* MarkdownHtmlTag4h1.swift */,
@@ -396,7 +396,7 @@
 				A85462E11D5ED822002007D9 /* MarkdownHtmlTag4hr.swift */,
 				A85462EB1D5F113B002007D9 /* MarkdownHtmlTag4img1.swift */,
 				A85462ED1D5F1144002007D9 /* MarkdownHtmlTag4img2.swift */,
-				A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4italic.swift */,
+				A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift */,
 				A84C93F41D5DBC1F004CFCD2 /* MarkdownHtmlTag4p.swift */,
 				A85462E91D5EE47A002007D9 /* MarkdownHtmlTag4u.swift */,
 				A85462E51D5EE464002007D9 /* MarkdownHtmlTag4url.swift */,
@@ -578,8 +578,8 @@
 				A8CB64F91D41F62400E69BBE /* MainSplitViewController.swift in Sources */,
 				A8F60D081D520EA2009768B6 /* DocEditViewController.swift in Sources */,
 				A85462E21D5ED822002007D9 /* MarkdownHtmlTag4hr.swift in Sources */,
-				A84C93F31D5DB7EB004CFCD2 /* MarkdownHtmlTag4italic.swift in Sources */,
-				A84C93F11D5DB5E8004CFCD2 /* MarkdownHtmlTag4bold.swift in Sources */,
+				A84C93F31D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift in Sources */,
+				A84C93F11D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift in Sources */,
 				A84C93EF1D5DAF26004CFCD2 /* MarkdownHtmlTag4br.swift in Sources */,
 				A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */,
 				A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */,

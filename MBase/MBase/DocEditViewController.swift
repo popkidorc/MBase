@@ -48,7 +48,7 @@ class DocEditViewController: NSViewController {
         self.docMainViewController.refreshContent();
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             //需要长时间处理的代码
-            print("12312312312312312")
+//            print("12312312312312312")
             
             dispatch_async(dispatch_get_main_queue(), {
                 //需要主线程执行的代码

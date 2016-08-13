@@ -8,12 +8,11 @@
 
 import Cocoa
 
-class MarkdownHtmlTag4bold: MarkdownHtmlTag {
+class MarkdownHtmlTag4strong: MarkdownHtmlTag {
 
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
-        super.tagName = "font";
-        super.tagValue["style"] = "font-weight: bold;";
+        super.tagName = "strong";
         super.markdownTag = ["**"];
     }
     

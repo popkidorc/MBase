@@ -44,10 +44,10 @@ class MarkdownHtmlTagFactory: NSObject {
             return MarkdownHtmlTag4h5(range: range);
         case .H6:
             return MarkdownHtmlTag4h6(range: range);
-        case .BOLD:
-            return MarkdownHtmlTag4bold(range: range);
-        case .ITALIC:
-            return MarkdownHtmlTag4italic(range: range);
+        case .STRONG:
+            return MarkdownHtmlTag4strong(range: range);
+        case .EM:
+            return MarkdownHtmlTag4em(range: range);
         case .U:
             return MarkdownHtmlTag4u(range: range);
 

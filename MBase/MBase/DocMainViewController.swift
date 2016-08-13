@@ -22,12 +22,9 @@ class DocMainViewController: NSViewController {
     }
     
     func refreshContent(){
-//        var html = Hoedown.renderHTMLForMarkdown(markdown!, flags: [.SkipHTML, .Escape, .HardWrap, .UseXHTML], extensions: [.Tables, .FencedCodeBlocks, .FootNotes, .AutoLinkURLs,  .StrikeThrough, .Underline, .Highlight, .Quote, .Superscript, .Math, .DisableIndentedCode, .NoIntraEmphasis, .SpaceHeaders, .MathExplicit ]);
         var html = markdown!;
-//        if html != nil {
         html = MarkdownManager.generateHTMLForMarkdown(html, cssType: .Default);
         webView.mainFrame.loadHTMLString(html, baseURL: NSURL.fileURLWithPath(NSBundle.mainBundle().resourcePath!, isDirectory: true));
-//        }
     }
 }
 

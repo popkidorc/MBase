@@ -8,12 +8,11 @@
 
 import Cocoa
 
-class MarkdownHtmlTag4italic: MarkdownHtmlTag {
+class MarkdownHtmlTag4em: MarkdownHtmlTag {
 
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
-        super.tagName = "font";
-        super.tagValue["style"] = "font-style:italic;";
+        super.tagName = "em";
         super.markdownTag = ["*"];
     }
 

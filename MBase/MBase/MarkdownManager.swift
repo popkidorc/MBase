@@ -11,12 +11,13 @@ import Cocoa
 class MarkdownManager: NSObject {
 
     enum CssType : String {
+        case None = "none"
         case Default = "default"
     }
     
     enum MarkdownRegex : String {
         
-        static let values = [H1,H2,H3,H4,H5,H6,BOLD,ITALIC,U,URL,A1,A2,IMG1,IMG2,P,CODE,HR,BR];
+        static let values = [H1,H2,H3,H4,H5,H6,STRONG,EM,U,URL,A1,A2,IMG1,IMG2,P,CODE,HR,BR];
         
         case P = "(\n\\w+(\\s\\S\\w+)*\n)"
         case CODE = "(```.+(..+)*```)"
@@ -30,8 +31,8 @@ class MarkdownManager: NSObject {
         case H4 = "(^\\#\\#\\#\\# (.)*)"
         case H5 = "(^\\#\\#\\#\\#\\# (.)*)"
         case H6 = "(^\\#\\#\\#\\#\\#\\# (.)*)"
-        case ITALIC = "(\\*\\w+(\\s\\w+)*\\*)"
-        case BOLD = "(\\*\\*\\w+(\\s\\w+)*\\*\\*)"
+        case EM = "(\\*\\w+(\\s\\w+)*\\*)"
+        case STRONG = "(\\*\\*\\w+(\\s\\w+)*\\*\\*)"
         case U = "(_\\w+(\\s\\w+)*_)"
         
         case URL = "(^\\[\\d{1,2}\\]:(.)*$)"
@@ -91,8 +92,10 @@ class MarkdownManager: NSObject {
         result = self.handlerTransferString(result);
         
         //增加资源
-        result = "<head><style type='text/css'>@import url('" + cssType.rawValue + ".css');</style></head>\n" + result;
-        print(result)
+        if cssType != .None {
+            result = "<head><style type='text/css'>@import url('" + cssType.rawValue + ".css');</style></head>\n" + result;
+        }
+//        print(result)
         return result;
     }
     
