@@ -14,11 +14,11 @@ class DocEditTextStorage: NSTextStorage {
     
     var docEditView: DocEditTextView!
     
-    var regexs: [String : [String : AnyObject]]!;
+    //    var regexs: [String : [String : AnyObject]]!;
     
     override init() {
         super.init()
-        initStyle();
+        //        initStyle();
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,7 +50,7 @@ class DocEditTextStorage: NSTextStorage {
         edited(.EditedAttributes, range: range, changeInLength: 0)
         endEditing()
     }
-
+    
     override func processEditing() {
         let newRange = NSRange(location: self.editedRange.location + self.editedRange.length, length: 0);
         self.performReplacementsForRange(self.editedRange)
@@ -59,50 +59,28 @@ class DocEditTextStorage: NSTextStorage {
         if docEditView != nil {
             docEditView!.setSelectedRange(newRange);
         }
-    }    
-    
-    func initStyle(){
-        let boldAttributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.boldFontColor]
-        let italicAttributes = [NSFontAttributeName : NSFont.systemFontOfSize(ConstsManager.defaultFontSize), NSForegroundColorAttributeName : ConstsManager.boldFontColor];
-//        let strikeThroughAttributes = [NSStrikethroughStyleAttributeName : 1]
-    
-        let h1Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("# ")];
-        let h2Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("## ")];
-        let h3Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("### ")];
-        let h4Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("#### ")];
-        let h5Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("##### ")];
-        let h6Attributes = [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.headerFontColor, NSParagraphStyleAttributeName: ConstsManager.getHeaderParagraphStyle("###### ")];
-        
-        regexs = [
-            "(\\*\\*\\w+(\\s\\w+)*\\*\\*)" : boldAttributes,
-            "(\\*\\w+(\\s\\w+)*\\*)" : italicAttributes,
-            "([0-9]+\\.)\\s" : boldAttributes,
-//            "(-\\w+(\\s\\w+)*-)" : strikeThroughAttributes,
-            "(^\\# (.)*)" : h1Attributes,
-            "(^\\#\\# (.)*)" : h2Attributes,
-            "(^\\#\\#\\# (.)*)" : h3Attributes,
-            "(^\\#\\#\\#\\# (.)*)" : h4Attributes,
-            "(^\\#\\#\\#\\#\\# (.)*)" : h5Attributes,
-            "(^\\#\\#\\#\\#\\#\\# (.)*)" : h6Attributes
-            //            "(~\\w+(\\s\\w+)*~)" : scriptAttributes,
-            //            "\\s([A-Z]{2,})\\s" : redTextAttributes
-        ]
     }
     
     func applyStylesToRange(searchRange: NSRange) {
+        if backingStore.string == ""
+        {
+            return;
+        }
         let normalAttributes = [NSParagraphStyleAttributeName : ConstsManager.getDefaultParagraphStyle(), NSFontAttributeName : NSFont.systemFontOfSize(ConstsManager.defaultFontSize), NSForegroundColorAttributeName : ConstsManager.defaultFontColor];
         
         self.setAttributes(normalAttributes, range: searchRange);
+        //正则匹配替换
         
         // 遍历每个需要替换字体属性的文本
-        for (pattern, attributes) in regexs {
+        for tagRegex in MarkdownManager.MarkdownRegex.values {
             do{
-                let regex = try NSRegularExpression(pattern: pattern, options: [.CaseInsensitive, .AnchorsMatchLines])
-                regex.enumerateMatchesInString(backingStore.string, options: NSMatchingOptions(rawValue: 0), range: searchRange) {
-                    match, flags, stop in
-                    // 设置字体属性
-                    let matchRange = match!.rangeAtIndex(1)
-                    self.addAttributes(attributes, range: matchRange)
+                var regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .AnchorsMatchLines])
+                if .P == tagRegex || .CODE == tagRegex {
+                    regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .DotMatchesLineSeparators])
+                }
+                let textCheckingResults = regex.matchesInString(backingStore.string, options: NSMatchingOptions(rawValue: 0), range: searchRange);
+                for textCheckingResult in textCheckingResults {
+                    self.addAttributes(MarkdownEditFactory.getMarkdownAttributes(tagRegex), range: textCheckingResult.range)
                 }
             }catch{
                 let nserror = error as NSError
@@ -112,8 +90,9 @@ class DocEditTextStorage: NSTextStorage {
     }
     
     func performReplacementsForRange(changedRange: NSRange) {
-        var extendedRange = NSUnionRange(changedRange, NSString(string: backingStore.string).lineRangeForRange(NSMakeRange(changedRange.location, 0)))
-        extendedRange = NSUnionRange(changedRange, NSString(string: backingStore.string).lineRangeForRange(NSMakeRange(NSMaxRange(changedRange), 0)))
-        self.applyStylesToRange(extendedRange);
+        //        let range = NSUnionRange(changedRange, NSString(string: backingStore.string).lineRangeForRange(NSMakeRange(changedRange.location, 0)))
+        //        let range = NSUnionRange(changedRange, NSString(string: backingStore.string).lineRangeForRange(NSMakeRange(NSMaxRange(changedRange), 0)))
+        let range = NSMakeRange(0, backingStore.string.characters.count);
+        self.applyStylesToRange(range);
     }
 }

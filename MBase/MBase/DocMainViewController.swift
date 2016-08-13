@@ -22,14 +22,12 @@ class DocMainViewController: NSViewController {
     }
     
     func refreshContent(){
-        var html = Hoedown.renderHTMLForMarkdown(markdown!, flags: [.SkipHTML, .Escape, .HardWrap, .UseXHTML], extensions: [.Tables, .FencedCodeBlocks, .FootNotes, .AutoLinkURLs,  .StrikeThrough, .Underline, .Highlight, .Quote, .Superscript, .Math, .DisableIndentedCode, .NoIntraEmphasis, .SpaceHeaders, .MathExplicit ]);
-        if html != nil {
-            html = html!.stringByReplacingOccurrencesOfString("&lt;", withString: "<");
-            html = html!.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
-            html = html!.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
-            html = html!.stringByReplacingOccurrencesOfString("&amp;", withString: "&");
-            webView.mainFrame.loadHTMLString(html!, baseURL: nil)
-        }
+//        var html = Hoedown.renderHTMLForMarkdown(markdown!, flags: [.SkipHTML, .Escape, .HardWrap, .UseXHTML], extensions: [.Tables, .FencedCodeBlocks, .FootNotes, .AutoLinkURLs,  .StrikeThrough, .Underline, .Highlight, .Quote, .Superscript, .Math, .DisableIndentedCode, .NoIntraEmphasis, .SpaceHeaders, .MathExplicit ]);
+        var html = markdown!;
+//        if html != nil {
+        html = MarkdownManager.generateHTMLForMarkdown(html, cssType: .Default);
+        webView.mainFrame.loadHTMLString(html, baseURL: NSURL.fileURLWithPath(NSBundle.mainBundle().resourcePath!, isDirectory: true));
+//        }
     }
 }
 
