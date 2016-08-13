@@ -30,9 +30,11 @@
 		A85462E01D5ED5DF002007D9 /* MarkdownEditFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462DF1D5ED5DF002007D9 /* MarkdownEditFactory.swift */; };
 		A85462E21D5ED822002007D9 /* MarkdownHtmlTag4hr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462E11D5ED822002007D9 /* MarkdownHtmlTag4hr.swift */; };
 		A85462E41D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462E31D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift */; };
-		A85462E61D5EE464002007D9 /* MarkdownHtmlTag4a2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462E51D5EE464002007D9 /* MarkdownHtmlTag4a2.swift */; };
-		A85462E81D5EE46F002007D9 /* MarkdownHtmlTag4a3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462E71D5EE46F002007D9 /* MarkdownHtmlTag4a3.swift */; };
+		A85462E61D5EE464002007D9 /* MarkdownHtmlTag4url.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462E51D5EE464002007D9 /* MarkdownHtmlTag4url.swift */; };
+		A85462E81D5EE46F002007D9 /* MarkdownHtmlTag4a2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462E71D5EE46F002007D9 /* MarkdownHtmlTag4a2.swift */; };
 		A85462EA1D5EE47A002007D9 /* MarkdownHtmlTag4u.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462E91D5EE47A002007D9 /* MarkdownHtmlTag4u.swift */; };
+		A85462EC1D5F113B002007D9 /* MarkdownHtmlTag4img1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462EB1D5F113B002007D9 /* MarkdownHtmlTag4img1.swift */; };
+		A85462EE1D5F1144002007D9 /* MarkdownHtmlTag4img2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462ED1D5F1144002007D9 /* MarkdownHtmlTag4img2.swift */; };
 		A860F5D81D588D34002BD753 /* DocEditTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A860F5D71D588D34002BD753 /* DocEditTextStorage.swift */; };
 		A86220AF1D406FA000BAC828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86220AE1D406FA000BAC828 /* AppDelegate.swift */; };
 		A86220B11D406FA000BAC828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86220B01D406FA000BAC828 /* Assets.xcassets */; };
@@ -116,9 +118,11 @@
 		A85462DF1D5ED5DF002007D9 /* MarkdownEditFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownEditFactory.swift; sourceTree = "<group>"; };
 		A85462E11D5ED822002007D9 /* MarkdownHtmlTag4hr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4hr.swift; sourceTree = "<group>"; };
 		A85462E31D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4a1.swift; sourceTree = "<group>"; };
-		A85462E51D5EE464002007D9 /* MarkdownHtmlTag4a2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4a2.swift; sourceTree = "<group>"; };
-		A85462E71D5EE46F002007D9 /* MarkdownHtmlTag4a3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4a3.swift; sourceTree = "<group>"; };
+		A85462E51D5EE464002007D9 /* MarkdownHtmlTag4url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4url.swift; sourceTree = "<group>"; };
+		A85462E71D5EE46F002007D9 /* MarkdownHtmlTag4a2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4a2.swift; sourceTree = "<group>"; };
 		A85462E91D5EE47A002007D9 /* MarkdownHtmlTag4u.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4u.swift; sourceTree = "<group>"; };
+		A85462EB1D5F113B002007D9 /* MarkdownHtmlTag4img1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4img1.swift; sourceTree = "<group>"; };
+		A85462ED1D5F1144002007D9 /* MarkdownHtmlTag4img2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4img2.swift; sourceTree = "<group>"; };
 		A860F5D71D588D34002BD753 /* DocEditTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocEditTextStorage.swift; sourceTree = "<group>"; };
 		A86220AB1D406FA000BAC828 /* MBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86220AE1D406FA000BAC828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -378,6 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				A836305E1D5C9AC700323812 /* MarkdownHtmlTag.swift */,
+				A85462E31D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift */,
+				A85462E71D5EE46F002007D9 /* MarkdownHtmlTag4a2.swift */,
 				A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4bold.swift */,
 				A84C93EE1D5DAF26004CFCD2 /* MarkdownHtmlTag4br.swift */,
 				A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift */,
@@ -388,12 +394,12 @@
 				A84C93EA1D5DAD99004CFCD2 /* MarkdownHtmlTag4h5.swift */,
 				A84C93EC1D5DADA2004CFCD2 /* MarkdownHtmlTag4h6.swift */,
 				A85462E11D5ED822002007D9 /* MarkdownHtmlTag4hr.swift */,
+				A85462EB1D5F113B002007D9 /* MarkdownHtmlTag4img1.swift */,
+				A85462ED1D5F1144002007D9 /* MarkdownHtmlTag4img2.swift */,
 				A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4italic.swift */,
 				A84C93F41D5DBC1F004CFCD2 /* MarkdownHtmlTag4p.swift */,
 				A85462E91D5EE47A002007D9 /* MarkdownHtmlTag4u.swift */,
-				A85462E31D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift */,
-				A85462E51D5EE464002007D9 /* MarkdownHtmlTag4a2.swift */,
-				A85462E71D5EE46F002007D9 /* MarkdownHtmlTag4a3.swift */,
+				A85462E51D5EE464002007D9 /* MarkdownHtmlTag4url.swift */,
 				A8ACDFAA1D5D697D0082C152 /* MarkdownHtmlTagFactory.swift */,
 			);
 			name = tagfactory;
@@ -585,12 +591,14 @@
 				A85462E01D5ED5DF002007D9 /* MarkdownEditFactory.swift in Sources */,
 				A8C692931D57609A00C5D145 /* DocEditTextView.swift in Sources */,
 				A84C93ED1D5DADA2004CFCD2 /* MarkdownHtmlTag4h6.swift in Sources */,
+				A85462EC1D5F113B002007D9 /* MarkdownHtmlTag4img1.swift in Sources */,
 				A83630631D5CA06000323812 /* MarkdownHtmlTag4h2.swift in Sources */,
-				A85462E61D5EE464002007D9 /* MarkdownHtmlTag4a2.swift in Sources */,
+				A85462E61D5EE464002007D9 /* MarkdownHtmlTag4url.swift in Sources */,
 				A86220CE1D4079D500BAC828 /* NSImage+Extras.m in Sources */,
 				A86220C11D4070C800BAC828 /* DocumentViewController.swift in Sources */,
 				A8103D831D582C1E0085ECA2 /* UserInfo.swift in Sources */,
 				A836305F1D5C9AC700323812 /* MarkdownHtmlTag.swift in Sources */,
+				A85462EE1D5F1144002007D9 /* MarkdownHtmlTag4img2.swift in Sources */,
 				A85462E41D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift in Sources */,
 				A85462DD1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift in Sources */,
 				A8914B821D4231E600A31073 /* DocTreeViewController+DataSource.swift in Sources */,
@@ -600,7 +608,7 @@
 				A89099771D59B80900E25D8E /* ConstsManager.swift in Sources */,
 				A8C692951D57642B00C5D145 /* DocEditViewController+Delegate.swift in Sources */,
 				A8FFBE561D549903004EC5C4 /* DocTree+CoreDataProperties.swift in Sources */,
-				A85462E81D5EE46F002007D9 /* MarkdownHtmlTag4a3.swift in Sources */,
+				A85462E81D5EE46F002007D9 /* MarkdownHtmlTag4a2.swift in Sources */,
 				A85462EA1D5EE47A002007D9 /* MarkdownHtmlTag4u.swift in Sources */,
 				A8ACDFAB1D5D697D0082C152 /* MarkdownHtmlTagFactory.swift in Sources */,
 				A83630611D5C9D3800323812 /* MarkdownHtmlTag4h1.swift in Sources */,

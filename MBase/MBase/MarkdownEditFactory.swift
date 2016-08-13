@@ -17,11 +17,15 @@ class MarkdownEditFactory: MarkdownHtmlTag {
             return [:];
         case .CODE:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
+        case .URL:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
         case .A1:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
         case .A2:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
-        case .A3:
+        case .IMG1:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
+        case .IMG2:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
         case .BR:
             return [:];

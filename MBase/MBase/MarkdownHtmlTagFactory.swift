@@ -18,12 +18,16 @@ class MarkdownHtmlTagFactory: NSObject {
             return MarkdownHtmlTag4p(range: range);
         case .CODE:
             return MarkdownHtmlTag4code(range: range);
+        case .URL:
+            return MarkdownHtmlTag4url(range: range);
         case .A1:
             return MarkdownHtmlTag4a1(range: range);
         case .A2:
             return MarkdownHtmlTag4a2(range: range);
-        case .A3:
-            return MarkdownHtmlTag4a3(range: range);
+        case .IMG1:
+            return MarkdownHtmlTag4img1(range: range);
+        case .IMG2:
+            return MarkdownHtmlTag4img2(range: range);
         case .BR:
             return MarkdownHtmlTag4br(range: range);
         case .HR:

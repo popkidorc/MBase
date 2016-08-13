@@ -26,8 +26,7 @@ class MarkdownHtmlTag4a1: MarkdownHtmlTag {
             let textCheckingResult = regex.firstMatchInString(string, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, string.characters.count));
             if textCheckingResult != nil {
                 let range = string.startIndex.advancedBy(textCheckingResult!.range.location+1)..<string.startIndex.advancedBy(textCheckingResult!.range.location+textCheckingResult!.range.length-1);
-                let href = string.substringWithRange(range);
-                super.tagValue = ["href":href]
+                super.tagValue["href"] = string.substringWithRange(range);
                 result.removeRange(range);
             }
         }catch{

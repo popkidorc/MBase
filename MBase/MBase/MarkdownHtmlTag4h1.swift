@@ -18,7 +18,7 @@ class MarkdownHtmlTag4h1: MarkdownHtmlTag {
     
     
     override func getHtml(string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{
-        super.tagValue = ["id": self.tagName+"id_" + String(index)];
+        super.tagValue["id"] = self.tagName + "id_" + String(index);
         return super.getHtml(string, index: index, object: object);
     }
 }

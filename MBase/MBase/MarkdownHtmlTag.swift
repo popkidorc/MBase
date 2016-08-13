@@ -26,7 +26,7 @@ class MarkdownHtmlTag: NSObject {
     
     var markdownTag = [String]();
     
-    var tagValue:Dictionary<String,String>!;
+    var tagValue = Dictionary<String,String>();
     
     var range: Range<String.CharacterView.Index>;
     
@@ -43,7 +43,7 @@ class MarkdownHtmlTag: NSObject {
     func getHtml( string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{
         var result = "";
         result += self.tagL + self.tagName;
-        if tagValue != nil && tagValue.count > 0{
+        if tagValue.count > 0{
             for name in tagValue.keys {
                 result += self.tagSpace + name  + self.tagEqual + self.tagQuote+tagValue[name]!+self.tagQuote;
             }

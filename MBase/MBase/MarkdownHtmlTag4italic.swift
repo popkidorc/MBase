@@ -13,7 +13,7 @@ class MarkdownHtmlTag4italic: MarkdownHtmlTag {
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
         super.tagName = "font";
-        super.tagValue = ["style":"font-style:italic;"]
+        super.tagValue["style"] = "font-style:italic;";
         super.markdownTag = ["*"];
     }
 

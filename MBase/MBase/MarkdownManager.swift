@@ -16,7 +16,7 @@ class MarkdownManager: NSObject {
     
     enum MarkdownRegex : String {
         
-        static let values = [H1,H2,H3,H4,H5,H6,BOLD,ITALIC,U,A1,A2,A3,P,CODE,HR,BR];
+        static let values = [H1,H2,H3,H4,H5,H6,BOLD,ITALIC,U,URL,A1,A2,IMG1,IMG2,P,CODE,HR,BR];
         
         case P = "(\n\\w+(\\s\\S\\w+)*\n)"
         case CODE = "(```.+(..+)*```)"
@@ -34,11 +34,14 @@ class MarkdownManager: NSObject {
         case BOLD = "(\\*\\*\\w+(\\s\\w+)*\\*\\*)"
         case U = "(_\\w+(\\s\\w+)*_)"
         
+        case URL = "(^\\[\\d{1,2}\\]:(.)*$)"
+
+        
         case A1 = "(^\\[(.)*\\]\\((.)*\\)$)"
-        case A2 = "(^\\[\\d{1,2}\\]:(.)*$)"
-        case A3 = "(^\\[(.)*\\]\\[\\d{1,2}\\]$)"
+        case A2 = "(^\\[(.)*\\]\\[\\d{1,2}\\]$)"
         
-        
+        case IMG1 = "(^\\!\\[(.)*\\]\\((.)*\\)$)"
+        case IMG2 = "(^\\!\\[(.)*\\]\\[\\d{1,2}\\]$)"
     }
     
     static func generateHTMLForMarkdown(string: String, cssType: CssType  = .Default) -> String!{

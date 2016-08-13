@@ -1,5 +1,5 @@
 //
-//  MarkdownHtmlTag4url3.swift
+//  MarkdownHtmlTag4img2.swift
 //  MBase
 //
 //  Created by sunjie on 16/8/13.
@@ -8,12 +8,12 @@
 
 import Cocoa
 
-class MarkdownHtmlTag4a2: MarkdownHtmlTag {
-    
+class MarkdownHtmlTag4img2: MarkdownHtmlTag {
+
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
-        super.tagName = "a";
-        super.markdownTag = ["[","]"];
+        super.tagName = "img";
+        super.markdownTag = ["!","[","]"];
     }
     
     override func getHtml(string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{
@@ -32,17 +32,26 @@ class MarkdownHtmlTag4a2: MarkdownHtmlTag {
                 if urlParams != nil{
                     for urlParam in urlParams! {
                         if let href = urlParam[numString] {
-                            super.tagValue["href"] = href as? String;
+                            super.tagValue["src"] = href as? String;
                             result.removeRange(range);
                             break;
                         }
                     }
                 }
             }
+            let regexAlt = try NSRegularExpression(pattern: "(^\\!\\[(.)*\\]$)", options: [.CaseInsensitive, .AnchorsMatchLines]);
+            let textCheckingResultAlt = regexAlt.firstMatchInString(string, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, string.characters.count));
+            if textCheckingResultAlt != nil {
+                let range = string.startIndex.advancedBy(textCheckingResultAlt!.range.location+2)..<string.startIndex.advancedBy(textCheckingResultAlt!.range.location+textCheckingResultAlt!.range.length-1);
+                super.tagValue["alt"] = string.substringWithRange(range);
+                result.removeRange(range);
+            }
+            
         }catch{
             let nserror = error as NSError
             NSApplication.sharedApplication().presentError(nserror)
         }
         return super.getHtml(result, index: index, object: object);
     }
+    
 }

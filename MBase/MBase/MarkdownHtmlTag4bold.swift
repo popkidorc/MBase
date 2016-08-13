@@ -13,7 +13,7 @@ class MarkdownHtmlTag4bold: MarkdownHtmlTag {
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
         super.tagName = "font";
-        super.tagValue = ["style":"font-weight: bold;"]
+        super.tagValue["style"] = "font-weight: bold;";
         super.markdownTag = ["**"];
     }
     
