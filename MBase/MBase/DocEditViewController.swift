@@ -40,20 +40,12 @@ class DocEditViewController: NSViewController {
             self.docEditView.backgroundColor = ConstsManager.docEditEnableBgColor;
         }
         
-        let attrs = [NSFontAttributeName:NSFont.systemFontOfSize(ConstsManager.defaultFontSize)];
-        let attrString = NSAttributedString(string: docMainData.content!, attributes: attrs);
+        let normalAttributes = [NSParagraphStyleAttributeName : ConstsManager.getDefaultParagraphStyle(), NSFontAttributeName : NSFont.systemFontOfSize(ConstsManager.defaultFontSize), NSForegroundColorAttributeName : ConstsManager.defaultFontColor];
+        let attrString = NSAttributedString(string: docMainData.content!, attributes: normalAttributes);
         self.docEditTextStorage.setAttributedString(attrString);
         
         docMainViewController.markdown = docMainData.content!;
-        self.docMainViewController.refreshContent();
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            //需要长时间处理的代码
-//            print("12312312312312312")
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                //需要主线程执行的代码
-            })
-        })
+        NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: docMainViewController);
     }
     
     func initDocEidtView() {

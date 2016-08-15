@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8060A051D61E428009B53D5 /* MarkdownHtmlTag4code2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8060A041D61E428009B53D5 /* MarkdownHtmlTag4code2.swift */; };
 		A8103D821D582C1E0085ECA2 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8103D801D582C1E0085ECA2 /* UserInfo+CoreDataProperties.swift */; };
 		A8103D831D582C1E0085ECA2 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8103D811D582C1E0085ECA2 /* UserInfo.swift */; };
 		A82AD75B1D43B1E100F457B6 /* DocTreeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82AD7591D43B1E100F457B6 /* DocTreeInfoViewController.swift */; };
@@ -26,7 +27,7 @@
 		A84C93F11D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift */; };
 		A84C93F31D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift */; };
 		A84C93F51D5DBC1F004CFCD2 /* MarkdownHtmlTag4p.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C93F41D5DBC1F004CFCD2 /* MarkdownHtmlTag4p.swift */; };
-		A85462DD1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift */; };
+		A85462DD1D5ECED2002007D9 /* MarkdownHtmlTag4code1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code1.swift */; };
 		A85462E01D5ED5DF002007D9 /* MarkdownEditFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462DF1D5ED5DF002007D9 /* MarkdownEditFactory.swift */; };
 		A85462E21D5ED822002007D9 /* MarkdownHtmlTag4hr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462E11D5ED822002007D9 /* MarkdownHtmlTag4hr.swift */; };
 		A85462E41D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85462E31D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift */; };
@@ -71,6 +72,37 @@
 		A8F60CF21D520391009768B6 /* Hoedown.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F60CF11D520391009768B6 /* Hoedown.swift */; };
 		A8F60D081D520EA2009768B6 /* DocEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F60D061D520EA2009768B6 /* DocEditViewController.swift */; };
 		A8F60D091D520EA2009768B6 /* DocEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F60D071D520EA2009768B6 /* DocEditViewController.xib */; };
+		A8FAD6991D6182F800D8B45F /* lang-apollo.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD67A1D6182F800D8B45F /* lang-apollo.js */; };
+		A8FAD69A1D6182F800D8B45F /* lang-basic.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD67B1D6182F800D8B45F /* lang-basic.js */; };
+		A8FAD69B1D6182F800D8B45F /* lang-clj.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD67C1D6182F800D8B45F /* lang-clj.js */; };
+		A8FAD69C1D6182F800D8B45F /* lang-css.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD67D1D6182F800D8B45F /* lang-css.js */; };
+		A8FAD69D1D6182F800D8B45F /* lang-dart.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD67E1D6182F800D8B45F /* lang-dart.js */; };
+		A8FAD69E1D6182F800D8B45F /* lang-erlang.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD67F1D6182F800D8B45F /* lang-erlang.js */; };
+		A8FAD69F1D6182F800D8B45F /* lang-go.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6801D6182F800D8B45F /* lang-go.js */; };
+		A8FAD6A01D6182F800D8B45F /* lang-hs.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6811D6182F800D8B45F /* lang-hs.js */; };
+		A8FAD6A11D6182F800D8B45F /* lang-lisp.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6821D6182F800D8B45F /* lang-lisp.js */; };
+		A8FAD6A21D6182F800D8B45F /* lang-llvm.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6831D6182F800D8B45F /* lang-llvm.js */; };
+		A8FAD6A31D6182F800D8B45F /* lang-lua.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6841D6182F800D8B45F /* lang-lua.js */; };
+		A8FAD6A41D6182F800D8B45F /* lang-matlab.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6851D6182F800D8B45F /* lang-matlab.js */; };
+		A8FAD6A51D6182F800D8B45F /* lang-ml.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6861D6182F800D8B45F /* lang-ml.js */; };
+		A8FAD6A61D6182F800D8B45F /* lang-mumps.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6871D6182F800D8B45F /* lang-mumps.js */; };
+		A8FAD6A71D6182F800D8B45F /* lang-n.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6881D6182F800D8B45F /* lang-n.js */; };
+		A8FAD6A81D6182F800D8B45F /* lang-pascal.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6891D6182F800D8B45F /* lang-pascal.js */; };
+		A8FAD6A91D6182F800D8B45F /* lang-proto.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD68A1D6182F800D8B45F /* lang-proto.js */; };
+		A8FAD6AA1D6182F800D8B45F /* lang-r.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD68B1D6182F800D8B45F /* lang-r.js */; };
+		A8FAD6AB1D6182F800D8B45F /* lang-rd.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD68C1D6182F800D8B45F /* lang-rd.js */; };
+		A8FAD6AC1D6182F800D8B45F /* lang-scala.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD68D1D6182F800D8B45F /* lang-scala.js */; };
+		A8FAD6AD1D6182F800D8B45F /* lang-sql.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD68E1D6182F800D8B45F /* lang-sql.js */; };
+		A8FAD6AE1D6182F800D8B45F /* lang-tcl.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD68F1D6182F800D8B45F /* lang-tcl.js */; };
+		A8FAD6AF1D6182F800D8B45F /* lang-tex.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6901D6182F800D8B45F /* lang-tex.js */; };
+		A8FAD6B01D6182F800D8B45F /* lang-vb.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6911D6182F800D8B45F /* lang-vb.js */; };
+		A8FAD6B11D6182F800D8B45F /* lang-vhdl.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6921D6182F800D8B45F /* lang-vhdl.js */; };
+		A8FAD6B21D6182F800D8B45F /* lang-wiki.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6931D6182F800D8B45F /* lang-wiki.js */; };
+		A8FAD6B31D6182F800D8B45F /* lang-xq.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6941D6182F800D8B45F /* lang-xq.js */; };
+		A8FAD6B41D6182F800D8B45F /* lang-yaml.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6951D6182F800D8B45F /* lang-yaml.js */; };
+		A8FAD6B51D6182F800D8B45F /* prettify.css in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6961D6182F800D8B45F /* prettify.css */; };
+		A8FAD6B61D6182F800D8B45F /* prettify.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6971D6182F800D8B45F /* prettify.js */; };
+		A8FAD6B71D6182F800D8B45F /* run_prettify.js in Resources */ = {isa = PBXBuildFile; fileRef = A8FAD6981D6182F800D8B45F /* run_prettify.js */; };
 		A8FFBE3F1D5479C1004EC5C4 /* TreeBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FFBE3E1D5479C1004EC5C4 /* TreeBack.swift */; };
 		A8FFBE541D549903004EC5C4 /* DocMain+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FFBE501D549902004EC5C4 /* DocMain+CoreDataProperties.swift */; };
 		A8FFBE551D549903004EC5C4 /* DocMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FFBE511D549902004EC5C4 /* DocMain.swift */; };
@@ -94,6 +126,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A8060A041D61E428009B53D5 /* MarkdownHtmlTag4code2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4code2.swift; sourceTree = "<group>"; };
 		A8103D801D582C1E0085ECA2 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserInfo+CoreDataProperties.swift"; path = "../UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A8103D811D582C1E0085ECA2 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfo.swift; path = ../UserInfo.swift; sourceTree = "<group>"; };
 		A82AD7591D43B1E100F457B6 /* DocTreeInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocTreeInfoViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +147,7 @@
 		A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4strong.swift; sourceTree = "<group>"; };
 		A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4em.swift; sourceTree = "<group>"; };
 		A84C93F41D5DBC1F004CFCD2 /* MarkdownHtmlTag4p.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4p.swift; sourceTree = "<group>"; };
-		A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4code.swift; sourceTree = "<group>"; };
+		A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4code1.swift; sourceTree = "<group>"; };
 		A85462DF1D5ED5DF002007D9 /* MarkdownEditFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownEditFactory.swift; sourceTree = "<group>"; };
 		A85462E11D5ED822002007D9 /* MarkdownHtmlTag4hr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4hr.swift; sourceTree = "<group>"; };
 		A85462E31D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownHtmlTag4a1.swift; sourceTree = "<group>"; };
@@ -164,6 +197,37 @@
 		A8F60CF11D520391009768B6 /* Hoedown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hoedown.swift; sourceTree = "<group>"; };
 		A8F60D061D520EA2009768B6 /* DocEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocEditViewController.swift; sourceTree = "<group>"; };
 		A8F60D071D520EA2009768B6 /* DocEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocEditViewController.xib; sourceTree = "<group>"; };
+		A8FAD67A1D6182F800D8B45F /* lang-apollo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-apollo.js"; sourceTree = "<group>"; };
+		A8FAD67B1D6182F800D8B45F /* lang-basic.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-basic.js"; sourceTree = "<group>"; };
+		A8FAD67C1D6182F800D8B45F /* lang-clj.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-clj.js"; sourceTree = "<group>"; };
+		A8FAD67D1D6182F800D8B45F /* lang-css.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-css.js"; sourceTree = "<group>"; };
+		A8FAD67E1D6182F800D8B45F /* lang-dart.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-dart.js"; sourceTree = "<group>"; };
+		A8FAD67F1D6182F800D8B45F /* lang-erlang.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-erlang.js"; sourceTree = "<group>"; };
+		A8FAD6801D6182F800D8B45F /* lang-go.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-go.js"; sourceTree = "<group>"; };
+		A8FAD6811D6182F800D8B45F /* lang-hs.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-hs.js"; sourceTree = "<group>"; };
+		A8FAD6821D6182F800D8B45F /* lang-lisp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-lisp.js"; sourceTree = "<group>"; };
+		A8FAD6831D6182F800D8B45F /* lang-llvm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-llvm.js"; sourceTree = "<group>"; };
+		A8FAD6841D6182F800D8B45F /* lang-lua.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-lua.js"; sourceTree = "<group>"; };
+		A8FAD6851D6182F800D8B45F /* lang-matlab.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-matlab.js"; sourceTree = "<group>"; };
+		A8FAD6861D6182F800D8B45F /* lang-ml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-ml.js"; sourceTree = "<group>"; };
+		A8FAD6871D6182F800D8B45F /* lang-mumps.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-mumps.js"; sourceTree = "<group>"; };
+		A8FAD6881D6182F800D8B45F /* lang-n.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-n.js"; sourceTree = "<group>"; };
+		A8FAD6891D6182F800D8B45F /* lang-pascal.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-pascal.js"; sourceTree = "<group>"; };
+		A8FAD68A1D6182F800D8B45F /* lang-proto.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-proto.js"; sourceTree = "<group>"; };
+		A8FAD68B1D6182F800D8B45F /* lang-r.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-r.js"; sourceTree = "<group>"; };
+		A8FAD68C1D6182F800D8B45F /* lang-rd.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-rd.js"; sourceTree = "<group>"; };
+		A8FAD68D1D6182F800D8B45F /* lang-scala.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-scala.js"; sourceTree = "<group>"; };
+		A8FAD68E1D6182F800D8B45F /* lang-sql.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-sql.js"; sourceTree = "<group>"; };
+		A8FAD68F1D6182F800D8B45F /* lang-tcl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-tcl.js"; sourceTree = "<group>"; };
+		A8FAD6901D6182F800D8B45F /* lang-tex.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-tex.js"; sourceTree = "<group>"; };
+		A8FAD6911D6182F800D8B45F /* lang-vb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-vb.js"; sourceTree = "<group>"; };
+		A8FAD6921D6182F800D8B45F /* lang-vhdl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-vhdl.js"; sourceTree = "<group>"; };
+		A8FAD6931D6182F800D8B45F /* lang-wiki.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-wiki.js"; sourceTree = "<group>"; };
+		A8FAD6941D6182F800D8B45F /* lang-xq.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-xq.js"; sourceTree = "<group>"; };
+		A8FAD6951D6182F800D8B45F /* lang-yaml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lang-yaml.js"; sourceTree = "<group>"; };
+		A8FAD6961D6182F800D8B45F /* prettify.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = prettify.css; sourceTree = "<group>"; };
+		A8FAD6971D6182F800D8B45F /* prettify.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = prettify.js; sourceTree = "<group>"; };
+		A8FAD6981D6182F800D8B45F /* run_prettify.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = run_prettify.js; sourceTree = "<group>"; };
 		A8FFBE3E1D5479C1004EC5C4 /* TreeBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeBack.swift; sourceTree = "<group>"; };
 		A8FFBE501D549902004EC5C4 /* DocMain+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DocMain+CoreDataProperties.swift"; path = "../DocMain+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A8FFBE511D549902004EC5C4 /* DocMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocMain.swift; path = ../DocMain.swift; sourceTree = "<group>"; };
@@ -210,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				A836305A1D5C1FE100323812 /* default.css */,
+				A8FAD6791D6182D900D8B45F /* google-code-prettify-small */,
 				A89099721D59B57C00E25D8E /* consts.plist */,
 				A890997F1D59DBCE00E25D8E /* markdownHelp.strings */,
 				A86220B01D406FA000BAC828 /* Assets.xcassets */,
@@ -384,9 +449,9 @@
 				A836305E1D5C9AC700323812 /* MarkdownHtmlTag.swift */,
 				A85462E31D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift */,
 				A85462E71D5EE46F002007D9 /* MarkdownHtmlTag4a2.swift */,
-				A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift */,
 				A84C93EE1D5DAF26004CFCD2 /* MarkdownHtmlTag4br.swift */,
-				A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift */,
+				A85462DC1D5ECED2002007D9 /* MarkdownHtmlTag4code1.swift */,
+				A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift */,
 				A83630601D5C9D3800323812 /* MarkdownHtmlTag4h1.swift */,
 				A83630621D5CA06000323812 /* MarkdownHtmlTag4h2.swift */,
 				A84C93E61D5DAD71004CFCD2 /* MarkdownHtmlTag4h3.swift */,
@@ -396,11 +461,12 @@
 				A85462E11D5ED822002007D9 /* MarkdownHtmlTag4hr.swift */,
 				A85462EB1D5F113B002007D9 /* MarkdownHtmlTag4img1.swift */,
 				A85462ED1D5F1144002007D9 /* MarkdownHtmlTag4img2.swift */,
-				A84C93F21D5DB7EB004CFCD2 /* MarkdownHtmlTag4em.swift */,
 				A84C93F41D5DBC1F004CFCD2 /* MarkdownHtmlTag4p.swift */,
+				A84C93F01D5DB5E8004CFCD2 /* MarkdownHtmlTag4strong.swift */,
 				A85462E91D5EE47A002007D9 /* MarkdownHtmlTag4u.swift */,
 				A85462E51D5EE464002007D9 /* MarkdownHtmlTag4url.swift */,
 				A8ACDFAA1D5D697D0082C152 /* MarkdownHtmlTagFactory.swift */,
+				A8060A041D61E428009B53D5 /* MarkdownHtmlTag4code2.swift */,
 			);
 			name = tagfactory;
 			sourceTree = "<group>";
@@ -489,6 +555,44 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		A8FAD6791D6182D900D8B45F /* google-code-prettify-small */ = {
+			isa = PBXGroup;
+			children = (
+				A8FAD67A1D6182F800D8B45F /* lang-apollo.js */,
+				A8FAD67B1D6182F800D8B45F /* lang-basic.js */,
+				A8FAD67C1D6182F800D8B45F /* lang-clj.js */,
+				A8FAD67D1D6182F800D8B45F /* lang-css.js */,
+				A8FAD67E1D6182F800D8B45F /* lang-dart.js */,
+				A8FAD67F1D6182F800D8B45F /* lang-erlang.js */,
+				A8FAD6801D6182F800D8B45F /* lang-go.js */,
+				A8FAD6811D6182F800D8B45F /* lang-hs.js */,
+				A8FAD6821D6182F800D8B45F /* lang-lisp.js */,
+				A8FAD6831D6182F800D8B45F /* lang-llvm.js */,
+				A8FAD6841D6182F800D8B45F /* lang-lua.js */,
+				A8FAD6851D6182F800D8B45F /* lang-matlab.js */,
+				A8FAD6861D6182F800D8B45F /* lang-ml.js */,
+				A8FAD6871D6182F800D8B45F /* lang-mumps.js */,
+				A8FAD6881D6182F800D8B45F /* lang-n.js */,
+				A8FAD6891D6182F800D8B45F /* lang-pascal.js */,
+				A8FAD68A1D6182F800D8B45F /* lang-proto.js */,
+				A8FAD68B1D6182F800D8B45F /* lang-r.js */,
+				A8FAD68C1D6182F800D8B45F /* lang-rd.js */,
+				A8FAD68D1D6182F800D8B45F /* lang-scala.js */,
+				A8FAD68E1D6182F800D8B45F /* lang-sql.js */,
+				A8FAD68F1D6182F800D8B45F /* lang-tcl.js */,
+				A8FAD6901D6182F800D8B45F /* lang-tex.js */,
+				A8FAD6911D6182F800D8B45F /* lang-vb.js */,
+				A8FAD6921D6182F800D8B45F /* lang-vhdl.js */,
+				A8FAD6931D6182F800D8B45F /* lang-wiki.js */,
+				A8FAD6941D6182F800D8B45F /* lang-xq.js */,
+				A8FAD6951D6182F800D8B45F /* lang-yaml.js */,
+				A8FAD6961D6182F800D8B45F /* prettify.css */,
+				A8FAD6971D6182F800D8B45F /* prettify.js */,
+				A8FAD6981D6182F800D8B45F /* run_prettify.js */,
+			);
+			name = "google-code-prettify-small";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -549,17 +653,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8CB65021D41F89700E69BBE /* DocMainViewController.xib in Resources */,
+				A8FAD6B41D6182F800D8B45F /* lang-yaml.js in Resources */,
+				A8FAD6B71D6182F800D8B45F /* run_prettify.js in Resources */,
+				A8FAD6A11D6182F800D8B45F /* lang-lisp.js in Resources */,
+				A8FAD6A91D6182F800D8B45F /* lang-proto.js in Resources */,
+				A8FAD69E1D6182F800D8B45F /* lang-erlang.js in Resources */,
+				A8FAD6AF1D6182F800D8B45F /* lang-tex.js in Resources */,
 				A89099801D59DBCE00E25D8E /* markdownHelp.strings in Resources */,
+				A8FAD6AD1D6182F800D8B45F /* lang-sql.js in Resources */,
 				A86220B11D406FA000BAC828 /* Assets.xcassets in Resources */,
 				A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */,
 				A890F7011D40D49E003FF760 /* MainWindowController.xib in Resources */,
+				A8FAD6A21D6182F800D8B45F /* lang-llvm.js in Resources */,
+				A8FAD6A31D6182F800D8B45F /* lang-lua.js in Resources */,
 				A82AD75C1D43B1E100F457B6 /* DocTreeInfoViewController.xib in Resources */,
+				A8FAD6AC1D6182F800D8B45F /* lang-scala.js in Resources */,
+				A8FAD6B31D6182F800D8B45F /* lang-xq.js in Resources */,
 				A86220C21D4070C800BAC828 /* DocumentViewController.xib in Resources */,
+				A8FAD6A71D6182F800D8B45F /* lang-n.js in Resources */,
+				A8FAD6A81D6182F800D8B45F /* lang-pascal.js in Resources */,
+				A8FAD6AE1D6182F800D8B45F /* lang-tcl.js in Resources */,
 				A8F60D091D520EA2009768B6 /* DocEditViewController.xib in Resources */,
+				A8FAD69B1D6182F800D8B45F /* lang-clj.js in Resources */,
 				A8CB64FA1D41F62400E69BBE /* MainSplitViewController.xib in Resources */,
+				A8FAD6B61D6182F800D8B45F /* prettify.js in Resources */,
+				A8FAD6B11D6182F800D8B45F /* lang-vhdl.js in Resources */,
+				A8FAD6A01D6182F800D8B45F /* lang-hs.js in Resources */,
 				A89099731D59B57C00E25D8E /* consts.plist in Resources */,
+				A8FAD6AB1D6182F800D8B45F /* lang-rd.js in Resources */,
+				A8FAD69F1D6182F800D8B45F /* lang-go.js in Resources */,
+				A8FAD6A61D6182F800D8B45F /* lang-mumps.js in Resources */,
+				A8FAD6A41D6182F800D8B45F /* lang-matlab.js in Resources */,
 				A8CB64FE1D41F69900E69BBE /* DocTreeViewController.xib in Resources */,
+				A8FAD6B01D6182F800D8B45F /* lang-vb.js in Resources */,
+				A8FAD6991D6182F800D8B45F /* lang-apollo.js in Resources */,
+				A8FAD6B51D6182F800D8B45F /* prettify.css in Resources */,
+				A8FAD69D1D6182F800D8B45F /* lang-dart.js in Resources */,
+				A8FAD6A51D6182F800D8B45F /* lang-ml.js in Resources */,
 				A836305B1D5C1FE100323812 /* default.css in Resources */,
+				A8FAD69C1D6182F800D8B45F /* lang-css.js in Resources */,
+				A8FAD69A1D6182F800D8B45F /* lang-basic.js in Resources */,
+				A8FAD6B21D6182F800D8B45F /* lang-wiki.js in Resources */,
+				A8FAD6AA1D6182F800D8B45F /* lang-r.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +719,7 @@
 				A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */,
 				A86220CF1D4079D500BAC828 /* EDStarRating.m in Sources */,
 				A84C93E91D5DAD88004CFCD2 /* MarkdownHtmlTag4h4.swift in Sources */,
+				A8060A051D61E428009B53D5 /* MarkdownHtmlTag4code2.swift in Sources */,
 				A89099841D59EA4400E25D8E /* DocMainViewController+Delegate.swift in Sources */,
 				A860F5D81D588D34002BD753 /* DocEditTextStorage.swift in Sources */,
 				A890997C1D59CB5300E25D8E /* MarkdownManager.swift in Sources */,
@@ -600,7 +736,7 @@
 				A836305F1D5C9AC700323812 /* MarkdownHtmlTag.swift in Sources */,
 				A85462EE1D5F1144002007D9 /* MarkdownHtmlTag4img2.swift in Sources */,
 				A85462E41D5EDAFB002007D9 /* MarkdownHtmlTag4a1.swift in Sources */,
-				A85462DD1D5ECED2002007D9 /* MarkdownHtmlTag4code.swift in Sources */,
+				A85462DD1D5ECED2002007D9 /* MarkdownHtmlTag4code1.swift in Sources */,
 				A8914B821D4231E600A31073 /* DocTreeViewController+DataSource.swift in Sources */,
 				A82AD75E1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift in Sources */,
 				A8FFBE541D549903004EC5C4 /* DocMain+CoreDataProperties.swift in Sources */,

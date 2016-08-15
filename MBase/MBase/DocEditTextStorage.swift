@@ -14,21 +14,6 @@ class DocEditTextStorage: NSTextStorage {
     
     var docEditView: DocEditTextView!
     
-    //    var regexs: [String : [String : AnyObject]]!;
-    
-    override init() {
-        super.init()
-        //        initStyle();
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    required init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String) {
-        super.init(pasteboardPropertyList: propertyList, ofType: type)
-    }
-    
     override var string: String {
         return backingStore.string
     }
@@ -75,7 +60,7 @@ class DocEditTextStorage: NSTextStorage {
         for tagRegex in MarkdownManager.MarkdownRegex.values {
             do{
                 var regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .AnchorsMatchLines])
-                if .P == tagRegex || .CODE == tagRegex {
+                if .P == tagRegex || .CODE1 == tagRegex || .CODE2 == tagRegex {
                     regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .DotMatchesLineSeparators])
                 }
                 let textCheckingResults = regex.matchesInString(backingStore.string, options: NSMatchingOptions(rawValue: 0), range: searchRange);
@@ -90,9 +75,9 @@ class DocEditTextStorage: NSTextStorage {
     }
     
     func performReplacementsForRange(changedRange: NSRange) {
-        //        let range = NSUnionRange(changedRange, NSString(string: backingStore.string).lineRangeForRange(NSMakeRange(changedRange.location, 0)))
-        //        let range = NSUnionRange(changedRange, NSString(string: backingStore.string).lineRangeForRange(NSMakeRange(NSMaxRange(changedRange), 0)))
-        let range = NSMakeRange(0, backingStore.string.characters.count);
+//        var  range = NSUnionRange(changedRange, NSString(string: backingStore.string).lineRangeForRange(NSMakeRange(changedRange.location, 0)))
+//        range = NSUnionRange(changedRange, NSString(string: backingStore.string).lineRangeForRange(NSMakeRange(NSMaxRange(changedRange), 0)))
+                let range = NSMakeRange(0, backingStore.string.characters.count);
         self.applyStylesToRange(range);
     }
 }

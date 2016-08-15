@@ -17,18 +17,25 @@ import Cocoa
 
 
 
-var dic = Dictionary<String, String>();
+//var dic = Dictionary<String, String>();
+//
+//dic["aaa"] = "woshi a";
+//
+//dic["bbb"] = "woshi b";
+//
+//dic["ccc"] = "woshi c";
 
-dic["aaa"] = "woshi a";
-
-dic["bbb"] = "woshi b";
-
-dic["ccc"] = "woshi c";
-
-dic.
 
 
 
 //let aa = "[23]:https://"
 //
 //aa.componentsSeparatedByString("]:");
+
+
+let aa = "</p></br><p>asdfsadf</br></br></br></br></p>"
+
+aa.hasPrefix("</p>")
+
+
+aa.rangeOfString("^</p>", options: .RegularExpressionSearch)

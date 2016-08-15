@@ -13,7 +13,7 @@ class MarkdownHtmlTag4h6: MarkdownHtmlTag {
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
         super.tagName = "h6";
-        super.markdownTag = ["###### "];
+        super.markdownTag = ["###### ","<p>","</p>"];
     }
 
 }

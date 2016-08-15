@@ -15,7 +15,9 @@ class MarkdownEditFactory: MarkdownHtmlTag {
         switch tagRegex {
         case .P:
             return [:];
-        case .CODE:
+        case .CODE1:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
+        case .CODE2:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
         case .URL:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];

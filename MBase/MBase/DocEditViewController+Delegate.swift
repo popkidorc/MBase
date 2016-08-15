@@ -15,7 +15,7 @@ extension DocEditViewController: NSTextViewDelegate {
         // 保存coredata
         self.docMainData.updateContent(docEditView.string!);
         
-        docMainViewController.refreshContent();
+        NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: docMainViewController);
     }
     
     func textView(view: NSTextView, menu: NSMenu, forEvent event: NSEvent, atIndex charIndex: Int) -> NSMenu? {

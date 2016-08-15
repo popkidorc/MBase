@@ -13,7 +13,7 @@ class MarkdownHtmlTag4strong: MarkdownHtmlTag {
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
         super.tagName = "strong";
-        super.markdownTag = ["**"];
+        super.markdownTag = ["**","<p>","</p>"];
     }
     
 }

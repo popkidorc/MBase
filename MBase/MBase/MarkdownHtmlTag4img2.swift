@@ -13,7 +13,7 @@ class MarkdownHtmlTag4img2: MarkdownHtmlTag {
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
         super.tagName = "img";
-        super.markdownTag = ["!","[","]"];
+        super.markdownTag = ["!","[","]","<p>","</p>"];
     }
     
     override func getHtml(string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{
@@ -39,11 +39,11 @@ class MarkdownHtmlTag4img2: MarkdownHtmlTag {
                     }
                 }
             }
-            let regexAlt = try NSRegularExpression(pattern: "(^\\!\\[(.)*\\]$)", options: [.CaseInsensitive, .AnchorsMatchLines]);
-            let textCheckingResultAlt = regexAlt.firstMatchInString(string, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, string.characters.count));
+            let regexAlt = try NSRegularExpression(pattern: "(^\\!\\[(.)*\\]\\[\\]$)", options: [.CaseInsensitive, .AnchorsMatchLines]);
+            let textCheckingResultAlt = regexAlt.firstMatchInString(result, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, result.characters.count));
             if textCheckingResultAlt != nil {
-                let range = string.startIndex.advancedBy(textCheckingResultAlt!.range.location+2)..<string.startIndex.advancedBy(textCheckingResultAlt!.range.location+textCheckingResultAlt!.range.length-1);
-                super.tagValue["alt"] = string.substringWithRange(range);
+                let range = result.startIndex.advancedBy(textCheckingResultAlt!.range.location+2)..<result.startIndex.advancedBy(textCheckingResultAlt!.range.location+textCheckingResultAlt!.range.length-3);
+                super.tagValue["alt"] = result.substringWithRange(range);
                 result.removeRange(range);
             }
             

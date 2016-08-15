@@ -13,7 +13,7 @@ class MarkdownHtmlTag4a1: MarkdownHtmlTag {
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
         super.tagName = "a";
-        super.markdownTag = ["[","]","(",")"];
+        super.markdownTag = ["[","]","(",")","<p>","</p>"];
     }
     
     override func getHtml(string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{

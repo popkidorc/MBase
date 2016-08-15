@@ -59,4 +59,8 @@ class MarkdownHtmlTag: NSObject {
     func getParamObejct(string: String) -> Dictionary<String, AnyObject>{
         return [:];
     }
+    
+    func isHandler(string: String) ->Bool{
+        return true;
+    }
 }

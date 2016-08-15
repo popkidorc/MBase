@@ -16,7 +16,8 @@ class DocMainViewController: NSViewController {
     var markdown: String!;
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshContent), name: "refreshContent", object: nil);
         markdown = "";
         self.refreshContent();
     }
