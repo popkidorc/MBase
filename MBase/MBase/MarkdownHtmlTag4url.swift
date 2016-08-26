@@ -9,7 +9,7 @@
 import Cocoa
 
 class MarkdownHtmlTag4url: MarkdownHtmlTag {
-
+    
     override init(range: Range<String.CharacterView.Index>){
         super.init(range: range);
         super.tagName = "";

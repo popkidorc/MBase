@@ -120,12 +120,25 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         main1.initData("", summary: "", mark: "", type: DocMain.DocMainType.NotEdit, docTree: tree1);
         tree1.initData("废纸篓", content: "废纸篓", image: NSImage(named: "TrashIcon"), type: DocTree.DocTreeType.Trash, parent: docTreeData, docMain: main1);
         
+        let tree11 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
+        let main11 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
+        main11.initData("", summary: "", mark: "", type: DocMain.DocMainType.NotEdit, docTree: tree11);
+        tree11.initData("日记", content: "日记", image: NSImage(named: "DiaryIcon"), type: DocTree.DocTreeType.Diary, parent: docTreeData, docMain: main11);
+        
+        let tree12 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
+        let main12 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
+        main12.initData("", summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: tree12);
+        tree12.initData("便签", content: "便签", image: NSImage(named: "NoteIcon"), type: DocTree.DocTreeType.Note, parent: docTreeData, docMain: main12);
+
+        
         let tree2 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main2 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
         main2.initData(ConstsManager.getMarkdownHelp(), summary: "markdown使用帮助", mark: "markdown", type: DocMain.DocMainType.Markdown, docTree: tree2);
         tree2.initData("我的文档", content: "我的文档", image: NSImage(named: "HomeFolderIcon"), type: DocTree.DocTreeType.Normal, parent: docTreeData, docMain: main2);
         
         docTreeData.addChildTree(tree1);
+        docTreeData.addChildTree(tree11);
+        docTreeData.addChildTree(tree12);
         docTreeData.addChildTree(tree2);
     }
     

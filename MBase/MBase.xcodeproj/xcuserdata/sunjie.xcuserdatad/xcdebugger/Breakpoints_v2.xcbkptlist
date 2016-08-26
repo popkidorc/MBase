@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MBase/DocEditViewController.swift"
-            timestampString = "492942380.054605"
+            filePath = "MBase/DocEditViewController+Delegate.swift"
+            timestampString = "493886373.078221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "boundDidChange()"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "changeTextFont(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

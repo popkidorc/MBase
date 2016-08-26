@@ -14,12 +14,6 @@ class MarkdownHtmlTagFactory: NSObject {
     static func getMarkdownHtmlTag(tagRegex: MarkdownManager.MarkdownRegex, range: Range<String.CharacterView.Index>) -> MarkdownHtmlTag{
         
         switch tagRegex {
-        case .P:
-            return MarkdownHtmlTag4p(range: range);
-        case .CODE1:
-            return MarkdownHtmlTag4code1(range: range);
-        case .CODE2:
-            return MarkdownHtmlTag4code2(range: range);
         case .URL:
             return MarkdownHtmlTag4url(range: range);
         case .A1:
@@ -52,7 +46,19 @@ class MarkdownHtmlTagFactory: NSObject {
             return MarkdownHtmlTag4em(range: range);
         case .U:
             return MarkdownHtmlTag4u(range: range);
-
+            
+        }
+    }
+    
+    static func getMarkdownHtmlTag(tagRegex: MarkdownManager.MarkdownRegexParagraph, range: Range<String.CharacterView.Index>) -> MarkdownHtmlTag{
+        
+        switch tagRegex {
+        case .P:
+            return MarkdownHtmlTag4p(range: range);
+        case .CODE1:
+            return MarkdownHtmlTag4code1(range: range);
+        case .CODE2:
+            return MarkdownHtmlTag4code2(range: range);
         }
     }
 }

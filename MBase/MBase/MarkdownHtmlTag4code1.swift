@@ -14,7 +14,7 @@ class MarkdownHtmlTag4code1: MarkdownHtmlTag {
         super.init(range: range);
         super.tagName = "pre";
         super.tagValue = ["class":"defaultcode"];
-        super.markdownTag = ["```","</br>","<p>","</p>"];
+        super.markdownTag = ["```","</br>","<p>","</p>","<h1>","</h1>","<h2>","</h2>","<h3>","</h3>","<h4>","</h4>","<h5>","</h5>","<h6>","</h6>"];
     }
     
     override func getHtml(string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{

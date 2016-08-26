@@ -9,16 +9,10 @@
 import Cocoa
 
 class MarkdownEditFactory: MarkdownHtmlTag {
-
+    
     static func getMarkdownAttributes(tagRegex: MarkdownManager.MarkdownRegex) -> [String : AnyObject]{
         
         switch tagRegex {
-        case .P:
-            return [:];
-        case .CODE1:
-            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
-        case .CODE2:
-            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
         case .URL:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
         case .A1:
@@ -51,9 +45,19 @@ class MarkdownEditFactory: MarkdownHtmlTag {
             return [NSFontAttributeName : NSFont.systemFontOfSize(ConstsManager.defaultFontSize), NSForegroundColorAttributeName : ConstsManager.boldFontColor];
         case .U:
             return [NSFontAttributeName : NSFont.systemFontOfSize(ConstsManager.defaultFontSize), NSForegroundColorAttributeName : ConstsManager.boldFontColor];
-
-            //        let strikeThroughAttributes = [NSStrikethroughStyleAttributeName : 1]
         }
     }
-
+    
+    static func getMarkdownAttributes(tagRegex: MarkdownManager.MarkdownRegexParagraph) -> [String : AnyObject]{
+        
+        switch tagRegex {
+        case .P:
+            return [:];
+        case .CODE1:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
+        case .CODE2:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
+        }
+    }
+    
 }

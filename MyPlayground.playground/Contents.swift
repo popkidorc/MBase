@@ -33,9 +33,25 @@ import Cocoa
 //aa.componentsSeparatedByString("]:");
 
 
-let aa = "</p></br><p>asdfsadf</br></br></br></br></p>"
+//let aa = "</p></br><p>asdfsadf</br></br></br></br></p>"
+//
+//aa.hasPrefix("</p>")
+//
+//
+//aa.rangeOfString("^</p>", options: .RegularExpressionSearch)
+//
+//
+//let bb : [String : AnyObject] = [:]
+//
+//bb.count
 
-aa.hasPrefix("</p>")
+
+performSelector(#selector(aa), withObject: "asdfsadf", afterDelay: 0.2);
 
 
-aa.rangeOfString("^</p>", options: .RegularExpressionSearch)
+func aa(a:String) {
+    print(a)
+}
+
+
+

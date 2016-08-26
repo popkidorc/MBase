@@ -17,6 +17,8 @@ class DocTree: NSManagedObject {
         case Normal = "Normal"
         case Custom = "Custom"
         case Trash = "Trash"
+        case Diary = "Diary"
+        case Note = "Note"
     }
     
     enum DocTreeStatus : String {
