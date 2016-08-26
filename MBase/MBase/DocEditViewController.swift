@@ -38,7 +38,9 @@ class DocEditViewController: NSViewController {
         }
         
         self.docEditView.string = docMainData.content!
-    
+        
+        self.applyStylesToRange(NSMakeRange(0, docMainData.content!.characters.count));
+        
         self.docMainViewController.markdown = docMainData.content!;
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: docMainViewController);
     }

@@ -66,7 +66,6 @@
 		A8CB64FE1D41F69900E69BBE /* DocTreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8CB64FC1D41F69900E69BBE /* DocTreeViewController.xib */; };
 		A8CB65011D41F89700E69BBE /* DocMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */; };
 		A8CB65021D41F89700E69BBE /* DocMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8CB65001D41F89700E69BBE /* DocMainViewController.xib */; };
-		A8DABD2B1D69E2F2009C1997 /* DocEditTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DABD2A1D69E2F2009C1997 /* DocEditTextStorage.swift */; };
 		A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8F60D081D520EA2009768B6 /* DocEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F60D061D520EA2009768B6 /* DocEditViewController.swift */; };
 		A8F60D091D520EA2009768B6 /* DocEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F60D071D520EA2009768B6 /* DocEditViewController.xib */; };
@@ -188,7 +187,6 @@
 		A8CB64FC1D41F69900E69BBE /* DocTreeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocTreeViewController.xib; sourceTree = "<group>"; };
 		A8CB64FF1D41F89700E69BBE /* DocMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocMainViewController.swift; sourceTree = "<group>"; };
 		A8CB65001D41F89700E69BBE /* DocMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocMainViewController.xib; sourceTree = "<group>"; };
-		A8DABD2A1D69E2F2009C1997 /* DocEditTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocEditTextStorage.swift; sourceTree = "<group>"; };
 		A8F60CEC1D52034B009768B6 /* Hoedown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hoedown.framework; path = ../Carthage/Build/Mac/Hoedown.framework; sourceTree = "<group>"; };
 		A8F60D061D520EA2009768B6 /* DocEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocEditViewController.swift; sourceTree = "<group>"; };
 		A8F60D071D520EA2009768B6 /* DocEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DocEditViewController.xib; sourceTree = "<group>"; };
@@ -509,7 +507,6 @@
 				A89099831D59EA4400E25D8E /* DocMainViewController+Delegate.swift */,
 				A8F60D061D520EA2009768B6 /* DocEditViewController.swift */,
 				A8C692941D57642B00C5D145 /* DocEditViewController+Delegate.swift */,
-				A8DABD2A1D69E2F2009C1997 /* DocEditTextStorage.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -738,7 +735,6 @@
 				A8914B821D4231E600A31073 /* DocTreeViewController+DataSource.swift in Sources */,
 				A82AD75E1D43BE5100F457B6 /* DocTreeInfoViewController+Delegate.swift in Sources */,
 				A8FFBE541D549903004EC5C4 /* DocMain+CoreDataProperties.swift in Sources */,
-				A8DABD2B1D69E2F2009C1997 /* DocEditTextStorage.swift in Sources */,
 				A82AD7601D43BFF600F457B6 /* DocTreeInfoViewController+IBAction.swift in Sources */,
 				A89099771D59B80900E25D8E /* ConstsManager.swift in Sources */,
 				A8C692951D57642B00C5D145 /* DocEditViewController+Delegate.swift in Sources */,
