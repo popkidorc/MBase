@@ -21,7 +21,11 @@ class DocEditViewController: NSViewController {
     var docMainViewController: DocMainViewController!;
     
     var managedObjectContext: NSManagedObjectContext!;
-                
+    
+    var paragraphRanges: Dictionary<MarkdownManager.MarkdownRegexParagraph, [NSRange]>!;
+    
+    var editedAttrString: NSAttributedString?;
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         initDocEidtView();
@@ -39,7 +43,13 @@ class DocEditViewController: NSViewController {
         
         self.docEditView.string = docMainData.content!
         
-        self.applyStylesToRange(NSMakeRange(0, docMainData.content!.characters.count));
+        paragraphRanges = Dictionary<MarkdownManager.MarkdownRegexParagraph, [NSRange]>();
+        // 默认
+        self.applyStylesToRange4Default(NSMakeRange(0,  self.docEditView!.string!.characters.count));
+        // 行
+        self.applyStylesToRange4Line(NSMakeRange(0,  self.docEditView!.string!.characters.count));
+        // 段落
+        self.applyStylesToRange4Paragraph(NSMakeRange(0,  self.docEditView!.string!.characters.count));
         
         self.docMainViewController.markdown = docMainData.content!;
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: docMainViewController);
@@ -57,7 +67,8 @@ class DocEditViewController: NSViewController {
         self.docEditView.font = NSFont.systemFontOfSize(ConstsManager.defaultFontSize);
         self.docEditView.defaultParagraphStyle = ConstsManager.getDefaultParagraphStyle();
         self.docEditView.textColor = ConstsManager.defaultFontColor;
-
+        self.docEditView.textStorage?.delegate = self;
+        
         //给滚动条添加通知
         let scrollContentView = docEditScrollView.contentView;
         
