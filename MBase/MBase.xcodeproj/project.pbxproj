@@ -106,6 +106,8 @@
 		A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86220B21D406FA000BAC828 /* MainMenu.xib */; };
 		A8B725B71D52E8D3008C96DF /* Hoedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; };
 		A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A8FBA6801D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */; };
+		A8FBA6871D730A2C00A48FE7 /* NSString+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6861D730A2C00A48FE7 /* NSString+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -227,6 +229,8 @@
 		A86220B31D406FA000BAC828 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A86220B51D406FA000BAC828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8F60CEC1D52034B009768B6 /* Hoedown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hoedown.framework; path = ../Carthage/Build/Mac/Hoedown.framework; sourceTree = "<group>"; };
+		A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagLine.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTagLine.swift; sourceTree = "<group>"; };
+		A8FBA6861D730A2C00A48FE7 /* NSString+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSString+Utils.swift"; path = "system/extension/NSString+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +389,7 @@
 		A89099741D59B79B00E25D8E /* system */ = {
 			isa = PBXGroup;
 			children = (
+				A8FBA6851D730A0500A48FE7 /* extension */,
 				A890997A1D59CB3A00E25D8E /* markdown */,
 				A89099751D59B7A300E25D8E /* manager */,
 			);
@@ -540,6 +545,7 @@
 				A808C05A1D70226E00F568EA /* MarkdownHtmlTag4em.swift */,
 				A808C05B1D70226E00F568EA /* MarkdownHtmlTag4a2.swift */,
 				A808C05C1D70226E00F568EA /* MarkdownHtmlTag4a1.swift */,
+				A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */,
 			);
 			name = tagline;
 			sourceTree = "<group>";
@@ -580,6 +586,14 @@
 				A808C01D1D70217100F568EA /* prettify.js */,
 			);
 			name = "google-code-prettify-small";
+			sourceTree = "<group>";
+		};
+		A8FBA6851D730A0500A48FE7 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				A8FBA6861D730A2C00A48FE7 /* NSString+Utils.swift */,
+			);
+			name = extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -698,6 +712,8 @@
 				A808C0651D70226E00F568EA /* MarkdownHtmlTag4h6.swift in Sources */,
 				A808C0A51D70246D00F568EA /* DocEditViewController.swift in Sources */,
 				A808C0721D70228200F568EA /* MarkdownHtmlTag4code1.swift in Sources */,
+				A8FBA6801D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift in Sources */,
+				A8FBA6871D730A2C00A48FE7 /* NSString+Utils.swift in Sources */,
 				A808C0B61D7024B600F568EA /* ScaryBugDoc.swift in Sources */,
 				A808C06B1D70226E00F568EA /* MarkdownHtmlTag4a2.swift in Sources */,
 				A808C0BF1D70251100F568EA /* EDStarRating.m in Sources */,

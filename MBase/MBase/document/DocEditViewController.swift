@@ -22,8 +22,6 @@ class DocEditViewController: NSViewController {
     
     var managedObjectContext: NSManagedObjectContext!;
     
-    var paragraphRanges: Dictionary<MarkdownManager.MarkdownRegexParagraph, [NSRange]>!;
-    
     var editedAttrString: NSAttributedString?;
     
     override func viewDidLoad() {
@@ -43,13 +41,12 @@ class DocEditViewController: NSViewController {
         
         self.docEditView.string = docMainData.content!
         
-        paragraphRanges = Dictionary<MarkdownManager.MarkdownRegexParagraph, [NSRange]>();
         // 默认
-        self.applyStylesToRange4Default(NSMakeRange(0,  self.docEditView!.string!.characters.count));
+        self.applyStylesToRange4Default(self.docEditView.textStorage!, range: NSMakeRange(0,  self.docEditView!.string!.characters.count));
         // 行
-        self.applyStylesToRange4Line(NSMakeRange(0,  self.docEditView!.string!.characters.count));
+        self.applyStylesToRange4Line(self.docEditView.textStorage!, range: NSMakeRange(0,  self.docEditView!.string!.characters.count));
         // 段落
-        self.applyStylesToRange4Paragraph(NSMakeRange(0,  self.docEditView!.string!.characters.count));
+        self.applyStylesToRange4Paragraph(self.docEditView.textStorage!, range: NSMakeRange(0,  self.docEditView!.string!.characters.count));
         
         self.docMainViewController.markdown = docMainData.content!;
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: docMainViewController);
