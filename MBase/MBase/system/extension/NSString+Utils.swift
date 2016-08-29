@@ -11,7 +11,7 @@ import Cocoa
 extension String {
     
     func isExistString(searchString: String) -> Bool {
-        let range = self.rangeOfString("`");
+        let range = self.rangeOfString(searchString);
         return range != nil;
     }
 

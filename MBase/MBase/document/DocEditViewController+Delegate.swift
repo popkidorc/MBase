@@ -10,75 +10,82 @@ import Cocoa
 
 extension DocEditViewController: NSTextViewDelegate, NSTextStorageDelegate {
     
+    func textStorage(textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+        print()
+    }
+    
+    
     func textStorage(textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int){
-        self.editedAttrString = textStorage.attributedSubstringFromRange(editedRange);
     }
     
     func textDidChange(notification: NSNotification) {
         
-        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(changeTextFont), object: nil);
+        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(changeTextFontNew), object: nil);
         
-        self.performSelector(#selector(changeTextFont), withObject: nil, afterDelay: 0.2);
+        self.performSelector(#selector(changeTextFontNew), withObject: nil, afterDelay: 0.2);
     }
     
     
-    func changeTextFont(){
+    // 目标：尽量少的操作文档格式，过多操作会导致闪页和降速。
+    func changeTextFontNew(){
         let start = CFAbsoluteTimeGetCurrent()
         
-        let range = self.docEditView.selectedRange();
-        let textString = NSString(string: self.docEditView.textStorage!.string);
-        
-        var extendedRange = NSUnionRange(range, textString.lineRangeForRange(NSMakeRange(range.location, 0)))
-        extendedRange = NSUnionRange(range, textString.lineRangeForRange(NSMakeRange(NSMaxRange(range), 0)))
-        
-        let lineString = self.docEditView.textStorage!.attributedSubstringFromRange(extendedRange).string;
-        let isEditCode  = lineString.isExistString(lineString);
+        // 获取段与段间，以```为例。思路：按选择行将文章分为两份，上半份倒查段的关键字；下半份正查段的关键字。
+        /** 对于上半段:
+         1. 如果出现了偶数个相同关键字，则说明selectedRange不在对应code中，这时需要判断下半段：
+            1.1 如果下半段没有关键字，则处理单行；
+            1.2 如果下半段有关键字，则处理选择行行首到文章尾；
+         2. 如果出现了奇数个相同关键字，则说明选择行在对应code中，，这时需要判断下半段：
+            2.1 如果下半段没有关键字，则处理上半段关键字到选择行行尾；
+            2.2 如果下半段有关键字，则处理上半段关键字到文章尾；
+         **/
+        /** 对于下半段:
+         配合上半段处理。
+         **/
 
-        var preRange = NSMakeRange(0, range.location);
-        var backRange = NSMakeRange(NSMaxRange(range), textString.length - NSMaxRange(range));
-        // 如果当前行有`,则查找范围:向前=0到当前行首；向后=当前行尾到文章length
-        if isEditCode {
-            preRange = NSMakeRange(0, extendedRange.location);
-            backRange = NSMakeRange(NSMaxRange(extendedRange), textString.length - NSMaxRange(extendedRange));
-        }
+        // 全文
+        let textString = NSString(string: self.docEditView.textStorage!.string);
+        // 关键字
+        let codeKey = "```";
+        // 选择行
+        let lineRange = NSUnionRange(self.docEditView.selectedRange(), textString.lineRangeForRange(NSMakeRange(NSMaxRange(self.docEditView.selectedRange()), 0)))
+        // 上半段
+        let preRange = NSMakeRange(0, lineRange.location);
+        // 下半段
+        let backRange = NSMakeRange(NSMaxRange(lineRange), textString.length - NSMaxRange(lineRange));
         
-        let count1 = self.docEditView.textStorage!.string.countOccurencesOfString("```", range: preRange);
-        var preCode1Range: NSRange?;
-        if count1%2 == 1 {
-            preCode1Range = textString.rangeOfString("```", options: .BackwardsSearch , range: preRange, locale: nil);
-        }
-        
-        let count2 = self.docEditView.textStorage!.string.countOccurencesOfString("```", range: backRange);
-        var backCode1Range: NSRange?;
-        if count2%2 == 1 {
-            backCode1Range = textString.rangeOfString("```", options: NSStringCompareOptions(rawValue: 0), range: backRange, locale: nil);
-        }
-        
-        //如果当前行有`,则先处理段落（＋默认）、然后处理行（－默认）
-        // 1、向前有code=code起始点到当前行尾
-        if isEditCode && preCode1Range != nil {
-            let code1Range = NSMakeRange(preCode1Range!.location, NSMaxRange(extendedRange) - preCode1Range!.location);
-            // 段落
-            self.applyStylesToRange4Paragraph(self.docEditView.textStorage!, range: code1Range, isDefault: true);
+        // 上半段，段关键字出现次数
+        let preCount = self.docEditView.textStorage!.string.countOccurencesOfString("```", range: preRange);
+        if preCount%2 == 0 {
+            let backCodeKeyRange = textString.rangeOfString(codeKey, options: NSStringCompareOptions(rawValue: 0), range: backRange, locale: nil);
+            var codeRange: NSRange!;
+            if backCodeKeyRange.length <= 0 {
+                codeRange = lineRange;
+                // 行
+                self.applyStylesToRange4Line(self.docEditView.textStorage!, range: codeRange, isDefault: true);
+            } else {
+                // 选择行行首到文章尾
+                codeRange = NSMakeRange(lineRange.location, textString.length - lineRange.location);
+                // 行
+                self.applyStylesToRange4Line(self.docEditView.textStorage!, range: codeRange, isDefault: true);
+                // 段落
+                self.applyStylesToRange4Paragraph(self.docEditView.textStorage!, range: codeRange, isDefault: false);
+            }
+        }else if preCount%2 == 1 {
+            let preCodeKeyRange = textString.rangeOfString(codeKey, options: .BackwardsSearch , range: preRange, locale: nil);
+            let backCodeKeyRange = textString.rangeOfString(codeKey, options: NSStringCompareOptions(rawValue: 0), range: backRange, locale: nil);
+            var codeRange: NSRange!;
+            if backCodeKeyRange.length <= 0 {
+                // 上半段关键字到选择行行尾
+                codeRange = NSMakeRange(preCodeKeyRange.location, NSMaxRange(lineRange) - preCodeKeyRange.location);
+            } else {
+                // 上半段关键字到文章尾
+                codeRange = NSMakeRange(preCodeKeyRange.location, textString.length - preCodeKeyRange.location);
+            }
             // 行
-            self.applyStylesToRange4Line(self.docEditView.textStorage!, range: extendedRange, isDefault: false);
-        }
-        // 2、向后有code=当前行首到code结尾点
-        else if isEditCode && backCode1Range != nil {
-            let code1Range = NSMakeRange(extendedRange.location, NSMaxRange(backCode1Range!) - extendedRange.location);
+            self.applyStylesToRange4Line(self.docEditView.textStorage!, range: codeRange, isDefault: true);
             // 段落
-            self.applyStylesToRange4Paragraph(self.docEditView.textStorage!, range: code1Range, isDefault: true);
-            // 行
-            self.applyStylesToRange4Line(self.docEditView.textStorage!, range: extendedRange, isDefault: false);
-        }
-        // 3、当前输入在code中、且当前行无`,则=code起始点到code结尾点
-        else if preCode1Range != nil && backCode1Range  != nil {
-            let code1Range = NSMakeRange(preCode1Range!.location, NSMaxRange(backCode1Range!) - preCode1Range!.location);
-            // 段落
-            self.applyStylesToRange4Paragraph(self.docEditView.textStorage!, range: code1Range, isDefault: true);
-        } else {
-            // 行
-            self.applyStylesToRange4Line(self.docEditView.textStorage!, range: extendedRange, isDefault: true);
+            self.applyStylesToRange4Paragraph(self.docEditView.textStorage!, range: codeRange, isDefault: false);
         }
         
         // 保存coredata
@@ -86,11 +93,10 @@ extension DocEditViewController: NSTextViewDelegate, NSTextStorageDelegate {
         
         self.docMainViewController.markdown = self.docEditView.string!;
         
-//         docMainViewController.refreshContent();
+        //         docMainViewController.refreshContent();
         
         print("applyStylesToRange:"+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
     }
-    
     
     func applyStylesToRange4Default(textStorage: NSTextStorage, range: NSRange){
         if textStorage.string == ""

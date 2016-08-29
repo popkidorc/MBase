@@ -21,9 +21,7 @@ class DocEditViewController: NSViewController {
     var docMainViewController: DocMainViewController!;
     
     var managedObjectContext: NSManagedObjectContext!;
-    
-    var editedAttrString: NSAttributedString?;
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad();
         initDocEidtView();
