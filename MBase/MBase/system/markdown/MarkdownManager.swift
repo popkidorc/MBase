@@ -41,16 +41,28 @@ class MarkdownManager: NSObject {
         case IMG1 = "(^\\!\\[(.)*\\]\\((.)*\\)$)"
         case IMG2 = "(^\\!\\[(.)*\\]\\[\\d{1,2}\\]$)"
     }
-    
+        
     enum MarkdownRegexParagraph : String {
         
-        static let values = [P,CODE1,CODE2];
+        static let values = [P, CODE2, CODE1];
         
         case P = "(.*?\n)"
+        
         case CODE1 = "(```(.)*?```)"
+        
         case CODE2 = "(`(.)*?`)"
+        
+        var codeKey: String {
+            switch self {
+            case .P:
+                return ""
+            case .CODE1:
+                return "```"
+            case .CODE2:
+                return "`"
+            }
+        }
     }
-    
     
     static func generateHTMLForMarkdown(string: String, cssType: CssType  = .Default) -> String!{
         if string == ""
@@ -61,39 +73,38 @@ class MarkdownManager: NSObject {
         //正则匹配替换
         var objectDic = Dictionary<MarkdownRegex,[Dictionary<String, AnyObject>]>();
         
-//        // 段落
-//        for tagRegex in MarkdownRegexParagraph .values {
-//            let start = CFAbsoluteTimeGetCurrent()
-//            var regex: NSRegularExpression?;
-//            do{
-//                regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .DotMatchesLineSeparators ]);
-//            }catch{
-//                let nserror = error as NSError
-//                NSApplication.sharedApplication().presentError(nserror)
-//            }
-//            let textCheckingResults = regex!.matchesInString(result, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, result.characters.count));
-//            
-//            var markdownHtmlTagDictionary = Dictionary<Int, MarkdownHtmlTag>();
-//            var i = 1;
-//            for textCheckingResult in textCheckingResults {
-//                let range = result.startIndex.advancedBy(textCheckingResult.range.location)..<result.startIndex.advancedBy(textCheckingResult.range.location+textCheckingResult.range.length);
-//                
-//                let markdownHtmlTag = MarkdownHtmlTagFactory.getMarkdownHtmlTag(tagRegex, range: range);
-//                markdownHtmlTagDictionary[i] = markdownHtmlTag;
-//                i += 1;
-//            }
-//            for index in markdownHtmlTagDictionary.keys.sort(>) {
-//                let markdownHtmlTag = markdownHtmlTagDictionary[index];
-//                let replaceString = result.substringWithRange(markdownHtmlTag!.range);
-//                if !markdownHtmlTag!.isHandler(replaceString){
-//                    continue;
-//                }
-//                result.replaceRange(markdownHtmlTag!.range , with: markdownHtmlTag!.getHtml(replaceString, index:index, object: objectDic));
-//            }
-//            print("=====tagRegex2:"+String(tagRegex)+"====="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
-//        }
-
-        
+        //        // 段落
+        //        for tagRegex in MarkdownRegexParagraph .values {
+        //            let start = CFAbsoluteTimeGetCurrent()
+        //            var regex: NSRegularExpression?;
+        //            do{
+        //                regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .DotMatchesLineSeparators ]);
+        //            }catch{
+        //                let nserror = error as NSError
+        //                NSApplication.sharedApplication().presentError(nserror)
+        //            }
+        //            let textCheckingResults = regex!.matchesInString(result, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, result.characters.count));
+        //
+        //            var markdownHtmlTagDictionary = Dictionary<Int, MarkdownHtmlTag>();
+        //            var i = 1;
+        //            for textCheckingResult in textCheckingResults {
+        //                let range = result.startIndex.advancedBy(textCheckingResult.range.location)..<result.startIndex.advancedBy(textCheckingResult.range.location+textCheckingResult.range.length);
+        //
+        //                let markdownHtmlTag = MarkdownHtmlTagFactory.getMarkdownHtmlTag(tagRegex, range: range);
+        //                markdownHtmlTagDictionary[i] = markdownHtmlTag;
+        //                i += 1;
+        //            }
+        //            for index in markdownHtmlTagDictionary.keys.sort(>) {
+        //                let markdownHtmlTag = markdownHtmlTagDictionary[index];
+        //                let replaceString = result.substringWithRange(markdownHtmlTag!.range);
+        //                if !markdownHtmlTag!.isHandler(replaceString){
+        //                    continue;
+        //                }
+        //                result.replaceRange(markdownHtmlTag!.range , with: markdownHtmlTag!.getHtml(replaceString, index:index, object: objectDic));
+        //            }
+        //            print("=====tagRegex2:"+String(tagRegex)+"====="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
+        //        }
+            
         // 遍历每个需要替换字体属性的文本
         for tagRegex in MarkdownRegex.values {
             let start = CFAbsoluteTimeGetCurrent()
@@ -132,7 +143,7 @@ class MarkdownManager: NSObject {
             print("=====tagRegex:"+String(tagRegex)+"====="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
         }
         
-//        print(result)
+        //        print(result)
         //替换转义
         result = self.handlerTransferString(result);
         //增加资源
@@ -151,10 +162,10 @@ class MarkdownManager: NSObject {
         result = result.stringByReplacingOccurrencesOfString("</pre></br>", withString: "</pre>");
         
         
-//        result = result.stringByReplacingOccurrencesOfString("&lt;", withString: "<");
-//        result = result.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
-//        result = result.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
-//        result = result.stringByReplacingOccurrencesOfString("&amp;", withString: "&");
+        //        result = result.stringByReplacingOccurrencesOfString("&lt;", withString: "<");
+        //        result = result.stringByReplacingOccurrencesOfString("&gt;", withString: ">");
+        //        result = result.stringByReplacingOccurrencesOfString("&quot;", withString: "\"");
+        //        result = result.stringByReplacingOccurrencesOfString("&amp;", withString: "&");
         return result;
     }
 }

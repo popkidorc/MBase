@@ -39,12 +39,7 @@ class DocEditViewController: NSViewController {
         
         self.docEditView.string = docMainData.content!
         
-        // 默认
-        self.applyStylesToRange4Default(self.docEditView.textStorage!, range: NSMakeRange(0,  self.docEditView!.string!.characters.count));
-        // 行
-        self.applyStylesToRange4Line(self.docEditView.textStorage!, range: NSMakeRange(0,  self.docEditView!.string!.characters.count));
-        // 段落
-        self.applyStylesToRange4Paragraph(self.docEditView.textStorage!, range: NSMakeRange(0,  self.docEditView!.string!.characters.count));
+        self.handlerInitFont(self.docEditView.textStorage!);
         
         self.docMainViewController.markdown = docMainData.content!;
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: docMainViewController);

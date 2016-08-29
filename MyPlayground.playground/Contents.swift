@@ -6,51 +6,24 @@ import Cocoa
 //
 //let range = str.startIndex.advancedBy(1)..<str.startIndex.advancedBy(3);
 
-var ss = NSString(string:"qwer```tyuiop```a123123123123sdf```ghjll1")
+//var ss = NSString(string:"qwer```tyuiop```a123123123123sdf```ghjll1")
+//
+//
+let s = NSString(string:"01`2```4`1````8```190");
 
-
-let s = "qwer```tyuiop```a123123123123sdf```ghjll1";
-let searchString = ""
-
-searchString == ""
-
-searchString.rangeOfString("`") != nil
-
-s.characters.count - s.stringByReplacingOccurrencesOfString(searchString, withString: "").characters.count;
-
-let range = NSRange(location: 0, length: 16);
-
-let string = NSString(string: s).substringWithRange(range);
-let strCount = string.characters.count - string.stringByReplacingOccurrencesOfString(searchString, withString: "").characters.count;
-
-
-//    - (NSInteger)countOccurencesOfString:(NSString*)searchString {
-//        NSInteger strCount = [self length] - [[self stringByReplacingOccurrencesOfString:searchString withString:@""] length];
-//        return strCount / [searchString length];
-//}
-let prerange = ss.rangeOfString("```", options: .BackwardsSearch, range: NSMakeRange(0, 30))
-
-print(prerange)
-
-
-let backrange = ss.rangeOfString("```", options: NSStringCompareOptions(rawValue: 0), range: NSMakeRange(30, ss.length-30))
-
-
-print(backrange)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let range = NSMakeRange(0, s.length);
+    let searchString = "`"
+    
+    let exceptStrings = ["```"]
+    
+    if exceptStrings.count <= 0{
+        NSString(string: searchString).rangeOfString(searchString, options: .BackwardsSearch, range: range);
+    }
+    var stringTemp = NSString(string:  s);
+    for exceptString in exceptStrings {
+        stringTemp = stringTemp.stringByReplacingOccurrencesOfString(exceptString, withString: "000", options: .BackwardsSearch, range: range)
+    }
+stringTemp.rangeOfString(searchString, options: .BackwardsSearch, range: range).location
 
 
 
