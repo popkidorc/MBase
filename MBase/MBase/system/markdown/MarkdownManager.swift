@@ -104,7 +104,7 @@ class MarkdownManager: NSObject {
         //            }
         //            print("=====tagRegex2:"+String(tagRegex)+"====="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
         //        }
-            
+        
         // 遍历每个需要替换字体属性的文本
         for tagRegex in MarkdownRegex.values {
             let start = CFAbsoluteTimeGetCurrent()

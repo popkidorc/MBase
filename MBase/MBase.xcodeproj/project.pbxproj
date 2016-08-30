@@ -103,6 +103,8 @@
 		A808C0BF1D70251100F568EA /* EDStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = A808C0BB1D70251100F568EA /* EDStarRating.m */; };
 		A808C0C01D70251100F568EA /* NSImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = A808C0BE1D70251100F568EA /* NSImage+Extras.m */; };
 		A808C0C51D70253C00F568EA /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A808C0C11D70253C00F568EA /* MainWindowController.xib */; };
+		A81CC89A1D754AAF0000401B /* DocEditViewController+MenuIBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81CC8991D754AAF0000401B /* DocEditViewController+MenuIBAction.swift */; };
+		A81CC89C1D754B790000401B /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81CC89B1D754B790000401B /* CommonUtils.swift */; };
 		A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86220B21D406FA000BAC828 /* MainMenu.xib */; };
 		A8B725B71D52E8D3008C96DF /* Hoedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; };
 		A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -224,6 +226,8 @@
 		A808C0BD1D70251100F568EA /* NSImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+Extras.h"; path = "supporting/NSImage+Extras.h"; sourceTree = "<group>"; };
 		A808C0BE1D70251100F568EA /* NSImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Extras.m"; path = "supporting/NSImage+Extras.m"; sourceTree = "<group>"; };
 		A808C0C11D70253C00F568EA /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = main/MainWindowController.xib; sourceTree = "<group>"; };
+		A81CC8991D754AAF0000401B /* DocEditViewController+MenuIBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DocEditViewController+MenuIBAction.swift"; path = "document/DocEditViewController+MenuIBAction.swift"; sourceTree = "<group>"; };
+		A81CC89B1D754B790000401B /* CommonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		A82AD7641D4453E100F457B6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		A86220AB1D406FA000BAC828 /* MBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86220B31D406FA000BAC828 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				A808BFFD1D7020CB00F568EA /* ConstsManager.swift */,
+				A81CC89B1D754B790000401B /* CommonUtils.swift */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 			children = (
 				A808C0A11D70246D00F568EA /* DocEditViewController.swift */,
 				A808C0A01D70246D00F568EA /* DocEditViewController+Delegate.swift */,
+				A81CC8991D754AAF0000401B /* DocEditViewController+MenuIBAction.swift */,
 				A808C09F1D70246D00F568EA /* DocMainViewController.swift */,
 				A808C0A21D70246D00F568EA /* DocMainViewController+Delegate.swift */,
 			);
@@ -738,6 +744,7 @@
 				A808C0871D70231900F568EA /* DocTreeViewController.swift in Sources */,
 				A808C0891D70231900F568EA /* DocTreeInfoViewController.swift in Sources */,
 				A808C08D1D70235F00F568EA /* AppDelegate.swift in Sources */,
+				A81CC89A1D754AAF0000401B /* DocEditViewController+MenuIBAction.swift in Sources */,
 				A808C0931D7023F900F568EA /* DocMain.swift in Sources */,
 				A808C04C1D70226000F568EA /* MarkdownEditFactory.swift in Sources */,
 				A808C06A1D70226E00F568EA /* MarkdownHtmlTag4em.swift in Sources */,
@@ -761,6 +768,7 @@
 				A808C0481D70224200F568EA /* MarkdownManager.swift in Sources */,
 				A808C0771D7022FF00F568EA /* DocTreeInfoData.swift in Sources */,
 				A808C05D1D70226E00F568EA /* MarkdownHtmlTag4url.swift in Sources */,
+				A81CC89C1D754B790000401B /* CommonUtils.swift in Sources */,
 				A808C05F1D70226E00F568EA /* MarkdownHtmlTag4img2.swift in Sources */,
 				A808C0971D70240F00F568EA /* UserInfo.swift in Sources */,
 				A808C0611D70226E00F568EA /* MarkdownHtmlTag4img1.swift in Sources */,
