@@ -30,17 +30,17 @@ extension DocEditViewController: NSTextStorageDelegate {
         let start = CFAbsoluteTimeGetCurrent()
         
         // 全文
-        let textString = self.docEditView.textStorage!.string;
+        let textString = NSString(string: self.docEditView.textStorage!.string);
         
         // 选择行
-        let lineRange = NSUnionRange(self.docEditView.selectedRange(), NSString(string: textString).lineRangeForRange(NSMakeRange(NSMaxRange(self.docEditView.selectedRange()), 0)))
+        let lineRange = NSUnionRange(self.docEditView.selectedRange(), textString.lineRangeForRange(NSMakeRange(NSMaxRange(self.docEditView.selectedRange()), 0)))
         // 上半段
         let preRange = NSMakeRange(0, lineRange.location);
         // 下半段
-        let backRange = NSMakeRange(NSMaxRange(lineRange), NSString(string: textString).length - NSMaxRange(lineRange));
+        let backRange = NSMakeRange(NSMaxRange(lineRange), textString.length - NSMaxRange(lineRange));
         
         // 获取最大范围的变更range
-        let changeRange = self.getChangeRange(self.docEditView.textStorage!, lineRange: lineRange, preRange: preRange,  backRange: backRange);
+        let changeRange = self.getChangeRange(textString, lineRange: lineRange, preRange: preRange,  backRange: backRange);
         
         // 默认
         self.applyStylesToRange4Default(self.docEditView.textStorage!, range: changeRange);
@@ -82,8 +82,7 @@ extension DocEditViewController: NSTextStorageDelegate {
     /** 对于下半段:
      配合上半段处理。
      **/
-    func getChangeRange(textStorage: NSTextStorage, lineRange: NSRange, preRange: NSRange,  backRange: NSRange) -> NSRange{
-        let textString = NSString(string: textStorage.string);
+    func getChangeRange(string: NSString, lineRange: NSRange, preRange: NSRange,  backRange: NSRange) -> NSRange{
         var changeRange: NSRange!;
         for tagRegex in MarkdownManager.MarkdownRegexParagraph.values  {
             if tagRegex == .P{
@@ -97,13 +96,13 @@ extension DocEditViewController: NSTextStorageDelegate {
             // 上半段，段关键字出现次数
             var preCount: Int!;
             if tagRegex == .CODE2 {
-                preCodeKeyRange = textStorage.string.rangeOfString(codeKey, exceptStrings: [MarkdownManager.MarkdownRegexParagraph.CODE1.codeKey], options: .BackwardsSearch , range: preRange);
-                backCodeKeyRange = textStorage.string.rangeOfString(codeKey, exceptStrings: [MarkdownManager.MarkdownRegexParagraph.CODE1.codeKey], options: NSStringCompareOptions(rawValue: 0), range: backRange);
-                preCount = textStorage.string.countOccurencesOfString(codeKey,exceptStrings: [MarkdownManager.MarkdownRegexParagraph.CODE1.codeKey], range: preRange);
+                preCodeKeyRange = string.rangeOfString(codeKey, exceptStrings: [MarkdownManager.MarkdownRegexParagraph.CODE1.codeKey], options: .BackwardsSearch , range: preRange);
+                backCodeKeyRange = string.rangeOfString(codeKey, exceptStrings: [MarkdownManager.MarkdownRegexParagraph.CODE1.codeKey], options: NSStringCompareOptions(rawValue: 0), range: backRange);
+                preCount = string.countOccurencesOfString(codeKey,exceptStrings: [MarkdownManager.MarkdownRegexParagraph.CODE1.codeKey], range: preRange);
             } else {
-                preCodeKeyRange = textStorage.string.rangeOfString(codeKey, options: .BackwardsSearch , range: preRange);
-                backCodeKeyRange = textStorage.string.rangeOfString(codeKey, options: NSStringCompareOptions(rawValue: 0), range: backRange);
-                preCount = textStorage.string.countOccurencesOfString(codeKey, range: preRange);
+                preCodeKeyRange = string.rangeOfString(codeKey, options: .BackwardsSearch , range: preRange);
+                backCodeKeyRange = string.rangeOfString(codeKey, options: NSStringCompareOptions(rawValue: 0), range: backRange);
+                preCount = string.countOccurencesOfString(codeKey, range: preRange);
             }
             // 处理关键字
             var changeRangeTemp: NSRange!;
@@ -113,7 +112,7 @@ extension DocEditViewController: NSTextStorageDelegate {
                     changeRangeTemp = lineRange;
                 } else {
                     // 选择行行首到文章尾
-                    changeRangeTemp = NSMakeRange(lineRange.location, textString.length - lineRange.location);
+                    changeRangeTemp = NSMakeRange(lineRange.location, NSString(string: string).length - lineRange.location);
                 }
             }else if preCount%2 == 1 {
                 if backCodeKeyRange.length <= 0 {
@@ -121,7 +120,7 @@ extension DocEditViewController: NSTextStorageDelegate {
                     changeRangeTemp = NSMakeRange(preCodeKeyRange.location, NSMaxRange(lineRange) - preCodeKeyRange.location);
                 } else {
                     // 上半段关键字到文章尾
-                    changeRangeTemp = NSMakeRange(preCodeKeyRange.location, textString.length - preCodeKeyRange.location);
+                    changeRangeTemp = NSMakeRange(preCodeKeyRange.location, NSString(string: string).length - preCodeKeyRange.location);
                 }
             }
             // 取最大范围
@@ -133,7 +132,7 @@ extension DocEditViewController: NSTextStorageDelegate {
         }
         return changeRange;
     }
-
+    
     func applyStylesToRange4Default(textStorage: NSTextStorage, range: NSRange){
         if textStorage.string == ""
         {
@@ -164,6 +163,10 @@ extension DocEditViewController: NSTextStorageDelegate {
             for textCheckingResult in textCheckingResults {
                 let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
                 if attrs.count > 0  {
+                    //如果code2，需要判断是否在code1中
+                    if tagRegex == .CODE2 && CommonUtils.isContainInCodeKey(NSString(string: textStorage.string), codeKey: MarkdownManager.MarkdownRegexParagraph.CODE1.codeKey, range: textCheckingResult.range){
+                        continue;
+                    }
                     textStorage.addAttributes(attrs, range: textCheckingResult.range)
                 }
             }
