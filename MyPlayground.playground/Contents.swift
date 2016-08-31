@@ -66,10 +66,10 @@ var holeRanges = [NSRange]();
 ranges.count
 for index in 0 ..< ranges.count+1 {
     if index == 0 {
-        holeRanges.append(NSMakeRange(0, 0));
+        holeRanges.append(NSMakeRange(ranges[0].location, 0));
         continue;
     } else if index == ranges.count {
-        holeRanges.append(NSMakeRange(ranges[0].location + NSMaxRange(ranges[ranges.count - 1]), 0));
+        holeRanges.append(NSMakeRange(NSMaxRange(ranges[ranges.count - 1]), 0));
         continue;
     } else {
         holeRanges.append(NSMakeRange(NSMaxRange(ranges[index-1]), ranges[index].location - NSMaxRange(ranges[index-1])))

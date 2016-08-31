@@ -61,42 +61,6 @@ extension NSString {
         return count1 - count2;
     }
     
-    //腐蚀制定ranges
-    func corrodeString(ranges: [NSRange], corrodeRanges: [NSRange]) -> [NSRange]{
-        //获取range坑集合
-        var holeRanges = [NSRange]();
-        ranges.count
-        for index in 0 ..< ranges.count+1 {
-            // 起点
-            if index == 0 {
-                holeRanges.append(NSMakeRange(0, 0));
-                continue;
-            }
-            //终点
-            else if index == ranges.count {
-                holeRanges.append(NSMakeRange(ranges[0].location + NSMaxRange(ranges[ranges.count - 1]), 0));
-                continue;
-            }
-            //中间点
-            else {
-                holeRanges.append(NSMakeRange(NSMaxRange(ranges[index-1]), ranges[index].location - NSMaxRange(ranges[index-1])))
-            }
-        }
-        
-        //组装holeRanges，追加corrodeRanges并重排序
-        holeRanges.appendContentsOf(corrodeRanges);
-        holeRanges = holeRanges.sort({ r1, r2 in r1.location < r2.location })
-        
-        //腐蚀corrodeRanges
-        var corrodeResults = [NSRange]();
-        for index in 0 ..< holeRanges.count {
-            if index == 0 {
-                continue;
-            } else if holeRanges[index].location > NSMaxRange(holeRanges[index-1]){
-                corrodeResults.append(NSMakeRange(NSMaxRange(holeRanges[index-1]), holeRanges[index].location - NSMaxRange(holeRanges[index-1])));
-            }
-        }
-        return corrodeResults;
-    }
+    
     
 }

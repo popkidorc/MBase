@@ -11,7 +11,6 @@ import Cocoa
 extension DocEditViewController: NSTextStorageDelegate {
     
     func textStorage(textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
-        print()
     }
     
     func textStorage(textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int){
@@ -19,11 +18,81 @@ extension DocEditViewController: NSTextStorageDelegate {
     
     func textDidChange(notification: NSNotification) {
         
+//        print("===="+String(self.docEditView.textStorage!.paragraphs.count));
+//        for storage in self.docEditView.textStorage!.paragraphs {
+//            print("==1=="+storage.string);
+//        }
+        
         NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(changeTextFontNew), object: nil);
         
-        self.performSelector(#selector(changeTextFontNew), withObject: nil, afterDelay: 0.2);
+        self.performSelector(#selector(changeTextFontNew2), withObject: nil, afterDelay: 0.2);
     }
     
+    
+    //腐蚀算法
+    func changeTextFontNew2(){
+        let start = CFAbsoluteTimeGetCurrent()
+        
+        // 全文
+        let textString = NSString(string: self.docEditView.textStorage!.string);
+        
+        // 选择行
+        let lineRange = NSUnionRange(self.docEditView.selectedRange(), textString.lineRangeForRange(NSMakeRange(NSMaxRange(self.docEditView.selectedRange()), 0)))
+        // 上半段
+        let preRange = NSMakeRange(0, lineRange.location);
+        // 下半段
+        let backRange = NSMakeRange(NSMaxRange(lineRange), textString.length - NSMaxRange(lineRange));
+
+        // 段落
+        var ranges = [NSRange]();
+        var rangeTemps: [NSRange];
+        var stringTemp: String;
+        for tagRegex in MarkdownManager.MarkdownRegexParagraph.values {
+            if tagRegex.rawValue == "" || tagRegex.codeKey == "" {
+                continue;
+            }
+            if ranges.count == 0 {
+                let changeRange = self.getChangeRangeNew2(tagRegex, string: textString, lineRange: lineRange, preRange: preRange, backRange: backRange);
+                ranges.append(changeRange);
+                // 默认
+                self.applyStylesToRange4Default(self.docEditView.textStorage!, range: changeRange);
+            }
+            var regex: NSRegularExpression?;
+            do{
+                regex =  try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .DotMatchesLineSeparators])
+            }catch{
+                let nserror = error as NSError
+                NSApplication.sharedApplication().presentError(nserror)
+            }
+            rangeTemps = [NSRange]();
+            let start1 = CFAbsoluteTimeGetCurrent()
+            for range in ranges {
+                stringTemp = textString.substringWithRange(range);
+                for textCheckingResult in regex!.matchesInString(stringTemp, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, range.length)) {
+                    let start2 = CFAbsoluteTimeGetCurrent()
+                    let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
+                    if attrs.count > 0  {
+                        let stringRange = NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length);
+                        self.docEditView.textStorage!.addAttributes(attrs, range: stringRange);
+                        rangeTemps.append(stringRange);
+                        print("============"+String(CFAbsoluteTimeGetCurrent()-start2)+" seconds, range:"+String(range.location)+", "+String(range.length)+", rangeTemps:"+String(stringRange.location)+", "+String(stringRange.length));
+                    }
+                }
+            }
+            // 腐蚀ranges
+            ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
+            print("========"+String(CFAbsoluteTimeGetCurrent()-start1)+" seconds")
+        }
+        
+        // 保存coredata
+        self.docMainData.updateContent(self.docEditView.string!);
+        
+        self.docMainViewController.markdown = self.docEditView.string!;
+        
+        //         docMainViewController.refreshContent();
+        
+        print("applyStylesToRange:"+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
+    }
     
     // 目标：尽量少的操作文档格式，过多操作会导致闪页和降速。
     func changeTextFontNew(){
@@ -67,6 +136,37 @@ extension DocEditViewController: NSTextStorageDelegate {
         self.applyStylesToRange4Line(textStorage, range: NSMakeRange(0,  self.docEditView!.string!.characters.count));
         // 段落
         self.applyStylesToRange4Paragraph(textStorage, range: NSMakeRange(0,  self.docEditView!.string!.characters.count));
+    }
+    
+    
+    func getChangeRangeNew2(tagRegex : MarkdownManager.MarkdownRegexParagraph, string: NSString, lineRange: NSRange, preRange: NSRange,  backRange: NSRange) -> NSRange{
+        let codeKey = tagRegex.codeKey;
+        // 上半段最近的段关键字
+        let preCodeKeyRange = string.rangeOfString(codeKey, options: .BackwardsSearch , range: preRange);
+        // 下半段最近的段关键字
+        let backCodeKeyRange = string.rangeOfString(codeKey, options: NSStringCompareOptions(rawValue: 0), range: backRange);
+        // 上半段，段关键字出现次数
+        let preCount = string.countOccurencesOfString(codeKey, range: preRange);
+        // 处理关键字
+        var changeRangeTemp: NSRange!;
+        if preCount%2 == 0 {
+            if backCodeKeyRange.length <= 0 {
+                // 选择行首到选择行尾
+                changeRangeTemp = lineRange;
+            } else {
+                // 选择行行首到文章尾
+                changeRangeTemp = NSMakeRange(lineRange.location, NSString(string: string).length - lineRange.location);
+            }
+        } else if preCount%2 == 1 {
+            if backCodeKeyRange.length <= 0 {
+                // 上半段关键字到选择行行尾
+                changeRangeTemp = NSMakeRange(preCodeKeyRange.location, NSMaxRange(lineRange) - preCodeKeyRange.location);
+            } else {
+                // 上半段关键字到文章尾
+                changeRangeTemp = NSMakeRange(preCodeKeyRange.location, NSString(string: string).length - preCodeKeyRange.location);
+            }
+        }
+        return changeRangeTemp;
     }
     
     

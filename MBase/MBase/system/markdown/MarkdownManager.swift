@@ -44,7 +44,7 @@ class MarkdownManager: NSObject {
         
     enum MarkdownRegexParagraph : String {
         
-        static let values = [P, CODE2, CODE1];
+        static let values = [P, CODE1, CODE2];
         
         case P = "(.*?\n)"
         
