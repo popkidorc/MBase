@@ -39,7 +39,7 @@ class DocEditViewController: NSViewController {
         
         self.docEditView.string = docMainData.content!
         
-        self.handlerInitFont(self.docEditView.textStorage!);
+        self.handlerInitFont();
         
         self.docMainViewController.markdown = docMainData.content!;
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: docMainViewController);
@@ -74,7 +74,6 @@ class DocEditViewController: NSViewController {
             var frame = webScrollView.frame;
             frame.origin.y = docEditScrollView.frame.size.height * (docEditView.frame.size.height/frame.size.height) * CGFloat(docEditScrollView.verticalScroller!.floatValue);
             webScrollView.contentView.scrollRectToVisible(frame);
-            
         }
     }
     
