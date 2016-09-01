@@ -22,6 +22,8 @@ class ConstsManager {
     
     static let headerFontColor = NSColor(calibratedRed: (54+1)/256, green: (156+1)/256, blue: (37+1)/256, alpha: 1);
     
+    static let linkFontColor = NSColor(calibratedRed: (150+1)/256, green: (156+1)/256, blue: (37+1)/256, alpha: 1);
+    
     static let codeFontColor = NSColor(calibratedRed: (200+1)/256, green: (156+1)/256, blue: (37+1)/256, alpha: 1);
     
     private static var markdownHelpString: String?;

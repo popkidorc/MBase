@@ -35,6 +35,9 @@ class CommonUtils: NSObject {
     
     //腐蚀制定ranges
     static func corrodeString(ranges: [NSRange], corrodeRanges: [NSRange]) -> [NSRange]{
+        if ranges.count <= 0 || corrodeRanges.count <= 0{
+            return ranges;
+        }
         //获取range坑集合
         var holeRanges = [NSRange]();
         ranges.count

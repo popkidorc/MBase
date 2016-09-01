@@ -18,11 +18,11 @@ extension DocEditViewController: NSTextStorageDelegate {
     
     func textDidChange(notification: NSNotification) {
         NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(changeTextFont), object: nil);
-        self.performSelector(#selector(changeTextFont), withObject: nil, afterDelay: 0.2);
+        self.performSelector(#selector(changeTextFont), withObject: nil, afterDelay: 0.3);
     }
 
     func changeTextFont(){
-        let start = CFAbsoluteTimeGetCurrent()
+//        let start = CFAbsoluteTimeGetCurrent()
         
         // 全文
         let textString = NSString(string: self.docEditView.textStorage!.string);
@@ -50,7 +50,6 @@ extension DocEditViewController: NSTextStorageDelegate {
             // 腐蚀ranges
             ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
         }
-        
         // 行
         for tagRegex in MarkdownManager.MarkdownRegex.values {
             self.applyStylesToRange4Line(tagRegex, textString: textString, ranges: ranges);
@@ -61,13 +60,13 @@ extension DocEditViewController: NSTextStorageDelegate {
         
         self.docMainViewController.markdown = self.docEditView.string!;
         
-        //         docMainViewController.refreshContent();
+        self.docMainViewController.refreshContent();
         
-        print("====changeTextFont===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
+//        print("====changeTextFont===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
     }
     
     func handlerInitFont(){
-        let start = CFAbsoluteTimeGetCurrent()
+//        let start = CFAbsoluteTimeGetCurrent()
         
         // 全文
         let textString = NSString(string: self.docEditView.textStorage!.string);
@@ -90,7 +89,8 @@ extension DocEditViewController: NSTextStorageDelegate {
         for tagRegex in MarkdownManager.MarkdownRegex.values {
             self.applyStylesToRange4Line(tagRegex, textString: textString, ranges: ranges);
         }
-        print("====handlerInitFont===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
+        
+//        print("====handlerInitFont===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
     }
     
     // 获取段与段间，以```为例。思路：按选择行将文章分为两份，上半份倒查段的关键字；下半份正查段的关键字。
@@ -143,20 +143,21 @@ extension DocEditViewController: NSTextStorageDelegate {
     func applyStylesToRange4Paragraph(tagRegex : MarkdownManager.MarkdownRegexParagraph, textString: NSString, ranges: [NSRange]) -> [NSRange]{
         var regex: NSRegularExpression?;
         do{
-            regex =  try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .DotMatchesLineSeparators])
+            regex =  try NSRegularExpression(pattern: tagRegex.rawValue, options: [.DotMatchesLineSeparators])
         }catch{
             let nserror = error as NSError
             NSApplication.sharedApplication().presentError(nserror)
         }
+        let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
+        if attrs.count <= 0  {
+            return ranges;
+        }
         var rangeTemps = [NSRange]();
         for range in ranges {
             for textCheckingResult in regex!.matchesInString(textString.substringWithRange(range), options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, range.length)) {
-                let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
-                if attrs.count > 0  {
-                    let stringRange = NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length);
-                    self.docEditView.textStorage!.addAttributes(attrs, range: stringRange);
-                    rangeTemps.append(stringRange);
-                }
+                let stringRange = NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length);
+                self.docEditView.textStorage!.addAttributes(attrs, range: stringRange);
+                rangeTemps.append(stringRange);
             }
         }
         return rangeTemps;
@@ -165,17 +166,18 @@ extension DocEditViewController: NSTextStorageDelegate {
     func applyStylesToRange4Line(tagRegex : MarkdownManager.MarkdownRegex, textString: NSString, ranges: [NSRange]) {
         var regex: NSRegularExpression?;
         do{
-            regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .AnchorsMatchLines])
+            regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.AnchorsMatchLines])
         }catch{
             let nserror = error as NSError
             NSApplication.sharedApplication().presentError(nserror)
         }
+        let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
+        if attrs.count <= 0  {
+            return;
+        }
         for range in ranges {
             for textCheckingResult in regex!.matchesInString(textString.substringWithRange(range), options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, range.length)) {
-                let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
-                if attrs.count > 0  {
-                    self.docEditView.textStorage!.addAttributes(attrs, range: NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length));
-                }
+                self.docEditView.textStorage!.addAttributes(attrs, range: NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length));
             }
         }
     }
