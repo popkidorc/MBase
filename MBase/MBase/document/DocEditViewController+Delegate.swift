@@ -65,25 +65,26 @@ extension DocEditViewController: NSTextStorageDelegate {
                 NSApplication.sharedApplication().presentError(nserror)
             }
             rangeTemps = [NSRange]();
-            let start1 = CFAbsoluteTimeGetCurrent()
             for range in ranges {
                 stringTemp = textString.substringWithRange(range);
                 for textCheckingResult in regex!.matchesInString(stringTemp, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, range.length)) {
-                    let start2 = CFAbsoluteTimeGetCurrent()
                     let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
                     if attrs.count > 0  {
                         let stringRange = NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length);
                         self.docEditView.textStorage!.addAttributes(attrs, range: stringRange);
                         rangeTemps.append(stringRange);
-                        print("============"+String(CFAbsoluteTimeGetCurrent()-start2)+" seconds, range:"+String(range.location)+", "+String(range.length)+", rangeTemps:"+String(stringRange.location)+", "+String(stringRange.length));
                     }
                 }
             }
             // 腐蚀ranges
             ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
-            print("========"+String(CFAbsoluteTimeGetCurrent()-start1)+" seconds")
         }
         
+        for range in ranges {
+            print("===="+String(range.location)+", "+String(range.length));
+            self.applyStylesToRange4Line(self.docEditView.textStorage!, range: range);
+        }
+    
         // 保存coredata
         self.docMainData.updateContent(self.docEditView.string!);
         
@@ -287,7 +288,6 @@ extension DocEditViewController: NSTextStorageDelegate {
                 let nserror = error as NSError
                 NSApplication.sharedApplication().presentError(nserror)
             }
-            
             let textCheckingResults = regex!.matchesInString(textStorage.string, options: NSMatchingOptions(rawValue: 0), range: range);
             for textCheckingResult in textCheckingResults {
                 let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
