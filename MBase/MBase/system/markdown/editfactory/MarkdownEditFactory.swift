@@ -10,11 +10,17 @@ import Cocoa
 
 class MarkdownEditFactory: MarkdownHtmlTag {
     
-    static func getMarkdownAttributes(tagRegex: MarkdownManager.MarkdownRegex) -> [String : AnyObject]{
+    static func getMarkdownAttributes(tagRegex: MarkdownRegexCommonEnum) -> [String : AnyObject]{
         
         switch tagRegex {
         case .URL:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.linkFontColor];
+        }
+    }
+    
+    static func getMarkdownAttributes(tagRegex: MarkdownRegexLineEnum) -> [String : AnyObject]{
+        
+        switch tagRegex {
         case .A1:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.linkFontColor];
         case .A2:
@@ -48,11 +54,11 @@ class MarkdownEditFactory: MarkdownHtmlTag {
         }
     }
     
-    static func getMarkdownAttributes(tagRegex: MarkdownManager.MarkdownRegexParagraph) -> [String : AnyObject]{
+    static func getMarkdownAttributes(tagRegex: MarkdownRegexParagraphEnum) -> [String : AnyObject]{
         
         switch tagRegex {
-        case .P:
-            return [:];
+//        case .P:
+//            return [:];
         case .CODE1:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
         case .CODE2:

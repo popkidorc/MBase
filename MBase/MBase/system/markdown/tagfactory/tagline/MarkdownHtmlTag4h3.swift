@@ -8,9 +8,9 @@
 
 import Cocoa
 
-class MarkdownHtmlTag4h3: MarkdownHtmlTag {
+class MarkdownHtmlTag4h3: MarkdownHtmlTagLine {
 
-    override init(range: Range<String.CharacterView.Index>){
+    override init(range: NSRange){
         super.init(range: range);
         super.tagName = "h3";
         super.markdownTag = ["### ","<p>","</p>"];

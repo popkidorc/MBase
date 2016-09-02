@@ -8,15 +8,15 @@
 
 import Cocoa
 
-class MarkdownHtmlTag4br: MarkdownHtmlTag {
+class MarkdownHtmlTag4br: MarkdownHtmlTagLine {
 
-    override init(range: Range<String.CharacterView.Index>){
+    override init(range: NSRange){
         super.init(range: range);
         super.tagName = "br";
         super.markdownTag = ["\n"];
     }
     
-    override func getHtml(string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{
+    override func getHtml(string: String, index: Int, object: Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>) -> String!{
         return self.tagL + self.tagEnd + self.tagName  + self.tagR;
     }
 

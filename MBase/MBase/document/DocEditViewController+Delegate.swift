@@ -36,7 +36,7 @@ extension DocEditViewController: NSTextStorageDelegate {
         // 段落
         var ranges = [NSRange]();
         var rangeTemps: [NSRange];
-        for tagRegex in MarkdownManager.MarkdownRegexParagraph.values {
+        for tagRegex in MarkdownRegexParagraphEnum.values {
             if tagRegex.rawValue == "" || tagRegex.codeKey == "" {
                 continue;
             }
@@ -51,7 +51,7 @@ extension DocEditViewController: NSTextStorageDelegate {
             ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
         }
         // 行
-        for tagRegex in MarkdownManager.MarkdownRegex.values {
+        for tagRegex in MarkdownRegexLineEnum.values {
             self.applyStylesToRange4Line(tagRegex, textString: textString, ranges: ranges);
         }
         
@@ -77,7 +77,7 @@ extension DocEditViewController: NSTextStorageDelegate {
         // 段落
         var ranges = [changeRange];
         var rangeTemps: [NSRange];
-        for tagRegex in MarkdownManager.MarkdownRegexParagraph.values {
+        for tagRegex in MarkdownRegexParagraphEnum.values {
             if tagRegex.rawValue == "" || tagRegex.codeKey == "" {
                 continue;
             }
@@ -85,9 +85,15 @@ extension DocEditViewController: NSTextStorageDelegate {
             // 腐蚀ranges
             ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
         }
+        
         // 行
-        for tagRegex in MarkdownManager.MarkdownRegex.values {
+        for tagRegex in MarkdownRegexLineEnum.values {
             self.applyStylesToRange4Line(tagRegex, textString: textString, ranges: ranges);
+        }
+        
+        // 公共
+        for tagRegex in MarkdownRegexCommonEnum.values {
+            self.applyStylesToRange4Common(tagRegex, textString: textString, ranges: ranges);
         }
         
 //        print("====handlerInitFont===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
@@ -105,7 +111,7 @@ extension DocEditViewController: NSTextStorageDelegate {
     /** 对于下半段:
      配合上半段处理。
      **/
-    func getChangeRange(tagRegex : MarkdownManager.MarkdownRegexParagraph, string: NSString, lineRange: NSRange, preRange: NSRange,  backRange: NSRange) -> NSRange{
+    func getChangeRange(tagRegex : MarkdownRegexParagraphEnum, string: NSString, lineRange: NSRange, preRange: NSRange,  backRange: NSRange) -> NSRange{
         let codeKey = tagRegex.codeKey;
         // 上半段最近的段关键字
         let preCodeKeyRange = string.rangeOfString(codeKey, options: .BackwardsSearch , range: preRange);
@@ -140,7 +146,7 @@ extension DocEditViewController: NSTextStorageDelegate {
         self.docEditView.textStorage!.addAttributes(normalAttributes, range: range);
     }
     
-    func applyStylesToRange4Paragraph(tagRegex : MarkdownManager.MarkdownRegexParagraph, textString: NSString, ranges: [NSRange]) -> [NSRange]{
+    func applyStylesToRange4Paragraph(tagRegex : MarkdownRegexParagraphEnum, textString: NSString, ranges: [NSRange]) -> [NSRange]{
         var regex: NSRegularExpression?;
         do{
             regex =  try NSRegularExpression(pattern: tagRegex.rawValue, options: [.DotMatchesLineSeparators])
@@ -163,7 +169,7 @@ extension DocEditViewController: NSTextStorageDelegate {
         return rangeTemps;
     }
     
-    func applyStylesToRange4Line(tagRegex : MarkdownManager.MarkdownRegex, textString: NSString, ranges: [NSRange]) {
+    func applyStylesToRange4Line(tagRegex : MarkdownRegexLineEnum, textString: NSString, ranges: [NSRange]) {
         var regex: NSRegularExpression?;
         do{
             regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.AnchorsMatchLines])
@@ -182,4 +188,22 @@ extension DocEditViewController: NSTextStorageDelegate {
         }
     }
     
+    func applyStylesToRange4Common(tagRegex : MarkdownRegexCommonEnum, textString: NSString, ranges: [NSRange]) {
+        var regex: NSRegularExpression?;
+        do{
+            regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.AnchorsMatchLines])
+        }catch{
+            let nserror = error as NSError
+            NSApplication.sharedApplication().presentError(nserror)
+        }
+        let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
+        if attrs.count <= 0  {
+            return;
+        }
+        for range in ranges {
+            for textCheckingResult in regex!.matchesInString(textString.substringWithRange(range), options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, range.length)) {
+                self.docEditView.textStorage!.addAttributes(attrs, range: NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length));
+            }
+        }
+    }
 }

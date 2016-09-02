@@ -15,137 +15,115 @@ class MarkdownManager: NSObject {
         case Default = "default"
     }
     
-    enum MarkdownRegex : String {
-        
-        static let values = [H1,H2,H3,H4,H5,H6,STRONG,EM,U,URL,A1,A2,IMG1,IMG2,HR,BR];
-        
-        case BR = "(\\w+(\\s\\w+)*\\n$)"
-        case HR = "(^- - -$)"
-        
-        case H1 = "(^\\# \\w+(\\s\\w+)*)"
-        case H2 = "(^\\#\\# \\w+(\\s\\w+)*)"
-        case H3 = "(^\\#\\#\\# \\w+(\\s\\w+)*)"
-        case H4 = "(^\\#\\#\\#\\# \\w+(\\s\\w+)*)"
-        case H5 = "(^\\#\\#\\#\\#\\# \\w+(\\s\\w+)*)"
-        case H6 = "(^\\#\\#\\#\\#\\#\\# \\w+(\\s\\w+)*)"
-        case EM = "(\\*\\w+(\\s\\w+)*\\*)"
-        case STRONG = "(\\*\\*\\w+(\\s\\w+)*\\*\\*)"
-        case U = "(_\\w+(\\s\\w+)*_)"
-        
-        case URL = "(^\\[\\d{1,2}\\]:(.)*$)"
+    static func generateHTMLForMarkdown(string: String, cssType: CssType  = .Default) -> NSString!{
+        if string == "" {
+            return "";
+        }
+        let sourceString = NSString(string: string);
+        var resultMap = Dictionary<Int, String>();
         
         
-        case A1 = "(^\\[(.)*\\]\\((.)*\\)$)"
-        case A2 = "(^\\[(.)*\\]\\[\\d{1,2}\\]$)"
         
-        case IMG1 = "(^\\!\\[(.)*\\]\\((.)*\\)$)"
-        case IMG2 = "(^\\!\\[(.)*\\]\\[\\d{1,2}\\]$)"
-    }
         
-    enum MarkdownRegexParagraph : String {
+        var ranges = [NSRange]();
+        var rangeTemps: [NSRange];
         
-        static let values = [P, CODE1, CODE2];
-        
-        case P = "(.*?\n)"
-        
-        case CODE1 = "(```(.)*?```)"
-        
-        case CODE2 = "(`(.)*?`)"
-        
-        var codeKey: String {
-            switch self {
-            case .P:
-                return ""
-            case .CODE1:
-                return "```"
-            case .CODE2:
-                return "`"
+        // 全局
+        var objectDic = Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>();
+        for tagRegex in MarkdownRegexCommonEnum.values {
+            if ranges.count == 0 {
+                ranges.append(NSMakeRange(0, sourceString.length));
             }
-        }
-    }
-    
-    static func generateHTMLForMarkdown(string: String, cssType: CssType  = .Default) -> String!{
-        if string == ""
-        {
-            return string;
-        }
-        var result = string;
-        //正则匹配替换
-        var objectDic = Dictionary<MarkdownRegex,[Dictionary<String, AnyObject>]>();
-        
-        //        // 段落
-        //        for tagRegex in MarkdownRegexParagraph .values {
-        //            let start = CFAbsoluteTimeGetCurrent()
-        //            var regex: NSRegularExpression?;
-        //            do{
-        //                regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .DotMatchesLineSeparators ]);
-        //            }catch{
-        //                let nserror = error as NSError
-        //                NSApplication.sharedApplication().presentError(nserror)
-        //            }
-        //            let textCheckingResults = regex!.matchesInString(result, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, result.characters.count));
-        //
-        //            var markdownHtmlTagDictionary = Dictionary<Int, MarkdownHtmlTag>();
-        //            var i = 1;
-        //            for textCheckingResult in textCheckingResults {
-        //                let range = result.startIndex.advancedBy(textCheckingResult.range.location)..<result.startIndex.advancedBy(textCheckingResult.range.location+textCheckingResult.range.length);
-        //
-        //                let markdownHtmlTag = MarkdownHtmlTagFactory.getMarkdownHtmlTag(tagRegex, range: range);
-        //                markdownHtmlTagDictionary[i] = markdownHtmlTag;
-        //                i += 1;
-        //            }
-        //            for index in markdownHtmlTagDictionary.keys.sort(>) {
-        //                let markdownHtmlTag = markdownHtmlTagDictionary[index];
-        //                let replaceString = result.substringWithRange(markdownHtmlTag!.range);
-        //                if !markdownHtmlTag!.isHandler(replaceString){
-        //                    continue;
-        //                }
-        //                result.replaceRange(markdownHtmlTag!.range , with: markdownHtmlTag!.getHtml(replaceString, index:index, object: objectDic));
-        //            }
-        //            print("=====tagRegex2:"+String(tagRegex)+"====="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
-        //        }
-        
-        // 遍历每个需要替换字体属性的文本
-        for tagRegex in MarkdownRegex.values {
-            let start = CFAbsoluteTimeGetCurrent()
             var regex: NSRegularExpression?;
             do{
-                regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.CaseInsensitive, .AnchorsMatchLines]);
+                regex =  try NSRegularExpression(pattern: tagRegex.rawValue, options: [.AnchorsMatchLines])
             }catch{
                 let nserror = error as NSError
                 NSApplication.sharedApplication().presentError(nserror)
             }
-            let textCheckingResults = regex!.matchesInString(result, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, result.characters.count));
-            
-            var markdownHtmlTagDictionary = Dictionary<Int, MarkdownHtmlTag>();
-            var i = 1;
-            for textCheckingResult in textCheckingResults {
-                let range = result.startIndex.advancedBy(textCheckingResult.range.location)..<result.startIndex.advancedBy(textCheckingResult.range.location+textCheckingResult.range.length);
-                
-                let markdownHtmlTag = MarkdownHtmlTagFactory.getMarkdownHtmlTag(tagRegex, range: range);
-                markdownHtmlTagDictionary[i] = markdownHtmlTag;
-                i += 1;
-            }
-            for index in markdownHtmlTagDictionary.keys.sort(>) {
-                let markdownHtmlTag = markdownHtmlTagDictionary[index];
-                let replaceString = result.substringWithRange(markdownHtmlTag!.range);
-                if !markdownHtmlTag!.isHandler(replaceString){
-                    continue;
+            rangeTemps = [NSRange]();
+            for range in ranges {
+                for textCheckingResult in regex!.matchesInString(sourceString.substringWithRange(range), options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, range.length)) {
+                    let stringRange = NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length);
+                    let markdownHtmlTag = MarkdownHtmlTagFactory.getMarkdownHtmlTag(tagRegex, range: stringRange);
+                    if objectDic[tagRegex] == nil{
+                        objectDic[tagRegex] = [markdownHtmlTag.getParamObejct(sourceString.substringWithRange(stringRange))];
+                    }else {
+                        objectDic[tagRegex]?.append(markdownHtmlTag.getParamObejct(sourceString.substringWithRange(stringRange)));
+                    }
+                    
+                    rangeTemps.append(stringRange);
                 }
-                // 放入额外参数，和枚举顺序强相关
-                if objectDic[tagRegex] != nil{
-                    objectDic[tagRegex]!.append(markdownHtmlTag!.getParamObejct(replaceString));
-                }else {
-                    objectDic[tagRegex] = [markdownHtmlTag!.getParamObejct(replaceString)];
-                }
-                result.replaceRange(markdownHtmlTag!.range , with: markdownHtmlTag!.getHtml(replaceString, index:index, object: objectDic));
             }
-            print("=====tagRegex:"+String(tagRegex)+"====="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
+            // 腐蚀ranges
+            ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
         }
         
-        //        print(result)
+        // 段落
+        for tagRegex in MarkdownRegexParagraphEnum.values {
+            if ranges.count == 0 {
+                ranges.append(NSMakeRange(0, sourceString.length));
+            }
+            var regex: NSRegularExpression?;
+            do{
+                regex =  try NSRegularExpression(pattern: tagRegex.rawValue, options: [.DotMatchesLineSeparators])
+            }catch{
+                let nserror = error as NSError
+                NSApplication.sharedApplication().presentError(nserror)
+            }
+            rangeTemps = [NSRange]();
+            var i = 1;
+            for range in ranges {
+                for textCheckingResult in regex!.matchesInString(sourceString.substringWithRange(range), options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, range.length)) {
+                    let stringRange = NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length);
+                    let markdownHtmlTag = MarkdownHtmlTagFactory.getMarkdownHtmlTag(tagRegex, range: stringRange);
+                    resultMap[stringRange.location] = markdownHtmlTag.getHtml(sourceString.substringWithRange(stringRange), index:i, object: objectDic)
+                    rangeTemps.append(stringRange);
+                    i += 1;
+                }
+            }
+            // 腐蚀ranges
+            ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
+        }
+        
+        // 行
+        for tagRegex in MarkdownRegexLineEnum.values {
+            var regex: NSRegularExpression?;
+            do{
+                regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.AnchorsMatchLines])
+            }catch{
+                let nserror = error as NSError
+                NSApplication.sharedApplication().presentError(nserror)
+            }
+            rangeTemps = [NSRange]();
+            var i = 1;
+            for range in ranges {
+                for textCheckingResult in regex!.matchesInString(sourceString.substringWithRange(range), options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, range.length)) {
+                    let stringRange = NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length);
+                    let markdownHtmlTag = MarkdownHtmlTagFactory.getMarkdownHtmlTag(tagRegex, range: stringRange);
+                    resultMap[stringRange.location] = markdownHtmlTag.getHtml(sourceString.substringWithRange(stringRange), index:i, object: objectDic)
+                    rangeTemps.append(stringRange);
+                    i += 1;
+                }
+            }
+            // 腐蚀ranges
+            ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
+        }
+        
+        // 剩余的，正常文本
+        for range in ranges {
+            resultMap[range.location] = sourceString.substringWithRange(range);
+        }
+        
+        var result = "";
+        
+        for key in resultMap.keys.sort(<) {
+            result += resultMap[key]!;
+        }
+       
+        
         //替换转义
-        result = self.handlerTransferString(result);
+        //        result = self.handlerTransferString(result);
         //增加资源
         if cssType != .None {
             result = "<html><head><script type='text/javascript' src='prettify.js')></script><link rel='stylesheet' type='text/css' href='prettify.css'><link rel='stylesheet' type='text/css' href='" + cssType.rawValue + ".css' ></head><body onload='prettyPrint()'>\n" + result + "</body></html>";

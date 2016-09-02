@@ -32,6 +32,6 @@ extension DocEditViewController: NSTextViewDelegate {
         let html = MarkdownManager.generateHTMLForMarkdown(selectedText!, cssType: .None);
         let pasteboard = NSPasteboard.generalPasteboard();
         pasteboard.clearContents();
-        pasteboard.setString(html, forType: NSPasteboardTypeString);
+        pasteboard.setString(html as String, forType: NSPasteboardTypeString);
     }
 }

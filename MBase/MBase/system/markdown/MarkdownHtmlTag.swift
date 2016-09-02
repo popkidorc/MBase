@@ -9,7 +9,7 @@
 import Cocoa
 
 class MarkdownHtmlTag: NSObject {
-
+    
     var tagL = "<";
     
     var tagR = ">";
@@ -22,45 +22,43 @@ class MarkdownHtmlTag: NSObject {
     
     var tagEqual = "=";
     
-    var tagName: String! = "";
+    var tagName = "";
     
+    var codeKey = "";
+        
     var markdownTag = [String]();
     
     var tagValue = Dictionary<String,String>();
     
-    var range: Range<String.CharacterView.Index>;
+    var range: NSRange;
     
-    init(range: Range<String.CharacterView.Index>) {
+    init(range: NSRange) {
         self.range = range;
     }
     
-    func getRange(offset: Int) -> Range<String.CharacterView.Index>{
-        self.range.startIndex = self.range.startIndex.advancedBy(offset);
-        self.range.endIndex = self.range.endIndex.advancedBy(offset);
-        return self.range;
-    }
-        
-    func getHtml( string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{
-        var result = "";
-        result += self.tagL + self.tagName;
-        if tagValue.count > 0{
-            for name in tagValue.keys {
-                result += self.tagSpace + name  + self.tagEqual + self.tagQuote+tagValue[name]!+self.tagQuote;
-            }
-        }
+    func getHtml( string: String, index: Int, object: Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>) -> String!{
         var str = string;
         for tag in self.markdownTag {
             str = str.stringByReplacingOccurrencesOfString(tag, withString: "")
         }
-        result += self.tagR + str + self.tagL + self.tagEnd + self.tagName  + self.tagR;
-        return result;
+        return self.getHtml4Prefix() + self.handlerTransferString(str) + self.getHtml4Suffix()
     }
     
-    func getParamObejct(string: String) -> Dictionary<String, AnyObject>{
-        return [:];
+    func getHtml4Prefix() -> String{
+        var result = self.tagL + self.tagName;
+        if tagValue.count > 0 {
+            for name in tagValue.keys {
+                result += self.tagSpace + name + self.tagEqual + self.tagQuote+tagValue[name]!+self.tagQuote;
+            }
+        }
+        return result + self.tagR;
     }
     
-    func isHandler(string: String) ->Bool{
-        return true;
+    func getHtml4Suffix() -> String{
+        return self.tagL + self.tagEnd + self.tagName  + self.tagR;
+    }
+    
+    func handlerTransferString(string: String) -> String{
+        return string.stringByReplacingOccurrencesOfString("<", withString: "&lt;");
     }
 }

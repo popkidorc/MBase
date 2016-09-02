@@ -8,21 +8,21 @@
 
 import Cocoa
 
-class MarkdownHtmlTag4a2: MarkdownHtmlTag {
+class MarkdownHtmlTag4a2: MarkdownHtmlTagLine {
     
-    override init(range: Range<String.CharacterView.Index>){
+    override init(range: NSRange){
         super.init(range: range);
         super.tagName = "a";
         super.markdownTag = ["[","]","<p>","</p>"];
     }
     
-    override func getHtml(string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{
+    override func getHtml(string: String, index: Int, object: Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>) -> String!{
         if string == ""{
             return super.getHtml(string, index: index, object: object);
         }
         var result = string;
         do{
-            let urlParams = object[.URL]
+            let urlParams = object[MarkdownRegexCommonEnum.URL]
             
             let regex = try NSRegularExpression(pattern: "(\\[\\d{1,2}\\]$)", options: [.CaseInsensitive, .AnchorsMatchLines]);
             let textCheckingResult = regex.firstMatchInString(string, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, string.characters.count));

@@ -10,12 +10,18 @@ import Cocoa
 
 class MarkdownHtmlTagFactory: NSObject {
     
-    
-    static func getMarkdownHtmlTag(tagRegex: MarkdownManager.MarkdownRegex, range: Range<String.CharacterView.Index>) -> MarkdownHtmlTag{
-        
+    static func getMarkdownHtmlTag(tagRegex: MarkdownRegexCommonEnum, range: NSRange) -> MarkdownHtmlTagCommon{
         switch tagRegex {
         case .URL:
             return MarkdownHtmlTag4url(range: range);
+            
+        }
+    }
+    
+    static func getMarkdownHtmlTag(tagRegex: MarkdownRegexLineEnum, range: NSRange) -> MarkdownHtmlTagLine{
+        
+        switch tagRegex {
+            
         case .A1:
             return MarkdownHtmlTag4a1(range: range);
         case .A2:
@@ -50,11 +56,9 @@ class MarkdownHtmlTagFactory: NSObject {
         }
     }
     
-    static func getMarkdownHtmlTag(tagRegex: MarkdownManager.MarkdownRegexParagraph, range: Range<String.CharacterView.Index>) -> MarkdownHtmlTag{
+    static func getMarkdownHtmlTag(tagRegex: MarkdownRegexParagraphEnum, range: NSRange) -> MarkdownHtmlTagParagraph{
         
         switch tagRegex {
-        case .P:
-            return MarkdownHtmlTag4p(range: range);
         case .CODE1:
             return MarkdownHtmlTag4code1(range: range);
         case .CODE2:

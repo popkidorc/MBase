@@ -8,11 +8,12 @@
 
 import Cocoa
 
-class MarkdownHtmlTag4code2: MarkdownHtmlTag {
+class MarkdownHtmlTag4code2: MarkdownHtmlTagParagraph {
 
-    override init(range: Range<String.CharacterView.Index>){
+    override init(range: NSRange){
         super.init(range: range);
         super.tagName = "code";
+        super.codeKey = "`";
         super.markdownTag = ["`","</br>","<p>","</p>"];
     }
     

@@ -8,29 +8,20 @@
 
 import Cocoa
 
-class MarkdownHtmlTag4code1: MarkdownHtmlTag {
+class MarkdownHtmlTag4code1: MarkdownHtmlTagParagraph {
 
-    override init(range: Range<String.CharacterView.Index>){
+    override init(range: NSRange){
         super.init(range: range);
         super.tagName = "pre";
         super.tagValue = ["class":"defaultcode"];
-        super.markdownTag = ["```","</br>","<p>","</p>","<h1>","</h1>","<h2>","</h2>","<h3>","</h3>","<h4>","</h4>","<h5>","</h5>","<h6>","</h6>"];
+        super.codeKey = "```";
     }
     
-    override func getHtml(string: String, index: Int, object: Dictionary<MarkdownManager.MarkdownRegex,[Dictionary<String, AnyObject>]>) -> String!{
-        var result = "";
-        result += self.tagL + self.tagName;
-        if tagValue.count > 0{
-            for name in tagValue.keys {
-                result += self.tagSpace + name  + self.tagEqual + self.tagQuote+tagValue[name]!+self.tagQuote;
-            }
-        }
-        var str = string;
-        for tag in self.markdownTag {
-            str = str.stringByReplacingOccurrencesOfString(tag, withString: "")
-        }
-        result += self.tagR + "<code class='prettyprint defaultcode'>" + str + "</code>" + self.tagL + self.tagEnd + self.tagName  + self.tagR;
-        return result;
-
+    override func getHtml4Prefix() -> String {
+        return super.getHtml4Prefix() + "<code class='prettyprint defaultcode'>";
+    }
+    
+    override func getHtml4Suffix() -> String {
+        return  "</code>" + super.getHtml4Suffix();
     }
 }
