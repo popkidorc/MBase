@@ -57,54 +57,85 @@ import Cocoa
 //}
 
 
-let ranges = [NSMakeRange(0, 100), NSMakeRange(150, 50)]
+//let ranges = [NSMakeRange(0, 100), NSMakeRange(150, 50)]
+//
+//let corrodeRanges = [NSMakeRange(0, 15), NSMakeRange(30, 30), NSMakeRange(160, 20)]
+//
+////获取range坑集合
+//var holeRanges = [NSRange]();
+//ranges.count
+//for index in 0 ..< ranges.count+1 {
+//    if index == 0 {
+//        holeRanges.append(NSMakeRange(ranges[0].location, 0));
+//        continue;
+//    } else if index == ranges.count {
+//        holeRanges.append(NSMakeRange(NSMaxRange(ranges[ranges.count - 1]), 0));
+//        continue;
+//    } else {
+//        holeRanges.append(NSMakeRange(NSMaxRange(ranges[index-1]), ranges[index].location - NSMaxRange(ranges[index-1])))
+//    }
+//}
+//
+////组装holeRanges，追加corrodeRanges并重排序
+//holeRanges.appendContentsOf(corrodeRanges);
+//holeRanges = holeRanges.sort({ r1, r2 in r1.location < r2.location })
+//holeRanges
+//for a in holeRanges{
+//    a.location
+//    a.length
+//}
+//
+////腐蚀corrodeRanges
+//var corrodeResults = [NSRange]();
+//for index in 0 ..< holeRanges.count {
+//    if index == 0 {
+//        continue;
+//    } else if holeRanges[index].location > NSMaxRange(holeRanges[index-1]){
+//        corrodeResults.append(NSMakeRange(NSMaxRange(holeRanges[index-1]), holeRanges[index].location - NSMaxRange(holeRanges[index-1])));
+//    }
+//}
+//
+//for b in corrodeResults{
+//    b.location
+//    b.length
+//}
 
-let corrodeRanges = [NSMakeRange(0, 15), NSMakeRange(30, 30), NSMakeRange(160, 20)]
 
-//获取range坑集合
-var holeRanges = [NSRange]();
-ranges.count
-for index in 0 ..< ranges.count+1 {
-    if index == 0 {
-        holeRanges.append(NSMakeRange(ranges[0].location, 0));
-        continue;
-    } else if index == ranges.count {
-        holeRanges.append(NSMakeRange(NSMaxRange(ranges[ranges.count - 1]), 0));
-        continue;
-    } else {
-        holeRanges.append(NSMakeRange(NSMaxRange(ranges[index-1]), ranges[index].location - NSMaxRange(ranges[index-1])))
-    }
+
+
+
+
+
+//
+//let date = NSDate()
+//let calendar = NSCalendar.currentCalendar()
+//var components = calendar.components([.Year, .Month], fromDate: date)
+//let startOfMonth = calendar.dateFromComponents(components)!
+//
+//
+//
+//components = NSDateComponents()
+//components.month = 1
+//components.day = -1
+//
+//let endOfMonth =  calendar.dateByAddingComponents(components,
+//                                                  toDate: startOfMonth,
+//                                                  options: [])!
+//components = NSDateComponents()
+//components.day = 1
+//
+//let aa =  calendar.dateByAddingComponents(components,
+//                                                  toDate: startOfMonth,
+//                                                  options: [])!
+//
+
+
+for i in 1...10{
+    i
 }
 
-//组装holeRanges，追加corrodeRanges并重排序
-holeRanges.appendContentsOf(corrodeRanges);
-holeRanges = holeRanges.sort({ r1, r2 in r1.location < r2.location })
-holeRanges
-for a in holeRanges{
-    a.location
-    a.length
-}
+let a = "01"
 
-//腐蚀corrodeRanges
-var corrodeResults = [NSRange]();
-for index in 0 ..< holeRanges.count {
-    if index == 0 {
-        continue;
-    } else if holeRanges[index].location > NSMaxRange(holeRanges[index-1]){
-        corrodeResults.append(NSMakeRange(NSMaxRange(holeRanges[index-1]), holeRanges[index].location - NSMaxRange(holeRanges[index-1])));
-    }
-}
-
-for b in corrodeResults{
-    b.location
-    b.length
-}
-
-
-
-
-
-
-
+Int(a)
 
 

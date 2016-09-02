@@ -21,7 +21,7 @@ class DocEditViewController: NSViewController {
     var docMainViewController: DocMainViewController!;
     
     var managedObjectContext: NSManagedObjectContext!;
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         initDocEidtView();
@@ -29,6 +29,7 @@ class DocEditViewController: NSViewController {
     
     func initDocEditDatas(docMainData: DocMain!){
         self.docMainData = docMainData;
+        
         if DocMain.DocMainType.NotEdit.rawValue == docMainData.type {
             self.docEditView.editable = false;
             self.docEditView.backgroundColor = ConstsManager.docEditDisableBgColor;
@@ -36,13 +37,21 @@ class DocEditViewController: NSViewController {
             self.docEditView.editable = true;
             self.docEditView.backgroundColor = ConstsManager.docEditEnableBgColor;
         }
-        
         self.docEditView.string = docMainData.content!
         
         self.handlerInitFont();
         
         self.docMainViewController.markdown = docMainData.content!;
-        NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: docMainViewController);
+        
+        // 滚动条
+        var frame = self.docEditScrollView.frame;
+        frame.origin.y = 0;
+        self.docEditScrollView.contentView.scrollRectToVisible(frame);
+        
+        self.docMainViewController.docEditVerticalScroller = self.docEditScrollView.verticalScroller!;
+        
+        // webview重载
+        NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
     }
     
     func initDocEidtView() {
@@ -59,21 +68,17 @@ class DocEditViewController: NSViewController {
         self.docEditView.textColor = ConstsManager.defaultFontColor;
         self.docEditView.textStorage?.delegate = self;
         
-        //给滚动条添加通知
-        let scrollContentView = docEditScrollView.contentView;
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(boundDidChange), name: NSViewBoundsDidChangeNotification, object: scrollContentView)
+        //给滚动条添加通知        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(changeScroll), name: NSViewBoundsDidChangeNotification, object: nil)
     }
     
-    func boundDidChange(){
+    func changeScroll(){
         if !docEditScrollView.hasVerticalScroller {
             return;
         }
         if docEditView.frame.size.height > docEditScrollView.frame.size.height{
-            let webScrollView = docMainViewController.webView!.subviews[0].subviews[0] as! NSScrollView;
-            var frame = webScrollView.frame;
-            frame.origin.y = docEditScrollView.frame.size.height * (docEditView.frame.size.height/frame.size.height) * CGFloat(docEditScrollView.verticalScroller!.floatValue);
-            webScrollView.contentView.scrollRectToVisible(frame);
+            self.docMainViewController.docEditVerticalScroller = self.docEditScrollView.verticalScroller!;
+            NSNotificationCenter.defaultCenter().postNotificationName("syncScroll", object: nil);
         }
     }
     

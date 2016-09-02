@@ -18,7 +18,29 @@ class DocTree: NSManagedObject {
         case Custom = "Custom"
         case Trash = "Trash"
         case Diary = "Diary"
+        case DiaryChild = "DiaryChild"
         case Note = "Note"
+        
+        func menuItemTags()-> [Int]{
+            switch self {
+            case .Root:
+                return []
+            case .Normal:
+                return [1,2,4,5]
+            case .Custom:
+                return [1,2,4,5]
+            case .Trash:
+                return [6]
+            case .Diary:
+                return [3]
+            case .DiaryChild:
+                return [5]
+            case .Note:
+                return []
+            }
+
+        }
+        
     }
     
     enum DocTreeStatus : String {

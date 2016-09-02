@@ -14,6 +14,9 @@ extension DocEditViewController: NSTextStorageDelegate {
     }
     
     func textStorage(textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int){
+        if editedMask != .EditedAttributes{
+            print("==editedRange=="+String(editedRange)+"===="+String(editedMask.rawValue))
+        }
     }
     
     func textDidChange(notification: NSNotification) {
@@ -54,20 +57,23 @@ extension DocEditViewController: NSTextStorageDelegate {
         for tagRegex in MarkdownRegexLineEnum.values {
             self.applyStylesToRange4Line(tagRegex, textString: textString, ranges: ranges);
         }
+//        self.boundDidChange();
         
         // 保存coredata
         self.docMainData.updateContent(self.docEditView.string!);
         
         self.docMainViewController.markdown = self.docEditView.string!;
         
-        self.docMainViewController.refreshContent();
+        NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
+        
+//        self.docMainViewController.refreshContent();
         
 //        print("====changeTextFont===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
     }
     
+    
+    
     func handlerInitFont(){
-//        let start = CFAbsoluteTimeGetCurrent()
-        
         // 全文
         let textString = NSString(string: self.docEditView.textStorage!.string);
         
@@ -95,8 +101,6 @@ extension DocEditViewController: NSTextStorageDelegate {
         for tagRegex in MarkdownRegexCommonEnum.values {
             self.applyStylesToRange4Common(tagRegex, textString: textString, ranges: ranges);
         }
-        
-//        print("====handlerInitFont===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
     }
     
     // 获取段与段间，以```为例。思路：按选择行将文章分为两份，上半份倒查段的关键字；下半份正查段的关键字。

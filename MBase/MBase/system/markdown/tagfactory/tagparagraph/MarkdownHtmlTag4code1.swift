@@ -15,6 +15,7 @@ class MarkdownHtmlTag4code1: MarkdownHtmlTagParagraph {
         super.tagName = "pre";
         super.tagValue = ["class":"defaultcode"];
         super.codeKey = "```";
+        super.markdownTag = ["```"];
     }
     
     override func getHtml4Prefix() -> String {

@@ -110,6 +110,7 @@
 		A81DA8FA1D79298C000B74A8 /* MarkdownRegexLineEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8F91D79298C000B74A8 /* MarkdownRegexLineEnum.swift */; };
 		A81DA8FC1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8FB1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift */; };
 		A81DA8FE1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8FD1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift */; };
+		A828C7D51D7991F900AA3043 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828C7D41D7991F900AA3043 /* DateUtils.swift */; };
 		A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86220B21D406FA000BAC828 /* MainMenu.xib */; };
 		A8B725B71D52E8D3008C96DF /* Hoedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; };
 		A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -238,6 +239,7 @@
 		A81DA8F91D79298C000B74A8 /* MarkdownRegexLineEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexLineEnum.swift; path = system/markdown/tagenums/MarkdownRegexLineEnum.swift; sourceTree = "<group>"; };
 		A81DA8FB1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexParagraphEnum.swift; path = system/markdown/tagenums/MarkdownRegexParagraphEnum.swift; sourceTree = "<group>"; };
 		A81DA8FD1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexCommonEnum.swift; path = system/markdown/tagenums/MarkdownRegexCommonEnum.swift; sourceTree = "<group>"; };
+		A828C7D41D7991F900AA3043 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = system/manager/DateUtils.swift; sourceTree = "<group>"; };
 		A82AD7641D4453E100F457B6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		A86220AB1D406FA000BAC828 /* MBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86220B31D406FA000BAC828 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 			children = (
 				A808BFFD1D7020CB00F568EA /* ConstsManager.swift */,
 				A81CC89B1D754B790000401B /* CommonUtils.swift */,
+				A828C7D41D7991F900AA3043 /* DateUtils.swift */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 				A808C0A61D70246D00F568EA /* DocMainViewController+Delegate.swift in Sources */,
 				A808C0481D70224200F568EA /* MarkdownManager.swift in Sources */,
 				A808C0771D7022FF00F568EA /* DocTreeInfoData.swift in Sources */,
+				A828C7D51D7991F900AA3043 /* DateUtils.swift in Sources */,
 				A81CC89C1D754B790000401B /* CommonUtils.swift in Sources */,
 				A81DA8FE1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift in Sources */,
 				A808C05F1D70226E00F568EA /* MarkdownHtmlTag4img2.swift in Sources */,

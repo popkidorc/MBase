@@ -12,31 +12,19 @@ extension DocTreeViewController: NSMenuDelegate {
     
     func menuWillOpen(menu: NSMenu) {
         let selectedDocTree = self.selectedTree();
+        var docTreeType: DocTree.DocTreeType;
         for menuItem in menu.itemArray {
             if selectedDocTree == nil {
                 menuItem.hidden = true;
                 continue;
             }
-            if DocTree.DocTreeType.Trash.rawValue == selectedDocTree?.type {
-                if 1 == menuItem.tag {
-                    menuItem.hidden = false;
-                    continue;
-                } else {
-                    menuItem.hidden = true;
-                    continue;
-                }
-            }
+            docTreeType = DocTree.DocTreeType(rawValue: selectedDocTree!.type!)!;
             
-            if DocTree.DocTreeType.Trash.rawValue != selectedDocTree?.type {
-                if 1 == menuItem.tag {
-                    menuItem.hidden = true;
-                    continue;
-                } else {
-                    menuItem.hidden = false;
-                    continue;
-                }
+            if docTreeType.menuItemTags().contains(menuItem.tag) {
+                menuItem.hidden = false;
+            } else {
+                menuItem.hidden = true;
             }
-            menuItem.hidden = false;
         }
     }
     
@@ -89,6 +77,21 @@ extension DocTreeViewController: NSMenuDelegate {
         let newSelectedRow = self.docTreeView.rowForItem(newDocTree);
         self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
         self.docTreeView.scrollRowToVisible(newSelectedRow);
+    }
+    
+    @IBAction func createDiary(sender: AnyObject) {
+        let selectedDocTree = self.selectedTree();
+        if selectedDocTree == nil {
+            return;
+        }
+        
+        let newSelectedTree = self.createDiaryTree(selectedDocTree!);
+        
+        // 5. 选中并滚动到新行
+        let newSelectedRow = self.docTreeView.rowForItem(newSelectedTree);
+        self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
+        self.docTreeView.scrollRowToVisible(newSelectedRow);
+
     }
     
     @IBAction func removeTree(sender: AnyObject) {

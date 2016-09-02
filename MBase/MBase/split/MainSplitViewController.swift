@@ -29,7 +29,7 @@ class MainSplitViewController: NSSplitViewController {
         docEditViewController = DocEditViewController(nibName: "DocEditViewController", bundle: nil);
         docEditViewController.docMainViewController = docMainViewController;
         docEditViewController.managedObjectContext = self.managedObjectContext;
-
+        
         docTreeViewController = DocTreeViewController(nibName: "DocTreeViewController", bundle: nil);
         docTreeViewController.docEditViewController = docEditViewController;
         docTreeViewController.managedObjectContext = self.managedObjectContext;

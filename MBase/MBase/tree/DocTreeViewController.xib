@@ -112,26 +112,32 @@
         </popover>
         <menu id="ovA-CX-j5C">
             <items>
-                <menuItem title="添加子类" id="wLb-of-Dv0" userLabel="addChildTree">
+                <menuItem title="添加子类" tag="1" id="wLb-of-Dv0" userLabel="addChildTree">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="addChildTree:" target="-2" id="sZI-JY-s4q"/>
                     </connections>
                 </menuItem>
-                <menuItem title="添加类" id="4O4-Vh-Woj" userLabel="addTree">
+                <menuItem title="添加类" tag="2" id="4O4-Vh-Woj" userLabel="addTree">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="addTree:" target="-2" id="VPm-t1-6fB"/>
                     </connections>
                 </menuItem>
-                <menuItem isSeparatorItem="YES" id="8cy-bG-J25"/>
-                <menuItem title="放入废纸篓" id="LJG-Bh-fna" userLabel="removeTree">
+                <menuItem title="自动创建目录" tag="3" id="egu-RD-Fqu" userLabel="createDiary">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="createDiary:" target="-2" id="bUB-6n-ZKS"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" tag="4" id="8cy-bG-J25"/>
+                <menuItem title="放入废纸篓" tag="5" id="LJG-Bh-fna" userLabel="removeTree">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="removeTree:" target="-2" id="gXg-bj-ZjU"/>
                     </connections>
                 </menuItem>
-                <menuItem title="清倒废纸篓" tag="1" id="kOO-p1-jl2" userLabel="cleanTrash">
+                <menuItem title="清倒废纸篓" tag="6" id="kOO-p1-jl2" userLabel="cleanTrash">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="cleanTrash:" target="-2" id="Mnb-ba-0yy"/>

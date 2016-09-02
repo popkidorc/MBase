@@ -17,9 +17,12 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     var docEditViewController: DocEditViewController!;
     
+    var docMainViewController: DocMainViewController!;
+    
     var managedObjectContext: NSManagedObjectContext!;
     
     var userInfo: UserInfo!;
+    
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -129,7 +132,6 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         let main12 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
         main12.initData("", summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: tree12);
         tree12.initData("便签", content: "便签", image: NSImage(named: "NoteIcon"), type: DocTree.DocTreeType.Note, parent: docTreeData, docMain: main12);
-
         
         let tree2 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main2 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
@@ -258,6 +260,145 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
             self.docTreeView.expandItem(docTree.parent!);
             self.expandParent(docTree.parent!);
         }
+    }
+    
+    func createDiaryTree(selectedDocTree: DocTree) -> DocTree{
+        
+
+        // 组装日期
+        let startDate = DateUtils.getStartOfCurrentMonth()
+        let endDate = DateUtils.getEndOfCurrentMonth();
+        
+        let formatter = NSDateFormatter()
+        //年
+        formatter.dateFormat = "yyyy"
+        let year = formatter.stringFromDate(endDate)
+        
+        //月
+        formatter.dateFormat = "MM"
+        let month = formatter.stringFromDate(endDate)
+        
+        //日
+        formatter.dateFormat = "dd"
+        let endDay = formatter.stringFromDate(endDate);
+        let day1 = "01-10"
+        let day2 = "11-20"
+        let day3 = "21-"+endDay
+        
+        // 1. 年Tree
+        var yearTree: DocTree?;
+        for child in (selectedDocTree.children)!{
+            if child.name == year{
+                yearTree = child as? DocTree;
+                break;
+            }
+        }
+        if yearTree == nil {
+            yearTree = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as? DocTree;
+            let yearMain = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
+            yearMain.initData("", summary: "", mark: "", type: DocMain.DocMainType.NotEdit, docTree: yearTree);
+            yearTree!.initData(year, content: "", image: NSImage(named: "GenericFolderIcon"), type: DocTree.DocTreeType.DiaryChild,  parent: selectedDocTree, docMain: yearMain);
+            
+            selectedDocTree.addChildTree(yearTree);
+        }
+        
+        // 2. 月Tree
+        var monthTree: DocTree?;
+        for child in (yearTree!.children)!{
+            if child.name == month{
+                monthTree = child as? DocTree;
+                break;
+            }
+        }
+        if monthTree == nil {
+            monthTree = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as? DocTree;
+            let monthMain = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
+            monthMain.initData("", summary: "", mark: "", type: DocMain.DocMainType.NotEdit, docTree: monthTree);
+            monthTree!.initData(month, content: "", image: NSImage(named: "GenericFolderIcon"), type: DocTree.DocTreeType.DiaryChild,  parent: yearTree!, docMain: monthMain);
+            
+            yearTree!.addChildTree(monthTree);
+        }
+        
+        // 3. 日Tree
+        var day1Tree: DocTree?;
+        var day2Tree: DocTree?;
+        var day3Tree: DocTree?;
+        for child in (monthTree!.children)!{
+            if child.name == day1{
+                day1Tree = child as? DocTree;
+                continue;
+            } else
+                if child.name == day2{
+                    day2Tree = child as? DocTree;
+                    continue;
+                } else
+                    if child.name == day3{
+                        day3Tree = child as? DocTree;
+                        continue;
+            }
+        }
+        var content: String;
+        if day1Tree == nil {
+            day1Tree = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as? DocTree;
+            let day1Main = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
+            content = "";
+            formatter.dateFormat = ConstsManager.docTreeDiaryDateformatter;
+            for i in 0...9 {
+                content += "# "+formatter.stringFromDate(DateUtils.getAddDays(startDate, days: i)) + "\n\n\n\n";
+            }
+            day1Main.initData(content, summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: day1Tree);
+            day1Tree!.initData(day1, content: "", image: NSImage(named: "GenericFolderIcon"), type: DocTree.DocTreeType.DiaryChild,  parent: monthTree!, docMain: day1Main);
+            
+            monthTree!.addChildTree(day1Tree);
+        }
+        if day2Tree == nil {
+            day2Tree = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as? DocTree;
+            let day2Main = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
+            content = "";
+            formatter.dateFormat = ConstsManager.docTreeDiaryDateformatter;
+            for i in 10...19 {
+                content += "# "+formatter.stringFromDate(DateUtils.getAddDays(startDate, days: i)) + "\n\n\n\n";
+            }
+            day2Main.initData(content, summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: day2Tree);
+            day2Tree!.initData(day2, content: "", image: NSImage(named: "GenericFolderIcon"), type: DocTree.DocTreeType.DiaryChild,  parent: monthTree!, docMain: day2Main);
+            
+            monthTree!.addChildTree(day2Tree);
+        }
+        if day3Tree == nil {
+            day3Tree = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as? DocTree;
+            let day3Main = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
+            content = "";
+            formatter.dateFormat = ConstsManager.docTreeDiaryDateformatter;
+            for i in 20...Int(endDay)!-1 {
+                content += "# "+formatter.stringFromDate(DateUtils.getAddDays(startDate, days: i)) + "\n\n\n\n";
+            }
+            day3Main.initData(content, summary: "", mark: "", type: DocMain.DocMainType.Markdown, docTree: day3Tree);
+            day3Tree!.initData(day3, content: "", image: NSImage(named: "GenericFolderIcon"), type: DocTree.DocTreeType.DiaryChild,  parent: monthTree!, docMain: day3Main);
+            
+            monthTree!.addChildTree(day3Tree);
+        }
+        
+        // 3. 重载数据
+        self.reloadData();
+        
+        // 4. 展开选中节点
+        self.docTreeView.expandItem(selectedDocTree);
+        self.docTreeView.expandItem(yearTree!);
+        self.docTreeView.expandItem(monthTree!);
+        
+        // 5. 选中节点
+        var newSelectedTree: DocTree;
+        formatter.dateFormat = "dd"
+        let nowDay = Int(formatter.stringFromDate(NSDate()));
+        if nowDay<=10 {
+            newSelectedTree = day1Tree!;
+        } else if nowDay>=21 {
+            newSelectedTree = day3Tree!;
+        } else {
+            newSelectedTree = day2Tree!;
+
+        }
+        return newSelectedTree;
     }
 }
 

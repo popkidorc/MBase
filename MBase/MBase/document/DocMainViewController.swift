@@ -15,27 +15,42 @@ class DocMainViewController: NSViewController {
     
     var markdown: String!;
     
+    var docEditVerticalScroller: NSScroller?;
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshContent), name: "refreshContent", object: nil);
-        // 启用计时器，控制每秒执行一次tickDown方法
-//        NSTimer.scheduledTimerWithTimeInterval(1,target:self,selector:#selector(refreshContent), userInfo:nil,repeats:true)
-        markdown = "";
-        self.refreshContent();
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(syncScroll), name: "syncScroll", object: nil);
     }
     
     func refreshContent(){
-        print("refreshContent")
         NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(reloadHTML), object: nil);
-        self.performSelector(#selector(reloadHTML), withObject: nil, afterDelay: 0.3);
+        self.performSelector(#selector(reloadHTML), withObject: nil, afterDelay: 0.2);
     }
-    
     
     func reloadHTML(){
         let start = CFAbsoluteTimeGetCurrent()
         let html = MarkdownManager.generateHTMLForMarkdown(self.markdown!, cssType: .Default);
         webView.mainFrame.loadHTMLString(html as String, baseURL: NSURL.fileURLWithPath(NSBundle.mainBundle().resourcePath!, isDirectory: true));
+        
+        // 恢复光标
+        self.syncScroll();
+        
         print("refreshContent===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
+    }
+    
+    func syncScroll(){
+        print("==docEditVerticalScroller=="+String(docEditVerticalScroller?.floatValue))
+        if docEditVerticalScroller == nil{
+            return;
+        }
+        let webHtmlView = self.webView!.subviews[0].subviews[0].subviews[0].subviews[0];
+        let webScrollView = self.webView!.subviews[0].subviews[0] as! NSScrollView;
+        var frame = webScrollView.frame;
+        if webHtmlView.frame.size.height > frame.size.height {
+            frame.origin.y = (webHtmlView.frame.size.height - frame.size.height) * CGFloat(docEditVerticalScroller!.floatValue);
+            webScrollView.contentView.scrollRectToVisible(frame);
+        }
     }
 }
 

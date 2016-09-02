@@ -10,20 +10,20 @@ import Cocoa
 
 enum MarkdownRegexLineEnum: String {
     
-    static let values = [H1,H2,H3,H4,H5,H6,STRONG,EM,U,A1,A2,IMG1,IMG2,HR,BR];
+    static let values = [H1,H2,H3,H4,H5,H6,STRONG,EM,U,A1,A2,IMG1,IMG2,HR];
     
-    case BR = "(\\w+(\\s\\w+)*\\n$)"
+//    case BR = "(\\w+(\\s\\w+)*\\n$)"
     case HR = "(^- - -$)"
     
-    case H1 = "(^\\# \\w+(\\s\\w+)*)"
-    case H2 = "(^\\#\\# \\w+(\\s\\w+)*)"
-    case H3 = "(^\\#\\#\\# \\w+(\\s\\w+)*)"
-    case H4 = "(^\\#\\#\\#\\# \\w+(\\s\\w+)*)"
-    case H5 = "(^\\#\\#\\#\\#\\# \\w+(\\s\\w+)*)"
-    case H6 = "(^\\#\\#\\#\\#\\#\\# \\w+(\\s\\w+)*)"
-    case EM = "(\\*\\w+(\\s\\w+)*\\*)"
-    case STRONG = "(\\*\\*\\w+(\\s\\w+)*\\*\\*)"
-    case U = "(_\\w+(\\s\\w+)*_)"
+    case H1 = "(^\\# \\w+(\\S\\w+)*)"
+    case H2 = "(^\\#\\# \\w+(\\S\\w+)*)"
+    case H3 = "(^\\#\\#\\# \\w+(\\S\\w+)*)"
+    case H4 = "(^\\#\\#\\#\\# \\w+(\\S\\w+)*)"
+    case H5 = "(^\\#\\#\\#\\#\\# \\w+(\\S\\w+)*)"
+    case H6 = "(^\\#\\#\\#\\#\\#\\# \\w+(\\S\\w+)*)"
+    case EM = "(\\*\\w+(\\S\\w+)*\\*)"
+    case STRONG = "(\\*\\*\\w+(\\S\\w+)*\\*\\*)"
+    case U = "(_\\w+(\\S\\w+)*_)"
     
         
     case A1 = "(^\\[(.)*\\]\\((.)*\\)$)"

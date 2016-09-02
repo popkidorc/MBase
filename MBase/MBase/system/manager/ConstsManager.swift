@@ -10,6 +10,9 @@ import Cocoa
 
 class ConstsManager {
     
+    
+    static let docTreeDiaryDateformatter = "yyyy-MM-dd";
+    
     static let docEditDisableBgColor = NSColor(deviceRed: (244+1)/256, green: (244+1)/256, blue: (244+1)/256, alpha: 1);
     
     static let docEditEnableBgColor = NSColor(deviceRed: (249+1)/256, green: (246+1)/256, blue: (236+1)/256, alpha: 1);
