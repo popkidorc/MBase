@@ -27,6 +27,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     override func viewDidLoad() {
         super.viewDidLoad();
         self.docTreeView.registerForDraggedTypes([NSPasteboardTypeString]);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(changeDocImageAll), name: "changeDocImage", object: nil);
         // 自动展开并记录的节点
         if let selectedDocTree = self.userInfo.selectDocTree {
             // 展开节点
@@ -224,7 +225,16 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         }
     }
     
-    func changeDocImage(docTree : DocTree){
+    func changeDocImageAll(){
+        let selectedDocTree = self.selectedTree();
+        if selectedDocTree == nil {
+            return;
+        }
+        self.changeDocImage(selectedDocTree!.parent!);
+        self.changeDocImage(selectedDocTree!);
+    }
+    
+    func changeDocImage(docTree: DocTree){
         if DocTree.DocTreeType.Custom.rawValue == docTree.type {
             return;
         }
@@ -245,7 +255,6 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         }
         if newImage != nil{
             docTree.image = newImage!.TIFFRepresentation;
-            // 2. 重载数据
             self.reloadData(docTree);
         }
     }
@@ -263,8 +272,6 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     }
     
     func createDiaryTree(selectedDocTree: DocTree) -> DocTree{
-        
-
         // 组装日期
         let startDate = DateUtils.getStartOfCurrentMonth()
         let endDate = DateUtils.getEndOfCurrentMonth();

@@ -77,6 +77,8 @@ extension DocTreeViewController: NSMenuDelegate {
         let newSelectedRow = self.docTreeView.rowForItem(newDocTree);
         self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
         self.docTreeView.scrollRowToVisible(newSelectedRow);
+        
+        self.changeDocImage(selectedDocTree!)
     }
     
     @IBAction func createDiary(sender: AnyObject) {
@@ -110,10 +112,15 @@ extension DocTreeViewController: NSMenuDelegate {
         if trashTree == nil {
             return;
         }
+        let parent = selectedDocTree!.parent;
         self.moveNode(selectedDocTree!, targetParentDocTree: trashTree!, targetIndex: nil);
         
+        self.changeDocImage(parent!)
         // 3. 重载数据
         self.reloadData();
+        
+        // 4. 清除eidt、view
+        self.docEditViewController.cleanDocEditDatas();
     }
     
     @IBAction func cleanTrash(sender: AnyObject) {

@@ -57,7 +57,6 @@ extension DocEditViewController: NSTextStorageDelegate {
         for tagRegex in MarkdownRegexLineEnum.values {
             self.applyStylesToRange4Line(tagRegex, textString: textString, ranges: ranges);
         }
-//        self.boundDidChange();
         
         // 保存coredata
         self.docMainData.updateContent(self.docEditView.string!);
@@ -66,7 +65,7 @@ extension DocEditViewController: NSTextStorageDelegate {
         
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
         
-//        self.docMainViewController.refreshContent();
+        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImage", object: nil);
         
 //        print("====changeTextFont===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
     }
