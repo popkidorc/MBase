@@ -29,6 +29,7 @@ extension AppDelegate: NSMenuDelegate {
     
     @IBAction func exportHtml(sender: AnyObject) {
         if self.mainWindowController.mainSplitViewController.docTreeViewController.selectedTree() == nil{
+            AlertUtils.alert("无法操作", content: "请选择需要导出的文件或文件夹", buttons: ["确定"], buttonEvents: [{}])
             return;
         }
         self.export("html");
@@ -36,6 +37,7 @@ extension AppDelegate: NSMenuDelegate {
     
     @IBAction func exportText(sender: AnyObject) {
         if self.mainWindowController.mainSplitViewController.docTreeViewController.selectedTree() == nil{
+            AlertUtils.alert("无法操作", content: "请选择需要导出的文件或文件夹", buttons: ["确定"], buttonEvents: [{}])
             return;
         }
         self.export("text");

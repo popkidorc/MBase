@@ -14,8 +14,11 @@ extension DocEditViewController: NSTextStorageDelegate {
     }
     
     func textStorage(textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int){
-        if editedMask != .EditedAttributes{
+        if editedMask != .EditedAttributes {
             print("==editedRange=="+String(editedRange)+"===="+String(editedMask.rawValue))
+            self.editedRange = editedRange;
+//            let normalAttributes = [NSParagraphStyleAttributeName : ConstsManager.getDefaultParagraphStyle(), NSFontAttributeName : NSFont.systemFontOfSize(ConstsManager.defaultFontSize), NSForegroundColorAttributeName : ConstsManager.defaultFontColor];
+//            self.docEditView.textStorage!.addAttributes(normalAttributes, range: editedRange);
         }
     }
     
@@ -30,7 +33,8 @@ extension DocEditViewController: NSTextStorageDelegate {
         // 全文
         let textString = NSString(string: self.docEditView.textStorage!.string);
         // 选择行
-        let lineRange = NSUnionRange(self.docEditView.selectedRange(), textString.lineRangeForRange(NSMakeRange(NSMaxRange(self.docEditView.selectedRange()), 0)))
+        let lineRange = NSUnionRange(self.docEditView.selectedRange(), textString.lineRangeForRange(self.editedRange!));
+//        let lineRange = NSUnionRange(self.docEditView.selectedRange(), textString.lineRangeForRange(NSMakeRange(NSMaxRange(self.editedRange!), 0)))
         // 上半段
         let preRange = NSMakeRange(0, lineRange.location);
         // 下半段
@@ -66,8 +70,6 @@ extension DocEditViewController: NSTextStorageDelegate {
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
         
         NSNotificationCenter.defaultCenter().postNotificationName("changeDocImage", object: nil);
-        
-//        print("====changeTextFont===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
     }
     
     

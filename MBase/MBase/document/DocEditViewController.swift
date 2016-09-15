@@ -22,6 +22,8 @@ class DocEditViewController: NSViewController {
     
     var managedObjectContext: NSManagedObjectContext!;
     
+    var editedRange: NSRange?;
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         initDocEidtView();

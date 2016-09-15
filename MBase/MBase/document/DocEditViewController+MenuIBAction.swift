@@ -20,7 +20,11 @@ extension DocEditViewController: NSTextViewDelegate {
         //添加item
         let menuItem_copyHtml = NSMenuItem(title: "复制HTML", action: #selector(DocEditViewController.copyHtml), keyEquivalent: "");
         menu.insertItem(menuItem_copyHtml, atIndex: 0);
-        
+        for item in menu.itemArray {
+            if item.title == "粘贴"{
+                menu.removeItem(item)
+            }
+        }
         return menu;
     }
     

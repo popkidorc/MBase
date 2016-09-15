@@ -22,9 +22,6 @@ class MarkdownManager: NSObject {
         let sourceString = NSString(string: string);
         var resultMap = Dictionary<Int, String>();
         
-        
-        
-        
         var ranges = [NSRange]();
         var rangeTemps: [NSRange];
         

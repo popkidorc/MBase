@@ -115,6 +115,7 @@
 		A828C7D91D7A4AB900AA3043 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A828C7D71D7A4AB900AA3043 /* MainViewController.xib */; };
 		A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86220B21D406FA000BAC828 /* MainMenu.xib */; };
 		A871B4EB1D8A696E003D598C /* ExportUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871B4EA1D8A696E003D598C /* ExportUtils.swift */; };
+		A871B4EE1D8AE4E2003D598C /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871B4ED1D8AE4E2003D598C /* AlertUtils.swift */; };
 		A8B725B71D52E8D3008C96DF /* Hoedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; };
 		A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8FBA6801D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */; };
@@ -250,6 +251,7 @@
 		A86220B31D406FA000BAC828 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A86220B51D406FA000BAC828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A871B4EA1D8A696E003D598C /* ExportUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExportUtils.swift; path = system/manager/ExportUtils.swift; sourceTree = "<group>"; };
+		A871B4ED1D8AE4E2003D598C /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtils.swift; path = system/manager/AlertUtils.swift; sourceTree = "<group>"; };
 		A8F60CEC1D52034B009768B6 /* Hoedown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hoedown.framework; path = ../Carthage/Build/Mac/Hoedown.framework; sourceTree = "<group>"; };
 		A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagLine.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTagLine.swift; sourceTree = "<group>"; };
 		A8FBA6861D730A2C00A48FE7 /* NSString+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSString+Utils.swift"; path = "system/extension/NSString+Utils.swift"; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				A81CC89B1D754B790000401B /* CommonUtils.swift */,
 				A828C7D41D7991F900AA3043 /* DateUtils.swift */,
 				A871B4EA1D8A696E003D598C /* ExportUtils.swift */,
+				A871B4ED1D8AE4E2003D598C /* AlertUtils.swift */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				A808C0941D7023F900F568EA /* DocMain+CoreDataProperties.swift in Sources */,
 				A808C0A41D70246D00F568EA /* DocEditViewController+Delegate.swift in Sources */,
 				A808C05E1D70226E00F568EA /* MarkdownHtmlTag4u.swift in Sources */,
+				A871B4EE1D8AE4E2003D598C /* AlertUtils.swift in Sources */,
 				A81DA8F11D791AEF000B74A8 /* MarkdownHtmlTagParagraph.swift in Sources */,
 				A808C0641D70226E00F568EA /* MarkdownHtmlTag4strong.swift in Sources */,
 				A808C06C1D70226E00F568EA /* MarkdownHtmlTag4a1.swift in Sources */,
