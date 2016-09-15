@@ -111,7 +111,10 @@
 		A81DA8FC1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8FB1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift */; };
 		A81DA8FE1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8FD1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift */; };
 		A828C7D51D7991F900AA3043 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828C7D41D7991F900AA3043 /* DateUtils.swift */; };
+		A828C7D81D7A4AB900AA3043 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828C7D61D7A4AB900AA3043 /* MainViewController.swift */; };
+		A828C7D91D7A4AB900AA3043 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A828C7D71D7A4AB900AA3043 /* MainViewController.xib */; };
 		A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86220B21D406FA000BAC828 /* MainMenu.xib */; };
+		A871B4EB1D8A696E003D598C /* ExportUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871B4EA1D8A696E003D598C /* ExportUtils.swift */; };
 		A8B725B71D52E8D3008C96DF /* Hoedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; };
 		A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8FBA6801D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */; };
@@ -240,10 +243,13 @@
 		A81DA8FB1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexParagraphEnum.swift; path = system/markdown/tagenums/MarkdownRegexParagraphEnum.swift; sourceTree = "<group>"; };
 		A81DA8FD1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexCommonEnum.swift; path = system/markdown/tagenums/MarkdownRegexCommonEnum.swift; sourceTree = "<group>"; };
 		A828C7D41D7991F900AA3043 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = system/manager/DateUtils.swift; sourceTree = "<group>"; };
+		A828C7D61D7A4AB900AA3043 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = split/MainViewController.swift; sourceTree = "<group>"; };
+		A828C7D71D7A4AB900AA3043 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = split/MainViewController.xib; sourceTree = "<group>"; };
 		A82AD7641D4453E100F457B6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		A86220AB1D406FA000BAC828 /* MBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86220B31D406FA000BAC828 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A86220B51D406FA000BAC828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A871B4EA1D8A696E003D598C /* ExportUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExportUtils.swift; path = system/manager/ExportUtils.swift; sourceTree = "<group>"; };
 		A8F60CEC1D52034B009768B6 /* Hoedown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hoedown.framework; path = ../Carthage/Build/Mac/Hoedown.framework; sourceTree = "<group>"; };
 		A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagLine.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTagLine.swift; sourceTree = "<group>"; };
 		A8FBA6861D730A2C00A48FE7 /* NSString+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSString+Utils.swift"; path = "system/extension/NSString+Utils.swift"; sourceTree = "<group>"; };
@@ -438,6 +444,7 @@
 				A808BFFD1D7020CB00F568EA /* ConstsManager.swift */,
 				A81CC89B1D754B790000401B /* CommonUtils.swift */,
 				A828C7D41D7991F900AA3043 /* DateUtils.swift */,
+				A871B4EA1D8A696E003D598C /* ExportUtils.swift */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -523,6 +530,8 @@
 			isa = PBXGroup;
 			children = (
 				A808C09D1D70244300F568EA /* MainSplitViewController.xib */,
+				A828C7D61D7A4AB900AA3043 /* MainViewController.swift */,
+				A828C7D71D7A4AB900AA3043 /* MainViewController.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -722,6 +731,7 @@
 				A808C0331D70217100F568EA /* lang-hs.js in Resources */,
 				A808C0C51D70253C00F568EA /* MainWindowController.xib in Resources */,
 				A808C03C1D70217100F568EA /* prettify.js in Resources */,
+				A828C7D91D7A4AB900AA3043 /* MainViewController.xib in Resources */,
 				A808C0251D70217100F568EA /* lang-tex.js in Resources */,
 				A808C0271D70217100F568EA /* lang-sql.js in Resources */,
 				A808C0431D70218C00F568EA /* markdownHelp.strings in Resources */,
@@ -762,6 +772,7 @@
 				A808C04A1D70225400F568EA /* MarkdownHtmlTagFactory.swift in Sources */,
 				A808C0671D70226E00F568EA /* MarkdownHtmlTag4h4.swift in Sources */,
 				A808C0691D70226E00F568EA /* MarkdownHtmlTag4h2.swift in Sources */,
+				A828C7D81D7A4AB900AA3043 /* MainViewController.swift in Sources */,
 				A808C0881D70231900F568EA /* DocTreeViewController+MenuIBAction.swift in Sources */,
 				A808C0A31D70246D00F568EA /* DocMainViewController.swift in Sources */,
 				A808C08E1D70235F00F568EA /* AppDelegate+IBAction.swift in Sources */,
@@ -806,6 +817,7 @@
 				A808C0481D70224200F568EA /* MarkdownManager.swift in Sources */,
 				A808C0771D7022FF00F568EA /* DocTreeInfoData.swift in Sources */,
 				A828C7D51D7991F900AA3043 /* DateUtils.swift in Sources */,
+				A871B4EB1D8A696E003D598C /* ExportUtils.swift in Sources */,
 				A81CC89C1D754B790000401B /* CommonUtils.swift in Sources */,
 				A81DA8FE1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift in Sources */,
 				A808C05F1D70226E00F568EA /* MarkdownHtmlTag4img2.swift in Sources */,

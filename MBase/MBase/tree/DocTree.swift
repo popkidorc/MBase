@@ -26,17 +26,17 @@ class DocTree: NSManagedObject {
             case .Root:
                 return []
             case .Normal:
-                return [1,2,4,5]
+                return [1,2,4,5,7,8]
             case .Custom:
-                return [1,2,4,5]
+                return [1,2,4,5,7,8]
             case .Trash:
                 return [6]
             case .Diary:
-                return [3]
+                return [3,7,8]
             case .DiaryChild:
-                return [5]
+                return [5,7,8]
             case .Note:
-                return []
+                return [7,8]
             }
 
         }

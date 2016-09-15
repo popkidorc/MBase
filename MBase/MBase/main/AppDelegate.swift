@@ -55,8 +55,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationWillTerminate(aNotification: NSNotification) {
     }
- 
-    
    
     // MARK: - Core Data stack
     

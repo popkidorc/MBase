@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="MBase" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+        </customView>
+        <toolbar implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="small" id="MAs-3w-ur2">
+            <allowedToolbarItems>
+                <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="EEa-OI-wBM"/>
+                <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="L2G-0j-zrS"/>
+                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="Jxz-5g-dv2"/>
+                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="0vq-oq-Cvm"/>
+                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="BNY-bL-dS0"/>
+                <toolbarItem implicitItemIdentifier="A134B987-2460-474E-ACEB-FDED2655EFBD" label="Toolbar Item" paletteLabel="Toolbar Item" tag="-1" id="rpM-N4-3pA"/>
+            </allowedToolbarItems>
+            <defaultToolbarItems>
+                <toolbarItem reference="EEa-OI-wBM"/>
+                <toolbarItem reference="L2G-0j-zrS"/>
+                <toolbarItem reference="BNY-bL-dS0"/>
+                <toolbarItem reference="Jxz-5g-dv2"/>
+            </defaultToolbarItems>
+        </toolbar>
+    </objects>
+</document>

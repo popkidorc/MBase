@@ -10,7 +10,7 @@ import Cocoa
 import CoreData
 
 class DocTreeViewController: NSViewController, NSDraggingDestination {
-    
+
     @IBOutlet weak var docTreeView: NSOutlineView!
     
     var docTreeData: DocTree!;
@@ -44,7 +44,15 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     }
     
     @IBAction func doubleAction(sender: AnyObject) {
-        self.showDocTreeInfoPopover();
+        let selectedDocTree = self.selectedTree();
+        if selectedDocTree == nil {
+            return;
+        }
+        if self.docTreeView.isItemExpanded(selectedDocTree){
+            self.docTreeView.collapseItem(selectedDocTree);
+        } else {
+            self.docTreeView.expandItem(selectedDocTree);
+        }
     }
     
     override func keyDown(theEvent: NSEvent) {
@@ -236,6 +244,9 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
     
     func changeDocImage(docTree: DocTree){
         if DocTree.DocTreeType.Custom.rawValue == docTree.type {
+            return;
+        }
+        if docTree.parent == nil{
             return;
         }
         if DocTree.DocTreeType.Root.rawValue == docTree.parent!.type {

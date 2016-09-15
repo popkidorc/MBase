@@ -69,7 +69,7 @@ extension DocTreeViewController: NSMenuDelegate {
         
         // 3. 重载数据
         self.reloadData();
-
+        
         // 4. 展开选中节点
         self.docTreeView.expandItem(selectedDocTree);
         
@@ -93,7 +93,7 @@ extension DocTreeViewController: NSMenuDelegate {
         let newSelectedRow = self.docTreeView.rowForItem(newSelectedTree);
         self.docTreeView.selectRowIndexes(NSIndexSet(index: newSelectedRow), byExtendingSelection:false);
         self.docTreeView.scrollRowToVisible(newSelectedRow);
-
+        
     }
     
     @IBAction func removeTree(sender: AnyObject) {
@@ -129,14 +129,63 @@ extension DocTreeViewController: NSMenuDelegate {
         if selectedDocTree == nil || DocTree.DocTreeType.Trash.rawValue != selectedDocTree?.type{
             return;
         }
-
+        
         // 2. model中移除数据,以及对应文档数据
         if selectedDocTree!.children == nil || selectedDocTree!.children?.count <= 0{
             return;
         }
         selectedDocTree!.removeAllChild();
-
+        
         // 3. 重载数据
         self.reloadData();
     }
+    
+    @IBAction func exportHTML(sender: AnyObject) {
+        if self.selectedTree() == nil{
+            return;
+        }
+        self.export("html");
+    }
+    
+    @IBAction func exportText(sender: AnyObject) {
+        if self.selectedTree() == nil{
+            return;
+        }
+        self.export("txt");
+    }
+    
+    func export(type: String){
+        let selectedTree = self.selectedTree()!;
+        // 文章还是文件夹
+        let panel = NSSavePanel();
+        panel.canCreateDirectories = true;
+        // 如果是文章
+        if selectedTree.children!.count <= 0 {
+            panel.nameFieldStringValue = selectedTree.name!;
+            panel.allowedFileTypes = [type];
+            panel.allowsOtherFileTypes = false;
+            panel.extensionHidden = true;
+        }
+            // 如果是目录
+        else {
+            panel.nameFieldStringValue = "MBase文件";
+            panel.allowsOtherFileTypes = false;
+            panel.extensionHidden = true;
+        }
+        if panel.runModal() == NSFileHandlingPanelOKButton {
+            let manager = NSFileManager.defaultManager();
+            let path = panel.URL!.path!;
+            do {
+                if selectedTree.children!.count > 0{
+                    // 先建目录
+                    try manager.createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: [:]);
+                }
+                try ExportUtils.exportFiles(manager, docTree: selectedTree, exportPath: path, type: type);
+            } catch{
+                let nserror = error as NSError;
+                NSApplication.sharedApplication().presentError(nserror);
+            }
+        }
+    }
+    
 }

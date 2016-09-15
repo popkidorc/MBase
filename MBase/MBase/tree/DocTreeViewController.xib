@@ -143,6 +143,26 @@
                         <action selector="cleanTrash:" target="-2" id="Mnb-ba-0yy"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" tag="7" id="FxN-2j-WBw"/>
+                <menuItem title="导出" tag="8" id="Qvp-oh-fFg" userLabel="export">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="导出" id="oQl-53-5xz" userLabel="export">
+                        <items>
+                            <menuItem title="导出HTML" id="qag-aK-BVy" userLabel="export HTML">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportHTML:" target="-2" id="9gy-ra-qk7"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="导出TEXT" id="scX-WQ-VOb" userLabel="export TEXT">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportText:" target="-2" id="HL4-yZ-L61"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
             </items>
             <connections>
                 <outlet property="delegate" destination="-2" id="8IR-iu-y9N"/>

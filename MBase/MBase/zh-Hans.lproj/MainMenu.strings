@@ -212,8 +212,8 @@
 /* Class = "NSMenuItem"; title = "Open MBase"; ObjectID = "Was-JA-tGl"; */
 "Was-JA-tGl.title" = "打开应用";
 
-/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "WeT-3V-zwk"; */
-"WeT-3V-zwk.title" = "Paste and Match Style";
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "WeT-3V-zwk"; */
+"WeT-3V-zwk.title" = "粘贴";
 
 /* Class = "NSMenuItem"; title = "Find…"; ObjectID = "Xz5-n4-O0W"; */
 "Xz5-n4-O0W.title" = "Find…";
@@ -385,3 +385,13 @@
 
 /* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "z6F-FW-3nz"; */
 "z6F-FW-3nz.title" = "Show Substitutions";
+
+/* Class = "NSMenu"; title = "Export"; ObjectID = "aN9-TH-huq"; */
+"aN9-TH-huq.title" = "导出";
+
+/* Class = "NSMenuItem"; title = "Export HTML"; ObjectID = "PVY-Ab-P8U"; */
+"PVY-Ab-P8U.title" = "导出HTML";
+
+/* Class = "NSMenuItem"; title = "Export TEXT"; ObjectID = "k1k-Is-nsF"; */
+"k1k-Is-nsF.title" = "导出TEXT";
+

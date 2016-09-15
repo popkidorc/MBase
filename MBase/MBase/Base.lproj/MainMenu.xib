@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
@@ -149,13 +150,7 @@
                                     <action selector="copy:" target="-1" id="G1f-GL-Joy"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Paste" keyEquivalent="v" id="gVA-U4-sdL">
-                                <connections>
-                                    <action selector="paste:" target="-1" id="UvS-8e-Qdg"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Paste and Match Style" keyEquivalent="V" id="WeT-3V-zwk">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                            <menuItem title="Paste" keyEquivalent="v" id="WeT-3V-zwk">
                                 <connections>
                                     <action selector="pasteAsPlainText:" target="-1" id="cEh-KX-wJQ"/>
                                 </connections>
@@ -339,6 +334,44 @@
                                         </menuItem>
                                     </items>
                                 </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Find" id="gMY-I3-ZqT">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Find" id="fa8-U9-76w">
+                        <items>
+                            <menuItem title="Find…" tag="1" keyEquivalent="f" id="Xl8-TM-9ZB">
+                                <connections>
+                                    <action selector="performFindPanelAction:" target="-1" id="6oC-3J-rUs"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="qyR-DY-P7h">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="performTextFinderAction:" target="-1" id="Eqg-Up-bRI"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Find Next" tag="2" keyEquivalent="g" id="lbA-PI-7Ft">
+                                <connections>
+                                    <action selector="performFindPanelAction:" target="-1" id="fRz-O0-fLZ"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="FlF-bp-Nnp">
+                                <connections>
+                                    <action selector="performFindPanelAction:" target="-1" id="UIr-SB-oii"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="Id0-mh-fWB">
+                                <connections>
+                                    <action selector="performFindPanelAction:" target="-1" id="6k5-fE-grM"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Jump to Selection" keyEquivalent="j" id="c0J-js-kJr">
+                                <connections>
+                                    <action selector="centerSelectionInVisibleArea:" target="-1" id="GIR-id-c7V"/>
+                                </connections>
                             </menuItem>
                         </items>
                     </menu>
@@ -603,6 +636,28 @@
                                 </menu>
                             </menuItem>
                         </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Export" id="uWg-Tk-Zlr">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Export" id="aN9-TH-huq">
+                        <items>
+                            <menuItem title="Export HTML" id="PVY-Ab-P8U">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportHtml:" target="Voe-Tx-rLC" id="5BC-2w-hr0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Export TEXT" id="k1k-Is-nsF">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportText:" target="Voe-Tx-rLC" id="Hzj-95-t0c"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                        <connections>
+                            <outlet property="delegate" destination="Voe-Tx-rLC" id="fuA-I7-RUb"/>
+                        </connections>
                     </menu>
                 </menuItem>
                 <menuItem title="View" id="H8h-7b-M4v">
