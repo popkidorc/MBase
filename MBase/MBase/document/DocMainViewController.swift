@@ -40,7 +40,7 @@ class DocMainViewController: NSViewController {
     }
     
     func syncScroll(){
-        print("==docEditVerticalScroller=="+String(docEditVerticalScroller?.floatValue))
+//        print("==docEditVerticalScroller=="+String(docEditVerticalScroller?.floatValue))
         if docEditVerticalScroller == nil{
             return;
         }

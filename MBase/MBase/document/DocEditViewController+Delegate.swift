@@ -15,7 +15,6 @@ extension DocEditViewController: NSTextStorageDelegate {
     
     func textStorage(textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int){
         if editedMask != .EditedAttributes {
-            print("==editedRange=="+String(editedRange)+"===="+String(editedMask.rawValue))
             self.editedRange = editedRange;
 //            let normalAttributes = [NSParagraphStyleAttributeName : ConstsManager.getDefaultParagraphStyle(), NSFontAttributeName : NSFont.systemFontOfSize(ConstsManager.defaultFontSize), NSForegroundColorAttributeName : ConstsManager.defaultFontColor];
 //            self.docEditView.textStorage!.addAttributes(normalAttributes, range: editedRange);

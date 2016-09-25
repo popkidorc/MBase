@@ -47,11 +47,14 @@
                                                 <rect key="frame" x="1" y="1" width="197" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M0l-3l-Ckq">
+                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0l-3l-Ckq">
                                                         <rect key="frame" x="3" y="3" width="17" height="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="17" id="DWS-tg-HJC"/>
+                                                        </constraints>
                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="g5A-1Y-ue1"/>
                                                     </imageView>
-                                                    <textField autoresizesSubviews="NO" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCn-KM-La4">
+                                                    <textField autoresizesSubviews="NO" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCn-KM-La4">
                                                         <rect key="frame" x="37" y="3" width="105" height="17"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="eMC-G0-Bvc">
                                                             <font key="font" metaFont="system"/>
@@ -63,6 +66,14 @@
                                                         </textFieldCell>
                                                     </textField>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="bCn-KM-La4" secondAttribute="trailing" constant="57" id="9gI-Bg-hUf"/>
+                                                    <constraint firstItem="bCn-KM-La4" firstAttribute="leading" secondItem="M0l-3l-Ckq" secondAttribute="trailing" constant="19" id="BuA-36-3hb"/>
+                                                    <constraint firstItem="M0l-3l-Ckq" firstAttribute="top" secondItem="bCn-KM-La4" secondAttribute="top" id="WV9-Or-dwo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="M0l-3l-Ckq" secondAttribute="bottom" constant="3" id="ag6-jv-mw6"/>
+                                                    <constraint firstItem="M0l-3l-Ckq" firstAttribute="leading" secondItem="qHf-xj-QrB" secondAttribute="leading" constant="3" id="d2l-i5-M9g"/>
+                                                    <constraint firstItem="M0l-3l-Ckq" firstAttribute="bottom" secondItem="bCn-KM-La4" secondAttribute="bottom" id="l8D-Tu-cng"/>
+                                                </constraints>
                                                 <connections>
                                                     <outlet property="imageView" destination="M0l-3l-Ckq" id="fRp-sc-9SB"/>
                                                     <outlet property="textField" destination="bCn-KM-La4" id="ZgJ-Dh-lva"/>
@@ -93,10 +104,9 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hgx-77-cWG" secondAttribute="bottom" id="686-dw-UtK"/>
-                <constraint firstItem="hgx-77-cWG" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="ARu-gE-xUw"/>
-                <constraint firstItem="hgx-77-cWG" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="MLP-sB-7mN"/>
                 <constraint firstAttribute="bottom" secondItem="hgx-77-cWG" secondAttribute="bottom" id="NFL-po-cfp"/>
                 <constraint firstItem="hgx-77-cWG" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="fDP-DN-twM"/>
+                <constraint firstItem="hgx-77-cWG" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="fci-lf-Lz8"/>
                 <constraint firstAttribute="trailing" secondItem="hgx-77-cWG" secondAttribute="trailing" id="quo-3t-xxr"/>
                 <constraint firstItem="hgx-77-cWG" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="u1L-LF-DIt"/>
                 <constraint firstAttribute="trailing" secondItem="hgx-77-cWG" secondAttribute="trailing" id="xY4-ya-0vl"/>
@@ -169,6 +179,7 @@
             </connections>
             <point key="canvasLocation" x="70" y="99.5"/>
         </menu>
+        <textFinder id="d3J-yB-zvk"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>

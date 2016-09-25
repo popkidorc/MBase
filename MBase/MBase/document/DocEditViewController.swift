@@ -89,6 +89,14 @@ class DocEditViewController: NSViewController {
         self.docEditView.defaultParagraphStyle = ConstsManager.getDefaultParagraphStyle();
         self.docEditView.textColor = ConstsManager.defaultFontColor;
         self.docEditView.textStorage?.delegate = self;
+        self.docEditView.automaticQuoteSubstitutionEnabled = false;
+        self.docEditView.automaticLinkDetectionEnabled = false;
+        self.docEditView.automaticDashSubstitutionEnabled = false;
+        self.docEditView.automaticTextReplacementEnabled = false;
+        self.docEditView.automaticDataDetectionEnabled = false;
+        self.docEditView.automaticSpellingCorrectionEnabled = false;
+        
+        self.docEditView.smartInsertDeleteEnabled = true;
         
         //给滚动条添加通知        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(changeScroll), name: NSViewBoundsDidChangeNotification, object: nil)

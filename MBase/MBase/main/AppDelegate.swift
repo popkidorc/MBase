@@ -12,7 +12,13 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     var mainWindowController : MainWindowController!;
-
+    
+    @IBOutlet weak var editAndMainVIewMenu: NSMenuItem!
+    
+    @IBOutlet weak var mainVIewMenu: NSMenuItem!
+    
+    @IBOutlet weak var editVIewMenu: NSMenuItem!
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         //app开始启动时调用        
         
@@ -50,6 +56,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if (!mainWindowController.window!.visible) {
             mainWindowController.showWindow(mainWindowController?.window);
         }
+        
+        //菜单默认
+        editAndMainVIewMenu.state = 1;
+        mainVIewMenu.state = 0;
+        editVIewMenu.state = 0;
     }
     
     

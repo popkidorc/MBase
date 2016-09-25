@@ -46,7 +46,7 @@ extension DocTreeViewController: NSOutlineViewDataSource {
     }
     
     func outlineView(outlineView: NSOutlineView, viewForTableColumn tableColumn: NSTableColumn?, item: AnyObject) -> NSView? {
-        let cellView: NSTableCellView = outlineView.makeViewWithIdentifier(tableColumn!.identifier, owner: self) as! NSTableCellView;
+        let cellView = outlineView.makeViewWithIdentifier(tableColumn!.identifier, owner: self) as! NSTableCellView;
         if tableColumn!.identifier == "DocTreeColumn" {
             let docTreeData = item as! DocTree;
             cellView.objectValue = docTreeData.objectID;
@@ -83,8 +83,8 @@ extension DocTreeViewController: NSOutlineViewDataSource {
         if selectedDocTree == nil {
             return false;
         }
-//        let pd = info.draggingPasteboard();
-//        let name = pd.stringForType(NSPasteboardTypeString);
+        //        let pd = info.draggingPasteboard();
+        //        let name = pd.stringForType(NSPasteboardTypeString);
         
         let parentDocTree: DocTree;
         if item == nil {
@@ -96,9 +96,9 @@ extension DocTreeViewController: NSOutlineViewDataSource {
         if DocTree.DocTreeType.Root.rawValue == parentDocTree.type && index == 0 {
             return false;
         }
-
+        
         self.moveNode(selectedDocTree!, targetParentDocTree: parentDocTree, targetIndex: index);
         return true
     }
-
+    
 }
