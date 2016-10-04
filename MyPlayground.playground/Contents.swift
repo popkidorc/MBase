@@ -138,12 +138,45 @@ import Cocoa
 //
 //Int(a)
 
-var a = "<p>1. asfs<br/>2. asf<br/>3. sa<br/>4. f<br/>5. sadf<br/>6. sa<br/>7. dfsdfjkljlksajf;<br/>8. sadf<br/>9. asdfsdf<br/>10. sadfsdf<br/>11. asdfsadfsa<br/>12. asdfsadfsda<br/>13. asdfsadfsdf</p>"
-//a.stringByReplacingOccurrencesOfString("b", withString: "a")
-var stringTemp = NSString(string: a);
+//var a = "<p>1. asfs<br/>2. asf<br/>3. sa<br/>4. f<br/>5. sadf<br/>6. sa<br/>7. dfsdfjkljlksajf;<br/>8. sadf<br/>9. asdfsdf<br/>10. sadfsdf<br/>11. asdfsadfsa<br/>12. asdfsadfsda<br/>13. asdfsadfsdf</p>"
+////a.stringByReplacingOccurrencesOfString("b", withString: "a")
+//var stringTemp = NSString(string: a);
+//
+//let pattern = "((<p>\\d{1,2}. )(.)*</p>)";
+////let pattern = "((<p>\\* )(.)*</p>)";
+//
+//var regex: NSRegularExpression?;
+//do{
+//    regex = try NSRegularExpression(pattern: pattern, options: [.AnchorsMatchLines])
+//}catch{
+//    let nserror = error as NSError
+//    NSApplication.sharedApplication().presentError(nserror)
+//}
+//
+//for textCheckingResult in regex!.matchesInString(stringTemp as String, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, stringTemp.length)){
+//    stringTemp.substringWithRange(textCheckingResult.range);
+//    var stringRange = textCheckingResult.range;
+//    let stringTemp1 = stringTemp.stringByReplacingOccurrencesOfString("<p>\\d{1,2}. ", withString: "<ol><li>", options: [.RegularExpressionSearch],range: stringRange)
+//    stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp1.characters.count - stringTemp.length ) // 8-5
+//    NSString(string: stringTemp1).substringWithRange(stringRange);
+//    let stringTemp2 = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>\\d{1,2}. ", withString: "</li><li>", options: [.RegularExpressionSearch],range: stringRange)
+//    stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp2.characters.count - stringTemp1.characters.count  ) // 9-7
+//    NSString(string: stringTemp2).substringWithRange(stringRange);
+//    let stringTemp3 = NSString(string: stringTemp2).stringByReplacingOccurrencesOfString("</p>", withString: "</ol>", options: [.RegularExpressionSearch],range: stringRange)
+//}
+//
+//var c = stringTemp.rangeOfString(pattern, options: [.RegularExpressionSearch]);
+//c.length
+//c.location
+////stringTemp.substringWithRange(NSMakeRange(c.location, c.length));
+//
+//stringTemp = stringTemp.stringByReplacingOccurrencesOfString("<p>\\* ", withString: "<ul><li>", options: [.RegularExpressionSearch],range: NSMakeRange(0, stringTemp.length))
+//stringTemp = stringTemp.stringByReplacingOccurrencesOfString("<br/>\\* ", withString: "</li><?", options: [.RegularExpressionSearch],range: NSMakeRange(0, stringTemp.length))
+//
 
-let pattern = "((<p>\\d{1,2}. )(.)*</p>)";
-//let pattern = "((<p>\\* )(.)*</p>)";
+
+let a = "asdfsadfdsa\n* asdfasfsfdsfsafsfsaf\n* asdfsadfsdfsfsaf\n* sadsdfsafsafsf"
+let pattern = "(^\\* )"
 
 var regex: NSRegularExpression?;
 do{
@@ -153,24 +186,14 @@ do{
     NSApplication.sharedApplication().presentError(nserror)
 }
 
-for textCheckingResult in regex!.matchesInString(stringTemp as String, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, stringTemp.length)){
-    stringTemp.substringWithRange(textCheckingResult.range);
-    var stringRange = textCheckingResult.range;
-    let stringTemp1 = stringTemp.stringByReplacingOccurrencesOfString("<p>\\d{1,2}. ", withString: "<ol><li>", options: [.RegularExpressionSearch],range: stringRange)
-    stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp1.characters.count - stringTemp.length ) // 8-5
-    NSString(string: stringTemp1).substringWithRange(stringRange);
-    let stringTemp2 = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>\\d{1,2}. ", withString: "</li><li>", options: [.RegularExpressionSearch],range: stringRange)
-    stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp2.characters.count - stringTemp1.characters.count  ) // 9-7
-    NSString(string: stringTemp2).substringWithRange(stringRange);
-    let stringTemp3 = NSString(string: stringTemp2).stringByReplacingOccurrencesOfString("</p>", withString: "</ol>", options: [.RegularExpressionSearch],range: stringRange)
+for textCheckingResult in regex!.matchesInString(a, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, a.characters.count)){
+    NSString(string:a).substringWithRange(textCheckingResult.range);
 }
 
-var c = stringTemp.rangeOfString(pattern, options: [.RegularExpressionSearch]);
-c.length
-c.location
-//stringTemp.substringWithRange(NSMakeRange(c.location, c.length));
 
-stringTemp = stringTemp.stringByReplacingOccurrencesOfString("<p>\\* ", withString: "<ul><li>", options: [.RegularExpressionSearch],range: NSMakeRange(0, stringTemp.length))
-stringTemp = stringTemp.stringByReplacingOccurrencesOfString("<br/>\\* ", withString: "</li><?", options: [.RegularExpressionSearch],range: NSMakeRange(0, stringTemp.length))
+
+
+
+
 
 

@@ -26,9 +26,6 @@ class MarkdownManager: NSObject {
         var ranges = [NSRange]();
         var rangeTemps: [NSRange];
         
-        
-//        sourceString = self.getP(string);
-        
         // 全局
         var objectDic = Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>();
         for tagRegex in MarkdownRegexCommonEnum.values {

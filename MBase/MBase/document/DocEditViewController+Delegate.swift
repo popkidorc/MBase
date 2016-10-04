@@ -56,6 +56,12 @@ extension DocEditViewController: NSTextStorageDelegate {
             // 腐蚀ranges
             ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
         }
+        
+        // 列表
+        for tagRegex in MarkdownRegexListEnum.values {
+            self.applyStylesToRange4List(tagRegex, textString: textString, ranges: ranges);
+        }
+        
         // 行
         for tagRegex in MarkdownRegexLineEnum.values {
             self.applyStylesToRange4Line(tagRegex, textString: textString, ranges: ranges);
@@ -90,6 +96,11 @@ extension DocEditViewController: NSTextStorageDelegate {
             rangeTemps = self.applyStylesToRange4Paragraph(tagRegex, textString: textString, ranges: ranges);
             // 腐蚀ranges
             ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
+        }
+        
+        // 列表
+        for tagRegex in MarkdownRegexListEnum.values {
+            self.applyStylesToRange4List(tagRegex, textString: textString, ranges: ranges);
         }
         
         // 行
@@ -191,6 +202,26 @@ extension DocEditViewController: NSTextStorageDelegate {
             }
         }
     }
+    
+    func applyStylesToRange4List(tagRegex : MarkdownRegexListEnum, textString: NSString, ranges: [NSRange]){
+        var regex: NSRegularExpression?;
+        do{
+            regex = try NSRegularExpression(pattern: tagRegex.rawValue, options: [.AnchorsMatchLines])
+        }catch{
+            let nserror = error as NSError
+            NSApplication.sharedApplication().presentError(nserror)
+        }
+        let attrs = MarkdownEditFactory.getMarkdownAttributes(tagRegex);
+        if attrs.count <= 0  {
+            return;
+        }
+        for range in ranges {
+            for textCheckingResult in regex!.matchesInString(textString.substringWithRange(range), options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, range.length)) {
+                self.docEditView.textStorage!.addAttributes(attrs, range: NSMakeRange(range.location+textCheckingResult.range.location, textCheckingResult.range.length));
+            }
+        }
+    }
+
     
     func applyStylesToRange4Common(tagRegex : MarkdownRegexCommonEnum, textString: NSString, ranges: [NSRange]) {
         var regex: NSRegularExpression?;

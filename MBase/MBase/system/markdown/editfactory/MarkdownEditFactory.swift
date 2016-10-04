@@ -53,13 +53,19 @@ class MarkdownEditFactory: MarkdownHtmlTag {
     }
     
     static func getMarkdownAttributes(tagRegex: MarkdownRegexParagraphEnum) -> [String : AnyObject]{
-        
         switch tagRegex {
-//        case .P:
-//            return [:];
         case .CODE1:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
         case .CODE2:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
+        }
+    }
+    
+    static func getMarkdownAttributes(tagRegex: MarkdownRegexListEnum) -> [String : AnyObject]{
+        switch tagRegex {
+        case .NORMAL:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
+        case .ORDER:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(ConstsManager.defaultFontSize),NSForegroundColorAttributeName : ConstsManager.codeFontColor];
         }
     }
