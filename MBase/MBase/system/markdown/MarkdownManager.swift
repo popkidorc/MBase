@@ -20,7 +20,7 @@ class MarkdownManager: NSObject {
             return "";
         }
         //外层段落
-        let sourceString = self.getNormalList(self.getP(string) as String);
+        let sourceString = self.getOrderList(self.getNormalList(self.getP(string) as String) as String);
         var resultMap = Dictionary<Int, String>();
         
         var ranges = [NSRange]();
@@ -164,7 +164,7 @@ class MarkdownManager: NSObject {
     
     static func getOrderList(string: String) -> NSString{
         var result = NSString(string: string);
-        let pattern = "((<p>\\* )(.)*</p>)";
+        let pattern = "((<p>\\d{1,2}. )(.)*</p>)";
         var regex: NSRegularExpression?;
         do{
             regex = try NSRegularExpression(pattern: pattern, options: [.AnchorsMatchLines])
@@ -175,11 +175,11 @@ class MarkdownManager: NSObject {
         for textCheckingResult in regex!.matchesInString(result as String, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, result.length)){
             result.substringWithRange(textCheckingResult.range);
             var stringRange = textCheckingResult.range;
-            let stringTemp1 = result.stringByReplacingOccurrencesOfString("<p>\\* ", withString: "<ul><li>", options: [.RegularExpressionSearch],range: stringRange)
+            let stringTemp1 = result.stringByReplacingOccurrencesOfString("<p>\\d{1,2}. ", withString: "<ol><li>", options: [.RegularExpressionSearch],range: stringRange)
             stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp1.characters.count - result.length )
-            let stringTemp2 = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>\\* ", withString: "</li><li>", options: [.RegularExpressionSearch],range: stringRange)
+            let stringTemp2 = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>\\d{1,2}. ", withString: "</li><li>", options: [.RegularExpressionSearch],range: stringRange)
             stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp2.characters.count - stringTemp1.characters.count  )
-            result = NSString(string: stringTemp2).stringByReplacingOccurrencesOfString("</p>", withString: "</ul>", options: [.RegularExpressionSearch],range: stringRange)
+            result = NSString(string: stringTemp2).stringByReplacingOccurrencesOfString("</p>", withString: "</ol>", options: [.RegularExpressionSearch],range: stringRange)
         }
         return result;
     }

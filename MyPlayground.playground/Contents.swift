@@ -138,11 +138,12 @@ import Cocoa
 //
 //Int(a)
 
-var a = "asdfljsadlfja<p>* asdfasfsfdsfsafsfsaf<br/>* asdfsadfsdfsfsaf<br/>* sadsdfsafsafsf</p>asdfljsadlf"
+var a = "<p>1. asfs<br/>2. asf<br/>3. sa<br/>4. f<br/>5. sadf<br/>6. sa<br/>7. dfsdfjkljlksajf;<br/>8. sadf<br/>9. asdfsdf<br/>10. sadfsdf<br/>11. asdfsadfsa<br/>12. asdfsadfsda<br/>13. asdfsadfsdf</p>"
 //a.stringByReplacingOccurrencesOfString("b", withString: "a")
 var stringTemp = NSString(string: a);
 
-let pattern = "((<p>\\* )(.)*</p>)";
+let pattern = "((<p>\\d{1,2}. )(.)*</p>)";
+//let pattern = "((<p>\\* )(.)*</p>)";
 
 var regex: NSRegularExpression?;
 do{
@@ -155,13 +156,13 @@ do{
 for textCheckingResult in regex!.matchesInString(stringTemp as String, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, stringTemp.length)){
     stringTemp.substringWithRange(textCheckingResult.range);
     var stringRange = textCheckingResult.range;
-    let stringTemp1 = stringTemp.stringByReplacingOccurrencesOfString("<p>\\* ", withString: "<ul><li>", options: [.RegularExpressionSearch],range: stringRange)
+    let stringTemp1 = stringTemp.stringByReplacingOccurrencesOfString("<p>\\d{1,2}. ", withString: "<ol><li>", options: [.RegularExpressionSearch],range: stringRange)
     stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp1.characters.count - stringTemp.length ) // 8-5
     NSString(string: stringTemp1).substringWithRange(stringRange);
-    let stringTemp2 = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>\\* ", withString: "</li><li>", options: [.RegularExpressionSearch],range: stringRange)
+    let stringTemp2 = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>\\d{1,2}. ", withString: "</li><li>", options: [.RegularExpressionSearch],range: stringRange)
     stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp2.characters.count - stringTemp1.characters.count  ) // 9-7
     NSString(string: stringTemp2).substringWithRange(stringRange);
-    let stringTemp3 = NSString(string: stringTemp2).stringByReplacingOccurrencesOfString("</p>", withString: "</ul>", options: [.RegularExpressionSearch],range: stringRange)
+    let stringTemp3 = NSString(string: stringTemp2).stringByReplacingOccurrencesOfString("</p>", withString: "</ol>", options: [.RegularExpressionSearch],range: stringRange)
 }
 
 var c = stringTemp.rangeOfString(pattern, options: [.RegularExpressionSearch]);
