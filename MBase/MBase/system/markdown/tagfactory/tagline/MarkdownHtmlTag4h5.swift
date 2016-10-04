@@ -13,7 +13,7 @@ class MarkdownHtmlTag4h5: MarkdownHtmlTagLine {
     override init(range: NSRange){
         super.init(range: range);
         super.tagName = "h5";
-        super.markdownTag = ["##### ","<p>","</p>"];
+        super.markdownTag = ["##### "];
     }
 
 }

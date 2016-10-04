@@ -14,7 +14,6 @@ class MarkdownHtmlTagFactory: NSObject {
         switch tagRegex {
         case .URL:
             return MarkdownHtmlTag4url(range: range);
-            
         }
     }
     
@@ -30,8 +29,6 @@ class MarkdownHtmlTagFactory: NSObject {
             return MarkdownHtmlTag4img1(range: range);
         case .IMG2:
             return MarkdownHtmlTag4img2(range: range);
-//        case .BR:
-//            return MarkdownHtmlTag4br(range: range);
         case .HR:
             return MarkdownHtmlTag4hr(range: range);
         case .H1:

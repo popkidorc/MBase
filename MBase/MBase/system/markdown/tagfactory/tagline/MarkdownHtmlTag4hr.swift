@@ -13,7 +13,7 @@ class MarkdownHtmlTag4hr: MarkdownHtmlTagLine {
     override init(range: NSRange){
         super.init(range: range);
         super.tagName = "hr";
-        super.markdownTag = ["- - -","<p>","</p>"];
+        super.markdownTag = ["- - -"];
     }
     
     override func getHtml(string: String, index: Int, object: Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>) -> String!{

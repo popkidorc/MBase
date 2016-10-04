@@ -14,7 +14,7 @@ class MarkdownHtmlTag4code2: MarkdownHtmlTagParagraph {
         super.init(range: range);
         super.tagName = "code";
         super.codeKey = "`";
-        super.markdownTag = ["`","</br>","<p>","</p>"];
+        super.markdownTag = ["`"];
     }
     
 }

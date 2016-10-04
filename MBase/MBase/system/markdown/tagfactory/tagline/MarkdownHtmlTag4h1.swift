@@ -13,9 +13,8 @@ class MarkdownHtmlTag4h1: MarkdownHtmlTagLine {
     override init(range: NSRange){
         super.init(range: range);
         super.tagName = "h1";
-        super.markdownTag = ["# ","<p>","</p>"];
+        super.markdownTag = ["# "];
     }
-    
     
     override func getHtml(string: String, index: Int, object: Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>) -> String!{
         super.tagValue["id"] = self.tagName + "id_" + String(index);

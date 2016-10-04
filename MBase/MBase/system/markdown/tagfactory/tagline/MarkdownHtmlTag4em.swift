@@ -13,7 +13,7 @@ class MarkdownHtmlTag4em: MarkdownHtmlTagLine {
     override init(range: NSRange){
         super.init(range: range);
         super.tagName = "em";
-        super.markdownTag = ["*","<p>","</p>"];
+        super.markdownTag = ["*"];
     }
 
 }

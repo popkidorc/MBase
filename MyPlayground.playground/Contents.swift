@@ -130,12 +130,46 @@ import Cocoa
 //
 
 
-for i in 1...10{
-    i
+//for i in 1...10{
+//    i
+//}
+//
+//let a = "01"
+//
+//Int(a)
+
+var a = "asdfljsadlfja<p>* asdfasfsfdsfsafsfsaf<br/>* asdfsadfsdfsfsaf<br/>* sadsdfsafsafsf</p>asdfljsadlf"
+//a.stringByReplacingOccurrencesOfString("b", withString: "a")
+var stringTemp = NSString(string: a);
+
+let pattern = "((<p>\\* )(.)*</p>)";
+
+var regex: NSRegularExpression?;
+do{
+    regex = try NSRegularExpression(pattern: pattern, options: [.AnchorsMatchLines])
+}catch{
+    let nserror = error as NSError
+    NSApplication.sharedApplication().presentError(nserror)
 }
 
-let a = "01"
+for textCheckingResult in regex!.matchesInString(stringTemp as String, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, stringTemp.length)){
+    stringTemp.substringWithRange(textCheckingResult.range);
+    var stringRange = textCheckingResult.range;
+    let stringTemp1 = stringTemp.stringByReplacingOccurrencesOfString("<p>\\* ", withString: "<ul><li>", options: [.RegularExpressionSearch],range: stringRange)
+    stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp1.characters.count - stringTemp.length ) // 8-5
+    NSString(string: stringTemp1).substringWithRange(stringRange);
+    let stringTemp2 = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>\\* ", withString: "</li><li>", options: [.RegularExpressionSearch],range: stringRange)
+    stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp2.characters.count - stringTemp1.characters.count  ) // 9-7
+    NSString(string: stringTemp2).substringWithRange(stringRange);
+    let stringTemp3 = NSString(string: stringTemp2).stringByReplacingOccurrencesOfString("</p>", withString: "</ul>", options: [.RegularExpressionSearch],range: stringRange)
+}
 
-Int(a)
+var c = stringTemp.rangeOfString(pattern, options: [.RegularExpressionSearch]);
+c.length
+c.location
+//stringTemp.substringWithRange(NSMakeRange(c.location, c.length));
+
+stringTemp = stringTemp.stringByReplacingOccurrencesOfString("<p>\\* ", withString: "<ul><li>", options: [.RegularExpressionSearch],range: NSMakeRange(0, stringTemp.length))
+stringTemp = stringTemp.stringByReplacingOccurrencesOfString("<br/>\\* ", withString: "</li><?", options: [.RegularExpressionSearch],range: NSMakeRange(0, stringTemp.length))
 
 
