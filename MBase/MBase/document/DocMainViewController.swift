@@ -8,6 +8,7 @@
 
 import Cocoa
 import WebKit
+import MBaseMarkdown
 
 class DocMainViewController: NSViewController {
     
@@ -40,7 +41,6 @@ class DocMainViewController: NSViewController {
     }
     
     func syncScroll(){
-//        print("==docEditVerticalScroller=="+String(docEditVerticalScroller?.floatValue))
         if docEditVerticalScroller == nil{
             return;
         }

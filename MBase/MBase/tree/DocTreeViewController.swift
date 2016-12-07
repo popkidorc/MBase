@@ -8,6 +8,7 @@
 
 import Cocoa
 import CoreData
+import MBaseMarkdown
 
 class DocTreeViewController: NSViewController, NSDraggingDestination {
 
@@ -144,7 +145,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
         
         let tree2 = NSEntityDescription.insertNewObjectForEntityForName("DocTree", inManagedObjectContext: self.managedObjectContext) as! DocTree;
         let main2 = NSEntityDescription.insertNewObjectForEntityForName("DocMain", inManagedObjectContext: self.managedObjectContext) as! DocMain;
-        main2.initData(ConstsManager.getMarkdownHelp(), summary: "markdown使用帮助", mark: "markdown", type: DocMain.DocMainType.Markdown, docTree: tree2);
+        main2.initData(MarkdownConstsManager.getMarkdownHelp(), summary: "markdown使用帮助", mark: "markdown", type: DocMain.DocMainType.Markdown, docTree: tree2);
         tree2.initData("我的文档", content: "我的文档", image: NSImage(named: "HomeFolderIcon"), type: DocTree.DocTreeType.Normal, parent: docTreeData, docMain: main2);
         
         docTreeData.addChildTree(tree1);

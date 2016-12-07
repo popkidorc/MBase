@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import MBaseMarkdown
 
 class ExportUtils: NSObject {
         

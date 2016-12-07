@@ -8,14 +8,14 @@
 
 import Cocoa
 
-class MarkdownManager: NSObject {
+public class MarkdownManager: NSObject {
     
-    enum CssType : String {
+   public enum CssType : String {
         case None = "none"
         case Default = "default"
     }
     
-    static func generateHTMLForMarkdown(string: String, cssType: CssType  = .Default) -> NSString!{
+   public static func generateHTMLForMarkdown(string: String, cssType: CssType  = .Default) -> NSString!{
         if string == "" {
             return "";
         }
@@ -54,7 +54,7 @@ class MarkdownManager: NSObject {
                 }
             }
             // 腐蚀ranges
-            ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
+            ranges = MarkdownCommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
         }
         
         // 段落
@@ -81,7 +81,7 @@ class MarkdownManager: NSObject {
                 }
             }
             // 腐蚀ranges
-            ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
+            ranges = MarkdownCommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
         }
         
         // 行
@@ -105,7 +105,7 @@ class MarkdownManager: NSObject {
                 }
             }
             // 腐蚀ranges
-            ranges = CommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
+            ranges = MarkdownCommonUtils.corrodeString(ranges, corrodeRanges: rangeTemps);
         }
         
         // 剩余的，正常文本

@@ -9,6 +9,7 @@
 import Cocoa
 import CoreData
 import WebKit
+import MBaseMarkdown
 
 class DocEditViewController: NSViewController {
     
@@ -34,10 +35,10 @@ class DocEditViewController: NSViewController {
         
         if DocMain.DocMainType.NotEdit.rawValue == docMainData.type {
             self.docEditView.editable = false;
-            self.docEditView.backgroundColor = ConstsManager.docEditDisableBgColor;
+            self.docEditView.backgroundColor = MarkdownConstsManager.docEditDisableBgColor;
         }else{
             self.docEditView.editable = true;
-            self.docEditView.backgroundColor = ConstsManager.docEditEnableBgColor;
+            self.docEditView.backgroundColor = MarkdownConstsManager.docEditEnableBgColor;
         }
         self.docEditView.string = docMainData.content!
         
@@ -58,7 +59,7 @@ class DocEditViewController: NSViewController {
     
     func cleanDocEditDatas(){
         self.docEditView.editable = false;
-        self.docEditView.backgroundColor = ConstsManager.docEditDisableBgColor;
+        self.docEditView.backgroundColor = MarkdownConstsManager.docEditDisableBgColor;
         self.docEditView.string = ""
         
         self.handlerInitFont();
@@ -84,10 +85,10 @@ class DocEditViewController: NSViewController {
         // 3.2. 剪切版
         self.docEditView.registerForDraggedTypes([NSPasteboardTypeString, NSPasteboardTypePNG]);
         // 3.3. 状态＋颜色
-        self.docEditView.backgroundColor = ConstsManager.docEditDisableBgColor;
-        self.docEditView.font = NSFont.systemFontOfSize(ConstsManager.defaultFontSize);
-        self.docEditView.defaultParagraphStyle = ConstsManager.getDefaultParagraphStyle();
-        self.docEditView.textColor = ConstsManager.defaultFontColor;
+        self.docEditView.backgroundColor = MarkdownConstsManager.docEditDisableBgColor;
+        self.docEditView.font = NSFont.systemFontOfSize(MarkdownConstsManager.defaultFontSize);
+        self.docEditView.defaultParagraphStyle = MarkdownConstsManager.getDefaultParagraphStyle();
+        self.docEditView.textColor = MarkdownConstsManager.defaultFontColor;
         self.docEditView.textStorage?.delegate = self;
         self.docEditView.automaticQuoteSubstitutionEnabled = false;
         self.docEditView.automaticLinkDetectionEnabled = false;

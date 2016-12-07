@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A808BFFE1D7020CB00F568EA /* ConstsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808BFFD1D7020CB00F568EA /* ConstsManager.swift */; };
 		A808C01E1D70217100F568EA /* lang-ml.js in Resources */ = {isa = PBXBuildFile; fileRef = A808BFFF1D70217100F568EA /* lang-ml.js */; };
 		A808C01F1D70217100F568EA /* prettify.css in Resources */ = {isa = PBXBuildFile; fileRef = A808C0001D70217100F568EA /* prettify.css */; };
 		A808C0201D70217100F568EA /* lang-yaml.js in Resources */ = {isa = PBXBuildFile; fileRef = A808C0011D70217100F568EA /* lang-yaml.js */; };
@@ -43,26 +42,6 @@
 		A808C0421D70218C00F568EA /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = A808C03E1D70218C00F568EA /* default.css */; };
 		A808C0431D70218C00F568EA /* markdownHelp.strings in Resources */ = {isa = PBXBuildFile; fileRef = A808C03F1D70218C00F568EA /* markdownHelp.strings */; };
 		A808C0441D70218C00F568EA /* consts.plist in Resources */ = {isa = PBXBuildFile; fileRef = A808C0401D70218C00F568EA /* consts.plist */; };
-		A808C0471D70224200F568EA /* MarkdownHtmlTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0451D70224200F568EA /* MarkdownHtmlTag.swift */; };
-		A808C0481D70224200F568EA /* MarkdownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0461D70224200F568EA /* MarkdownManager.swift */; };
-		A808C04A1D70225400F568EA /* MarkdownHtmlTagFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0491D70225400F568EA /* MarkdownHtmlTagFactory.swift */; };
-		A808C04C1D70226000F568EA /* MarkdownEditFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C04B1D70226000F568EA /* MarkdownEditFactory.swift */; };
-		A808C05E1D70226E00F568EA /* MarkdownHtmlTag4u.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C04E1D70226E00F568EA /* MarkdownHtmlTag4u.swift */; };
-		A808C05F1D70226E00F568EA /* MarkdownHtmlTag4img2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C04F1D70226E00F568EA /* MarkdownHtmlTag4img2.swift */; };
-		A808C0601D70226E00F568EA /* MarkdownHtmlTag4h1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0501D70226E00F568EA /* MarkdownHtmlTag4h1.swift */; };
-		A808C0611D70226E00F568EA /* MarkdownHtmlTag4img1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0511D70226E00F568EA /* MarkdownHtmlTag4img1.swift */; };
-		A808C0631D70226E00F568EA /* MarkdownHtmlTag4hr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0531D70226E00F568EA /* MarkdownHtmlTag4hr.swift */; };
-		A808C0641D70226E00F568EA /* MarkdownHtmlTag4strong.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0541D70226E00F568EA /* MarkdownHtmlTag4strong.swift */; };
-		A808C0651D70226E00F568EA /* MarkdownHtmlTag4h6.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0551D70226E00F568EA /* MarkdownHtmlTag4h6.swift */; };
-		A808C0661D70226E00F568EA /* MarkdownHtmlTag4h5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0561D70226E00F568EA /* MarkdownHtmlTag4h5.swift */; };
-		A808C0671D70226E00F568EA /* MarkdownHtmlTag4h4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0571D70226E00F568EA /* MarkdownHtmlTag4h4.swift */; };
-		A808C0681D70226E00F568EA /* MarkdownHtmlTag4h3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0581D70226E00F568EA /* MarkdownHtmlTag4h3.swift */; };
-		A808C0691D70226E00F568EA /* MarkdownHtmlTag4h2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0591D70226E00F568EA /* MarkdownHtmlTag4h2.swift */; };
-		A808C06A1D70226E00F568EA /* MarkdownHtmlTag4em.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C05A1D70226E00F568EA /* MarkdownHtmlTag4em.swift */; };
-		A808C06B1D70226E00F568EA /* MarkdownHtmlTag4a2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C05B1D70226E00F568EA /* MarkdownHtmlTag4a2.swift */; };
-		A808C06C1D70226E00F568EA /* MarkdownHtmlTag4a1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C05C1D70226E00F568EA /* MarkdownHtmlTag4a1.swift */; };
-		A808C0711D70228200F568EA /* MarkdownHtmlTag4code2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C06E1D70228200F568EA /* MarkdownHtmlTag4code2.swift */; };
-		A808C0721D70228200F568EA /* MarkdownHtmlTag4code1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C06F1D70228200F568EA /* MarkdownHtmlTag4code1.swift */; };
 		A808C0761D7022FF00F568EA /* DocTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0731D7022FF00F568EA /* DocTree.swift */; };
 		A808C0771D7022FF00F568EA /* DocTreeInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0741D7022FF00F568EA /* DocTreeInfoData.swift */; };
 		A808C0781D7022FF00F568EA /* DocTree+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808C0751D7022FF00F568EA /* DocTree+CoreDataProperties.swift */; };
@@ -100,44 +79,32 @@
 		A808C0BF1D70251100F568EA /* EDStarRating.m in Sources */ = {isa = PBXBuildFile; fileRef = A808C0BB1D70251100F568EA /* EDStarRating.m */; };
 		A808C0C01D70251100F568EA /* NSImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = A808C0BE1D70251100F568EA /* NSImage+Extras.m */; };
 		A808C0C51D70253C00F568EA /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A808C0C11D70253C00F568EA /* MainWindowController.xib */; };
-		A810A24C1DA3FDA300C36D66 /* MarkdownHtmlTagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810A24B1DA3FDA300C36D66 /* MarkdownHtmlTagList.swift */; };
-		A810A24E1DA3FDCA00C36D66 /* MarkdownRegexListEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810A24D1DA3FDCA00C36D66 /* MarkdownRegexListEnum.swift */; };
+		A80F86781DF7FD6E00DC4217 /* ConstsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F86771DF7FD6E00DC4217 /* ConstsManager.swift */; };
 		A81CC89A1D754AAF0000401B /* DocEditViewController+MenuIBAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81CC8991D754AAF0000401B /* DocEditViewController+MenuIBAction.swift */; };
-		A81CC89C1D754B790000401B /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81CC89B1D754B790000401B /* CommonUtils.swift */; };
-		A81DA8F11D791AEF000B74A8 /* MarkdownHtmlTagParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8F01D791AEF000B74A8 /* MarkdownHtmlTagParagraph.swift */; };
-		A81DA8F41D7928CA000B74A8 /* MarkdownHtmlTagCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8F21D7928CA000B74A8 /* MarkdownHtmlTagCommon.swift */; };
-		A81DA8F51D7928CA000B74A8 /* MarkdownHtmlTag4url.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8F31D7928CA000B74A8 /* MarkdownHtmlTag4url.swift */; };
-		A81DA8FA1D79298C000B74A8 /* MarkdownRegexLineEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8F91D79298C000B74A8 /* MarkdownRegexLineEnum.swift */; };
-		A81DA8FC1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8FB1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift */; };
-		A81DA8FE1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81DA8FD1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift */; };
 		A828C7D51D7991F900AA3043 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A828C7D41D7991F900AA3043 /* DateUtils.swift */; };
 		A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86220B21D406FA000BAC828 /* MainMenu.xib */; };
 		A871B4EB1D8A696E003D598C /* ExportUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871B4EA1D8A696E003D598C /* ExportUtils.swift */; };
 		A871B4EE1D8AE4E2003D598C /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871B4ED1D8AE4E2003D598C /* AlertUtils.swift */; };
-		A8B725B71D52E8D3008C96DF /* Hoedown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; };
-		A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A8F60CEC1D52034B009768B6 /* Hoedown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A8FBA6801D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */; };
-		A8FBA6871D730A2C00A48FE7 /* NSString+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6861D730A2C00A48FE7 /* NSString+Utils.swift */; };
+		A8D82F191DF7FE0C001AC708 /* MBaseMarkdown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8D82F181DF7FE0C001AC708 /* MBaseMarkdown.framework */; };
+		A8D82F1A1DF7FE12001AC708 /* MBaseMarkdown.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8D82F181DF7FE0C001AC708 /* MBaseMarkdown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8FD0C371D97887D00D969B0 /* DocSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD0C351D97887D00D969B0 /* DocSplitViewController.swift */; };
 		A8FD0C381D97887D00D969B0 /* DocSplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8FD0C361D97887D00D969B0 /* DocSplitViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A8F60CEF1D52034B009768B6 /* Embed Frameworks */ = {
+		A80F860C1DF7E8FB00DC4217 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A8F60CEE1D52034B009768B6 /* Hoedown.framework in Embed Frameworks */,
+				A8D82F1A1DF7FE12001AC708 /* MBaseMarkdown.framework in CopyFiles */,
 			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A808BFFD1D7020CB00F568EA /* ConstsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstsManager.swift; path = system/manager/ConstsManager.swift; sourceTree = "<group>"; };
 		A808BFFF1D70217100F568EA /* lang-ml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "lang-ml.js"; path = "resource/google-code-prettify-small/lang-ml.js"; sourceTree = "<group>"; };
 		A808C0001D70217100F568EA /* prettify.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = prettify.css; path = "resource/google-code-prettify-small/prettify.css"; sourceTree = "<group>"; };
 		A808C0011D70217100F568EA /* lang-yaml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "lang-yaml.js"; path = "resource/google-code-prettify-small/lang-yaml.js"; sourceTree = "<group>"; };
@@ -173,26 +140,6 @@
 		A808C03E1D70218C00F568EA /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = default.css; path = resource/default.css; sourceTree = "<group>"; };
 		A808C03F1D70218C00F568EA /* markdownHelp.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = markdownHelp.strings; path = resource/markdownHelp.strings; sourceTree = "<group>"; };
 		A808C0401D70218C00F568EA /* consts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = consts.plist; path = resource/consts.plist; sourceTree = "<group>"; };
-		A808C0451D70224200F568EA /* MarkdownHtmlTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag.swift; path = system/markdown/MarkdownHtmlTag.swift; sourceTree = "<group>"; };
-		A808C0461D70224200F568EA /* MarkdownManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownManager.swift; path = system/markdown/MarkdownManager.swift; sourceTree = "<group>"; };
-		A808C0491D70225400F568EA /* MarkdownHtmlTagFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagFactory.swift; path = system/markdown/tagfactory/MarkdownHtmlTagFactory.swift; sourceTree = "<group>"; };
-		A808C04B1D70226000F568EA /* MarkdownEditFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownEditFactory.swift; path = system/markdown/editfactory/MarkdownEditFactory.swift; sourceTree = "<group>"; };
-		A808C04E1D70226E00F568EA /* MarkdownHtmlTag4u.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4u.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4u.swift; sourceTree = "<group>"; };
-		A808C04F1D70226E00F568EA /* MarkdownHtmlTag4img2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4img2.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4img2.swift; sourceTree = "<group>"; };
-		A808C0501D70226E00F568EA /* MarkdownHtmlTag4h1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4h1.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4h1.swift; sourceTree = "<group>"; };
-		A808C0511D70226E00F568EA /* MarkdownHtmlTag4img1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4img1.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4img1.swift; sourceTree = "<group>"; };
-		A808C0531D70226E00F568EA /* MarkdownHtmlTag4hr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4hr.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4hr.swift; sourceTree = "<group>"; };
-		A808C0541D70226E00F568EA /* MarkdownHtmlTag4strong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4strong.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4strong.swift; sourceTree = "<group>"; };
-		A808C0551D70226E00F568EA /* MarkdownHtmlTag4h6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4h6.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4h6.swift; sourceTree = "<group>"; };
-		A808C0561D70226E00F568EA /* MarkdownHtmlTag4h5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4h5.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4h5.swift; sourceTree = "<group>"; };
-		A808C0571D70226E00F568EA /* MarkdownHtmlTag4h4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4h4.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4h4.swift; sourceTree = "<group>"; };
-		A808C0581D70226E00F568EA /* MarkdownHtmlTag4h3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4h3.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4h3.swift; sourceTree = "<group>"; };
-		A808C0591D70226E00F568EA /* MarkdownHtmlTag4h2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4h2.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4h2.swift; sourceTree = "<group>"; };
-		A808C05A1D70226E00F568EA /* MarkdownHtmlTag4em.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4em.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4em.swift; sourceTree = "<group>"; };
-		A808C05B1D70226E00F568EA /* MarkdownHtmlTag4a2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4a2.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4a2.swift; sourceTree = "<group>"; };
-		A808C05C1D70226E00F568EA /* MarkdownHtmlTag4a1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4a1.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTag4a1.swift; sourceTree = "<group>"; };
-		A808C06E1D70228200F568EA /* MarkdownHtmlTag4code2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4code2.swift; path = system/markdown/tagfactory/tagparagraph/MarkdownHtmlTag4code2.swift; sourceTree = "<group>"; };
-		A808C06F1D70228200F568EA /* MarkdownHtmlTag4code1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4code1.swift; path = system/markdown/tagfactory/tagparagraph/MarkdownHtmlTag4code1.swift; sourceTree = "<group>"; };
 		A808C0731D7022FF00F568EA /* DocTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocTree.swift; path = tree/DocTree.swift; sourceTree = "<group>"; };
 		A808C0741D7022FF00F568EA /* DocTreeInfoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocTreeInfoData.swift; path = tree/DocTreeInfoData.swift; sourceTree = "<group>"; };
 		A808C0751D7022FF00F568EA /* DocTree+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DocTree+CoreDataProperties.swift"; path = "tree/DocTree+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -233,16 +180,8 @@
 		A808C0BD1D70251100F568EA /* NSImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+Extras.h"; path = "supporting/NSImage+Extras.h"; sourceTree = "<group>"; };
 		A808C0BE1D70251100F568EA /* NSImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Extras.m"; path = "supporting/NSImage+Extras.m"; sourceTree = "<group>"; };
 		A808C0C11D70253C00F568EA /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = main/MainWindowController.xib; sourceTree = "<group>"; };
-		A810A24B1DA3FDA300C36D66 /* MarkdownHtmlTagList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagList.swift; path = system/markdown/tagfactory/taglist/MarkdownHtmlTagList.swift; sourceTree = "<group>"; };
-		A810A24D1DA3FDCA00C36D66 /* MarkdownRegexListEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexListEnum.swift; path = system/markdown/tagenums/MarkdownRegexListEnum.swift; sourceTree = "<group>"; };
+		A80F86771DF7FD6E00DC4217 /* ConstsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstsManager.swift; path = system/manager/ConstsManager.swift; sourceTree = "<group>"; };
 		A81CC8991D754AAF0000401B /* DocEditViewController+MenuIBAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DocEditViewController+MenuIBAction.swift"; path = "document/DocEditViewController+MenuIBAction.swift"; sourceTree = "<group>"; };
-		A81CC89B1D754B790000401B /* CommonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
-		A81DA8F01D791AEF000B74A8 /* MarkdownHtmlTagParagraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagParagraph.swift; path = system/markdown/tagfactory/tagparagraph/MarkdownHtmlTagParagraph.swift; sourceTree = "<group>"; };
-		A81DA8F21D7928CA000B74A8 /* MarkdownHtmlTagCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagCommon.swift; path = system/markdown/tagfactory/tagCommon/MarkdownHtmlTagCommon.swift; sourceTree = "<group>"; };
-		A81DA8F31D7928CA000B74A8 /* MarkdownHtmlTag4url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4url.swift; path = system/markdown/tagfactory/tagCommon/MarkdownHtmlTag4url.swift; sourceTree = "<group>"; };
-		A81DA8F91D79298C000B74A8 /* MarkdownRegexLineEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexLineEnum.swift; path = system/markdown/tagenums/MarkdownRegexLineEnum.swift; sourceTree = "<group>"; };
-		A81DA8FB1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexParagraphEnum.swift; path = system/markdown/tagenums/MarkdownRegexParagraphEnum.swift; sourceTree = "<group>"; };
-		A81DA8FD1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexCommonEnum.swift; path = system/markdown/tagenums/MarkdownRegexCommonEnum.swift; sourceTree = "<group>"; };
 		A828C7D41D7991F900AA3043 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = system/manager/DateUtils.swift; sourceTree = "<group>"; };
 		A82AD7641D4453E100F457B6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		A86220AB1D406FA000BAC828 /* MBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,9 +189,8 @@
 		A86220B51D406FA000BAC828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A871B4EA1D8A696E003D598C /* ExportUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExportUtils.swift; path = system/manager/ExportUtils.swift; sourceTree = "<group>"; };
 		A871B4ED1D8AE4E2003D598C /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtils.swift; path = system/manager/AlertUtils.swift; sourceTree = "<group>"; };
+		A8D82F181DF7FE0C001AC708 /* MBaseMarkdown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBaseMarkdown.framework; path = "../../../Library/Developer/Xcode/DerivedData/MBaseWorkSpace-grtlzzosmdohtlgjhyfvpmfvkjsw/Build/Products/Debug/MBaseMarkdown.framework"; sourceTree = "<group>"; };
 		A8F60CEC1D52034B009768B6 /* Hoedown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hoedown.framework; path = ../Carthage/Build/Mac/Hoedown.framework; sourceTree = "<group>"; };
-		A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagLine.swift; path = system/markdown/tagfactory/tagline/MarkdownHtmlTagLine.swift; sourceTree = "<group>"; };
-		A8FBA6861D730A2C00A48FE7 /* NSString+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSString+Utils.swift"; path = "system/extension/NSString+Utils.swift"; sourceTree = "<group>"; };
 		A8FD0C351D97887D00D969B0 /* DocSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocSplitViewController.swift; path = split/DocSplitViewController.swift; sourceTree = "<group>"; };
 		A8FD0C361D97887D00D969B0 /* DocSplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocSplitViewController.xib; path = split/DocSplitViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,23 +200,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8B725B71D52E8D3008C96DF /* Hoedown.framework in Frameworks */,
+				A8D82F191DF7FE0C001AC708 /* MBaseMarkdown.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A801E7CC1D67232C001CEF36 /* tagparagraph */ = {
-			isa = PBXGroup;
-			children = (
-				A808C06F1D70228200F568EA /* MarkdownHtmlTag4code1.swift */,
-				A808C06E1D70228200F568EA /* MarkdownHtmlTag4code2.swift */,
-				A81DA8F01D791AEF000B74A8 /* MarkdownHtmlTagParagraph.swift */,
-			);
-			name = tagparagraph;
-			sourceTree = "<group>";
-		};
 		A8103D841D582C2F0085ECA2 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,34 +214,6 @@
 				A808C0961D70240F00F568EA /* UserInfo+CoreDataProperties.swift */,
 			);
 			name = model;
-			sourceTree = "<group>";
-		};
-		A810A24A1DA3FD7200C36D66 /* taglist */ = {
-			isa = PBXGroup;
-			children = (
-				A810A24B1DA3FDA300C36D66 /* MarkdownHtmlTagList.swift */,
-			);
-			name = taglist;
-			sourceTree = "<group>";
-		};
-		A81DA8ED1D791A35000B74A8 /* tagCommon */ = {
-			isa = PBXGroup;
-			children = (
-				A81DA8F31D7928CA000B74A8 /* MarkdownHtmlTag4url.swift */,
-				A81DA8F21D7928CA000B74A8 /* MarkdownHtmlTagCommon.swift */,
-			);
-			name = tagCommon;
-			sourceTree = "<group>";
-		};
-		A81DA8F81D792961000B74A8 /* tagenums */ = {
-			isa = PBXGroup;
-			children = (
-				A81DA8F91D79298C000B74A8 /* MarkdownRegexLineEnum.swift */,
-				A81DA8FB1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift */,
-				A81DA8FD1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift */,
-				A810A24D1DA3FDCA00C36D66 /* MarkdownRegexListEnum.swift */,
-			);
-			name = tagenums;
 			sourceTree = "<group>";
 		};
 		A82AD7AA1D44833000F457B6 /* demo */ = {
@@ -352,17 +252,10 @@
 			name = model;
 			sourceTree = "<group>";
 		};
-		A85462DE1D5ED5BB002007D9 /* editfactory */ = {
-			isa = PBXGroup;
-			children = (
-				A808C04B1D70226000F568EA /* MarkdownEditFactory.swift */,
-			);
-			name = editfactory;
-			sourceTree = "<group>";
-		};
 		A86220A21D406FA000BAC828 = {
 			isa = PBXGroup;
 			children = (
+				A8D82F181DF7FE0C001AC708 /* MBaseMarkdown.framework */,
 				A86220AD1D406FA000BAC828 /* MBase */,
 				A86220AC1D406FA000BAC828 /* Products */,
 			);
@@ -441,8 +334,6 @@
 		A89099741D59B79B00E25D8E /* system */ = {
 			isa = PBXGroup;
 			children = (
-				A8FBA6851D730A0500A48FE7 /* extension */,
-				A890997A1D59CB3A00E25D8E /* markdown */,
 				A89099751D59B7A300E25D8E /* manager */,
 			);
 			name = system;
@@ -451,25 +342,12 @@
 		A89099751D59B7A300E25D8E /* manager */ = {
 			isa = PBXGroup;
 			children = (
-				A808BFFD1D7020CB00F568EA /* ConstsManager.swift */,
-				A81CC89B1D754B790000401B /* CommonUtils.swift */,
+				A80F86771DF7FD6E00DC4217 /* ConstsManager.swift */,
 				A828C7D41D7991F900AA3043 /* DateUtils.swift */,
 				A871B4EA1D8A696E003D598C /* ExportUtils.swift */,
 				A871B4ED1D8AE4E2003D598C /* AlertUtils.swift */,
 			);
 			name = manager;
-			sourceTree = "<group>";
-		};
-		A890997A1D59CB3A00E25D8E /* markdown */ = {
-			isa = PBXGroup;
-			children = (
-				A81DA8F81D792961000B74A8 /* tagenums */,
-				A85462DE1D5ED5BB002007D9 /* editfactory */,
-				A8ACDFA91D5D69560082C152 /* tagfactory */,
-				A808C0451D70224200F568EA /* MarkdownHtmlTag.swift */,
-				A808C0461D70224200F568EA /* MarkdownManager.swift */,
-			);
-			name = markdown;
 			sourceTree = "<group>";
 		};
 		A890F6FB1D40D3A3003FF760 /* main */ = {
@@ -498,18 +376,6 @@
 				A86220B21D406FA000BAC828 /* MainMenu.xib */,
 			);
 			name = view;
-			sourceTree = "<group>";
-		};
-		A8ACDFA91D5D69560082C152 /* tagfactory */ = {
-			isa = PBXGroup;
-			children = (
-				A810A24A1DA3FD7200C36D66 /* taglist */,
-				A81DA8ED1D791A35000B74A8 /* tagCommon */,
-				A8F7C5151D6C018B0031835F /* tagline */,
-				A801E7CC1D67232C001CEF36 /* tagparagraph */,
-				A808C0491D70225400F568EA /* MarkdownHtmlTagFactory.swift */,
-			);
-			name = tagfactory;
 			sourceTree = "<group>";
 		};
 		A8CB64E31D41C06800E69BBE /* split */ = {
@@ -588,28 +454,6 @@
 			name = model;
 			sourceTree = "<group>";
 		};
-		A8F7C5151D6C018B0031835F /* tagline */ = {
-			isa = PBXGroup;
-			children = (
-				A808C04E1D70226E00F568EA /* MarkdownHtmlTag4u.swift */,
-				A808C0511D70226E00F568EA /* MarkdownHtmlTag4img1.swift */,
-				A808C04F1D70226E00F568EA /* MarkdownHtmlTag4img2.swift */,
-				A808C0501D70226E00F568EA /* MarkdownHtmlTag4h1.swift */,
-				A808C0531D70226E00F568EA /* MarkdownHtmlTag4hr.swift */,
-				A808C0541D70226E00F568EA /* MarkdownHtmlTag4strong.swift */,
-				A808C0551D70226E00F568EA /* MarkdownHtmlTag4h6.swift */,
-				A808C0561D70226E00F568EA /* MarkdownHtmlTag4h5.swift */,
-				A808C0571D70226E00F568EA /* MarkdownHtmlTag4h4.swift */,
-				A808C0581D70226E00F568EA /* MarkdownHtmlTag4h3.swift */,
-				A808C0591D70226E00F568EA /* MarkdownHtmlTag4h2.swift */,
-				A808C05A1D70226E00F568EA /* MarkdownHtmlTag4em.swift */,
-				A808C05B1D70226E00F568EA /* MarkdownHtmlTag4a2.swift */,
-				A808C05C1D70226E00F568EA /* MarkdownHtmlTag4a1.swift */,
-				A8FBA67F1D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift */,
-			);
-			name = tagline;
-			sourceTree = "<group>";
-		};
 		A8FAD6791D6182D900D8B45F /* google-code-prettify-small */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,14 +492,6 @@
 			name = "google-code-prettify-small";
 			sourceTree = "<group>";
 		};
-		A8FBA6851D730A0500A48FE7 /* extension */ = {
-			isa = PBXGroup;
-			children = (
-				A8FBA6861D730A2C00A48FE7 /* NSString+Utils.swift */,
-			);
-			name = extension;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -666,7 +502,7 @@
 				A86220A71D406FA000BAC828 /* Sources */,
 				A86220A81D406FA000BAC828 /* Frameworks */,
 				A86220A91D406FA000BAC828 /* Resources */,
-				A8F60CEF1D52034B009768B6 /* Embed Frameworks */,
+				A80F860C1DF7E8FB00DC4217 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -769,73 +605,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A81DA8FC1D7929BB000B74A8 /* MarkdownRegexParagraphEnum.swift in Sources */,
 				A808C0851D70231900F568EA /* DocTreeViewController+Delegate.swift in Sources */,
-				A808C0651D70226E00F568EA /* MarkdownHtmlTag4h6.swift in Sources */,
 				A808C0A51D70246D00F568EA /* DocEditViewController.swift in Sources */,
-				A808C0721D70228200F568EA /* MarkdownHtmlTag4code1.swift in Sources */,
-				A8FBA6801D72D34E00A48FE7 /* MarkdownHtmlTagLine.swift in Sources */,
-				A8FBA6871D730A2C00A48FE7 /* NSString+Utils.swift in Sources */,
 				A808C0B61D7024B600F568EA /* ScaryBugDoc.swift in Sources */,
-				A808C06B1D70226E00F568EA /* MarkdownHtmlTag4a2.swift in Sources */,
 				A808C0BF1D70251100F568EA /* EDStarRating.m in Sources */,
-				A808C0711D70228200F568EA /* MarkdownHtmlTag4code2.swift in Sources */,
-				A808C04A1D70225400F568EA /* MarkdownHtmlTagFactory.swift in Sources */,
-				A808C0671D70226E00F568EA /* MarkdownHtmlTag4h4.swift in Sources */,
-				A808C0691D70226E00F568EA /* MarkdownHtmlTag4h2.swift in Sources */,
 				A808C0881D70231900F568EA /* DocTreeViewController+MenuIBAction.swift in Sources */,
 				A808C0A31D70246D00F568EA /* DocMainViewController.swift in Sources */,
 				A808C08E1D70235F00F568EA /* AppDelegate+IBAction.swift in Sources */,
 				A808C09C1D70243C00F568EA /* MainSplitViewController.swift in Sources */,
 				A808C0861D70231900F568EA /* DocTreeInfoViewController+Delegate.swift in Sources */,
 				A808C0B31D7024B600F568EA /* TreeBack.swift in Sources */,
-				A808C0601D70226E00F568EA /* MarkdownHtmlTag4h1.swift in Sources */,
 				A808C0941D7023F900F568EA /* DocMain+CoreDataProperties.swift in Sources */,
+				A80F86781DF7FD6E00DC4217 /* ConstsManager.swift in Sources */,
 				A808C0A41D70246D00F568EA /* DocEditViewController+Delegate.swift in Sources */,
-				A808C05E1D70226E00F568EA /* MarkdownHtmlTag4u.swift in Sources */,
 				A871B4EE1D8AE4E2003D598C /* AlertUtils.swift in Sources */,
-				A81DA8F11D791AEF000B74A8 /* MarkdownHtmlTagParagraph.swift in Sources */,
-				A808C0641D70226E00F568EA /* MarkdownHtmlTag4strong.swift in Sources */,
-				A808C06C1D70226E00F568EA /* MarkdownHtmlTag4a1.swift in Sources */,
 				A808C0981D70240F00F568EA /* UserInfo+CoreDataProperties.swift in Sources */,
 				A808C0781D7022FF00F568EA /* DocTree+CoreDataProperties.swift in Sources */,
 				A808C0871D70231900F568EA /* DocTreeViewController.swift in Sources */,
 				A808C0891D70231900F568EA /* DocTreeInfoViewController.swift in Sources */,
 				A808C08D1D70235F00F568EA /* AppDelegate.swift in Sources */,
 				A81CC89A1D754AAF0000401B /* DocEditViewController+MenuIBAction.swift in Sources */,
-				A81DA8FA1D79298C000B74A8 /* MarkdownRegexLineEnum.swift in Sources */,
 				A808C0931D7023F900F568EA /* DocMain.swift in Sources */,
-				A808C04C1D70226000F568EA /* MarkdownEditFactory.swift in Sources */,
-				A808C06A1D70226E00F568EA /* MarkdownHtmlTag4em.swift in Sources */,
 				A808C0C01D70251100F568EA /* NSImage+Extras.m in Sources */,
 				A808C0B51D7024B600F568EA /* DocumentViewController+IBAction.swift in Sources */,
 				A808C0841D70231900F568EA /* DocTreeViewController+DataSource.swift in Sources */,
 				A808C0B91D7024C900F568EA /* MBase.xcdatamodeld in Sources */,
 				A808C0761D7022FF00F568EA /* DocTree.swift in Sources */,
-				A808C0471D70224200F568EA /* MarkdownHtmlTag.swift in Sources */,
 				A808C0B21D7024B600F568EA /* DocumentViewController.swift in Sources */,
 				A808C09A1D70241900F568EA /* MainWindowController.swift in Sources */,
-				A808C0631D70226E00F568EA /* MarkdownHtmlTag4hr.swift in Sources */,
-				A808C0681D70226E00F568EA /* MarkdownHtmlTag4h3.swift in Sources */,
-				A808BFFE1D7020CB00F568EA /* ConstsManager.swift in Sources */,
-				A810A24E1DA3FDCA00C36D66 /* MarkdownRegexListEnum.swift in Sources */,
 				A808C08A1D70231900F568EA /* DocTreeInfoViewController+IBAction.swift in Sources */,
 				A808C0B41D7024B600F568EA /* ScaryBugData.swift in Sources */,
-				A81DA8F51D7928CA000B74A8 /* MarkdownHtmlTag4url.swift in Sources */,
-				A808C0661D70226E00F568EA /* MarkdownHtmlTag4h5.swift in Sources */,
 				A808C0A61D70246D00F568EA /* DocMainViewController+Delegate.swift in Sources */,
 				A8FD0C371D97887D00D969B0 /* DocSplitViewController.swift in Sources */,
-				A808C0481D70224200F568EA /* MarkdownManager.swift in Sources */,
-				A810A24C1DA3FDA300C36D66 /* MarkdownHtmlTagList.swift in Sources */,
 				A808C0771D7022FF00F568EA /* DocTreeInfoData.swift in Sources */,
 				A828C7D51D7991F900AA3043 /* DateUtils.swift in Sources */,
 				A871B4EB1D8A696E003D598C /* ExportUtils.swift in Sources */,
-				A81CC89C1D754B790000401B /* CommonUtils.swift in Sources */,
-				A81DA8FE1D792B4A000B74A8 /* MarkdownRegexCommonEnum.swift in Sources */,
-				A808C05F1D70226E00F568EA /* MarkdownHtmlTag4img2.swift in Sources */,
 				A808C0971D70240F00F568EA /* UserInfo.swift in Sources */,
-				A808C0611D70226E00F568EA /* MarkdownHtmlTag4img1.swift in Sources */,
-				A81DA8F41D7928CA000B74A8 /* MarkdownHtmlTagCommon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -945,6 +750,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)Markdown/build/Debug",
 				);
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -965,6 +771,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)Markdown/build/Debug",
 				);
 				INFOPLIST_FILE = MBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

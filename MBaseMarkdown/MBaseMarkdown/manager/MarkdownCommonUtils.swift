@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class CommonUtils: NSObject {
+class MarkdownCommonUtils: NSObject {
 
     //获取两个NSRange的最大区间
     static func getMaxRange(range:NSRange, otherRange:NSRange) -> NSRange {
