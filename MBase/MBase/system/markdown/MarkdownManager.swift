@@ -137,6 +137,28 @@ class MarkdownManager: NSObject {
         return result;
     }
     
+//    static func getNormalList(string: String) -> NSString{
+//        var result = NSString(string: string);
+//        let pattern = "((<p>\\* )(.)*</p>)";
+//        var regex: NSRegularExpression?;
+//        do{
+//            regex = try NSRegularExpression(pattern: pattern, options: [.AnchorsMatchLines])
+//        }catch{
+//            let nserror = error as NSError
+//            NSApplication.sharedApplication().presentError(nserror)
+//        }
+//        for textCheckingResult in regex!.matchesInString(result as String, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, result.length)){
+//            result.substringWithRange(textCheckingResult.range);
+//            var stringRange = textCheckingResult.range;
+//            let stringTemp1 = result.stringByReplacingOccurrencesOfString("<p>\\* ", withString: "<ul><li>", options: [.RegularExpressionSearch],range: stringRange)
+//            stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp1.characters.count - result.length )
+//            let stringTemp2 = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>\\* ", withString: "</li><li>", options: [.RegularExpressionSearch],range: stringRange)
+//            stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp2.characters.count - stringTemp1.characters.count  )
+//            result = NSString(string: stringTemp2).stringByReplacingOccurrencesOfString("</p>", withString: "</ul>", options: [.RegularExpressionSearch],range: stringRange)
+//        }
+//        return result;
+//    }
+    
     static func getNormalList(string: String) -> NSString{
         var result = NSString(string: string);
         let pattern = "((<p>\\* )(.)*</p>)";

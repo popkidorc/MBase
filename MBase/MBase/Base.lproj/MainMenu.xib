@@ -328,20 +328,17 @@
                                     <action selector="toggleToolbarShown:" target="-1" id="BXY-wc-z0C"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Edit View" id="Re2-JQ-Nkg" userLabel="Edit View">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Edit View" keyEquivalent="1" id="Re2-JQ-Nkg" userLabel="Edit View">
                                 <connections>
                                     <action selector="editView:" target="Voe-Tx-rLC" id="b1M-51-Byu"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Main View" id="chK-bk-B0D" userLabel="Main View">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Main View" keyEquivalent="2" id="chK-bk-B0D" userLabel="Main View">
                                 <connections>
                                     <action selector="mainView:" target="Voe-Tx-rLC" id="8PL-l8-XFl"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Edit&amp;Main View" id="swI-uH-JfC" userLabel="Edit&amp;Main View">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Edit&amp;Main View" keyEquivalent="3" id="swI-uH-JfC" userLabel="Edit&amp;Main View">
                                 <connections>
                                     <action selector="editAndMainView:" target="Voe-Tx-rLC" id="Yhd-r5-Xu6"/>
                                 </connections>
