@@ -265,7 +265,7 @@ class DocTreeViewController: NSViewController, NSDraggingDestination {
                 newImage = NSImage(named: "DocumentsFolderIcon")!;
             }
         }
-        if newImage != nil{
+        if newImage != nil && docTree.image != newImage!.TIFFRepresentation{
             docTree.image = newImage!.TIFFRepresentation;
             self.reloadData(docTree);
         }

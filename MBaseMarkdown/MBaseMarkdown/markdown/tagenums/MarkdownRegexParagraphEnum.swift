@@ -12,9 +12,9 @@ enum MarkdownRegexParagraphEnum: String {
     
     static let values = [CODE1, CODE2];
     
-    case CODE1 = "(```(.)*?```)"
+    case CODE1 = "(`{3}(.)*?`{3})"
     
-    case CODE2 = "(`(.)*?`)"
+    case CODE2 = "(`{1}(.)*?`{1})"
     
     var codeKey: String {
         switch self {

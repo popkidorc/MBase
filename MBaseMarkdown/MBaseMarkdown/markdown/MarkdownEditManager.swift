@@ -35,7 +35,8 @@ public class MarkdownEditManager: NSObject {
                 continue;
             }
             if ranges.count == 0 {
-                let changeRange = self.getChangeRange(tagRegex, string: textString, lineRange: lineRange, preRange: preRange, backRange: backRange);
+//                let changeRange = self.getChangeRange(tagRegex, string: textString, lineRange: lineRange, preRange: preRange, backRange: backRange);
+                let changeRange = NSMakeRange(0, textString.length);
                 ranges.append(changeRange);
                 // 默认
                 self.applyStylesToRange4Default(changeRange);
@@ -56,15 +57,6 @@ public class MarkdownEditManager: NSObject {
         }
         
         return self.textStorage.string;
-
-//        // 保存coredata
-//        self.docMainData.updateContent(self.docEditView.string!);
-//        
-//        self.docMainViewController.markdown = self.docEditView.string!;
-//        
-//        NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
-//        
-//        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImage", object: nil);
         
     }
     

@@ -16,7 +16,6 @@
 		A80F862C1DF7EB6E00DC4217 /* MarkdownRegexLineEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F86281DF7EB6E00DC4217 /* MarkdownRegexLineEnum.swift */; };
 		A80F862D1DF7EB6E00DC4217 /* MarkdownRegexCommonEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F86291DF7EB6E00DC4217 /* MarkdownRegexCommonEnum.swift */; };
 		A80F862F1DF7EB7600DC4217 /* MarkdownEditFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F862E1DF7EB7600DC4217 /* MarkdownEditFactory.swift */; };
-		A80F86371DF7EBA900DC4217 /* MarkdownHtmlTagParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F86341DF7EBA900DC4217 /* MarkdownHtmlTagParagraph.swift */; };
 		A80F86381DF7EBA900DC4217 /* MarkdownHtmlTag4code2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F86351DF7EBA900DC4217 /* MarkdownHtmlTag4code2.swift */; };
 		A80F86391DF7EBA900DC4217 /* MarkdownHtmlTag4code1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F86361DF7EBA900DC4217 /* MarkdownHtmlTag4code1.swift */; };
 		A80F863B1DF7EBB200DC4217 /* MarkdownHtmlTagList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F863A1DF7EBB200DC4217 /* MarkdownHtmlTagList.swift */; };
@@ -41,6 +40,7 @@
 		A80F866A1DF7EE2100DC4217 /* MarkdownCommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F86691DF7EE2100DC4217 /* MarkdownCommonUtils.swift */; };
 		A80F866D1DF7EE6300DC4217 /* NSString+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F866C1DF7EE6300DC4217 /* NSString+Utils.swift */; };
 		A80F866F1DF7F14500DC4217 /* MarkdownEditManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80F866E1DF7F14500DC4217 /* MarkdownEditManager.swift */; };
+		A8D82F1C1DF80AC5001AC708 /* MarkdownHtmlTagParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D82F1B1DF80AC5001AC708 /* MarkdownHtmlTagParagraph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,6 @@
 		A80F86281DF7EB6E00DC4217 /* MarkdownRegexLineEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexLineEnum.swift; path = markdown/tagenums/MarkdownRegexLineEnum.swift; sourceTree = "<group>"; };
 		A80F86291DF7EB6E00DC4217 /* MarkdownRegexCommonEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownRegexCommonEnum.swift; path = markdown/tagenums/MarkdownRegexCommonEnum.swift; sourceTree = "<group>"; };
 		A80F862E1DF7EB7600DC4217 /* MarkdownEditFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownEditFactory.swift; path = markdown/editfactory/MarkdownEditFactory.swift; sourceTree = "<group>"; };
-		A80F86341DF7EBA900DC4217 /* MarkdownHtmlTagParagraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagParagraph.swift; path = markdown/tagfactory/tagparagraph/MarkdownHtmlTagParagraph.swift; sourceTree = "<group>"; };
 		A80F86351DF7EBA900DC4217 /* MarkdownHtmlTag4code2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4code2.swift; path = markdown/tagfactory/tagparagraph/MarkdownHtmlTag4code2.swift; sourceTree = "<group>"; };
 		A80F86361DF7EBA900DC4217 /* MarkdownHtmlTag4code1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTag4code1.swift; path = markdown/tagfactory/tagparagraph/MarkdownHtmlTag4code1.swift; sourceTree = "<group>"; };
 		A80F863A1DF7EBB200DC4217 /* MarkdownHtmlTagList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagList.swift; path = markdown/tagfactory/taglist/MarkdownHtmlTagList.swift; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		A80F86691DF7EE2100DC4217 /* MarkdownCommonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownCommonUtils.swift; path = manager/MarkdownCommonUtils.swift; sourceTree = "<group>"; };
 		A80F866C1DF7EE6300DC4217 /* NSString+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSString+Utils.swift"; path = "extension/NSString+Utils.swift"; sourceTree = "<group>"; };
 		A80F866E1DF7F14500DC4217 /* MarkdownEditManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownEditManager.swift; path = markdown/MarkdownEditManager.swift; sourceTree = "<group>"; };
+		A8D82F1B1DF80AC5001AC708 /* MarkdownHtmlTagParagraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkdownHtmlTagParagraph.swift; path = markdown/tagfactory/tagparagraph/MarkdownHtmlTagParagraph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,7 +207,7 @@
 		A80F86331DF7EB9A00DC4217 /* tagparagraph */ = {
 			isa = PBXGroup;
 			children = (
-				A80F86341DF7EBA900DC4217 /* MarkdownHtmlTagParagraph.swift */,
+				A8D82F1B1DF80AC5001AC708 /* MarkdownHtmlTagParagraph.swift */,
 				A80F86351DF7EBA900DC4217 /* MarkdownHtmlTag4code2.swift */,
 				A80F86361DF7EBA900DC4217 /* MarkdownHtmlTag4code1.swift */,
 			);
@@ -320,13 +320,13 @@
 				A80F86551DF7EBBC00DC4217 /* MarkdownHtmlTag4h2.swift in Sources */,
 				A80F866A1DF7EE2100DC4217 /* MarkdownCommonUtils.swift in Sources */,
 				A80F86571DF7EBBC00DC4217 /* MarkdownHtmlTag4em.swift in Sources */,
+				A8D82F1C1DF80AC5001AC708 /* MarkdownHtmlTagParagraph.swift in Sources */,
 				A80F86531DF7EBBC00DC4217 /* MarkdownHtmlTag4h4.swift in Sources */,
 				A80F864C1DF7EBBC00DC4217 /* MarkdownHtmlTag4u.swift in Sources */,
 				A80F862B1DF7EB6E00DC4217 /* MarkdownRegexListEnum.swift in Sources */,
 				A80F86251DF7EB6400DC4217 /* MarkdownHtmlTagFactory.swift in Sources */,
 				A80F86511DF7EBBC00DC4217 /* MarkdownHtmlTag4h6.swift in Sources */,
 				A80F86501DF7EBBC00DC4217 /* MarkdownHtmlTag4hr.swift in Sources */,
-				A80F86371DF7EBA900DC4217 /* MarkdownHtmlTagParagraph.swift in Sources */,
 				A80F86581DF7EBBC00DC4217 /* MarkdownHtmlTag4a2.swift in Sources */,
 				A80F862F1DF7EB7600DC4217 /* MarkdownEditFactory.swift in Sources */,
 				A80F86541DF7EBBC00DC4217 /* MarkdownHtmlTag4h3.swift in Sources */,
@@ -449,7 +449,7 @@
 				INFOPLIST_FILE = MBaseMarkdown/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pop.MBaseMarkdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -470,7 +470,7 @@
 				INFOPLIST_FILE = MBaseMarkdown/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pop.MBaseMarkdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

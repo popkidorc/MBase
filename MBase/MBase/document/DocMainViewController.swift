@@ -21,7 +21,6 @@ class DocMainViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshContent), name: "refreshContent", object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(syncScroll), name: "syncScroll", object: nil);
     }
     
     func refreshContent(){

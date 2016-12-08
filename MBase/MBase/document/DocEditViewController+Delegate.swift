@@ -10,9 +10,7 @@ import Cocoa
 import MBaseMarkdown
 
 extension DocEditViewController: NSTextStorageDelegate {
-    
-    func textStorage(textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
-    }
+
     
     func textStorage(textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int){
         if editedMask != .EditedAttributes {
@@ -26,18 +24,17 @@ extension DocEditViewController: NSTextStorageDelegate {
     }
 
     func changeTextFont(){
-        
         let markdownEditManager = MarkdownEditManager(textStorage: self.docEditView.textStorage!);
-        
+        self.editedRange = NSMakeRange(0, self.docEditView.textStorage!.length);
         let content =  markdownEditManager.changeTextFont(self.docEditView.selectedRange(), editedRange: self.editedRange!);
         
         // 保存coredata
         self.docMainData.updateContent(content);
-        
+            
         self.docMainViewController.markdown = content;
-        
+            
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
-        
+
         NSNotificationCenter.defaultCenter().postNotificationName("changeDocImage", object: nil);
     }
     
