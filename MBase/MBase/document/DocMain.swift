@@ -21,6 +21,7 @@ class DocMain: NSManagedObject {
         self.content = "";
         self.summary = "";
         self.mark = "";
+        self.verticalScrol = 0;
         self.type = DocMainType.NotEdit.rawValue;
         let nowDate = NSDate()
         self.createtime = nowDate;
@@ -42,11 +43,19 @@ class DocMain: NSManagedObject {
         self.modifytime = nowDate;
         self.docTree = docTree;
     }
+    
+    func updateVerticalScrol(verticalScrol: NSNumber){
+        if self.verticalScrol != verticalScrol {
+            self.verticalScrol = verticalScrol;
+        }
+    }
 
     func updateContent(content: String){
-        self.content = content;
-        let nowDate = NSDate();
-        self.modifytime = nowDate;
+        if self.content != content{
+            self.content = content;
+            let nowDate = NSDate();
+            self.modifytime = nowDate;
+        }
     }
     
 }

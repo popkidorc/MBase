@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-extension DocMainViewController: WebPolicyDelegate {
+extension DocMainViewController: WebPolicyDelegate, WebFrameLoadDelegate {
     
     func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!) {
         let navigationType = actionInformation[WebActionNavigationTypeKey] as! NSNumber
@@ -25,4 +25,10 @@ extension DocMainViewController: WebPolicyDelegate {
         listener.ignore()
         NSWorkspace.sharedWorkspace().openURL(URL)
     }
+    
+    func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!){
+        // 恢复光标
+        self.syncScroll();
+    }
+    
 }

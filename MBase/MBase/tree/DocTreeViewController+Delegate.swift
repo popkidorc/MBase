@@ -10,15 +10,13 @@ import Cocoa
 
 extension DocTreeViewController: NSOutlineViewDelegate {
     
-    
-    
     func outlineViewSelectionDidChange(notification: NSNotification) {
         let selectedDocTree = self.selectedTree();
         if selectedDocTree == nil {
             return;
         }
         
-        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImage", object: nil);
+        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImageAll", object: nil);
 
         //获取并展示docmain
         self.docEditViewController.initDocEditDatas(selectedDocTree!.docMain);

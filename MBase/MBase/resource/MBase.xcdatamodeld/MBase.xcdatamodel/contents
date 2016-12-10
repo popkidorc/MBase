@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="16B2555" minimumToolsVersion="Xcode 7.0">
     <entity name="DocMain" representedClassName=".DocMain" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createtime" optional="YES" attributeType="Date" syncable="YES"/>
@@ -7,6 +7,7 @@
         <attribute name="modifytime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="verticalScrol" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="docTree" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DocTree" inverseName="docMain" inverseEntity="DocTree" syncable="YES"/>
     </entity>
     <entity name="DocTree" representedClassName=".DocTree" syncable="YES">
@@ -27,7 +28,7 @@
         <relationship name="selectDocTree" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DocTree" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DocMain" positionX="3159" positionY="1269" width="128" height="150"/>
+        <element name="DocMain" positionX="3159" positionY="1269" width="128" height="165"/>
         <element name="DocTree" positionX="3148" positionY="1194" width="128" height="195"/>
         <element name="UserInfo" positionX="3150" positionY="1296" width="128" height="90"/>
     </elements>

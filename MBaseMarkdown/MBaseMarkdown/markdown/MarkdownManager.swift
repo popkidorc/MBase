@@ -154,7 +154,7 @@ public class MarkdownManager: NSObject {
             if brRange.length > 0 {
                 let stringTemp1 = result.stringByReplacingOccurrencesOfString("<p>", withString: "", options: [.RegularExpressionSearch],range: stringRange)
                 stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp1.characters.count - result.length )
-                result = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>", withString: "<p>", options: [.RegularExpressionSearch],range: stringRange)
+                result = NSString(string: stringTemp1).stringByReplacingOccurrencesOfString("<br/>", withString: "\n<p>", options: [.RegularExpressionSearch],range: stringRange)
             }else{
                 let stringTemp1 = result.stringByReplacingOccurrencesOfString("<p>", withString: "", options: [.RegularExpressionSearch],range: stringRange)
                 stringRange = NSMakeRange(stringRange.location, stringRange.length + stringTemp1.characters.count - result.length )

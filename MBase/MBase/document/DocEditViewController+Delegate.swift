@@ -11,7 +11,6 @@ import MBaseMarkdown
 
 extension DocEditViewController: NSTextStorageDelegate {
 
-    
     func textStorage(textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int){
         if editedMask != .EditedAttributes {
             self.editedRange = editedRange;
@@ -35,7 +34,7 @@ extension DocEditViewController: NSTextStorageDelegate {
             
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
 
-        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImage", object: nil);
+        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImageAll", object: nil);
     }
     
     func handlerInitFont(){

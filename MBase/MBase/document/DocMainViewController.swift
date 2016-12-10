@@ -32,10 +32,6 @@ class DocMainViewController: NSViewController {
         let start = CFAbsoluteTimeGetCurrent()
         let html = MarkdownManager.generateHTMLForMarkdown(self.markdown!, cssType: .Default);
         webView.mainFrame.loadHTMLString(html as String, baseURL: NSURL.fileURLWithPath(NSBundle.mainBundle().resourcePath!, isDirectory: true));
-        
-        // 恢复光标
-        self.syncScroll();
-        
         print("refreshContent===="+String(CFAbsoluteTimeGetCurrent()-start)+" seconds")
     }
     

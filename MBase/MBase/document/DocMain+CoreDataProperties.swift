@@ -20,6 +20,7 @@ extension DocMain {
     @NSManaged var modifytime: NSDate?
     @NSManaged var createtime: NSDate?
     @NSManaged var type: String?
+    @NSManaged var verticalScrol: NSNumber?
     @NSManaged var docTree: DocTree?
 
 }

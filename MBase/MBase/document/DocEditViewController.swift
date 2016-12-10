@@ -46,12 +46,9 @@ class DocEditViewController: NSViewController {
         
         self.docMainViewController.markdown = docMainData.content!;
         
-        // 滚动条
-        var frame = self.docEditScrollView.frame;
-        frame.origin.y = 0;
-        self.docEditScrollView.contentView.scrollRectToVisible(frame);
-        
-        self.docMainViewController.docEditVerticalScroller = self.docEditScrollView.verticalScroller!;
+        if docMainData.verticalScrol!.floatValue != 0 {
+            self.docEditScrollView.verticalScroller!.floatValue = docMainData.verticalScrol!.floatValue;
+        }
         
         // webview重载
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
@@ -65,13 +62,6 @@ class DocEditViewController: NSViewController {
         self.handlerInitFont();
         
         self.docMainViewController.markdown = "";
-        
-        // 滚动条
-        var frame = self.docEditScrollView.frame;
-        frame.origin.y = 0;
-        self.docEditScrollView.contentView.scrollRectToVisible(frame);
-        
-        self.docMainViewController.docEditVerticalScroller = self.docEditScrollView.verticalScroller!;
         
         // webview重载
         NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
@@ -107,9 +97,11 @@ class DocEditViewController: NSViewController {
         if !docEditScrollView.hasVerticalScroller {
             return;
         }
+        print("===changeScroll=="+String(self.docEditScrollView.verticalScroller!.floatValue));
+        self.docMainData.updateVerticalScrol(self.docEditScrollView.verticalScroller!.floatValue);
         if docEditView.frame.size.height > docEditScrollView.frame.size.height{
             self.docMainViewController.docEditVerticalScroller = self.docEditScrollView.verticalScroller!;
-            NSNotificationCenter.defaultCenter().postNotificationName("syncScroll", object: nil);
+            self.docMainViewController.syncScroll();
         }
     }
     
