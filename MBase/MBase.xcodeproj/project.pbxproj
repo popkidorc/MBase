@@ -85,10 +85,10 @@
 		A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86220B21D406FA000BAC828 /* MainMenu.xib */; };
 		A871B4EB1D8A696E003D598C /* ExportUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871B4EA1D8A696E003D598C /* ExportUtils.swift */; };
 		A871B4EE1D8AE4E2003D598C /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A871B4ED1D8AE4E2003D598C /* AlertUtils.swift */; };
+		A8D6EB5D1DFE6D8600D73C60 /* DocSplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8D6EB5C1DFE6D8600D73C60 /* DocSplitViewController.xib */; };
 		A8D82F191DF7FE0C001AC708 /* MBaseMarkdown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8D82F181DF7FE0C001AC708 /* MBaseMarkdown.framework */; };
 		A8D82F1A1DF7FE12001AC708 /* MBaseMarkdown.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A8D82F181DF7FE0C001AC708 /* MBaseMarkdown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A8FD0C371D97887D00D969B0 /* DocSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FD0C351D97887D00D969B0 /* DocSplitViewController.swift */; };
-		A8FD0C381D97887D00D969B0 /* DocSplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8FD0C361D97887D00D969B0 /* DocSplitViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -189,10 +189,10 @@
 		A86220B51D406FA000BAC828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A871B4EA1D8A696E003D598C /* ExportUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExportUtils.swift; path = system/manager/ExportUtils.swift; sourceTree = "<group>"; };
 		A871B4ED1D8AE4E2003D598C /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertUtils.swift; path = system/manager/AlertUtils.swift; sourceTree = "<group>"; };
+		A8D6EB5C1DFE6D8600D73C60 /* DocSplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocSplitViewController.xib; path = split/DocSplitViewController.xib; sourceTree = "<group>"; };
 		A8D82F181DF7FE0C001AC708 /* MBaseMarkdown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBaseMarkdown.framework; path = "../../../Library/Developer/Xcode/DerivedData/MBaseWorkSpace-grtlzzosmdohtlgjhyfvpmfvkjsw/Build/Products/Debug/MBaseMarkdown.framework"; sourceTree = "<group>"; };
 		A8F60CEC1D52034B009768B6 /* Hoedown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hoedown.framework; path = ../Carthage/Build/Mac/Hoedown.framework; sourceTree = "<group>"; };
 		A8FD0C351D97887D00D969B0 /* DocSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocSplitViewController.swift; path = split/DocSplitViewController.swift; sourceTree = "<group>"; };
-		A8FD0C361D97887D00D969B0 /* DocSplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DocSplitViewController.xib; path = split/DocSplitViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,8 +408,8 @@
 		A8CB64F61D41F5F600E69BBE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A8D6EB5C1DFE6D8600D73C60 /* DocSplitViewController.xib */,
 				A808C09D1D70244300F568EA /* MainSplitViewController.xib */,
-				A8FD0C361D97887D00D969B0 /* DocSplitViewController.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -563,7 +563,7 @@
 				A808C0361D70217100F568EA /* lang-dart.js in Resources */,
 				A808C0371D70217100F568EA /* lang-css.js in Resources */,
 				A86220B41D406FA000BAC828 /* MainMenu.xib in Resources */,
-				A8FD0C381D97887D00D969B0 /* DocSplitViewController.xib in Resources */,
+				A8D6EB5D1DFE6D8600D73C60 /* DocSplitViewController.xib in Resources */,
 				A808C09E1D70244300F568EA /* MainSplitViewController.xib in Resources */,
 				A808C02E1D70217100F568EA /* lang-mumps.js in Resources */,
 				A808C0231D70217100F568EA /* lang-vhdl.js in Resources */,

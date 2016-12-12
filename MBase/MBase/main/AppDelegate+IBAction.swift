@@ -28,27 +28,27 @@ extension AppDelegate: NSMenuDelegate {
     }
     
     @IBAction func editAndMainView(sender: AnyObject) {
-        self.mainWindowController.mainSplitViewController.docSplitViewController.showDocEditSplitView();
-        self.mainWindowController.mainSplitViewController.docSplitViewController.showDocMainSplitView();
-        editAndMainVIewMenu.state = 1;
-        mainVIewMenu.state = 0;
-        editVIewMenu.state = 0;
+//        self.mainWindowController.mainSplitViewController.docSplitViewController.showDocEditSplitView();
+//        self.mainWindowController.mainSplitViewController.docSplitViewController.showDocMainSplitView();
+//        editAndMainVIewMenu.state = 1;
+//        mainVIewMenu.state = 0;
+//        editVIewMenu.state = 0;
     }
     
     @IBAction func mainView(sender: AnyObject) {
-        self.mainWindowController.mainSplitViewController.docSplitViewController.hideDocEditSplitView();
-        self.mainWindowController.mainSplitViewController.docSplitViewController.showDocMainSplitView();
-        editAndMainVIewMenu.state = 0;
-        mainVIewMenu.state = 1;
-        editVIewMenu.state = 0;
+//        self.mainWindowController.mainSplitViewController.docSplitViewController.hideDocEditSplitView();
+//        self.mainWindowController.mainSplitViewController.docSplitViewController.showDocMainSplitView();
+//        editAndMainVIewMenu.state = 0;
+//        mainVIewMenu.state = 1;
+//        editVIewMenu.state = 0;
     }
     
     @IBAction func editView(sender: AnyObject) {
-        self.mainWindowController.mainSplitViewController.docSplitViewController.showDocEditSplitView();
-        self.mainWindowController.mainSplitViewController.docSplitViewController.hideDocMainSplitView();
-        editAndMainVIewMenu.state = 0;
-        mainVIewMenu.state = 0;
-        editVIewMenu.state = 1;
+//        self.mainWindowController.mainSplitViewController.docSplitViewController.showDocEditSplitView();
+//        self.mainWindowController.mainSplitViewController.docSplitViewController.hideDocMainSplitView();
+//        editAndMainVIewMenu.state = 0;
+//        mainVIewMenu.state = 0;
+//        editVIewMenu.state = 1;
     }
     
     @IBAction func exportHtml(sender: AnyObject) {

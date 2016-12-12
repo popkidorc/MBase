@@ -12,8 +12,6 @@ import CoreData
 
 class UserInfo: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
-
     func initData(){
         let nowDate = NSDate()
         self.createtime = nowDate;

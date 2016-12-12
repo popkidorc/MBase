@@ -18,6 +18,12 @@ class MarkdownHtmlTagParagraph: MarkdownHtmlTag {
         str = str.stringByReplacingOccurrencesOfString("<p>", withString: "")
         str = str.stringByReplacingOccurrencesOfString("</p>", withString: "")
         str = str.stringByReplacingOccurrencesOfString("<br/>", withString: "\n")
+        str = str.stringByReplacingOccurrencesOfString("<li>", withString: "");
+        str = str.stringByReplacingOccurrencesOfString("</li>", withString: "");
+        str = str.stringByReplacingOccurrencesOfString("<ol>", withString: "");
+        str = str.stringByReplacingOccurrencesOfString("</ol>", withString: "");
+        str = str.stringByReplacingOccurrencesOfString("<ul>", withString: "");
+        str = str.stringByReplacingOccurrencesOfString("</ul>", withString: "");
         return self.getHtml4Prefix() + self.handlerTransferString(str) + self.getHtml4Suffix()
     }
     

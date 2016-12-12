@@ -11,6 +11,8 @@ import Cocoa
 public class ConstsManager {
     
     
-   public static let docTreeDiaryDateformatter = "yyyy-MM-dd";
+    public static let docTreeDiaryDateformatter = "yyyy-MM-dd";
+    
+    public static let docSplitViewWidthRatio: CGFloat = 0.8;
   
 }

@@ -20,7 +20,6 @@ class DocMainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(refreshContent), name: "refreshContent", object: nil);
     }
     
     func refreshContent(){
@@ -36,7 +35,7 @@ class DocMainViewController: NSViewController {
     }
     
     func syncScroll(){
-        if docEditVerticalScroller == nil{
+        if docEditVerticalScroller == nil || self.webView == nil{
             return;
         }
         let webHtmlView = self.webView!.subviews[0].subviews[0].subviews[0].subviews[0];

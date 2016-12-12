@@ -31,8 +31,8 @@ extension DocEditViewController: NSTextStorageDelegate {
         self.docMainData.updateContent(content);
             
         self.docMainViewController.markdown = content;
-            
-        NSNotificationCenter.defaultCenter().postNotificationName("refreshContent", object: nil);
+        
+        self.docMainViewController.refreshContent();
 
         NSNotificationCenter.defaultCenter().postNotificationName("changeDocImageAll", object: nil);
     }

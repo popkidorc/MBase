@@ -16,13 +16,14 @@ extension DocTreeViewController: NSOutlineViewDelegate {
             return;
         }
         
-        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImageAll", object: nil);
-
         //获取并展示docmain
         self.docEditViewController.initDocEditDatas(selectedDocTree!.docMain);
 
         // 记录用户操作
         self.userInfo.updateSelectedDocTree(selectedDocTree!);
+                
+        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImageAll", object: nil);
+
     }
     
 }

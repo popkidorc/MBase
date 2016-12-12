@@ -29,6 +29,7 @@ class MainWindowController: NSWindowController {
         mainSplitViewController = MainSplitViewController(nibName: "MainSplitViewController", bundle: nil);
         mainSplitViewController.managedObjectContext = self.managedObjectContext;
         mainSplitViewController.userInfo = self.userInfo;
+        contentViewController!.addChildViewController(mainSplitViewController);
         
         // 2. 添加view
         contentViewController!.view.addSubview(mainSplitViewController.view);
