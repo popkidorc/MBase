@@ -46,20 +46,10 @@ class MainSplitViewController: NSSplitViewController {
     }
     
     override func splitViewDidResizeSubviews(notification: NSNotification) {
-        let allWidth = self.parentViewController!.view.frame.size.width * ConstsManager.docSplitViewWidthRatio;
-        let allHeight = self.parentViewController!.view.frame.size.height;
-        print("==allHeight=="+String(allHeight)+"===="+String(self.docSplitViewController.docEditViewController.view.frame.height));
-        if self.docSplitViewController.docEditViewController.view.frame.width != allWidth/2 ||
-            self.docSplitViewController.docEditViewController.view.frame.height != allHeight{
-            print("==allHeight 2=="+String(self.docSplitViewController.docEditViewController.docEditView.frame.height));
-
-            self.docSplitViewController.docEditViewController.view.frame = NSMakeRect(0, 0, allWidth / 2, allHeight);
-            self.docSplitViewController.docEditViewController.docEditView.frame = NSMakeRect(0, 0, allWidth / 2, allHeight);
-        }
-        if self.docSplitViewController.docMainViewController.view.frame.width != allWidth/2 ||
-            self.docSplitViewController.docMainViewController.view.frame.height != allHeight{
-            self.docSplitViewController.docMainViewController.view.frame = NSMakeRect(allWidth / 2, 0, allWidth / 2, allHeight);
-        }
+        let width = self.view.frame.width - docTreeViewController.view.frame.width;
+        let height = self.view.frame.height;
+        
+        self.docSplitViewController.changeRect(NSMakeRect(0, 0, width, height));
     }
     
 }

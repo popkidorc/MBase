@@ -21,6 +21,9 @@ class DocSplitViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.layer?.backgroundColor = NSColor.blueColor().CGColor;
+        self.view.needsDisplay = true;
+        
         docMainViewController = DocMainViewController(nibName: "DocMainViewController", bundle: nil);
         
         docEditViewController = DocEditViewController(nibName: "DocEditViewController", bundle: nil);
@@ -34,6 +37,14 @@ class DocSplitViewController: NSViewController {
         self.addChildViewController(docMainViewController);
         self.view.addSubview(docMainViewController.view);
         
+    }
+    
+    func changeRect(rect: NSRect){
+        self.view.frame = rect;
+        let width = rect.width;
+        let height = rect.height;
+        self.docEditViewController.view.frame = NSMakeRect(0, 0, width / 2, height);
+        self.docMainViewController.view.frame = NSMakeRect(width / 2, 0, width / 2, height);
     }
     
 }

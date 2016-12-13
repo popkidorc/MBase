@@ -49,17 +49,19 @@ class DocEditViewController: NSViewController {
         self.docMainViewController.markdown = docMainData.content!;
         
         if docMainData.verticalScrol!.floatValue != 0 {
-            print("===="+String(docMainData.verticalScrol!.floatValue));
+            print("===="+String(docMainData.verticalScrol!.floatValue)+"==="+String(self.docEditView.enclosingScrollView?.verticalScroller?.floatValue));
 //            self.docEditScrollView.verticalScroller!.floatValue = docMainData.verticalScrol!.floatValue;
-            var frame = docEditScrollView.frame;
-            frame.origin.y = (docEditView.frame.size.height - frame.size.height) * CGFloat(self.docEditScrollView.frame.size.height);
-            self.docEditScrollView.contentView.scrollRectToVisible(frame);
+            self.docEditView.enclosingScrollView?.verticalScroller?.floatValue = docMainData.verticalScrol!.floatValue;
+//            var frame = docEditScrollView.frame;
+//            frame.origin.y = (docEditView.frame.size.height - frame.size.height) * CGFloat(self.docEditScrollView.frame.size.height);
+//            self.docEditScrollView.contentView.scrollRectToVisible(frame);
             print("++++++1+"+String(self.docEditScrollView.verticalScroller!.floatValue));
+            print("++++++2+"+String(self.docEditView.enclosingScrollView?.verticalScroller?.floatValue) );
         }
         
 //        print("+++++++"+String(self.docEditScrollView.verticalScroller!.floatValue));
         
-        self.docMainViewController.reloadHTML();
+//        self.docMainViewController.reloadHTML();
     }
     
     override func viewWillAppear(){
@@ -72,6 +74,8 @@ class DocEditViewController: NSViewController {
 //        self.docEditScrollView.verticalScroller!.floatValue = self.docMainData.verticalScrol!.floatValue;
         print("++++++viewDidAppear+"+String(self.docEditScrollView.verticalScroller!.floatValue));
     }
+    
+    
     
     func cleanDocEditDatas(){
         self.docEditView.editable = false;
@@ -90,7 +94,7 @@ class DocEditViewController: NSViewController {
         self.docEditView.textContainerInset = NSSize(width: 10, height: 50);
         // 3.1. 拉宽自动补充
         self.docEditView.textContainer!.widthTracksTextView = true;
-                
+
         // 3.2. 剪切版
         self.docEditView.registerForDraggedTypes([NSPasteboardTypeString, NSPasteboardTypePNG]);
         // 3.3. 状态＋颜色
@@ -110,13 +114,13 @@ class DocEditViewController: NSViewController {
 
         //给滚动条添加通知        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(changeScroll), name: NSViewBoundsDidChangeNotification, object: nil)
-        print("++++++2+"+String(self.docEditScrollView.verticalScroller!.floatValue));
     }
     
     func changeScroll(){
         if !docEditScrollView.hasVerticalScroller {
             return;
         }
+        print("++++++viewDidAppear=====+"+String(self.docEditScrollView.verticalScroller!.floatValue))
         if self.docMainData.verticalScrol == self.docEditScrollView.verticalScroller!.floatValue {
             return;
         }
