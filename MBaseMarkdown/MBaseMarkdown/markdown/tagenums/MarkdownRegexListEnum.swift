@@ -10,18 +10,22 @@ import Cocoa
 
 enum MarkdownRegexListEnum: String {
     
-    static let values = [NORMAL, ORDER];
+    static let values = [NORMAL, ORDER, QUOTE];
     
     case NORMAL = "(^\\* )"
     
     case ORDER = "(^\\d{1,2}. )"
     
+    case QUOTE = "(^> )"
+    
     var codeKey: String {
         switch self {
         case .NORMAL:
-            return "```"
+            return "*"
         case .ORDER:
-            return "`"
+            return ""
+        case .QUOTE:
+            return ">"
         }
     }
 }

@@ -10,8 +10,8 @@ import Cocoa
 
 class MarkdownHtmlTag4em: MarkdownHtmlTagLine {
 
-    override init(range: NSRange){
-        super.init(range: range);
+    override init(range: NSRange, string: String){
+        super.init(range: range, string: string);
         super.tagName = "em";
         super.markdownTag = ["*"];
     }

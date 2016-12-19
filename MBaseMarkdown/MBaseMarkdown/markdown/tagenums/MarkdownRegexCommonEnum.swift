@@ -14,4 +14,6 @@ enum MarkdownRegexCommonEnum: String {
     
     case URL = "(^\\[\\d{1,2}\\]:(.)*$)"
     
+    //虚拟，不加入values
+    case HEADER = ""
 }

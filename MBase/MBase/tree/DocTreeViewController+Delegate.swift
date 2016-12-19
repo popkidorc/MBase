@@ -20,9 +20,9 @@ extension DocTreeViewController: NSOutlineViewDelegate {
         self.docEditViewController.initDocEditDatas(selectedDocTree!.docMain);
 
         // 记录用户操作
-//        self.userInfo.updateSelectedDocTree(selectedDocTree!);
+        self.userInfo.updateSelectedDocTree(selectedDocTree!);
         
-//        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImageAll", object: nil);
+        NSNotificationCenter.defaultCenter().postNotificationName("changeDocImageAll", object: nil);
 
     }
     

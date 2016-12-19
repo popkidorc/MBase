@@ -9,9 +9,5 @@
 import Cocoa
 
 class MarkdownHtmlTagCommon: MarkdownHtmlTag {
-
-    func getParamObejct(string: String) -> Dictionary<String, AnyObject>{
-        return [:];
-    }
     
 }

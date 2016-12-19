@@ -10,8 +10,8 @@ import Cocoa
 
 class MarkdownHtmlTag4u: MarkdownHtmlTagLine {
 
-    override init(range: NSRange){
-        super.init(range: range);
+    override init(range: NSRange, string: String){
+        super.init(range: range, string: string);
         super.tagName = "u";
         super.markdownTag = ["_"];
     }

@@ -10,8 +10,8 @@ import Cocoa
 
 class MarkdownHtmlTagParagraph: MarkdownHtmlTag {
 
-    override func getHtml( string: String, index: Int, object: Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>) -> String!{
-        var str = string;
+    override func getHtml(index: Int, object: Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>) -> String!{
+        var str = self.string;
         for tag in self.markdownTag {
             str = str.stringByReplacingOccurrencesOfString(tag, withString: "")
         }

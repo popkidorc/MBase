@@ -27,9 +27,7 @@ class DocEditViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        
         initDocEidtView();
-        print("++++++3+"+String(self.docEditScrollView.verticalScroller!.floatValue));
     }
     
     func initDocEditDatas(docMainData: DocMain!){
@@ -47,36 +45,12 @@ class DocEditViewController: NSViewController {
         self.handlerInitFont();
         
         self.docMainViewController.markdown = docMainData.content!;
+
+        self.docMainViewController.reloadHTML();
         
-        if docMainData.verticalScrol!.floatValue != 0 {
-            print("===="+String(docMainData.verticalScrol!.floatValue)+"==="+String(self.docEditView.enclosingScrollView?.verticalScroller?.floatValue));
-//            self.docEditScrollView.verticalScroller!.floatValue = docMainData.verticalScrol!.floatValue;
-            self.docEditView.enclosingScrollView?.verticalScroller?.floatValue = docMainData.verticalScrol!.floatValue;
-//            var frame = docEditScrollView.frame;
-//            frame.origin.y = (docEditView.frame.size.height - frame.size.height) * CGFloat(self.docEditScrollView.frame.size.height);
-//            self.docEditScrollView.contentView.scrollRectToVisible(frame);
-            print("++++++1+"+String(self.docEditScrollView.verticalScroller!.floatValue));
-            print("++++++2+"+String(self.docEditView.enclosingScrollView?.verticalScroller?.floatValue) );
-        }
-        
-//        print("+++++++"+String(self.docEditScrollView.verticalScroller!.floatValue));
-        
-//        self.docMainViewController.reloadHTML();
+        NSNotificationCenter.defaultCenter().postNotificationName("setScroll", object: nil);
     }
-    
-    override func viewWillAppear(){
-        super.viewWillAppear();
-        print("++++++viewWillAppear+"+String(self.docEditScrollView.verticalScroller!.floatValue));
-    }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear();
-//        self.docEditScrollView.verticalScroller!.floatValue = self.docMainData.verticalScrol!.floatValue;
-        print("++++++viewDidAppear+"+String(self.docEditScrollView.verticalScroller!.floatValue));
-    }
-    
-    
-    
+
     func cleanDocEditDatas(){
         self.docEditView.editable = false;
         self.docEditView.backgroundColor = MarkdownConstsManager.docEditDisableBgColor;
@@ -103,6 +77,7 @@ class DocEditViewController: NSViewController {
         self.docEditView.defaultParagraphStyle = MarkdownConstsManager.getDefaultParagraphStyle();
         self.docEditView.textColor = MarkdownConstsManager.defaultFontColor;
         self.docEditView.textStorage?.delegate = self;
+        
         self.docEditView.automaticQuoteSubstitutionEnabled = false;
         self.docEditView.automaticLinkDetectionEnabled = false;
         self.docEditView.automaticDashSubstitutionEnabled = false;
@@ -114,19 +89,32 @@ class DocEditViewController: NSViewController {
 
         //给滚动条添加通知        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(changeScroll), name: NSViewBoundsDidChangeNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setScroll), name: "setScroll", object: nil);
     }
     
     func changeScroll(){
         if !docEditScrollView.hasVerticalScroller {
             return;
         }
-        print("++++++viewDidAppear=====+"+String(self.docEditScrollView.verticalScroller!.floatValue))
-        if self.docMainData.verticalScrol == self.docEditScrollView.verticalScroller!.floatValue {
+        if self.docMainData.verticalScrol == self.docEditView.enclosingScrollView!.contentView.bounds.origin.y {
             return;
         }
-        self.docMainData.updateVerticalScrol(self.docEditScrollView.verticalScroller!.floatValue);
+        self.docMainData.updateVerticalScrol(self.docEditView.enclosingScrollView!.contentView.bounds.origin.y);
         self.docMainViewController.docEditVerticalScroller = self.docEditScrollView.verticalScroller!;
         self.docMainViewController.syncScroll();
+    }
+    
+    func setScroll() {
+//        print("+++++++"+String(scrollLocation)+"==="+String(docMainData.verticalScrol!));
+        let scrollLocation = self.docEditView.enclosingScrollView?.contentView.bounds.origin.y;
+        
+        print("+++++++"+String(scrollLocation)+"==="+String(docMainData.verticalScrol!)+"==="+String(self.docEditView.enclosingScrollView?.documentView?.frame.height));
+        
+        self.docEditScrollView.contentView.scrollPoint(NSMakePoint(0, CGFloat(1000)));
+        
+        self.docEditScrollView.reflectScrolledClipView(self.docEditScrollView.contentView);
+        
     }
     
 }

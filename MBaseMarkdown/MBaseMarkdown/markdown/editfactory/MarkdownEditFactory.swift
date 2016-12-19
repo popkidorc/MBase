@@ -15,6 +15,27 @@ class MarkdownEditFactory: MarkdownHtmlTag {
         switch tagRegex {
         case .URL:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.linkFontColor];
+        case .HEADER:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.linkFontColor];
+        }
+    }
+    
+    static func getMarkdownAttributes(tagRegex: MarkdownRegexHeaderEnum) -> [String : AnyObject]{
+        
+        switch tagRegex {
+        case .H1:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("# ")];
+        case .H2:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("## ")];
+        case .H3:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("### ")];
+        case .H4:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("#### ")];
+        case .H5:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("##### ")];
+        case .H6:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("###### ")];
+
         }
     }
     
@@ -31,24 +52,14 @@ class MarkdownEditFactory: MarkdownHtmlTag {
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.linkFontColor];
         case .HR:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.codeFontColor];
-        case .H1:
-            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("# ")];
-        case .H2:
-            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("## ")];
-        case .H3:
-            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("### ")];
-        case .H4:
-            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("#### ")];
-        case .H5:
-            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("##### ")];
-        case .H6:
-            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.headerFontColor, NSParagraphStyleAttributeName: MarkdownConstsManager.getHeaderParagraphStyle("###### ")];
         case .STRONG:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.boldFontColor]
         case .EM:
             return [NSFontAttributeName : NSFont.systemFontOfSize(MarkdownConstsManager.defaultFontSize), NSForegroundColorAttributeName : MarkdownConstsManager.boldFontColor];
         case .U:
             return [NSFontAttributeName : NSFont.systemFontOfSize(MarkdownConstsManager.defaultFontSize), NSForegroundColorAttributeName : MarkdownConstsManager.boldFontColor];
+        case .TOC:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.linkFontColor];
         }
     }
     
@@ -66,6 +77,8 @@ class MarkdownEditFactory: MarkdownHtmlTag {
         case .NORMAL:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.codeFontColor];
         case .ORDER:
+            return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.codeFontColor];
+        case .QUOTE:
             return [NSFontAttributeName : NSFont.boldSystemFontOfSize(MarkdownConstsManager.defaultFontSize),NSForegroundColorAttributeName : MarkdownConstsManager.codeFontColor];
         }
     }

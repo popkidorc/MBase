@@ -10,15 +10,15 @@ import Cocoa
 
 class MarkdownHtmlTag4a2: MarkdownHtmlTagLine {
     
-    override init(range: NSRange){
-        super.init(range: range);
+    override init(range: NSRange, string: String){
+        super.init(range: range, string: string);
         super.tagName = "a";
         super.markdownTag = ["[","]"];
     }
     
-    override func getHtml(string: String, index: Int, object: Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>) -> String!{
+    override func getHtml(index: Int, object: Dictionary<MarkdownRegexCommonEnum,[Dictionary<String, AnyObject>]>) -> String!{
         if string == ""{
-            return super.getHtml(string, index: index, object: object);
+            return super.getHtml(index, object: object);
         }
         var result = string;
         do{
@@ -43,6 +43,6 @@ class MarkdownHtmlTag4a2: MarkdownHtmlTagLine {
             let nserror = error as NSError
             NSApplication.sharedApplication().presentError(nserror)
         }
-        return super.getHtml(result, index: index, object: object);
+        return super.getHtml(index, object: object);
     }
 }
